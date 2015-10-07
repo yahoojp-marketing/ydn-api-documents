@@ -1,7 +1,7 @@
 # AdType (enum)
 AdType serves the number of characters of the title and description according to selected devices and distribution place. 
 In addition, the number of characters of the advertisement which can be specified changes with selected devices.
-※We are scheduled for the abolition of the "TEXT_LONG_AD2", "TEXT_SHORT_AD2" in the future.Please use the "TEXT_LONG_AD1", "TEXT_SHORT_AD1" as AdType.
+
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
 

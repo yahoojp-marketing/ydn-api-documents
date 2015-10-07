@@ -7,8 +7,8 @@ StatsPeriodは、統計情報の集計期間を表します。
 |---|---|
 | REALTIME_TODAY| 今日 / リアルタイム |
 | DEFINITE_VALUE_YESTERDAY| 昨日 / 確定値 |
-| DEFINITE_VALUE_LASTBSDAY| 先週（月?金）/ 確定値 |
-| DEFINITE_VALUE_LASTWEEK| 先週（月?日）/ 確定値 |
+| DEFINITE_VALUE_LASTBSDAY| 先週（月-金）/ 確定値 |
+| DEFINITE_VALUE_LASTWEEK| 先週（月-日）/ 確定値 |
 | DEFINITE_VALUE_WEEK| 過去7日間（今日を含まない）/ 確定値 |
 | DEFINITE_VALUE_TWOWEEK| 過去14日間（今日を含まない）/ 確定値 |
 | DEFINITE_VALUE_THIRTYDAY| 過去30日間（今日を含まない）/ 確定値 |

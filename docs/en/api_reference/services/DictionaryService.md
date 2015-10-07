@@ -4,8 +4,8 @@ DictionaryService retrieves the list of rejected reasons, geo targeting, interes
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.0/DictionaryService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.0/DictionaryService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.1/DictionaryService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/DictionaryService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Service Overview

@@ -1,5 +1,5 @@
 # UrlActiveFlg (enum)
-UrlActiveFlgは、プレイスメントUrlアクティブフラグを表します。
+UrlActiveFlgは、プレイスメントURLアクティブフラグを表します。
 ### Service
 + [PlacementUrlListService](../services/PlacementUrlListService.md)
 

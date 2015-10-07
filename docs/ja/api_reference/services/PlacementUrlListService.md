@@ -3,8 +3,8 @@ PlacementUrlListServiceは、プレイスメントURLリストの作成・更新
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.0/PlacementUrlListService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.0/PlacementUrlListService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.1/PlacementUrlListService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/PlacementUrlListService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要

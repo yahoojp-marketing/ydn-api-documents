@@ -1,10 +1,10 @@
 # SearchKeywordIdeaService
-SearchKeywordIdeaServiceは、サーチターゲティング対象キーワードを取得します。1リクエストで指定できるキーワードは100件までです。
+SearchKeywordIdeaServiceは、サーチターゲティング対象キーワードを取得します。<br>1リクエストで指定できるキーワードは100件までです。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.0/SearchKeywordIdeaService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.0/SearchKeywordIdeaService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.1/SearchKeywordIdeaService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/SearchKeywordIdeaService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要

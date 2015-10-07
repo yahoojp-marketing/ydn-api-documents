@@ -1,5 +1,5 @@
 # UploadUrlValue
-UploadUrlValueserves the url of bulk upload.
+UploadUrlValue serves the URL of bulk upload.
 ### Service
 + [BulkService](../services/BulkService.md)
 

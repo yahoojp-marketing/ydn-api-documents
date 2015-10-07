@@ -14,7 +14,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
 | endDate| string| 1| 0| ○| Opt| Opt| -| 終了日です。 |
 | budget| <a href="./Budget.md">Budget</a>| 1| 0| ○| Req| Opt| -| キャンペーン予算です。 |
 | biddingStrategy| <a href="./BiddingStrategy.md">BiddingStrategy</a>| 1| 0| ○| Req| Opt| -| 入札最適化方法です。 |
-| adProductType| string| 1| 0| ○| Req| NotUpdatable| -| 配信方法です。詳細は<a href="https://portal.yadui.business.yahoo.co.jp/api_member/pages/download/">APIユーザーポータル</a>を参照してください。 |
+| adProductType| string| 1| 0| ○| Req| NotUpdatable| -| 配信方法です。 |
 | frequencyCap| <a href="./FrequencyCap.md">FrequencyCap</a>| 1| 0| ○| Opt| Opt| -| フリクエンシー制御です。 |
 | conversionOptimize| <a href="./ConversionOptimizer.md">ConversionOptimizer</a>| 1| 0| ○| -| Opt(Updatable)| -| コンバージョン最適化設定です。 |
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
