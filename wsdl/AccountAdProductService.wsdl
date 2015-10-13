@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.0.0</version>
+          <version>5.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -160,7 +160,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="AccountAdProductService">
     <wsdl:port binding="tns:AccountAdProductServiceSoapBinding" name="AccountAdProductService">
-      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V5.0/AccountAdProductService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V5.1/AccountAdProductService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

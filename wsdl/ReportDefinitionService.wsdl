@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.0.0</version>
+          <version>5.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -40,20 +40,13 @@
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
       </complexType>
-      <simpleType name="ReportType">
+      <simpleType name="ReportCategory">
         <restriction base="xsd:string">
-          <enumeration value="ACCOUNT"/>
-          <enumeration value="CAMPAIGN"/>
-          <enumeration value="ADGROUP"/>
           <enumeration value="AD"/>
-          <enumeration value="DESTINATION_URL"/>
-          <enumeration value="AGE"/>
-          <enumeration value="GENDER"/>
-          <enumeration value="LOCATION"/>
-          <enumeration value="SITE_CATEGORY"/>
           <enumeration value="INTEREST_CATEGORY"/>
-          <enumeration value="REACH_FREQUENCY"/>
-          <enumeration value="PLACEMENT"/>
+          <enumeration value="SITE_CATEGORY"/>
+          <enumeration value="URL"/>
+          <enumeration value="FREQUENCY"/>
         </restriction>
       </simpleType>
       <simpleType name="ReportDateRangeType">
@@ -69,25 +62,11 @@
           <enumeration value="LAST_MONTH"/>
         </restriction>
       </simpleType>
-      <simpleType name="ReportSegment">
+      <simpleType name="ReportFrequencyRange">
         <restriction base="xsd:string">
-          <enumeration value="DAY"/>
-          <enumeration value="WEEK"/>
-          <enumeration value="MONTH"/>
-          <enumeration value="DEVICE"/>
-          <enumeration value="DEVICE_AND_CARRIER"/>
-          <enumeration value="DELIVER"/>
-          <enumeration value="HOUROFDAY"/>
-          <enumeration value="MEDIA"/>
-          <enumeration value="AD_STYLE"/>
-          <enumeration value="AGE"/>
-          <enumeration value="GENDER"/>
-          <enumeration value="LOCATION"/>
-          <enumeration value="SITE_CATEGORY"/>
-          <enumeration value="INTEREST_CATEGORY"/>
-          <enumeration value="SEARCH_KEYWORD"/>
-          <enumeration value="CONVERSION_NAME"/>
-          <enumeration value="OBJECTIVE_OF_CONVERSION_TRACKING"/>
+          <enumeration value="DAILY"/>
+          <enumeration value="WEEKLY"/>
+          <enumeration value="MONTHLY"/>
         </restriction>
       </simpleType>
       <simpleType name="ReportDownloadEncode">
@@ -115,7 +94,7 @@
           <enumeration value="EN"/>
         </restriction>
       </simpleType>
-      <simpleType name="ReportFrequency">
+      <simpleType name="ReportIntervalType">
         <restriction base="xsd:string">
           <enumeration value="ONETIME"/>
           <enumeration value="DAILY"/>
@@ -163,19 +142,17 @@
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="reportId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="reportName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="reportType" type="tns:ReportType"/>
           <element maxOccurs="1" minOccurs="0" name="dateRangeType" type="tns:ReportDateRangeType"/>
           <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:ReportDateRange"/>
-          <element maxOccurs="1" minOccurs="0" name="sort" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="segments" type="tns:ReportSegment"/>
+          <element maxOccurs="1" minOccurs="0" name="frequencyRange" type="tns:ReportFrequencyRange"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="sortFields" type="xsd:string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="fields" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="format" type="tns:ReportDownloadFormat"/>
           <element maxOccurs="1" minOccurs="0" name="encode" type="tns:ReportDownloadEncode"/>
           <element maxOccurs="1" minOccurs="0" name="zip" type="tns:ReportZip"/>
           <element maxOccurs="1" minOccurs="0" name="lang" type="tns:ReportLang"/>
-          <element maxOccurs="1" minOccurs="0" name="frequency" type="tns:ReportFrequency"/>
+          <element maxOccurs="1" minOccurs="0" name="intervalType" type="tns:ReportIntervalType"/>
           <element maxOccurs="1" minOccurs="0" name="specifyDay" type="xsd:int"/>
           <element maxOccurs="1" minOccurs="0" name="addTemplate" type="tns:ReportAddTemplate"/>
         </sequence>
@@ -216,7 +193,7 @@
           <extension base="tns:Operation">
             <sequence>
               <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="1" name="operand" type="tns:ReportDefinition"/>
+              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:ReportDefinition"/>
             </sequence>
           </extension>
         </complexContent>
@@ -297,8 +274,7 @@
       <element name="getReportFields">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-            <element maxOccurs="1" minOccurs="1" name="reportType" type="tns:ReportType"/>
+            <element maxOccurs="1" minOccurs="1" name="reportCategory" type="tns:ReportCategory"/>
             <element maxOccurs="1" minOccurs="0" name="lang" type="tns:ReportLang"/>
           </sequence>
         </complexType>
@@ -407,7 +383,7 @@
   </wsdl:binding>
   <wsdl:service name="ReportDefinitionServiceService">
     <wsdl:port binding="tns:ReportDefinitionServiceSoapBinding" name="ReportDefinitionService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.0/ReportDefinitionService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.1/ReportDefinitionService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

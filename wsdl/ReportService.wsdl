@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.0.0</version>
+          <version>5.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -148,9 +148,15 @@
         </complexContent>
       </complexType>
       <complexType name="ReportClosedDateValue">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportClosedDateRecord"/>
+        </sequence>
+      </complexType>
+      <complexType name="ReportClosedDateRecord">
         <complexContent>
           <extension base="tns:ReturnValue">
             <sequence>
+              <element maxOccurs="1" minOccurs="0" name="key" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="closedDate" type="xsd:string"/>
             </sequence>
           </extension>
@@ -181,7 +187,7 @@
           <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
         </sequence>
       </complexType>
-      <complexType name="ReportOperation">
+      <complexType name="ReportJobOperation">
         <complexContent>
           <extension base="tns:Operation">
             <sequence>
@@ -266,7 +272,7 @@
       <element name="mutate">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:ReportOperation"/>
+            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:ReportJobOperation"/>
           </sequence>
         </complexType>
       </element>
@@ -399,7 +405,7 @@
   </wsdl:binding>
   <wsdl:service name="ReportServiceService">
     <wsdl:port binding="tns:ReportServiceSoapBinding" name="ReportService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.0/ReportService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.1/ReportService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

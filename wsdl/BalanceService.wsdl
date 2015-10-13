@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.0.0</version>
+          <version>5.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -148,7 +148,7 @@
   </wsdl:binding>
   <wsdl:service name="BalanceServiceService">
     <wsdl:port binding="tns:BalanceServiceSoapBinding" name="BalanceService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.0/BalanceService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.1/BalanceService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

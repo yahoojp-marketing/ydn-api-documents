@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.0.0</version>
+          <version>5.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -217,6 +217,14 @@
           <enumeration value="REQUEST_INFO"/>
           <enumeration value="DOWNLOAD"/>
           <enumeration value="INSTALL"/>
+          <enumeration value="MORE_DETAIL"/>
+          <enumeration value="RESERVE_HERE"/>
+          <enumeration value="REGISTER"/>
+          <enumeration value="APPLY_NOW"/>
+          <enumeration value="PURCHASE_NOW"/>
+          <enumeration value="RESERVE_NOW"/>
+          <enumeration value="REGISTER_NOW"/>
+          <enumeration value="CONTACT_US"/>
         </restriction>
       </simpleType>
       <simpleType name="UserStatus">
@@ -244,8 +252,6 @@
           <enumeration value="DOCOMO"/>
           <enumeration value="KDDI"/>
           <enumeration value="SOFTBANK"/>
-          <enumeration value="EMOBILE"/>
-          <enumeration value="WILLCOM"/>
           <enumeration value="NONE"/>
         </restriction>
       </simpleType>
@@ -420,7 +426,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupAdServiceService">
     <wsdl:port binding="tns:AdGroupAdServiceSoapBinding" name="AdGroupAdService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.0/AdGroupAdService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.1/AdGroupAdService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
