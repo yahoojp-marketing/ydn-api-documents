@@ -6,7 +6,7 @@ SearchKeywordオブジェクトは、サーチキーワードを表します。
 | フィールド | データ型 | 説明 | ADD | SET | REMOVE | 
 |---|---|---|---|---|---|
 | searchKeywordId| xsd:long| サーチキーワードIDです。| Req| Req| - |
-| searchKeyword| xsd:long| サーチキーワードです。| -| -| - |
+| searchKeyword| xsd:string| サーチキーワードです。| -| -| - |
 | desktopSearchVolume| xsd:long| PCの検索ボリュームです。| -| -| - |
 | smartPhoneSearchVolume| xsd:long| スマートフォンの検索ボリュームです。| -| -| - |
 | tabletSearchVolume| xsd:long| タブレット端末の検索ボリュームです。| -| -| - |

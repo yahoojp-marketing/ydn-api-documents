@@ -6,7 +6,7 @@ SearchKeyword object displays the search keyword.
 | Field | Data Type | Description | ADD | SET | REMOVE | 
 |---|---|---|---|---|---|
 | searchKeywordId| xsd:long| Search keyword ID.| Req| Req| - |
-| searchKeyword| xsd:long| Search keyword.| -| -| - |
+| searchKeyword| xsd:string| Search keyword.| -| -| - |
 | desktopSearchVolume| xsd:long| Search volume for PC.| -| -| - |
 | smartPhoneSearchVolume| xsd:long| Search volume for Smartphone.| -| -| - |
 | tabletSearchVolume| xsd:long| Search volume for Tablet.| -| -| - |

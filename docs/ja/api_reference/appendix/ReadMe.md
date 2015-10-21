@@ -5,3 +5,5 @@
 値の制限の詳細です。
 #### [SOAPエラーコード](/docs/ja/api_reference/appendix/errorcodes.md)
 SOAPエラーコード です。
+#### [トラッキングパラメータ](/docs/ja/api_reference/appendix/tracking.md)
+トラッキングパラメータの説明です。

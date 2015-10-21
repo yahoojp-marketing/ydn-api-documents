@@ -3,8 +3,8 @@ RetargetingListServiceでは、サイトリターゲティングのターゲッ�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.0/RetargetingListService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.0/RetargetingListService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.1/RetargetingListService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/RetargetingListService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要

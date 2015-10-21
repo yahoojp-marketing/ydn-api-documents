@@ -6,8 +6,8 @@ ReportDefinitionServiceでは、レポート出力項目の取得およびレポ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.0/ReportDefinitionService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.0/ReportDefinitionService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.1/ReportDefinitionService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/ReportDefinitionService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要
@@ -152,8 +152,8 @@ ReportDefinitionServiceで提供される操作を説明します。
 | パラメータ | 必須 | 値 | 説明 | 
 |---|---|---|---|
 | accountId | ○ | xsd:long | アカウントIDです。 |
-|reportCategory | ○ | [enum ReportCategory](../data/ReportCategory.md) | レポートの形式です。 |
-|lang |  | [enum ReportLang](../data/enumReportLang.md) | 出力言語です。日本語と英語を指定できます。 | 
+|reportCategory | ○ | enum [ReportCategory](../data/ReportCategory.md) | レポートの形式です。 |
+|lang |  | enum [ReportLang](../data/ReportLang.md) | 出力言語です。日本語と英語を指定できます。 | 
 
 ##### ＜リクエストサンプル＞（標準認証）
 ```xml

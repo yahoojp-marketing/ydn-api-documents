@@ -1,8 +1,6 @@
 # AdType (enum)
-AdTypeは、AdTypeは、広告の配信先デバイスと配信先に応じたタイトル・説明文の文字数を表します。
-なお、選択した配信先デバイスにより、指定可能な広告の文字数は異なります。
-※将来的に「TEXT_LONG_AD2」、「TEXT_SHORT_AD2」の廃止を予定しています。
-　広告タイプは「TEXT_LONG_AD1」、「TEXT_SHORT_AD1」をご利用ください。
+AdTypeは、AdTypeは、広告の配信先デバイスと配信先に応じたタイトル・説明文の文字数を表します。<br>なお、選択した配信先デバイスにより、指定可能な広告の文字数は異なります。
+
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
 

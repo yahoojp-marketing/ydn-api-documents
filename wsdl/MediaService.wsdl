@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.0.0</version>
+          <version>5.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -296,7 +296,7 @@
   </wsdl:binding>
   <wsdl:service name="MediaServiceService">
     <wsdl:port binding="tns:MediaServiceSoapBinding" name="MediaService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.0/MediaService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.1/MediaService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

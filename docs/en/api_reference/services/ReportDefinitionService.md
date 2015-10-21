@@ -6,8 +6,8 @@ It provides operation to get available report fields for specific report type.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.0/ReportDefinitionService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.0/ReportDefinitionService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.1/ReportDefinitionService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/ReportDefinitionService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Service Overview
@@ -154,8 +154,8 @@ Returns usable report fields by report type.
 | Parameter | Req? | Value | Description | 
 |---|---|---|---|
 |accountId | ○ | xsd:long | Account ID |
-|reportCategory | ○ | [enum ReportCategory](../data/ReportCategory.md) | Report format. |
-|lang |  | [enum ReportLang](../data/enumReportLang.md) | Output language.<br>Japanese or English can be selected. | 
+|reportCategory | ○ | enum [ReportCategory](../data/ReportCategory.md) | Report format. |
+|lang |  | enum [ReportLang](../data/ReportLang.md) | Output language.<br>Japanese or English can be selected. | 
 
 ##### Request Sample
 ```xml

@@ -4,8 +4,8 @@ ConversionTrackerService is to get, add, and update ConversionTracker informatio
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://im.yahooapis.jp/services/V5.0/ConversionTrackerService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.0/ConversionTrackerService?wsdl|
+| production  | https://im.yahooapis.jp/services/V5.1/ConversionTrackerService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/ConversionTrackerService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Overiew
