@@ -22,7 +22,7 @@ AccountAdProductServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（標準認証）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -42,7 +42,7 @@ AccountAdProductServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（代行認証）
 ```xml	
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -72,7 +72,7 @@ AccountAdProductServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>AccountAdProductService</ns1:service>

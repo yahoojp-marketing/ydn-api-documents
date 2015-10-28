@@ -22,7 +22,7 @@ Acquires account information.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -49,7 +49,7 @@ Acquires account information.
 ##### Request Sample (On-Bealf-Of Account)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
   <SOAP-ENV:Header>	
     <ns1:RequestHeader>
       <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -80,7 +80,7 @@ Acquires account information.
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4"> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5"> 
   <SOAP-ENV:Header> 
     <ns1:ResponseHeader> 
       <ns1:service>AccountService</ns1:service> 
@@ -135,7 +135,7 @@ Operates account information.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -160,7 +160,7 @@ Operates account information.
 ##### Request Sample (On-Behalf-Of Account)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
       <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -196,7 +196,7 @@ Operates account information.
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
     xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:ns1="http://im.yahooapis.jp/V4"> 
+    xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:ResponseHeader> 
             <ns1:service>AccountService</ns1:service> 

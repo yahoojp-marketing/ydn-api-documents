@@ -52,7 +52,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -93,7 +93,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -130,7 +130,7 @@ http://im.yahooapis.jp/V5
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>BulkService</ns1:service>
@@ -174,7 +174,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -204,7 +204,7 @@ http://im.yahooapis.jp/V5
 ```xml
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -233,7 +233,7 @@ http://im.yahooapis.jp/V5
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1=http://im.yahooapis.jp/V4> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5"> 
   <SOAP-ENV:Header> 
     <ns1:ResponseHeader> 
       <ns1:service>BulkService</ns1:service> 
@@ -258,7 +258,7 @@ http://im.yahooapis.jp/V5
             <ns1:downloadBulkEndDate>2012-04-03T12:52:15+09:00</ns1:downloadBulkEndDate> 
             <ns1:progress>100</ns1:progress> 
             <ns1:downloadJobStatus>COMPLETED</ns1:downloadJobStatus> 
-            <ns1:downloadBulkDownloadUrl>https://sample.api.yahooapis.jp/bulkDownload/V4/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkDownloadUrl> 
+            <ns1:downloadBulkDownloadUrl>https://sample.api.yahooapis.jp/bulkDownload/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkDownloadUrl> 
           </ns1:downloadBulkJob> 
         </ns1:values> 
         <ns1:values> 
@@ -272,7 +272,7 @@ http://im.yahooapis.jp/V5
             <ns1:downloadBulkEndDate>2012-04-03T12:53:30+09:00</ns1:downloadBulkEndDate> 
             <ns1:progress>100</ns1:progress> 
             <ns1:downloadJobStatus>COMPLETED</ns1:downloadJobStatus> 
-            <ns1:downloadBulkDownloadUrl>https://sample.api.yahooapis.jp/bulkDownload/V4/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkDownloadUrl> 
+            <ns1:downloadBulkDownloadUrl>https://sample.api.yahooapis.jp/bulkDownload/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkDownloadUrl> 
           </ns1:downloadBulkJob> 
         </ns1:values> 
       </ns1:rval> 
@@ -293,7 +293,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -314,7 +314,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -343,7 +343,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"
+ xmlns:ns1="http://im.yahooapis.jp/V5"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
     <SOAP-ENV:Header> 
         <ns1:ResponseHeader> 
@@ -358,7 +358,7 @@ http://im.yahooapis.jp/V5
            <ns1:rval> 
                <ns1:accountId>1000000001</ns1:accountId> 
                <ns1:acceptableUploadStatus>true</ns1:acceptableUploadStatus> 
-               <ns1:uploadUrl>https://sample.api.yahooapis.jp/bulkUpload/V4/upload/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:uploadUrl> 
+               <ns1:uploadUrl>https://sample.api.yahooapis.jp/bulkUpload/V5/upload/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:uploadUrl> 
            </ns1:rval> 
        </ns1:getUploadUrlResponse> 
    </SOAP-ENV:Body> 
@@ -378,7 +378,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -409,7 +409,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -440,7 +440,7 @@ http://im.yahooapis.jp/V5
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"
+ xmlns:ns1="http://im.yahooapis.jp/V5"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -478,7 +478,7 @@ http://im.yahooapis.jp/V5
                             <ns1:mediaErrorCount>0</ns1:mediaErrorCount>
                         </ns1:processingItemsCount>
                         <ns1:progress>100</ns1:progress>
-                        <ns1:downloadBulkUploadFileUrl>https://sample.api.yahooapis.jp/bulkUpload/V4/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkUploadFileUrl>
+                        <ns1:downloadBulkUploadFileUrl>https://sample.api.yahooapis.jp/bulkUpload/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkUploadFileUrl>
                     </ns1:uploadBulkJob>
                 </ns1:values>
             </ns1:rval>
