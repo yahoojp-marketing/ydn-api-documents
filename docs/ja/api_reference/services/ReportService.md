@@ -41,7 +41,7 @@ ReportServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -76,7 +76,7 @@ ReportServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4">
+ xmlns:ns1="http://im.yahooapis.jp/V5">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
@@ -119,7 +119,7 @@ ReportServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"
+ xmlns:ns1="http://im.yahooapis.jp/V5"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -197,7 +197,7 @@ ReportServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"> 
+ xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:RequestHeader> 
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
@@ -227,7 +227,7 @@ ReportServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"> 
+ xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:RequestHeader> 
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
@@ -265,7 +265,7 @@ ReportServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"
+ xmlns:ns1="http://im.yahooapis.jp/V5"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
     <SOAP-ENV:Header> 
         <ns1:ResponseHeader> 
@@ -326,7 +326,7 @@ ReportServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V4"> 
+xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:RequestHeader> 
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
@@ -356,7 +356,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V4"> 
+xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:RequestHeader> 
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
@@ -394,7 +394,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"
+ xmlns:ns1="http://im.yahooapis.jp/V5"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
     <SOAP-ENV:Header> 
         <ns1:ResponseHeader> 
@@ -440,7 +440,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"> 
+ xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:RequestHeader> 
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
@@ -469,7 +469,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"> 
+ xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:RequestHeader> 
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
@@ -506,7 +506,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"
+ xmlns:ns1="http://im.yahooapis.jp/V5"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
     <SOAP-ENV:Header> 
         <ns1:ResponseHeader> 
@@ -536,7 +536,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
                             <ns1:endDate>20120402</ns1:endDate> 
                         </ns1:dateRange> 
                         <ns1:status>COMPLETED</ns1:status> 
-                        <ns1:downloadUrl>https://sample.api.yahooapis.jp/report/V4/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl> 
+                        <ns1:downloadUrl>https://sample.api.yahooapis.jp/report/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl> 
                     </ns1:reportDownloadUrl> 
                 </ns1:values> 
                 <ns1:values> 
@@ -554,7 +554,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
                     <ns1:endDate>20120402</ns1:endDate> 
                     </ns1:dateRange> 
                     <ns1:status>COMPLETED</ns1:status> 
-                    <ns1:downloadUrl>https://sample.api.yahooapis.jp/report/V4/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl> 
+                    <ns1:downloadUrl>https://sample.api.yahooapis.jp/report/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl> 
                     </ns1:reportDownloadUrl> 
                 </ns1:values> 
             </ns1:rval> 
@@ -576,7 +576,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"> 
+ xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:RequestHeader> 
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
@@ -599,7 +599,7 @@ xmlns:ns1="http://im.yahooapis.jp/V4">
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V4"> 
+ xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:RequestHeader> 
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 

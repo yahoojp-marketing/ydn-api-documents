@@ -22,7 +22,7 @@ Defines a budget acquisition target.
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4"> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5"> 
   <SOAP-ENV:Header> 
     <ns1:RequestHeader> 
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license> 
@@ -43,7 +43,7 @@ Defines a budget acquisition target.
 ##### Request Sample (On-Behalf-Of Account) 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V4"> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5"> 
   <SOAP-ENV:Header> 
     <ns1:RequestHeader> 
       <ns1:license>xxxxxxxxxxxxxxx</ns1:license> 
@@ -73,7 +73,7 @@ Defines a budget acquisition target.
 <?xml version="1.0" encoding="UTF-8"?> 
 <SOAP-ENV:Envelope
     xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:ns1="http://im.yahooapis.jp/V4"> 
+    xmlns:ns1="http://im.yahooapis.jp/V5"> 
     <SOAP-ENV:Header> 
         <ns1:ResponseHeader> 
             <ns1:service>BalanceService</ns1:service> 
