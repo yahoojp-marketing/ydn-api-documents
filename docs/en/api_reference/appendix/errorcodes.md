@@ -6,7 +6,8 @@ For details, please refer to [Error](/docs/en/api_reference/data/Error.md) and/o
 
 ##### Response Sample
 ```xml
-<SOAP-ENV:Envelopexmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">      <SOAP-ENV:Body>         
+<SOAP-ENV:Envelopexmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Body>         
       <SOAP-ENV:Fault>             
          <faultcode>faultCode</faultcode>             
          <faultstring>faultString</faultstring>             
@@ -21,12 +22,13 @@ For details, please refer to [Error](/docs/en/api_reference/data/Error.md) and/o
 ```
 ### Error Code
 The following list provides SOAP error codes and error content displayed when an error or problem occurs.  
+
 #### General Errors
 ##### Service
 Same for all services: 
-  
-Code                     | Message                                                                          | Description                                                                    
------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------
+
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
 110001 | Invalid Request.  | Invalid Request.  
 110002 | Frequency limit exceeded. Please try your request again later.  | Frequency limit exceeded. Please try your request again later.  
 110003 | Invalid location.  | Invalid location.  
@@ -67,20 +69,26 @@ Code                     | Message                                              
 120029 | This value is registered.  | This value is registered.
 
 #### Submission-related Errors
-##### [RetargetingListService](/docs/en/api_reference/services/RetargetingListService.md)
-Code                     | Message                                                     | Description                                                                                  
------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------
+##### Service
+[RetargetingListService](/docs/en/api_reference/services/RetargetingListService.md)
+
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
 210001 | Selected value is not approved to update.  | The selected elements is not approved to use for the updates of target list.
 210002 | Cannot update from the dependency.  | Due to the dependency relations, updateis not possible.
 
-##### [AdGroupTargetService](/docs/en/api_reference/services/AdGroupTargetService.md)
-Code                     | Message                                                | Description                                                                    
------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------
+##### Service
+[AdGroupTargetService](/docs/en/api_reference/services/AdGroupTargetService.md)
+
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
 220018 | This Target settings is unavailable.  | The type of campaign is not available for the target settings.
 
-##### [BulkService](/docs/en/api_reference/services/BulkService.md)
-Code                     | Message                                                        | Description                                                                                 
------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------
+##### Service
+[BulkService](/docs/en/api_reference/services/BulkService.md)
+
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
 220001 | Over limit of uncompleted bulk download job.  | The registration limit of uncompleted bulk download jobs has been exceeded.
 220002 | Over limit of bulk download job.  | The registration limit of bulk download jobs has been exceeded.
 220003 | Creating bulk downloadUrl is failed.  | Creation of bulk download URL failed.
@@ -88,10 +96,11 @@ Code                     | Message                                              
 220005 | Invalid bulk download request.  | The bulk download URL is illegal.
 220019 | Another job is in progress.  | It is running another job.
 
-##### [CampaignService](/docs/en/api_reference/services/CampaignService.md),[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md),[AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+##### Service
+[CampaignService](/docs/en/api_reference/services/CampaignService.md), [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
   
-Code                     | Message                                                                                       | Description                                                                                              
------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
 220006 | Unavailable value.  | A value which cannot be used has been entered.
 220007 | Unavailable the adProductType.  | adProductType specified is not available. 
 220008 | Under examination.  | Review in progress of edited data.
@@ -112,10 +121,11 @@ Code                     | Message                                              
 220127 | Invalid ad type. | Setting is only available for Responsive Ad or Static Frame Ad.
 220128 | Invalid color set ID. | Unavailable Color Set ID has been set.
 
+##### Service
+[MediaService](/docs/en/api_reference/services/MediaService.md)
 
-##### [MediaService](/docs/en/api_reference/services/MediaService.md)
-Code                     | Message                                                                   | Description                                                       
------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
 220102 | Over limit of file size.  | It exceeds the file size limit.
 220103 | Unsupported filename extension.  | The image file is not GIF/JPEG.
 220104 | Only GIF89a is supported.  | GIF file is not in GIF89a.
@@ -137,11 +147,11 @@ Code                     | Message                                              
 22131 | Field value is not updatable. | Update has been attempted to the field that cannot be updated.
 
 ### Report Process-related Errors
-#### Service
-##### [ReportService](/docs/en/api_reference/services/ReportService.md),[ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
+##### Service
+[ReportService](/docs/en/api_reference/services/ReportService.md), [ReportDefinitionService](/docs/en/api_reference/services/ReportDefinitionService.md)
 
-Code                     | Message                                                                         | Description                                                                                   
------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
 240001 | Over limit of uncompleted report download job.  | The registration limit of uncompleted report download jobs has been exceeded.
 240002 | Over limit of report download job.  | The registration limit of report download jobs has been exceeded.
 240003 | Invalid division specified.  | Invalid division specified.
