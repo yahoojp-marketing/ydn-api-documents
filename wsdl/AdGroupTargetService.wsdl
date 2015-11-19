@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.1.0</version>
+          <version>5.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -468,7 +468,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupTargetServiceService">
     <wsdl:port binding="tns:AdGroupTargetServiceSoapBinding" name="AdGroupTargetService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.1/AdGroupTargetService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/AdGroupTargetService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

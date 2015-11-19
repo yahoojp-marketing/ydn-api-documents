@@ -3,8 +3,8 @@ AccountService offers account operation.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.1/AccountService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/AccountService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.2/AccountService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.2/AccountService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Service Overview

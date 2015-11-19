@@ -1,16 +1,15 @@
-# CarrierName (enum)
-CarrierName serves carrier types.
+# SmartDeviceCarrier (enum)
+SmartDeviceCarrierは、スマートデバイスのモバイルキャリアを表します。
 
 ### Service
-+ [AdGroupAdService](../services/AdGroupAdService.md)
++ [AdGroupService](../services/AdGroupService.md)
 
-| Value | Description | 
+| 値 | 説明 | 
 |---|---|
-| DOCOMO| NTT Docomo |
-| KDDI| Au KDDI |
-| SOFTBANK| SoftBank Mobile |
-| EMOBILE| EMOBILE |
-| WILLCOM| WILLCOM |
-| NONE| This setting is mobile all carriers. |
+| DOCOMO| NTTドコモです。 |
+| KDDI| au KDDIです。 |
+| SOFTBANK| ソフトバンクモバイルです。 |
+| YMOBILE| Y!mobileです。 |
+| OTHERS| その他のモバイルキャリアです。 |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

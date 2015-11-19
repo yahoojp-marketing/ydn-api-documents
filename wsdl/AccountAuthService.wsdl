@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.1.0</version>
+          <version>5.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -165,7 +165,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="AccountAuthService">
     <wsdl:port binding="tns:AccountAuthServiceSoapBinding" name="AccountAuthService">
-      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V5.1/AccountAuthService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V5.2/AccountAuthService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

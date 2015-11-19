@@ -5,8 +5,8 @@ It can set up to 100 lists per account.<br>
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.1/SearchKeywordListService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/SearchKeywordListService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.2/SearchKeywordListService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.2/SearchKeywordListService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Service Overview

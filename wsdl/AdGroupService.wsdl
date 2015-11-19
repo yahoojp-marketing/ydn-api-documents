@@ -12,7 +12,7 @@
     xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.1.0</version>
+          <version>5.2.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -78,6 +78,7 @@
           <element maxOccurs="unbounded" minOccurs="0" name="device" type="tns:DeviceType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="deviceApp" type="tns:DeviceAppType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="deviceOs" type="tns:DeviceOsType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="smartDeviceCarriers" type="tns:SmartDeviceCarrier"/>
           <element maxOccurs="1" minOccurs="0" name="dynamicImageExtensions" type="tns:DynamicImageExtensions"/>
         </sequence>
       </complexType>
@@ -225,6 +226,15 @@
           <enumeration value="NONE"/>
         </restriction>
       </simpleType>
+      <simpleType name="SmartDeviceCarrier">
+        <restriction base="xsd:string">
+          <enumeration value="DOCOMO"/>
+          <enumeration value="KDDI"/>
+          <enumeration value="SOFTBANK"/>
+          <enumeration value="YMOBILE"/>
+          <enumeration value="OTHERS"/>
+        </restriction>
+      </simpleType>
       <simpleType name="DynamicImageExtensions">
         <restriction base="xsd:string">
           <enumeration value="ACTIVE"/>
@@ -299,7 +309,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupServiceService">
     <wsdl:port binding="tns:AdGroupServiceSoapBinding" name="AdGroupService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.1/AdGroupService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.2/AdGroupService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

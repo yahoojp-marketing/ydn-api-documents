@@ -25,7 +25,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 #### 共通エラー
 ##### Service
 全サービス共通 
-
+  
 コード         | メッセージ                  | 説明                   
 -------------- | --------------------------- | ---------------------------
 110001 | Invalid Request.  | リクエストが無効です。
@@ -77,14 +77,14 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 210001 | Selected value is not approved to update.  | 選択した内容は更新が許可されておりません。 
 210002 | Cannot update from the dependency.| 依存関係があるため、更新できません。
 
-#### Service
+##### Service
 [AdGroupTargetService](/docs/ja/api_reference/services/AdGroupTargetService.md)
 
 コード         | メッセージ                  | 説明                   
 -------------- | --------------------------- | ---------------------------
 220018 | This Target settings is unavailable.  | キャンペーンの商品種別が、ターゲティング設定できない商品です。
 															
-#### Service
+##### Service
 [BulkService](/docs/ja/api_reference/services/BulkService.md)
 
 コード         | メッセージ                  | 説明                   
@@ -96,7 +96,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220005 | Invalid bulk download request.  | バルクダウンロードURLが不正。
 220019 | Another job is in progress.  | 別のジョブを実行中です。
 
-#### Service
+##### Service
 [CampaignService](/docs/ja/api_reference/services/CampaignService.md), [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md), [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
 
 コード         | メッセージ                  | 説明                   
@@ -122,8 +122,9 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220126 | Invalid pattern in ad type and layout.  | 広告タイプと広告レイアウトの掛け合わせパターンが合っておりません。 
 220127 | Invalid ad type.  | レスポンシブと広告枠サイズ固定の広告タイプ以外は利用できない項目です。 
 220128 | Invalid color set ID.  | カラーセットIDが不正です。 
+220132 | Cannot set the carrier type. | 選択したデバイスは、キャリアの選択ができません。
 
-#### Service
+##### Service
 [MediaService](/docs/ja/api_reference/services/MediaService.md)
 
 コード         | メッセージ                  | 説明                   

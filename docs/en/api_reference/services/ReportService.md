@@ -4,8 +4,8 @@ It also includes an operation that acquires report download URLs.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.1/ReportService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.1/ReportService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.2/ReportService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.2/ReportService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Service Overview
