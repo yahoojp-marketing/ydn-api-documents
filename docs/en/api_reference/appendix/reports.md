@@ -206,6 +206,3 @@ Value           | Display Name (Japanese)  | Display Name (English)
 PAUSED | オフ | Off
 ACTIVE | オン | On
 IGNORE | - | -
-
-
-##### Available Combination of Report Fields

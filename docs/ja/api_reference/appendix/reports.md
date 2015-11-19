@@ -203,6 +203,3 @@ WIDE_BANNER_MIDDLE | ワイドバナー（ミドル） | Wide Banner (Middle)
 PAUSED | オフ | Off
 ACTIVE | オン | On
 IGNORE | - | -
-
-
-##### レポートフィールドの組み合わせ

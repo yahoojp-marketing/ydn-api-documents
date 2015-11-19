@@ -98,7 +98,7 @@ Code           | Message                     | Description
 
 ##### Service
 [CampaignService](/docs/en/api_reference/services/CampaignService.md), [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
-  
+
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
 220006 | Unavailable value.  | A value which cannot be used has been entered.
@@ -120,6 +120,7 @@ Code           | Message                     | Description
 220126 | Invalid pattern in ad type and layout. | Unavailable match setting between the ad type and ad layout.
 220127 | Invalid ad type. | Setting is only available for Responsive Ad or Static Frame Ad.
 220128 | Invalid color set ID. | Unavailable Color Set ID has been set.
+220132 | Cannot set the carrier type. | Selected device is not available to select the carrier type.
 
 ##### Service
 [MediaService](/docs/en/api_reference/services/MediaService.md)
