@@ -12,26 +12,27 @@ ADGROUP_ID            | 広告グループID        | Ad Group ID               
 ADGROUP_NAME          | 広告グループ名         | Ad Group Name                 | adgroupName          | string | -
 AD_ID                 | 広告ID            | Ad ID                     | adID                 | long | -  
 AD_NAME               | 広告名             | Ad Name                   | adName               | string | -
-AD_TYPE               | 広告タイプ           | Ad Type                  | adType               | string | [AD_TYPE Response](#ad_type)
-URL_ID     | リンク先URL ID             | Destination URL ID            | destinationURLID         | long | -
+AD_TYPE               | 広告タイプ           | Ad Type         | adType       | string | [AD_TYPE Response](#ad_type)
+URL_ID     | リンク先URLID             | Destination URL ID            | destinationURLID         | long | -
 URL_NAME       | リンク先URL         | Destination URL          | destinationURL       | stirng | -
 PREF_ID         | 都道府県ID          | Prefecture ID                           | prefectureID         | long | -
-PREF_NAME       | 都道府県            | Prefecture                             | prefecture           | string | -
+PREF_NAME       | 都道府県            | Prefectures                             | prefecture           | string | -
 CITY_ID               | 市区郡ID           | City ID                                 | cityID               | long | -
 CITY_NAME             | 市区郡             | City                                    | city                 | string | -
 WARD_ID               | 行政区ID           | Ward ID                                 | wardID               | long | -
 WARD_NAME             | 行政区             | Ward                                    | ward                 | string | -
-GENDER               | 性別              | Gender                                  | gender               | string | [GENDER Response](#gender)
-AGE                  | 年齢              | Age                                     | age                  | int | [AGE Response](#age)
-DAY                  | 日               | Daily                                   | day                  | string | -
-DELIVER              | 広告掲載方式          | Ad Distribution                    | adDistribution       | string | [DELIVER Response](#deliver)
-DEVICE               | デバイス            | Device                              | device               | string | [DEVICE Response](#device)
+GENDER               | 性別              | Gender                | gender               | string | [GENDER Response](#gender)
+AGE                  | 年齢              | Age                  | age                  | long | [AGE Response](#age)
+DAY                  | 日               | Daily          | day                  | string | -
+HOUR                  | 時間　　　　　　| Hourly             | hourofday             | string | -
+DELIVER   | 広告掲載方式          | Ad Distribution     | deliverName       | string | [DELIVER Response](#deliver)
+DEVICE    | デバイス            | Device           | device               | string | [DEVICE Response](#device)
 SITE_CATEGORY         | サイトカテゴリー名       | Site Category                  | siteCategory         | string | -
 INTEREST_CATEGORY     | インタレストカテゴリー名    | Interest Category           | interestCategory     | string | -
 DELIVER_URL       | 配信先URL         | Ad Delivery URL          | adDeliveryURL       | string | -
-AD_STYLE              | 掲載フォーマット（画像タイプ） | Ad Format Media Type | adStyle   | string | [AD_STYLE Response](#ad_style)
-MEDIA_ID              | 画像ID            | Media ID                           | mediaID              | long | -  
-MEDIA_NAME            | 画像名             | Media Name                        | mediaName            | string | -
+AD_STYLE   | 掲載フォーマット（画像タイプ） | Ad Style (Image Type) | adStyle   | string | [AD_STYLE Response](#ad_style)
+MEDIA_ID              | 画像ID            | Image ID                           | imageID              | long | -  
+MEDIA_NAME            | 画像名             | Image Name                        | imageName            | string | -
 MEDIA_FILE_NAME       | ファイル名             | File Name                      | fileName            | string | -
 MEDIA_AD_FORMAT      | ピクセルサイズ           | Pixel Size                    | pixelSize           | string   | [MEDIA_AD_FORMAT Response](#media_ad_format)
 AD_TITLE                | タイトル            | Title                    | title                | string | -
@@ -40,31 +41,29 @@ DESCRIPTION2         | 説明文2            | Description 2            | descri
 DISPLAY_URL           | 表示URL           | Display URL            | displayURL           | string | -
 SEARCHKEYWORD_ID      | サーチキーワードID      | Search Keyword ID                       | searchKeywordID      | long  | -
 SEARCHKEYWORD        | サーチキーワード        | Search Keyword                          | searchKeyword        | string | -
-FREQUENCY       | フリークエンシー数    | Frequency          | frequency     | int    | -
+FREQUENCY       | フリークエンシー数    | Frequency          | frequency     | long    | -
 CONVERSION_LABEL       | コンバージョンラベル名    | Conversion Name          | conversionName     | string    | -
-OBJECTIVE_OF<br>_CONVERSION_TRACKING | コンバージョン測定の目的 | Objective of Conversion Tracking |objectiveOfConversionTracking | string  | -
+OBJECTIVE_OF_CONVERSION_TRACKING | コンバージョン測定の目的 | Objective of Conversion Tracking |objectiveOfConversionTracking | string  | -
 CARRIER       | キャリア    | Carrier          | carrier     | string    | [CARRIER Response](#carrier)
-AD_LAYOUT       | 広告レイアウト    | Ad Layout          | adLayout     | string    | [AD_LAYOUT Response](#ad_layout)
-IMAGE_OPTION       | 画像自動付与    | Dynamic Image Extensions          | dynamicImageExtensions     | string    | [IMAGE_OPTION Response](#image_option)
-IMPS          | インプレッション数       | Impressions                   | impressions          | int   | - 
+AD_LAYOUT       | レイアウト    | Layout          | adLayout     | string    | [AD_LAYOUT Response](#ad_layout)
+IMAGE_OPTION       | 画像自動付与    | Dynamic Image Extensions          | imageOption    | string    | [IMAGE_OPTION Response](#image_option)
+IMPS          | インプレッション数       | Impressions                   | impressions          | long   | - 
 CLICK_RATE                  | クリック率           | CTR         |           ctr                  | double | -
-COST                 | コスト             | Cost                                    | cost                 | int  | -  
-CLICK               | クリック数           | Click                                  | click               | int  | -  
+COST                 | コスト             | Cost                                    | cost                 | long  | -  
+CLICK               | クリック数           | Clicks                                  | clicks               | long  | -  
 AVG_CPC           | 平均CPC           | Avg. CPC                                 | averageCpc           | double | -
-CONVERSION     | 総コンバージョン数       | Total Conversions                  | totalConversions     | int  | -  
-CONVERSIONRATE  | 総コンバージョン率       | Total Conversion Rate         | totalConversionRate  | double | -
+CONVERSION     | 総コンバージョン数       | Total Conversions                  | totalConversions     | long  | -  
+CONVERSION_RATE  | 総コンバージョン率       | Total Conversion Rate         | totalConversionRate  | double | -
 CPA | コスト/総コンバージョン数   | Cost / Total Conversions | costTotalConversions | double | -
 AVG_DELIVER_RANK | 平均掲載順位 | Avg. Position | averagePosition | double | -
-UNIQUE_USERS           | ユニークユーザ数      | Unique Users             | uniqueUsers          | int | -
-REVENUE           | 合計売上金額     | Total Revenue             | Total Revenue          | int | -
-REVENUE_CONVERSIONS           | 売上 / 総コンバージョン数      | Revenue / Total Conversions   | revenueTotalConversions          | int | -
-TOTAL_VIEWABLE_IMPS           | ビュー計測対象インプレッション数  | measurableImpressions         | measurableImpressions          | int | -
-VIEWABLE_IMPS           | ビューインプレッション数      | Viewable Impressions           | Viewable Impressions          | int | -
-INVIEW_RATE           | ビューインプレッション率      | Viewable Impression Rate            | Viewable Impression Rate          | int | -
-INVIEW_CLICK           | ビュークリック数      | Viewable Clicks            | Viewable Clicks          | int | -
-INVIEW_CLICK_RATE           | ビュークリック率      | Viewable CTR            | viewableCtr          | int | -
-
-
+UNIQUE_USERS           | ユニークユーザ数      | Unique Users             | uniqueUsers          | long | -
+REVENUE           | 合計売上金額     | Total Revenue             | totalRevenue          | long | -
+REVENUE_CONVERSION           | 売上/総コンバージョン数      | Rev. / Total Conversions   | revenueTotalConversion   | long | -
+TOTAL_VIEWABLE_IMPS           | ビュー計測対象インプレッション数  | Impressions on the measurement object        | measurableImpressions          | long | -
+VIEWABLE_IMPS           | ビューインプレッション数      | Viewable Impressions           | viewableImpressions   | long | -
+INVIEW_RATE           | ビューインプレッション率      | Viewable Impression Rate     | viewableImpressionRate      | long | -
+INVIEW_CLICK           | ビュークリック数      | Viewable Clicks            | viewableClicks          | long | -
+INVIEW_CLICK_RATE           | ビュークリック率      | Viewable CTR            | viewableCtr          | long | -
 
 
 ### Response Details
