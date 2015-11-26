@@ -446,7 +446,9 @@ AdGroupAdServiceで提供される操作を説明します。
             <ns1:operations>
               <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>111111111</ns1:accountId>
-                <ns1:operand>
+                <ns1:campaignId>2222222</ns1:campaignId>
+                <ns1:adGroupId>3333333</ns1:adGroupId>
+v                <ns1:operand>
                     <ns1:accountId>111111111</ns1:accountId>
                     <ns1:campaignId>2222222</ns1:campaignId>
                     <ns1:adGroupId>3333333</ns1:adGroupId>
@@ -688,7 +690,9 @@ AdGroupAdServiceで提供される操作を説明します。
         <ns1:mutate> 
             <ns1:operations> 
               <ns1:operator>REMOVE</ns1:operator> 
-                <ns1:accountId>111111111</ns1:accountId> 
+                <ns1:accountId>111111111</ns1:accountId>
+                <ns1:campaignId>2222222</ns1:campaignId>
+                <ns1:adGroupId>3333333</ns1:adGroupId>
                 <ns1:operand> 
                     <ns1:accountId>111111111</ns1:accountId> 
                     <ns1:campaignId>2222222</ns1:campaignId> 
@@ -727,7 +731,9 @@ AdGroupAdServiceで提供される操作を説明します。
         <ns1:mutate> 
             <ns1:operations> 
               <ns1:operator>REMOVE</ns1:operator> 
-                <ns1:accountId>111111111</ns1:accountId> 
+                <ns1:accountId>111111111</ns1:accountId>
+                <ns1:campaignId>2222222</ns1:campaignId>
+                <ns1:adGroupId>3333333</ns1:adGroupId>
                 <ns1:operand> 
                     <ns1:accountId>111111111</ns1:accountId> 
                     <ns1:campaignId>2222222</ns1:campaignId> 
