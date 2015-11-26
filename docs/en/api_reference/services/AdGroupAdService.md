@@ -444,6 +444,8 @@ Changes an ad.
             <ns1:operations>
               <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>111111111</ns1:accountId>
+                <ns1:campaignId>2222222</ns1:campaignId>
+                <ns1:adGroupId>3333333</ns1:adGroupId>
                 <ns1:operand>
                     <ns1:accountId>111111111</ns1:accountId>
                     <ns1:campaignId>2222222</ns1:campaignId>
@@ -686,7 +688,9 @@ Deletes an ad.
         <ns1:mutate> 
             <ns1:operations> 
               <ns1:operator>REMOVE</ns1:operator> 
-                <ns1:accountId>111111111</ns1:accountId> 
+                <ns1:accountId>111111111</ns1:accountId>
+                <ns1:campaignId>2222222</ns1:campaignId>
+                <ns1:adGroupId>3333333</ns1:adGroupId>
                 <ns1:operand> 
                     <ns1:accountId>111111111</ns1:accountId> 
                     <ns1:campaignId>2222222</ns1:campaignId> 
@@ -725,7 +729,9 @@ Deletes an ad.
         <ns1:mutate> 
             <ns1:operations> 
               <ns1:operator>REMOVE</ns1:operator> 
-                <ns1:accountId>111111111</ns1:accountId> 
+                <ns1:accountId>111111111</ns1:accountId>
+                <ns1:campaignId>2222222</ns1:campaignId>
+                <ns1:adGroupId>3333333</ns1:adGroupId>
                 <ns1:operand> 
                     <ns1:accountId>111111111</ns1:accountId> 
                     <ns1:campaignId>2222222</ns1:campaignId> 
