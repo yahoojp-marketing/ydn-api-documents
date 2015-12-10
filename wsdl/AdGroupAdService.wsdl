@@ -217,6 +217,14 @@
           <enumeration value="REQUEST_INFO"/>
           <enumeration value="DOWNLOAD"/>
           <enumeration value="INSTALL"/>
+          <enumeration value="MORE_DETAIL"/>
+          <enumeration value="RESERVE_HERE"/>
+          <enumeration value="REGISTER"/>
+          <enumeration value="APPLY_NOW"/>
+          <enumeration value="PURCHASE_NOW"/>
+          <enumeration value="RESERVE_NOW"/>
+          <enumeration value="REGISTER_NOW"/>
+          <enumeration value="CONTACT_US"/>
         </restriction>
       </simpleType>
       <simpleType name="UserStatus">
@@ -244,8 +252,6 @@
           <enumeration value="DOCOMO"/>
           <enumeration value="KDDI"/>
           <enumeration value="SOFTBANK"/>
-          <enumeration value="EMOBILE"/>
-          <enumeration value="WILLCOM"/>
           <enumeration value="NONE"/>
         </restriction>
       </simpleType>
