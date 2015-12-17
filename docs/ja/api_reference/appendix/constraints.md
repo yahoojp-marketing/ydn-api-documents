@@ -25,7 +25,7 @@ CampaignService          | get                  | -          | 500            | 
 ||mutate(ADD)              | 200                  | -          | -             
 ||mutate(SET)              | 200                  | -          | -             
 ||mutate(REMOVE)           | 200                  | -          | -             
-ConversionTrackerService | get                  | 500        | 1000           | ○     
+ConversionTrackerService | get                  | -        | 1000           | ○     
 ||mutate(ADD)              | 20                   | -          | -             
 ||mutate(SET)              | 100                  | -          | -             
 DictionaryService        | getDisapprovalReason | -          | 全件             | ○     
