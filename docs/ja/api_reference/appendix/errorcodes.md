@@ -82,6 +82,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 
 コード         | メッセージ                  | 説明                   
 -------------- | --------------------------- | ---------------------------
+220016 | Advance setting was made to the product or targeting that is not available.  | 指定された広告商品またはターゲティングの値では拡張設定できません。
 220018 | This Target settings is unavailable.  | キャンペーンの商品種別が、ターゲティング設定できない商品です。
 															
 ##### Service
@@ -97,31 +98,40 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220019 | Another job is in progress.  | 別のジョブを実行中です。
 
 ##### Service
-[CampaignService](/docs/ja/api_reference/services/CampaignService.md), [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md), [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
+[CampaignService](/docs/ja/api_reference/services/CampaignService.md)
 
 コード         | メッセージ                  | 説明                   
 -------------- | --------------------------- | ---------------------------
-220006 | Unavailable value.  | 利用できない値が入力されています。
 220007 | Unavailable the adProductType.  | 指定された広告掲載方式は購入できません。
-220008 | Under examination.  | 編集データが審査中です。
-220009 | Ad type you chose does not support the specified adProductType.  | キャンペーンで設定した広告商品種別では指定出来ない広告タイプが入力されています。
-220010 | Can not specify APP and OS for the device type.  | 指定されたデバイスでは、APP、OSは指定できません。
 220014 | Budget is lower than bidding price.  | 予算額が入札価格を下回っています。
-220015 | Bidding price is higher than campaign budget.  | 入札価格がキャンペーン予算を超えています。
-220016 | Advance setting was made to the product or targeting that is not available.  | 指定された広告商品またはターゲティングの値では拡張設定できません。
-220113 | Unsupported ad product type.  | キャンペーンの配信方法（AdproductType）が、画像紐づけ不可となっています。
-220114 | Invalid ad style.  | 掲載フォーマットが無効です。 
-220115 | Unavailable aspect ratio of an image. | 指定したピクセルサイズをご利用いただけません。
-220119 | Unavailable frequency cap.  | フリークエンシー設定不可な広告商品です。 
-220120 | Unmatch frequency cap.  | フリークエンシー設定の組み合わせが不正です。 
 220121 | Frequency setting was made to the product that is not available.  | 指定された広告商品ではフリークエンシー設定できません。 
 220122 | Unavailable combination of frequency settings.  | フリークエンシー設定の組み合わせが不正です。 
 220123 | Unavailable conversion optimizer.  | インタレストマッチ・ターゲティング・モバイルターゲティング以外の広告商品の場合、コンバージョンオプティマイザーの設定はできません。 
 220124 | Disable conversion optimizer.  | コンバージョンオプティマイザーの有効設定が不正です。 
-220125 | Unavailable the dynamicImageExtensions.  | インタレストマッチ・ターゲティング以外の広告商品の場合、画像自動付与フラグの設定はできません。 
+
+##### Service
+[AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
+
+コード         | メッセージ                  | 説明                   
+-------------- | --------------------------- | ---------------------------
+220006 | Unavailable value.  | 利用できない値が入力されています。
+220008 | Under examination.  | 編集データが審査中です。
+220009 | Ad type you chose does not support the specified adProductType.  | キャンペーンで設定した広告商品種別では指定出来ない広告タイプが入力されています。
+220010 | Can not specify APP and OS for the device type.  | 指定されたデバイスでは、APP、OSは指定できません。
+220015 | Bidding price is higher than campaign budget.  | 入札価格がキャンペーン予算を超えています。
+220113 | Unsupported ad product type.  | キャンペーンの配信方法（AdproductType）が、画像紐づけ不可となっています。
+220114 | Invalid ad style.  | 掲載フォーマットが無効です。 
+220115 | Unavailable aspect ratio of an image. |指定したピクセルサイズをご利用いただけません。
 220126 | Invalid pattern in ad type and layout.  | 広告タイプと広告レイアウトの掛け合わせパターンが合っておりません。 
 220127 | Invalid ad type.  | レスポンシブと広告枠サイズ固定の広告タイプ以外は利用できない項目です。 
 220128 | Invalid color set ID.  | カラーセットIDが不正です。 
+
+##### Service
+[AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
+
+コード         | メッセージ                  | 説明                   
+-------------- | --------------------------- | ---------------------------
+220125 | Unavailable the dynamicImageExtensions.  | インタレストマッチ・ターゲティング以外の広告商品の場合、画像自動付与フラグの設定はできません。 
 220132 | Cannot set the carrier type. | 選択したデバイスは、キャリアの選択ができません。
 
 ##### Service
