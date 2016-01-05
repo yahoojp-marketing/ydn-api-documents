@@ -43,7 +43,7 @@ SEARCHKEYWORD_ID      | サーチキーワードID      | Search Keyword ID     
 SEARCHKEYWORD        | サーチキーワード        | Search Keyword                          | searchKeyword        | string | -
 FREQUENCY       | フリークエンシー数    | Frequency          | frequency     | long    | -
 CONVERSION_LABEL       | コンバージョンラベル名    | Conversion Name          | conversionName     | string    | -
-OBJECTIVE_OF_CONVERSION_TRACKING | コンバージョン測定の目的 | Objective of Conversion Tracking |objectiveOfConversionTracking | string  | -
+CONVERSION_CATEGORY | コンバージョン測定の目的 | Objective of Conversion Tracking |objectiveOfConversionTracking | string  | -
 CARRIER       | キャリア    | Carrier          | carrier     | string    | [CARRIERレスポンス](#carrier)
 AD_LAYOUT       | レイアウト    | Layout          | adLayout     | string    | [AD_LAYOUTレスポンス](#ad_layout)
 IMAGE_OPTION   | 画像自動付与    | Dynamic Image Extensions | imageOption    | string    | [IMAGE_OPTIONレスポンス](#image_option)

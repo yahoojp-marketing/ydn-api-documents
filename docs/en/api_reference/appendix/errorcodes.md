@@ -1,4 +1,5 @@
 # SOAP Error Codes
+
 ### Error Process Outline
 When a SOAP request is successful, YDN API sends back the "HTTP 200 OK" response code, along with a SOAP response. <br>
 If an error occurs while a SOAP request is being processed, YDN API sends back a message with an error code. <br>
@@ -82,6 +83,7 @@ Code           | Message                     | Description
 
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
+220016 | Advance setting was made to the product or targeting that is not available.  | The advance setting is only available for the specified product.
 220018 | This Target settings is unavailable.  | The type of campaign is not available for the target settings.
 
 ##### Service
@@ -97,29 +99,40 @@ Code           | Message                     | Description
 220019 | Another job is in progress.  | It is running another job.
 
 ##### Service
-[CampaignService](/docs/en/api_reference/services/CampaignService.md), [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md), [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+[CampaignService](/docs/en/api_reference/services/CampaignService.md)
 
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
-220006 | Unavailable value.  | A value which cannot be used has been entered.
 220007 | Unavailable the adProductType.  | adProductType specified is not available. 
-220008 | Under examination.  | Review in progress of edited data.
-220009 | Ad type you chose does not support the specified adProductType.  | Ad type you chose does not support the specified adProductType.
-220010 | Can not specify APP and OS for the device type.  | APP and OS you specified does not support for the device type.
 220014 | Budget is lower than bidding price.  | The bidding price has been set higher than the budget.
-220015 | Bidding price is higher than campaign budget.  | The bidding price has been set higher than the campaign budget. 
-220016 | Advance setting was made to the product or targeting that is not available.  | The advance setting is only available for the specified product.
-220113 | Unsupported ad product type.  | Delivery method of campaign (AdproductType) cannot relate to media.
-220114 | Invalid ad style.  | Invalid ad style.
-220115 | Unavailable aspect ratio of an image. | The pixel size is not available to use for the specific image.
 220121 | Frequency setting was made to the product that is not available.  | You can not set frequency ads instruments designated.
 220122 | Unavailable combination of frequency settings.  | Combination of frequency setting is invalid.
 220123 | Unavailable conversion optimizer.  | Conversion optimization setting is not possible due to the non-eligible Ad distribution.
 220124 | Disable conversion optimizer.  | Target CPA cannot be set, due to the unusable conversion optimization.
-220125 | Unavailable the dynamicImageExtensions.  | Cannot set Dynamic Image Extensions, due to the non-eligible Ad distribution.
+
+##### Service
+[AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
+
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
+220006 | Unavailable value.  | A value which cannot be used has been entered.
+220008 | Under examination.  | Review in progress of edited data.
+220009 | Ad type you chose does not support the specified adProductType.  | Ad type you chose does not support the specified adProductType.
+220010 | Can not specify APP and OS for the device type.  | APP and OS you specified does not support for the device type.
+220015 | Bidding price is higher than campaign budget.  | The bidding price has been set higher than the campaign budget. 
+220113 | Unsupported ad product type.  | Delivery method of campaign (AdproductType) cannot relate to media.
+220114 | Invalid ad style.  | Invalid ad style.
+220115 | Unavailable aspect ratio of an image. | The pixel size is not available to use for the specific image.
 220126 | Invalid pattern in ad type and layout. | Unavailable match setting between the ad type and ad layout.
 220127 | Invalid ad type. | Setting is only available for Responsive Ad or Static Frame Ad.
 220128 | Invalid color set ID. | Unavailable Color Set ID has been set.
+
+##### Service
+[AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
+  
+Code           | Message                     | Description                
+-------------- | --------------------------- | ---------------------------
+220125 | Unavailable the dynamicImageExtensions.  | Cannot set Dynamic Image Extensions, due to the non-eligible Ad distribution.
 220132 | Cannot set the carrier type. | Selected device is not available to select the carrier type.
 
 ##### Service
