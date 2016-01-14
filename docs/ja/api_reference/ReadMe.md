@@ -2,11 +2,11 @@
 各Webサービスの技術仕様を説明します。
 
 ### [サービス](/docs/ja/api_reference/services)
-スポンサードサーチAPIで提供されるWebサービスを説明します。
+YDN APIで提供されるWebサービスを説明します。
 
 
 ### [データオブジェクト](/docs/ja/api_reference/data)
-スポンサードサーチAPIのデータオブジェクト（エンティティ）を説明します。
+YDN APIのデータオブジェクト（エンティティ）を説明します。
 
 
 ### [その他](/docs/ja/api_reference/appendix)
