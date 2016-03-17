@@ -31,7 +31,6 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 110001 | Invalid Request.  | リクエストが無効です。
 110002 | Frequency limit exceeded. Please try your request again later.  | 回数の制限を超えました。後で再試行してください。
 110003 | Invalid location.  | ロケーションが無効です。
-110004 | Quota exceeded. service = %s , Quota = %s | クォータの制限を超えました。 service = %s , Quota = %s
 110005 | Not a valid id.  | IDが有効ではありません。
 110006 | Can not login for %s.  | %sではログインできません。
 110007 | Invalid method.  | methodが無効です。
