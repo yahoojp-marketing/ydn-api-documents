@@ -33,7 +33,6 @@ Code           | Message                     | Description
 110001 | Invalid Request.  | Invalid Request.  
 110002 | Frequency limit exceeded. Please try your request again later.  | Frequency limit exceeded. Please try your request again later.  
 110003 | Invalid location.  | Invalid location.  
-110004 | Quota exceeded. service = %s , Quota = %s | Quota exceeded.  service = %s , Quota = %s 
 110005 | Not a valid id.  | Not a valid id.  
 110006 | Can not login for %s.  | Cannot login for %s.  
 110007 | Invalid method.  | Invalid method.  
