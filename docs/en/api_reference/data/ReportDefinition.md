@@ -10,7 +10,7 @@ The ReportDefinition object serves report definitions.
 | reportName| string| 1| 0| ○| Optional| -| Ignore| Report name.| 
 | dateRangeType| enum <a href="./ReportDateRangeType.md">ReportDateRangeType</a>| 1| 0| ○| Requirement| -| Ignore| Compilation target period for a defined report. |
 | dateRange| <a href="./ReportDateRange.md">ReportDateRange</a>| 1| 0| ○| Optional| -| Ignore| The date range for report compilation to be set by user.<br>This item is required when ReportDateRangeType is set as "CUSTOM_DATE".|
-| frequencyRange|  enum <a href="./ReportDateRangeType.md">ReportDateRangeType</a>| 1| 0| ○| Optional| -|Ignore|Performance range of frequency.。 |
+| frequencyRange|  enum <a href="./ReportFrequencyRange.md">ReportFrequencyRange</a>| 1| 0| ○| Optional| -|Ignore|Performance range of frequency.。 |
 | sortFields[]| string| unbounded| 0| ○| Optional| -| Ignore| Can select the fields to sort.<br>・Up to select 5 types of field to sort.<br>・Add "+" before the field name to arrange in ascending order.<br>・Add "-" before the field name to arrange in descending order. |
 | fields[]| string| unbounded| 0| ○| Requirement| -| Ignore|Select the fields. <br>Confirm the available field name from <a href="../appendix/reports.md">Report Fields Page</a>. |
 | format| enum <a href="./ReportDownloadFormat.md">ReportDownloadFormat</a>| 1| 0| ○| Optional| -| Ignore| File format for the defined download report. |
