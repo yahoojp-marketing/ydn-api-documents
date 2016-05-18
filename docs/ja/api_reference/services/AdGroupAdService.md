@@ -3,8 +3,8 @@ AdGroupAdServiceは広告の操作を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.2/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.2/AdGroupAdService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.3/AdGroupAdService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/AdGroupAdService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要

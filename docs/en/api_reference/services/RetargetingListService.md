@@ -3,8 +3,8 @@ RetargetingListService retrives, add, update, and delete the target list for sit
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.2/RetargetingListService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.2/RetargetingListService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.3/RetargetingListService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/RetargetingListService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Service Overview

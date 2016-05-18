@@ -22,4 +22,4 @@ searchKeywordId | サーチキーワードIDです。<br>サーチターゲテ�
 ifaSha1 | 広告識別子のハッシュ値（sha1）です。<br>IFA（広告識別子）のハッシュ値（sha1）をトラッキングします。<br>・iOSの場合：IDFA<br>・Android OSの場合：AdvertisingID<br>※ターゲティングとインフィード広告商品は指定可です。<br>※インタレストマッチ商品は指定不可です。|http://www.example.com/?ifaSha1={ifaSha1}
 ifaMd5 | 広告識別子のハッシュ値（md5）です。<br>IFA（広告識別子）のハッシュ値（md5）をトラッキングします。<br>・iOSの場合：IDFA<br>・Android OSの場合：AdvertisingID<br>※ターゲティングとインフィード広告商品は指定可です。<br>※インタレストマッチ商品は指定不可です。|http://www.example.com/?ifaMd5={ifaMd5}
 ifa | 広告識別子です。<br>IFA（広告識別子）をトラッキングします。<br>・iOSの場合：IDFA<br>・Android OSの場合：AdvertisingID<br>※ターゲティングとインフィード広告商品は指定可です。<br>※インタレストマッチ商品は指定不可です。|http://www.example.com/?ifa={ifa}
-
+excluded_targetlist | 除外ターゲットリストです。<br>除外用のターゲットリストIDが返されます。|http://www.example.com/?excluded_targetlist={excluded_targetlist}
