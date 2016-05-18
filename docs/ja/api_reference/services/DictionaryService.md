@@ -4,8 +4,8 @@ DictionaryServiceは、審査否認理由、地域情報、インタレストカ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.2/DictionaryService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.2/DictionaryService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V5.3/DictionaryService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/DictionaryService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要

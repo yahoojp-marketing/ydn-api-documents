@@ -1,16 +1,16 @@
 # リリースノート
 ## リリースバージョン　　
-5.2 (WSDLバージョン: 5.2.0)
+5.3 (WSDLバージョン: 5.3.0)
 
 ## バージョンアップの種類　　
 マイナーバージョンアップ 
 
 ## 本リリースの主な内容
-#### 1. キャリアターゲティング機能の追加 
-広告グループ単位でキャリアを指定してターゲティングを行うことができるようになりました。<br>
+#### 1. 統計情報の取得機能を追加 
+キャンペーン、広告グループ、広告、メディア（画像）の単位で統計情報を取得する機能を追加しました。<br>
 
 * 対象ウェブサービス  
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
+ * [StatsService](/docs/ja/api_reference/services/StatsService.md)
 
 * 対象データオブジェクト  
  * 各Service下にあるデータオブジェクトよりご確認ください。
@@ -18,41 +18,60 @@
 * 対象Enumerations  
  * 各Service下にあるデータオブジェクトよりご確認ください。
  
-#### 2. サイトリターゲティングタグ機能の追加 
-サイトリターゲティングのタグに関する機能で、以下の仕様が追加されました。<br>
-　・ タグの作成<br>
-　・ タグの詳細情報の取得<br>
- 
+#### 2. 操作履歴のダウンロード機能を追加 
+操作履歴データのダウンロード機能を追加しました。<br>
+
 * 対象ウェブサービス  
- * [RetargetingTagService](/docs/ja/api_reference/services/RetargetingTagService.md)
+ * [AuditLogService](/docs/ja/api_reference/services/AuditLogService.md)
   
 * 対象データオブジェクト  
+ * 各Service下にあるデータオブジェクトよりご確認ください。
+
+* 対象Enumerations  
+ * 各Service下にあるデータオブジェクトよりご確認ください。
+
+#### 3. サイトリターゲティング機能におけるルールタイプの追加 
+ルールタイプに以下を追加しました。<br>
+    - ページ種別<br>
+    - アイテムID<br>
+    - アイテムカテゴリーID<br>
+
+* 対象ウェブサービス  
+ * [RetargetingListService](/docs/ja/api_reference/services/RetargetingListService.md)
+
+* 対象ウェブサービス  
  * 対象になるデータオブジェクトはありません。
-
+ 
 * 対象Enumerations  
- * 各Service下にあるデータオブジェクトよりご確認ください。
+ * [RuleType(enum)](/docs/ja/api_reference/data/RuleType.md)
 
 ## Serviceの変更による各Versionへの影響
 <table class="standard">
   <tbody><tr>
     <th valign="top"><p>Service</p></th>
-    <th valign="top"><p>Ver.5.1以前</p></th>
-    <th valign="top"><p>Ver.5.2</p></th>
+    <th valign="top"><p>Ver.5.2以前</p></th>
+    <th valign="top"><p>Ver.5.3</p></th>
   </tr>
   <tr>
-    <td><p>AdGroupService</p></td>
-    <td><p>変更はございません。</p></td>
-    <td><p>・ 広告グループ情報（AdGroup）にモバイルキャリア（smartDeviceCarriers）フィールドを追加しました。<br>
-    ・ デバイスキャリア選択のEnum（SmartDeviceCarrier）を追加しました。<br>
-    ・ キャリア種別の設定ができないデバイスを選択した場合の エラーを追加しました。</p></td>
+    <td><p>StatsService</p></td>
+    <td><p>・機能提供を開始 しました。</p></td>
+    <td><p>・統計情報の取得条件に、メディアIDを指定できるように なりました。</p></td>
   </tr>
   <tr>
-    <td><p>RetargetingTagService</p></td>
-    <td><p>変更はございません。<br></p></td>
-    <td><p>・ リターゲティングタグ情報（RetargetingTag）にタグ詳細（tag）フィールドを追加しました。<br>
-    ・ リターゲティングタグ操作対象のタグ情報（RetargetingTagOperation）と実行結果の情報（RetargetingTagReturnValue）を追加しました。</p></td>
-  </tr></tbody>
+    <td><p>AuditLogService</p></td>
+    <td><p>・機能提供はありません。<br></p></td>
+    <td><p>・新規公開です。</p></td>
+  </tr>  <tr>
+    <td><p>RetargetingListService</p></td>
+    <td><p>・変更はありません。</p></td>
+    <td><p>・RuleType（ルールタイプ）のEnum値に以下を追加しました。<br>
+    　- PAGE_TYPE（ページ種別）<br>
+    　- ITEM_ID（アイテムID）<br>
+    　- ITEM_CATEGORY_ID（アイテムカテゴリーID）
+    </p></td>
+  </tr>
+</tbody>
 </table>
 
-## YDN API Ver.4.6とVer.4.7のサポート終了予定日
-YDN API Ver.4.6とVer.4.7は、2015年12月25日（金）にサポート終了予定です。 
+## YDN API Ver.5.1のサポート終了予定日
+YDN API Ver.5.1は、2016年9月にサポート終了予定です。
