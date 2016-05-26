@@ -117,7 +117,7 @@
         <restriction base="xsd:string">
           <enumeration value="DOWN"/>
           <enumeration value="UP"/>
-          <enumeration value="CONSTANT"/>
+          <enumeration value="KEEP"/>
         </restriction>
       </simpleType>
       <complexType name="Paging">
