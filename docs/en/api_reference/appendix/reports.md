@@ -23,6 +23,7 @@ WARD_ID               | 行政区ID           | Ward ID                         
 WARD_NAME             | 行政区             | Ward                                    | ward                 | string | -
 GENDER               | 性別              | Gender                | gender               | string | [GENDER Response](#gender)
 AGE                  | 年齢              | Age                  | age                  | long | [AGE Response](#age)
+MONTH                | 月              | Month               | month                  | string | -
 DAY                  | 日               | Daily          | day                  | string | -
 HOUR                  | 時間　　　　　　| Hourly             | hourofday             | string | -
 DELIVER   | 広告掲載方式          | Ad Distribution     | deliverName       | string | [DELIVER Response](#deliver)
