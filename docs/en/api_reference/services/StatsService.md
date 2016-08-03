@@ -3,8 +3,8 @@ StatsService retrieves the stats data of each campaign, ad group, ad and media.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.3/StatsService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/StatsService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/StatsService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/StatsService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Service Overview

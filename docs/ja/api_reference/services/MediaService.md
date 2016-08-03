@@ -3,8 +3,8 @@ MediaServiceでは、画像入稿に関する機能を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.3/MediaService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/MediaService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/MediaService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/MediaService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要

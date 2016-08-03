@@ -4,8 +4,8 @@ RetargetingTagServiceでは、サイトリターゲティングのタグに関�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.3/RetargetingTagService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/RetargetingTagService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/RetargetingTagService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/RetargetingTagService?wsdl|
 
 #### Namespace
 http://im.yahooapis.jp/V5

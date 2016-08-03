@@ -3,8 +3,8 @@ BulkServiceは、バルクシートを使用した一括アップロードおよ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.3/BulkService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/BulkService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/BulkService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/BulkService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要
