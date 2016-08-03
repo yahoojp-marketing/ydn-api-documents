@@ -3,8 +3,8 @@ Retrieves and updates information related to target settings.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.3/AdGroupTargetService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/AdGroupTargetService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupTargetService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupTargetService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### Service Overview

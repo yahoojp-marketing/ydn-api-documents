@@ -4,8 +4,8 @@ AuditLogServiceは、操作履歴のダウンロード機能を提供します�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.3/AuditLogService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/AuditLogService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/AuditLogService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AuditLogService?wsdl|
 
 #### Namespace
 http://im.yahooapis.jp/V5

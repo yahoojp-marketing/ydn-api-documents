@@ -3,8 +3,8 @@ StatsServiceは、キャンペーン、広告グループ、広告、画像の�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V5.3/StatsService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V5.3/StatsService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/StatsService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/StatsService?wsdl|
 #### Namespace
 http://im.yahooapis.jp/V5
 #### サービス概要
