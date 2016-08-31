@@ -106,7 +106,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220014 | Budget is lower than bidding price.  | 予算額が入札価格を下回っています。
 220121 | Frequency setting was made to the product that is not available.  | 指定された広告商品ではフリークエンシー設定できません。 
 220122 | Unavailable combination of frequency settings.  | フリークエンシー設定の組み合わせが不正です。 
-220123 | Unavailable conversion optimizer.  | インタレストマッチ・ターゲティング・モバイルターゲティング以外の広告商品の場合、コンバージョンオプティマイザーの設定はできません。 
+220123 | Unavailable conversion optimizer.  | インタレストマッチ・ターゲティング・モバイルターゲティング以外の広告商品の場合、<br>コンバージョンオプティマイザーの設定はできません。 
 220124 | Disable conversion optimizer.  | コンバージョンオプティマイザーの有効設定が不正です。 
 
 ##### Service
@@ -125,6 +125,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220126 | Invalid pattern in ad type and layout.  | 広告タイプと広告レイアウトの掛け合わせパターンが合っておりません。 
 220127 | Invalid ad type.  | レスポンシブと広告枠サイズ固定の広告タイプ以外は利用できない項目です。 
 220128 | Invalid color set ID.  | カラーセットIDが不正です。 
+220133 | Not allowed to set impression beacon url. | 広告効果測定ツール提供企業など外部との連係許可がないため、<br>インプレッションビーコンURLの設定はできません。 
 
 ##### Service
 [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)

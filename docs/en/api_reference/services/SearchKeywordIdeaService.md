@@ -70,6 +70,38 @@ Retrieves the keyword for seach targeting.
 </SOAP-ENV:Envelope>
 ```
 
+##### Request Sample (For Search with specified Duration, Number of searches)
+```xml
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
+            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+            <ns1:accountId>100000001</ns1:accountId>
+            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
+            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:get>
+            <ns1:selector>
+                <ns1:keywordIds>1000000001</ns1:keywordIds>
+                <ns1:searchKeywordRecency>WITHIN_7DAYS</ns1:searchKeywordRecency>
+                <ns1:searchKeywordFrequency>ONCE_OR_MORE</ns1:searchKeywordFrequency>
+                <ns1:paging>
+                    <ns1:startIndex>1</ns1:startIndex>
+                    <ns1:numberResults>20</ns1:numberResults>
+                </ns1:paging>
+            </ns1:selector>
+        </ns1:get>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
 ### Response
 | Parameter | Data Type | Description | 
 |---|---|---|

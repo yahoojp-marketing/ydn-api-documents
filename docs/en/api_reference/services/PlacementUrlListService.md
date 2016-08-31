@@ -15,9 +15,9 @@ Explains the control providing from PlacementUrlListService.
 ### Request
 Request Body’s Parameter
 
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
-| selector | [PlacementUrlListSelector](../data/PlacementUrlListSelector.md) | Req |  | 
+| selector | [PlacementUrlListSelector](../data/PlacementUrlListSelector.md) | required |  | 
 
 ##### Request Sample
 ```xml
@@ -85,7 +85,7 @@ Request Body’s Parameter
 ```
 
 ### Response
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
 | rval | [PlacementUrlListPage](../data/PlacementUrlListPage.md) |  |  | 
 
@@ -186,9 +186,9 @@ Request Body’s Parameter
 ### Request
 Request Body’s Parameter.
 
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
-| perations | [PlacementUrlListOperation](../data/PlacementUrlListOperation.md) | req |  | 
+| perations | [PlacementUrlListOperation](../data/PlacementUrlListOperation.md) | required |  | 
 
 ##### Request Sample
 ```xml
@@ -346,7 +346,7 @@ Request Body’s Parameter.
 ```
 
 ### Response
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
 | rval | [PlacementUrlListReturnValue](../data/PlacementUrlListReturnValue.md) |  |  | 
 
@@ -446,9 +446,9 @@ Request Body’s Parameter.
 ## mutate(SET)
 ### Request
 
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
-| operations | [PlacementUrlListOperation](../data/PlacementUrlListOperation.md) | req |  | 
+| operations | [PlacementUrlListOperation](../data/PlacementUrlListOperation.md) | required |  | 
 
 ##### Request Sample
 ```xml
@@ -575,7 +575,7 @@ Request Body’s Parameter.
 ```
 
 ### Response
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
 | rval | [PlacementUrlListReturnValue](../data/PlacementUrlListReturnValue.md) |  |  | 
 
@@ -674,9 +674,9 @@ Request Body’s Parameter.
 ## mutate(REMOVE)
 ### Request
 
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
-| operations | [PlacementUrlListOperation](../data/PlacementUrlListOperation.md) | req |  | 
+| operations | [PlacementUrlListOperation](../data/PlacementUrlListOperation.md) | required |  | 
 
 ##### Request Sample
 ```xml
@@ -756,7 +756,7 @@ Request Body’s Parameter.
 ```
 
 ### Response
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
 | rval | [PlacementUrlListReturnValue](../data/PlacementUrlListReturnValue.md) |  |  | 
 

@@ -17,7 +17,7 @@ Retrieves the stats information of each campaign, ad group, ad and media.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [StatsSelector](../data/StatsSelector.md) |Acquires stats information| 
+| selector | required | [StatsSelector](../data/StatsSelector.md) |Acquires stats information| 
 
 ##### Request Sample (Campaign Stats Information)
 ```xml

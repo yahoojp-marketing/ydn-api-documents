@@ -18,7 +18,7 @@ Retrieves the site retargeting tag information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [RetargetingTagSelector](../data/RetargetingTagSelector.md) | Retrieves the site retargeting tag information. | 
+| selector | required | [RetargetingTagSelector](../data/RetargetingTagSelector.md) | Retrieves the site retargeting tag information. | 
 
 ##### Request Sample
 ```xml
@@ -122,7 +122,7 @@ Create an tag for site retargeting.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [RetargetingTagOperation](../data/RetargetingTagOperation.md) | Create site retargeting tag. | 
+| operations | required | [RetargetingTagOperation](../data/RetargetingTagOperation.md) | Create site retargeting tag. | 
 
 ##### Request Sample
 ```xml

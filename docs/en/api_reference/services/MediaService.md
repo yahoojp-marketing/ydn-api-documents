@@ -18,7 +18,7 @@ Retrieves the list of submitted media from specified condition.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [MediaSelector](../data/MediaSelector.md) | Retrieve media information. | 
+| selector | required | [MediaSelector](../data/MediaSelector.md) | Retrieve media information. | 
 
 ##### Request Sample
 ```xml
@@ -165,7 +165,7 @@ Uploads the media.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [MediaOperation](../data/MediaOperation.md) | Add media. | 
+| operations | required | [MediaOperation](../data/MediaOperation.md) | Add media. | 
 
 ##### Request Sample
 ```xml
@@ -368,7 +368,7 @@ Change the status (delivery settings) of the submitted media.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [MediaOperation](../data/MediaOperation.md) | Change media. | 
+| operations | required | [MediaOperation](../data/MediaOperation.md) | Change media. | 
 
 ##### Request Sample
 ```xml
@@ -543,7 +543,7 @@ Delete the submitted media.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [MediaOperation](../data/MediaOperation.md) | Delete media. | 
+| operations | required | [MediaOperation](../data/MediaOperation.md) | Delete media. | 
 
 ##### Request Sample
 ```xml

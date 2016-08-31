@@ -159,7 +159,7 @@ If downloadJobStatus is COMPLETED, the download URL is set to response.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [BulkDownloadStatusSelector](../data/BulkDownloadStatusSelector.md) | Defines a target for acquisition. | 
+| selector | required | [BulkDownloadStatusSelector](../data/BulkDownloadStatusSelector.md) | Defines a target for acquisition. | 
 
 ##### Request Sample
 ```xml
@@ -279,7 +279,7 @@ Defines URL for upload target.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [BulkDownloadSelector](../data/BulkDownloadSelector.md) | Defines a bulk acquisition target. | 
+| selector | required | [BulkDownloadSelector](../data/BulkDownloadSelector.md) | Defines a bulk acquisition target. | 
 
 ##### Request Sample
 ```xml
@@ -372,7 +372,7 @@ Acquires upload status.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [BulkDownloadSelector](../data/BulkDownloadSelector.md) | Defines a bulk acquisition target. | 
+| selector | required | [BulkDownloadSelector](../data/BulkDownloadSelector.md) | Defines a bulk acquisition target. | 
 
 ##### Request Sample
 ```xml

@@ -17,7 +17,7 @@ Retrieves information of download operation history data.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [AuditLogDownloadSelector](../data/AuditLogDownloadSelector.md) | Object which acquire the exec parameter of getDownload method | 
+| selector | required | [AuditLogDownloadSelector](../data/AuditLogDownloadSelector.md) | Object which acquire the exec parameter of getDownload method | 
 
 ##### Request Sample
 ```xml
@@ -99,7 +99,7 @@ Retrieves the download result information of operation history
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [AuditLogDownloadStatusSelector](../data/AuditLogDownloadStatusSelector.md) | Object which acquire the exec parameter of getDownloadStatus method | 
+| selector | required | [AuditLogDownloadStatusSelector](../data/AuditLogDownloadStatusSelector.md) | Object which acquire the exec parameter of getDownloadStatus method | 
 
 ##### Request Sample
 ```xml
@@ -188,4 +188,4 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

@@ -18,7 +18,7 @@ Describes operations provided by AdGroupTargetService.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [AdGroupTargetSelector](../data/AdGroupTargetSelector.md) | Assigns targeting information.  | 
+| selector | required | [AdGroupTargetSelector](../data/AdGroupTargetSelector.md) | Assigns targeting information.  | 
 
 ##### Request Sample
 ```xml
@@ -256,7 +256,7 @@ Sets target information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [AdGroupTargetOperation](../data/AdGroupTargetOperation.md) | Sets target information.  | 
+| operations | required | [AdGroupTargetOperation](../data/AdGroupTargetOperation.md) | Sets target information.  | 
 
 ##### Request Sample
 ```xml

@@ -33,7 +33,7 @@ Retrieve target list information for site retargeting.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [RetargetingListSelector](../data/RetargetingListSelector.md) | Retrieve target list information for site retargeting. | 
+| selector | required | [RetargetingListSelector](../data/RetargetingListSelector.md) | Retrieve target list information for site retargeting. | 
 
 ##### Request Sample
 ```xml
@@ -239,7 +239,7 @@ Create the target list for site retargeting.
 
 | Parameter | Requirement | Value | Description | 
 |---|---|---|---|
-| operations | ○ | [RetargetingListOperation](../data/RetargetingListOperation.md) | Creates the target list for site retargeting. | 
+| operations | required | [RetargetingListOperation](../data/RetargetingListOperation.md) | Creates the target list for site retargeting. | 
 
 ##### Request Sample (For rule setting) 
 ```xml
@@ -602,7 +602,7 @@ Create the target list for site retargeting.
 
 | Parameter | Requirement | Value | Description | 
 |---|---|---|---|
-| operations | ○ | [RetargetingListOperation](../data/RetargetingListOperation.md) | Updates target list for site retargeting. | 
+| operations | required | [RetargetingListOperation](../data/RetargetingListOperation.md) | Updates target list for site retargeting. | 
 
 ##### Request Sample (For rule setting)
 ```xml
@@ -1001,7 +1001,7 @@ Create the target list for site retargeting.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [RetargetingListOperation](../data/RetargetingListOperation.md) | Deletes target list for site retargeting. | 
+| operations | required | [RetargetingListOperation](../data/RetargetingListOperation.md) | Deletes target list for site retargeting. | 
 
 ##### <Request Sample>
 ```xml

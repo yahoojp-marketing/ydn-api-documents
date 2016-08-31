@@ -1,6 +1,5 @@
-# AdGroupTargetList
-AdGroupTargetListオブジェクトは、特定の広告グループのターゲティング設定を表します。
-
+# AdGroupTargets
+The AdGroupTargets object is a container for storing specified ad target information.
 ### Service
 + [AdGroupTargetService](../services/AdGroupTargetService.md)
 
@@ -18,7 +17,7 @@ AdGroupTargetListオブジェクトは、特定の広告グループのターゲ
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>アカウントIDです。</td>
+  <td>Account ID.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -28,7 +27,7 @@ AdGroupTargetListオブジェクトは、特定の広告グループのターゲ
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
-  <td>キャンペーンIDです。</td>
+  <td>Campaign ID.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -38,23 +37,32 @@ AdGroupTargetListオブジェクトは、特定の広告グループのターゲ
  <tr>
   <td>adGroupId</td>
   <td>xsd:long</td>
-  <td>広告グループIDです。</td>
+  <td>Ad group ID.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>
  </tr>
- <tr>
-  <td>type</td>
-  <td>enum <a href="./TargetType.md">TargetType</a></td>
-  <td>ターゲティング種別です。</td>
+<tr>
+  <td>targets[0..200]</td>
+  <td><a href="./AdGroupTargetList.md">AdGroupTargetList</a><br>
+  inherited　<a href="./AdScheduleTargetList.md">AdScheduleTargetList</a><br>
+  inherited　<a href="./GeoTargetList.md">GeoTargetList</a><br>
+  inherited　<a href="./AgeTargetList.md">AgeTargetList</a><br>
+  inherited　<a href="./GenderTargetList.md">GenderTargetList</a><br>
+  inherited　<a href="./InterestCategoryTargetList.md">InterestCategoryTargetList</a><br>
+  inherited　<a href="./SiteCategoryTargetList.md">SiteCategoryTargetList</a><br>
+  inherited　<a href="./SiteRetargetingTargetList.md">SiteRetargetingTargetList</a><br>
+  inherited　<a href="./SearchTargetList.md">SearchTargetList</a><br>
+  inherited　<a href="./PlacementTargetList.md">PlacementTargetList</a></td>
+  <td>The targeting settings on ad.</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
   <td>Requirement</td>
   <td>-</td>
  </tr>
- </table>
-
+</table>
+ 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

@@ -17,7 +17,7 @@ Defines a budget acquisition target.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [BalanceSelector](../data/BalanceSelector.md) | Defines a target to acquire a budget.  | 
+| selector | required | [BalanceSelector](../data/BalanceSelector.md) | Defines a target to acquire a budget.  | 
 
 ##### Request Sample
 ```xml

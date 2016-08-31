@@ -34,7 +34,7 @@ Acquires report related information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [ReportSelector](../data/ReportSelector.md) | Operation target report. | 
+| selector | required | [ReportSelector](../data/ReportSelector.md) | Operation target report. | 
 
 ##### Request Sample
 ```xml
@@ -188,7 +188,7 @@ Creates a report.
 
 | Parameter | Requirement | Value | Description | 
 |---|---|---|---|
-| operations | ○ | [ReportOperation](../data/ReportOperation.md) | Displays operation target reports and operation content. | 
+| operations | required | [ReportOperation](../data/ReportOperation.md) | Displays operation target reports and operation content. | 
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -316,7 +316,7 @@ Deletes a report
 
 | Parameter | Requirement | Value | Description | 
 |---|---|---|---|
-| operations | ○ | [ReportOperation](../data/ReportOperation.md) | Displays operation target reports and operation content. | 
+| operations | required | [ReportOperation](../data/ReportOperation.md) | Displays operation target reports and operation content. | 
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -429,7 +429,7 @@ Acquires URLs for downloading reports.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [ReportDownloadUrlSelector](../data/ReportDownloadUrlSelector.md) | Operation target report information. | 
+| selector | required | [ReportDownloadUrlSelector](../data/ReportDownloadUrlSelector.md) | Operation target report information. | 
 
 ##### Request Sample
 ```xml
@@ -561,7 +561,7 @@ Acquires date of report completion.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [ReportClosedDateSelector](../data/ReportClosedDateSelector.md) | Assigns operation target reports. | 
+| selector | required | [ReportClosedDateSelector](../data/ReportClosedDateSelector.md) | Assigns operation target reports. | 
 
 ##### Request Sample
 ```xml

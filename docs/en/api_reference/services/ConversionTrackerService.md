@@ -19,7 +19,7 @@ Get ConversionTracker information of specified account.
 
 | Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [ConversionTrackerSelector](../data/ConversionTrackerSelector.md) | Operation elements for ConversionTracker informations. | 
+| selector | required | [ConversionTrackerSelector](../data/ConversionTrackerSelector.md) | Operation elements for ConversionTracker informations. | 
 
 ##### Request Sample
 ```xml
@@ -141,7 +141,7 @@ Add Conversion Tracker information.
 
 | Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [ConversionTrackerOperation](../data/ConversionTrackerOperation.md) | Operation elements for ConversionTracker informations. | 
+| operations | required | [ConversionTrackerOperation](../data/ConversionTrackerOperation.md) | Operation elements for ConversionTracker informations. | 
 
 ##### Request Sample
 ```xml
@@ -263,7 +263,7 @@ Update Conversion Tracker information.
 
 | Parameter | Restrictions | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [ConversionTrackerOperation](../data/ConversionTrackerOperation.md) | Operation elements for ConversionTracker informations. | 
+| operations | required | [ConversionTrackerOperation](../data/ConversionTrackerOperation.md) | Operation elements for ConversionTracker informations. | 
 
 ##### Request Sample
 ```xml

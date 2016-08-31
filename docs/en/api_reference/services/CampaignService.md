@@ -17,7 +17,7 @@ Gets information related to campaigns.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [CampaignSelector](../data/CampaignSelector.md) | Assigns campaign information to be acquired. | 
+| selector | required | [CampaignSelector](../data/CampaignSelector.md) | Assigns campaign information to be acquired. | 
 
 ##### Request Sample
 ```xml
@@ -178,7 +178,7 @@ Adds campaign information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
+| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
 
 ##### Request Sample
 ```xml
@@ -392,7 +392,7 @@ Updates campaign information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
+| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
 
 ##### Request Sample
 ```xml
@@ -690,7 +690,7 @@ Deletes campaign information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
+| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
 
 ##### Request Sample
 ```xml

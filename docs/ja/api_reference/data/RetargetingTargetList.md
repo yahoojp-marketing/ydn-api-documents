@@ -1,7 +1,7 @@
-# SearchKeyword
-SearchKeyword is an object to display the search keyword.
+# RetargetingTargetList
+RetargetingTargetListオブジェクトは、リターゲティングのターゲット種類を表します。
 ### Service
-+ [SearchKeywordListService](../services/SearchKeywordListService.md)
++ [RetargetingListService](../services/RetargetingListService.md)
 
 <table>
  <tr>
@@ -15,13 +15,13 @@ SearchKeyword is an object to display the search keyword.
   <th>remove</th>
  </tr>
  <tr>
-  <td>searchKeywordId</td>
-  <td>xsd:long</td>
-  <td>Search keyword ID.</td>
+  <td>targetListType</td>
+  <td>enum　<a href="./TargetListType.md">TargetListType</a></td>
+  <td>ターゲットリストの種類です。</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Requirement</td>
+  <td>Requirement<br>NonUpdatable</td>
   <td>-</td>
  </tr>
 </table>

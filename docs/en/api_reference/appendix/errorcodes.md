@@ -126,6 +126,7 @@ Code           | Message                     | Description
 220126 | Invalid pattern in ad type and layout. | Unavailable match setting between the ad type and ad layout.
 220127 | Invalid ad type. | Setting is only available for Responsive Ad or Static Frame Ad.
 220128 | Invalid color set ID. | Unavailable Color Set ID has been set.
+220133 | Not allowed to set impression beacon url. | Impression beacon URL is not available since the external link to analyzing tool providers is not allowed.
 
 ##### Service
 [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
