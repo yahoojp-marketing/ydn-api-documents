@@ -17,7 +17,7 @@ Acquires account information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ <br>Can be omitted for regular authentication) | AccountSelector | Acquires account information.<br>*Account IDs under selector can also be omitted for regular authentication. Required for proxy authentication. | 
+| selector | required <br>Can be omitted for regular authentication) | AccountSelector | Acquires account information.<br>*Account IDs under selector can also be omitted for regular authentication. Required for proxy authentication. | 
 
 ##### Request Sample
 ```xml
@@ -130,7 +130,7 @@ Operates account information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | AccountOperation | Operates account.| 
+| operations | required | AccountOperation | Operates account.| 
 
 ##### Request Sample
 ```xml

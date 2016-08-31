@@ -29,7 +29,7 @@ In this case, it must be acquired again.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| accountId | ○ | xsd:long | An account ID. | 
+| accountId | required | xsd:long | An account ID. | 
 
 ##### Request Sample
 ```xml

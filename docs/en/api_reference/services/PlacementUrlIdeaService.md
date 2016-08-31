@@ -13,9 +13,9 @@ PlacementUrlIdeaService acquires candidate URL which is set in submission for Pl
 ## get
 ### Request
 
-| Name | Req? | Type | Description | 
+| Name | Requirement | Type | Description | 
 |---|---|---|---|
-| selector | ○ | [PlacementUrlIdeaSelector](../data/PlacementUrlIdeaSelector.md) | Can retrieve candidate URL. | 
+| selector | required | [PlacementUrlIdeaSelector](../data/PlacementUrlIdeaSelector.md) | Can retrieve candidate URL. | 
 
 ##### Request Sample
 ```xml
@@ -91,7 +91,7 @@ PlacementUrlIdeaService acquires candidate URL which is set in submission for Pl
 ```
 
 ### Response
-| name | type | Req? | Description | 
+| name | type | Requirement | Description | 
 |---|---|---|---|
 | rval | [PlacementUrlIdeaPage](../data/PlacementUrlIdeaPage.md) |  |  | 
 

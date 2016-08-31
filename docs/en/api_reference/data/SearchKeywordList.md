@@ -3,12 +3,95 @@ SearchKeywordList object displays the search list.
 ### Service
 + [SearchKeywordListService](../services/SearchKeywordListService.md)
 
-| Field | Data Type | Description | ADD | SET | REMOVE | 
-|---|---|---|---|---|---|
-| accountId| xsd:long| Account ID.| Req| Req| Req |
-| searchKeywordListId| xsd:long| Search keyword list ID.| -| Req| Req |
-| searchKeywordListName| xsd:string| Name of Search keyword list.| Req| Opt| - |
-| searchKeywordListDescription| xsd:string| Description of Search keyword list.| Opt| Opt| - |
-| deliveryStatus| enum <a href="./DeliveryStatus.md">DeliveryStatus</a>| Delivery status.| -| -| - |
-| searchKeyword[]| <a href="./SearchKeyword.md">SearchKeyword</a>| Search keyword list.| Req| Opt| - |
-<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
+<table>
+ <tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+  <th>response</th>
+  <th>get</th>
+  <th>add</th>
+  <th>set</th>
+  <th>remove</th>
+ </tr>
+ <tr>
+  <td>accountId</td>
+  <td>xsd:long</td>
+  <td>Account ID.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement<br>NotUpdatable</td>
+  <td>Requirement<br>NotUpdatable</td>
+ </tr>
+ <tr>
+  <td>searchKeywordListId</td>
+  <td>xsd:long</td>
+  <td>Search keyword list ID.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Requirement<br>NotUpdatable</td>
+  <td>Requirement<br>NotUpdatable</td>
+ </tr>
+ <tr>
+  <td>searchKeywordListName</td>
+  <td>xsd:string</td>
+  <td>Name of Search keyword list.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Optional<br>Updatable</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>searchKeywordListDescription</td>
+  <td>xsd:string</td>
+  <td>Description of Search keyword list.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>searchKeywordRecency</td>
+  <td>enum <a href="./KeywordRecency.md">KeywordRecency</a></td>
+  <td>Effective period of the search keyword list.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>*Default value : WITHIN_30DAYS</td>
+  <td>Optional<br>Updatable</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>searchKeywordFrequency</td>
+  <td>enum <a href="./KeywordFrequency.md">KeywordFrequency</a></td>
+  <td>Number of searches of the search keyword list.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Optional<br>*Default value : ONCE_OR_MORE</td>
+  <td>Optional<br>Updatable</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>deliveryStatus</td>
+  <td>enum <a href="./DeliveryStatus.md">DeliveryStatus</a></td>
+  <td>Ad delivery status.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>searchKeyword[1..500]</td>
+  <td><a href="./SearchKeyword.md">SearchKeyword</a></td>
+  <td>Search keyword list.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>Requirement</td>
+  <td>Requirement<br>Updatable</td>
+  <td>-</td>
+ </tr>
+</table>

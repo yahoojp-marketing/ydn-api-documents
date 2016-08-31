@@ -18,7 +18,7 @@ Retrieves ad information.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| selector | ○ | [AdGroupSelector](../data/AdGroupSelector.md) | Retrieves ad group information. | 
+| selector | required | [AdGroupSelector](../data/AdGroupSelector.md) | Retrieves ad group information. | 
 
 ##### Request Sample
 ```xml
@@ -166,7 +166,7 @@ Adds an ad group.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | Operates an ad group. | 
+| operations | required | [AdGroupOperation](../data/AdGroupOperation.md) | Operates an ad group. | 
 
 ##### Request Sample
 ```xml
@@ -345,7 +345,7 @@ Updates an ad group.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | Operates an ad group. | 
+| operations | required | [AdGroupOperation](../data/AdGroupOperation.md) | Operates an ad group. | 
 
 ##### Request Sample
 ```xml
@@ -522,7 +522,7 @@ Deletes an ad group.
 
 | Parameter | Requirement | Data Type | Description | 
 |---|---|---|---|
-| operations | ○ | [AdGroupOperation](../data/AdGroupOperation.md) | Operates an ad group. | 
+| operations | required | [AdGroupOperation](../data/AdGroupOperation.md) | Operates an ad group. | 
 
 ##### Request Sample
 ```xml

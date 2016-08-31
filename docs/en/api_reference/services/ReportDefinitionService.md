@@ -27,9 +27,9 @@ Describes operations provided by ReportDefinitionService.
 ### Request
 Retrieves the report definition.
 
-| Parameter | Req? | Value | Description | 
+| Parameter | Requirement | Value | Description | 
 |---|---|---|---|
-| selector | ○ | [ReportDefinitionSelector](../data/ReportDefinitionSelector.md) | Report definition for the target of the operation. |
+| selector | required | [ReportDefinitionSelector](../data/ReportDefinitionSelector.md) | Report definition for the target of the operation. |
 
 ##### Request Sample
 ```xml
@@ -151,10 +151,10 @@ Retrieves the report definition.
 ### Request
 Returns usable report fields by report type.
 
-| Parameter | Req? | Value | Description | 
+| Parameter | Requirement | Value | Description | 
 |---|---|---|---|
-|accountId | ○ | xsd:long | Account ID |
-|reportCategory | ○ | enum [ReportCategory](../data/ReportCategory.md) | Report format. |
+|accountId | required | xsd:long | Account ID |
+|reportCategory | required | enum [ReportCategory](../data/ReportCategory.md) | Report format. |
 |lang |  | enum [ReportLang](../data/ReportLang.md) | Output language.<br>Japanese or English can be selected. | 
 
 ##### Request Sample
@@ -326,9 +326,9 @@ Returns usable report fields by report type.
 ### Request
 Adds report definitions.
 
-| Parameter | Req? | Value | Description | 
+| Parameter | Requirement | Value | Description | 
 |---|---|---|---|
-| operations | ○ | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md)|Displays operation target report definitions and operation content. | 
+| operations | required | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md)|Displays operation target report definitions and operation content. | 
 
 ##### Request Sample (For AdHoc Report: Account, Campaign, Ad Group, Ad, Destination URL)
 ```xml
@@ -919,9 +919,9 @@ Adds report definitions.
 ### Request
 Deletes the report definition.。
 
-| Parameter | Req? | Value | Description | 
+| Parameter | Requirement | Value | Description | 
 |---|---|---|---|
-| operations | ○ | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) |Report definition or operation elements of target of the operation. | 
+| operations | required | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) |Report definition or operation elements of target of the operation. | 
 
 ##### Request Sample
 ```xml
