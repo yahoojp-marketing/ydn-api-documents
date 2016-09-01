@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V5">
       <annotation>
         <appinfo>
-          <version>5.3.0</version>
+          <version>5.4.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -383,7 +383,7 @@
   </wsdl:binding>
   <wsdl:service name="ReportDefinitionServiceService">
     <wsdl:port binding="tns:ReportDefinitionServiceSoapBinding" name="ReportDefinitionService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.3/ReportDefinitionService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.4/ReportDefinitionService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
