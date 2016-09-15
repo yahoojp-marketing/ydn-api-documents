@@ -22,10 +22,11 @@ be available.
 * Target Enumerations  
  * Please confirm from Data Objects page for more details.
  
-#### 2. Addition of Download Operation History data function  
+#### 2. Addition of Impression Beacon URL for ad and Bulk Ad Creation  
 Impression Beacon URL will be added as one of setting item of Ad.
 It allows you to aggregate Impressions data using Impression Beacon
 URL via analytics tools provided by vendors.<br>
+Bulk request of Ad creation function is added for multiple campaigns and ad groups. Along with this change, operational limit is expanded from 200 to 2000.<br>
 
 * Target Web Service  
  * [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
@@ -36,7 +37,7 @@ URL via analytics tools provided by vendors.<br>
 * Target Enumerations  
  * Please confirm from Data Objects page for more details.
 
-#### 3. Addition of Rule type of Site Retargeting function
+#### 3. Maintenance Release
 Some of Web Services will have maintenance release. <br>
 Details of maintenance on each target web service is available on the 'Impacts on each Version from the change of Services'.<br>
    
@@ -93,7 +94,10 @@ Details of maintenance on each target web service is available on the 'Impacts o
     　- Impression Beacon URL (impressionBeaconUrls)<br>
     　- Impression Beacon URL remove flag (isRemoveBeaconUrls)<br>
     Added following Enum items.<br>
-    　- Remove flag (isRemoveFlg)</p></td>
+    　- Remove flag (isRemoveFlg)<br>
+    Changed following items on "AdGroupAdOperation" which stores ad information by mutate method. <br>
+    　- Removed items of campaignId and adGroupId<br>
+    　- Expanded the maximum number on operand from 200 to 2000.</p></td>　
   </tr>
   <tr>
     <td><p>AccountService</p></td>

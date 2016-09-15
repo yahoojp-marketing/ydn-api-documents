@@ -15,6 +15,18 @@ AdGroupAdOperationオブジェクトは、広告の情報を格納するコン�
   <th>remove</th>
  </tr>
  <tr>
+  <td colspan="8"><a href="./Operation.md">Operation</a>(inherited)</td>
+ </tr>
+ <tr>
+  <td>operator</td>
+  <td>enum <a href="./Operator.md">Operator</a></td>
+  <td>処理を表す演算子です。</td>
+  <td colspan="5"></td>
+ </tr>
+ <tr>
+  <td colspan="8">AdGroupAdOperation</td>
+ </tr>
+ <tr>
   <td>accountId</td>
   <td>xsd:long</td>
   <td>アカウントIDです。</td>

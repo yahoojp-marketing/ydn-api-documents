@@ -48,6 +48,8 @@ CONVERSION_CATEGORY | コンバージョン測定の目的 | Objective of Conver
 CARRIER       | キャリア    | Carrier          | carrier     | string    | [CARRIERレスポンス](#carrier)
 AD_LAYOUT       | レイアウト    | Layout          | adLayout     | string    | [AD_LAYOUTレスポンス](#ad_layout)
 IMAGE_OPTION   | 画像自動付与    | Dynamic Image Extensions | imageOption    | string    | [IMAGE_OPTIONレスポンス](#image_option)
+OS          | OS       | OS                   | OS          | string   | -
+APPLI          | ウェブ/アプリ       | Web/Application                   | appli          | string   | - 
 IMPS          | インプレッション数       | Impressions                   | impressions          | long   | - 
 CLICK_RATE       | クリック率           | CTR         |           ctr                  | double | -
 COST                 | コスト             | Cost                                    | cost                 | long  | -  

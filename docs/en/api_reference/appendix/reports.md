@@ -48,6 +48,8 @@ OBJECTIVE_OF_CONVERSION_TRACKING | コンバージョン測定の目的 | Object
 CARRIER       | キャリア    | Carrier          | carrier     | string    | [CARRIER Response](#carrier)
 AD_LAYOUT       | レイアウト    | Layout          | adLayout     | string    | [AD_LAYOUT Response](#ad_layout)
 IMAGE_OPTION       | 画像自動付与    | Dynamic Image Extensions          | imageOption    | string    | [IMAGE_OPTION Response](#image_option)
+OS          | OS       | OS                   | OS          | string   | -
+APPLI          | ウェブ/アプリ       | Web/Application                   | appli          | string   | -
 IMPS          | インプレッション数       | Impressions                   | impressions          | long   | - 
 CLICK_RATE                  | クリック率           | CTR         |           ctr                  | double | -
 COST                 | コスト             | Cost                                    | cost                 | long  | -  
