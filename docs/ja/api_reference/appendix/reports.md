@@ -32,8 +32,8 @@ SITE_CATEGORY         | サイトカテゴリー名       | Site Category       
 INTEREST_CATEGORY     | インタレストカテゴリー名    | Interest Category           | interestCategory     | string | -
 DELIVER_URL       | 配信先URL         | Ad Delivery URL          | adDeliveryURL       | string | -
 AD_STYLE    | 掲載フォーマット（画像タイプ） | Ad Style (Image Type) | adStyle   | string | [AD_STYLEレスポンス](#ad_style)
-MEDIA_ID              | 画像ID            | Image ID                           | imageID              | long | -  
-MEDIA_NAME            | 画像名             | Image Name                        | imageName            | string | -
+MEDIA_ID              | メディアID            | Media ID                           | imageID              | string | -  
+MEDIA_NAME            | メディア名             | Media Name                        | imageName            | string | -
 MEDIA_FILE_NAME       | ファイル名             | File Name                      | fileName            | string | -
 MEDIA_AD_FORMAT    | ピクセルサイズ     | Pixel Size     | pixelSize    | string   | [MEDIA_AD_FORMATレスポンス](#media_ad_format)
 AD_TITLE                | タイトル            | Title                    | title                | string | -
@@ -67,10 +67,21 @@ VIEWABLE_IMPS    | ビューインプレッション数      | Viewable Impressi
 INVIEW_RATE      | ビューインプレッション率      | Viewable Impression Rate     | viewableImpressionRate          | long | -
 INVIEW_CLICK           | ビュークリック数      | Viewable Clicks            | viewableClicks          | long | -
 INVIEW_CLICK_RATE           | ビュークリック率      | Viewable CTR            | viewableCtr          | long | -
-
+AUTO_VIDEO_PLAYS   　       | 動画の自動再生数      | Auto Video Plays         | autoVideoPlays          | long | -
+CLICK_VIDEO_PLAYS           | クリックによる動画再生数      | Click Video Plays       | 	clickVideoPlays    | long | -
+VIDEO_VIEWED_RATE           | 動画の再生率      | Video Viewed Rate            | videoViewedRate          | double | -
+AVG_CPV                     | 平均CPV      | Average CPV            | avgCpv          | double | -
+VIDEO_PLAYS                 | 動画が再生開始された回数      | Video Plays            | videoPlays          | long | -
+VIDEO_VIEWS_TO_25           | 動画が25%まで再生された回数      | Video Views to 25%    | videoViewsTo25      | long | -
+VIDEO_VIEWS_TO_50           | 動画が50%まで再生された回数      | Video Views to 50%     | videoViewsTo50       | long | -
+VIDEO_VIEWS_TO_75           | 動画が75%まで再生された回数      | Video Views to 75%      | videoViewsTo75      | long | -
+VIDEO_VIEWS_TO_95           | 動画が95%まで再生された回数      | Video Views to 95%      | videoViewsTo95      | long | -
+VIDEO_VIEWS_TO_100          | 動画が100%まで再生された回数      |Video Views to 100%      | videoViewsTo100      | long | -
+AVG_PERCENT_VIDEO_VIEWED    | 動画の平均再生率      | Average % of Video Viewed      | avgPercentVideoViewed     | double | -
+AVG_DURATION_VIDEO_VIEWED   | 動画の平均再生時間（秒） | Average Duration of Video Viewed | avgDurationVideoViewed  | double | -
 
 ### レスポンス詳細
-<a name="ad_type">
+<a name="ad_type"></a>
 ##### AD_TYPEレスポンス
 値           | 表示名（日本語）  | 表示名（英語）
 -------------------- | ------------------------ | ---------------------- 
@@ -84,7 +95,7 @@ RESPONSIVE | レスポンシブ | Responsive
 STATIC_FRAME_300X250 | 広告枠サイズ固定（300×250） | Static Frame(300×250)
 NOT_REQUIRED | テキスト不要 | Text not required
 
-<a name="gender">
+<a name="gender"></a>
 ##### GENDERレスポンス
 値           | 表示名（日本語）  | 表示名（英語）
 -------------------- | ------------------------ | ---------------------- 
@@ -94,7 +105,7 @@ UNKNOWN | 不明 | Unknown
 MALE_ADV | 男性（拡張） | Male (adv.)
 FEMALE_ADV | 女性（拡張） | Female (adv.)
 
-<a name="age">
+<a name="age"></a>
 ##### AGEレスポンス
 表示名（日本語）  | 表示名（英語） 
  ------------------------ | ---------------------- 
@@ -124,11 +135,11 @@ FEMALE_ADV | 女性（拡張） | Female (adv.)
 60歳～69歳（拡張） | Age / 60s (adv.)
 70歳～（拡張） | Age / Over 70 (adv.)
 
-<a name="deliver">
+<a name="deliver"></a>
 ##### DELIVERレスポンス
 各アカウントで使用可能なレポートのフィールドは、<a href="../services/ReportDefinitionService.md">ReportDefinitionServiceのgetReportFields</a>よりご確認ください。
 
-<a name="device">
+<a name="device"></a>
 ##### DEVICEレスポンス
 表示名（日本語）  | 表示名（英語）
  ------------------------ | ---------------------- 
@@ -138,7 +149,7 @@ PC | PC
 タブレット端末 | Tablet
 そのほか | Other
 
-<a name="ad_style">
+<a name="ad_style"></a>
 ##### AD_STYLEレスポンス
 表示名（日本語）  | 表示名（英語） 
  ------------------------ | ---------------------- 
@@ -148,7 +159,7 @@ PC | PC
 テンプレート（静止画） | Template Ad (Static Image)
 動画 | Video Ad
 
-<a name="media_ad_format">
+<a name="media_ad_format"></a>
 ##### MEDIA_AD_FORMATレスポンス
 表示名（日本語）  | 表示名（英語）
  ------------------------ | ---------------------- 
@@ -181,7 +192,7 @@ PC | PC
 180x180 | 180x180
 300x300 | 300x300
 
-<a name="carrier">
+<a name="carrier"></a>
 ##### CARRIERレスポンス
 表示名（日本語）  | 表示名（英語） 
  ------------------------ | ---------------------- 
@@ -190,7 +201,7 @@ KDDI | KDDI
 SoftBank | SoftBank
 その他 | Other
 
-<a name="ad_layout">
+<a name="ad_layout"></a>
 ##### AD_LAYOUTレスポンス
 値           | 表示名（日本語）  | 表示名（英語）
 -------------------- | ------------------------ | ---------------------- 
@@ -198,7 +209,7 @@ SQUARE_BANNER_TOP | スクエアバナー（トップ） | Square Banner (Top)
 WIDE_BANNER_TOP | ワイドバナー（トップ） | Wide Banner (Top)
 WIDE_BANNER_MIDDLE | ワイドバナー（ミドル） | Wide Banner (Middle)
 
-<a name="image_option">
+<a name="image_option"></a>
 ##### IMAGE_OPTIONレスポンス
 値          | 表示名（日本語）  | 表示名（英語）
 -------------------- | ------------------------ | ---------------------- 
