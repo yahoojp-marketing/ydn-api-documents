@@ -80,8 +80,6 @@ VIDEO_VIEWS_TO_100          | 動画が100%まで再生された回数      |Vid
 AVG_PERCENT_VIDEO_VIEWED    | 動画の平均再生率      | Average % of Video Viewed      | avgPercentVideoViewed     | double | -
 AVG_DURATION_VIDEO_VIEWED   | 動画の平均再生時間（秒） | Average Duration of Video Viewed | avgDurationVideoViewed  | double | -
 
-
-
 ### レスポンス詳細
 <a name="ad_type">
 ##### AD_TYPEレスポンス
