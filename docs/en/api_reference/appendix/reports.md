@@ -81,7 +81,7 @@ AVG_PERCENT_VIDEO_VIEWED    | 動画の平均再生率      | Average % of Video
 AVG_DURATION_VIDEO_VIEWED   | 動画の平均再生時間（秒） | Average Duration of Video Viewed | avgDurationVideoViewed  | double | -
 
 ### Response Details
-<a name="ad_type">
+<a name="ad_type"></a>
 ##### AD_TYPE Response
 Value           | Display Name (Japanese)  | Display Name (English) 
 -------------------- | ------------------------ | ---------------------- 
@@ -95,7 +95,7 @@ RESPONSIVE | レスポンシブ | Responsive
 STATIC_FRAME_300X250 | 広告枠サイズ固定（300×250） | Static Frame(300×250)
 NOT_REQUIRED | テキスト不要 | Text not required
 
-<a name="gender">
+<a name="gender"></a>
 ##### GENDER Response
 Value           | Display Name (Japanese)  | Display Name (English) 
 -------------------- | ------------------------ | ---------------------- 
@@ -105,7 +105,7 @@ UNKNOWN | 不明 | Unknown
 MALE_ADV | 男性（拡張） | Male (adv.)
 FEMALE_ADV | 女性（拡張） | Female (adv.)
 
-<a name="age">
+<a name="age"></a>
 ##### AGE Response
  Display Name (Japanese)  | Display Name (English) 
  ------------------------ | ---------------------- 
@@ -136,12 +136,12 @@ FEMALE_ADV | 女性（拡張） | Female (adv.)
 70歳～（拡張） | Age / Over 70 (adv.)
 
 
-<a name="deliver">
+<a name="deliver"></a>
 ##### DELIVER Response
 To confirm the available fields for each account, please use <a href="../services/ReportDefinitionService.md">getReportFields from ReportDefinitionService</a>.
 
 
-<a name="device">
+<a name="device"></a>
 ##### DEVICE  Response
  Display Name (Japanese)  | Display Name (English) 
  ------------------------ | ---------------------- 
@@ -151,7 +151,7 @@ PC | PC
 タブレット端末 | Tablet
 そのほか | Other
 
-<a name="ad_style">
+<a name="ad_style"></a>
 ##### AD_STYLE Response
  Display Name (Japanese)  | Display Name (English) 
  ------------------------ | ---------------------- 
@@ -162,7 +162,7 @@ PC | PC
 動画 | Video Ad
 
 
-<a name="media_ad_format">
+<a name="media_ad_format"></a>
 ##### MEDIA_AD_FORMAT Response
  Display Name (Japanese)  | Display Name (English) 
  ------------------------ | ---------------------- 
@@ -195,7 +195,7 @@ PC | PC
 180x180 | 180x180
 300x300 | 300x300
 
-<a name="carrier">
+<a name="carrier"></a>
 ##### CARRIER Response
  Display Name (Japanese)  | Display Name (English) 
  ------------------------ | ---------------------- 
@@ -204,7 +204,7 @@ KDDI | KDDI
 SoftBank | SoftBank
 その他 | Other
 
-<a name="ad_layout">
+<a name="ad_layout"></a>
 ##### AD_LAYOUT Response
 Value           | Display Name (Japanese)  | Display Name (English) 
 -------------------- | ------------------------ | ---------------------- 
@@ -212,7 +212,7 @@ SQUARE_BANNER_TOP | スクエアバナー（トップ） | Square Banner (Top)
 WIDE_BANNER_TOP | ワイドバナー（トップ） | Wide Banner (Top)
 WIDE_BANNER_MIDDLE | ワイドバナー（ミドル） | Wide Banner (Middle)
 
-<a name="image_option">
+<a name="image_option"></a>
 ##### IMAGE_OPTION Response
 Value           | Display Name (Japanese)  | Display Name (English) 
 -------------------- | ------------------------ | ---------------------- 

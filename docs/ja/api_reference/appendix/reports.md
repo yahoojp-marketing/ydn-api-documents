@@ -78,7 +78,7 @@ VIDEO_VIEWS_TO_75           | 動画が75%まで再生された回数      | Vid
 VIDEO_VIEWS_TO_95           | 動画が95%まで再生された回数      | Video Views to 95%      | videoViewsTo95      | long | -
 VIDEO_VIEWS_TO_100          | 動画が100%まで再生された回数      |Video Views to 100%      | videoViewsTo100      | long | -
 AVG_PERCENT_VIDEO_VIEWED    | 動画の平均再生率      | Average % of Video Viewed      | avgPercentVideoViewed     | double | -
-AVG_DURATION_VIDEO_VIEWED   | 動画の平均再生時間（秒） | Average Duration of Video Viewed | avgDurationVideoViewed  | double | -  
+AVG_DURATION_VIDEO_VIEWED   | 動画の平均再生時間（秒） | Average Duration of Video Viewed | avgDurationVideoViewed  | double | -
 
 ### レスポンス詳細
 <a name="ad_type"></a>
