@@ -81,7 +81,7 @@ AVG_PERCENT_VIDEO_VIEWED    | 動画の平均再生率      | Average % of Video
 AVG_DURATION_VIDEO_VIEWED   | 動画の平均再生時間（秒） | Average Duration of Video Viewed | avgDurationVideoViewed  | double | -  
 
 ### レスポンス詳細
-<a name="ad_type">
+<a name="ad_type"></a>
 ##### AD_TYPEレスポンス
 値           | 表示名（日本語）  | 表示名（英語）
 -------------------- | ------------------------ | ---------------------- 
@@ -95,7 +95,7 @@ RESPONSIVE | レスポンシブ | Responsive
 STATIC_FRAME_300X250 | 広告枠サイズ固定（300×250） | Static Frame(300×250)
 NOT_REQUIRED | テキスト不要 | Text not required
 
-<a name="gender">
+<a name="gender"></a>
 ##### GENDERレスポンス
 値           | 表示名（日本語）  | 表示名（英語）
 -------------------- | ------------------------ | ---------------------- 
@@ -105,7 +105,7 @@ UNKNOWN | 不明 | Unknown
 MALE_ADV | 男性（拡張） | Male (adv.)
 FEMALE_ADV | 女性（拡張） | Female (adv.)
 
-<a name="age">
+<a name="age"></a>
 ##### AGEレスポンス
 表示名（日本語）  | 表示名（英語） 
  ------------------------ | ---------------------- 
@@ -135,11 +135,11 @@ FEMALE_ADV | 女性（拡張） | Female (adv.)
 60歳～69歳（拡張） | Age / 60s (adv.)
 70歳～（拡張） | Age / Over 70 (adv.)
 
-<a name="deliver">
+<a name="deliver"></a>
 ##### DELIVERレスポンス
 各アカウントで使用可能なレポートのフィールドは、<a href="../services/ReportDefinitionService.md">ReportDefinitionServiceのgetReportFields</a>よりご確認ください。
 
-<a name="device">
+<a name="device"></a>
 ##### DEVICEレスポンス
 表示名（日本語）  | 表示名（英語）
  ------------------------ | ---------------------- 
@@ -149,7 +149,7 @@ PC | PC
 タブレット端末 | Tablet
 そのほか | Other
 
-<a name="ad_style">
+<a name="ad_style"></a>
 ##### AD_STYLEレスポンス
 表示名（日本語）  | 表示名（英語） 
  ------------------------ | ---------------------- 
@@ -159,7 +159,7 @@ PC | PC
 テンプレート（静止画） | Template Ad (Static Image)
 動画 | Video Ad
 
-<a name="media_ad_format">
+<a name="media_ad_format"></a>
 ##### MEDIA_AD_FORMATレスポンス
 表示名（日本語）  | 表示名（英語）
  ------------------------ | ---------------------- 
@@ -192,7 +192,7 @@ PC | PC
 180x180 | 180x180
 300x300 | 300x300
 
-<a name="carrier">
+<a name="carrier"></a>
 ##### CARRIERレスポンス
 表示名（日本語）  | 表示名（英語） 
  ------------------------ | ---------------------- 
@@ -201,7 +201,7 @@ KDDI | KDDI
 SoftBank | SoftBank
 その他 | Other
 
-<a name="ad_layout">
+<a name="ad_layout"></a>
 ##### AD_LAYOUTレスポンス
 値           | 表示名（日本語）  | 表示名（英語）
 -------------------- | ------------------------ | ---------------------- 
@@ -209,7 +209,7 @@ SQUARE_BANNER_TOP | スクエアバナー（トップ） | Square Banner (Top)
 WIDE_BANNER_TOP | ワイドバナー（トップ） | Wide Banner (Top)
 WIDE_BANNER_MIDDLE | ワイドバナー（ミドル） | Wide Banner (Middle)
 
-<a name="image_option">
+<a name="image_option"></a>
 ##### IMAGE_OPTIONレスポンス
 値          | 表示名（日本語）  | 表示名（英語）
 -------------------- | ------------------------ | ---------------------- 
