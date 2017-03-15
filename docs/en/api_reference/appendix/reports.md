@@ -32,8 +32,8 @@ SITE_CATEGORY         | サイトカテゴリー名       | Site Category       
 INTEREST_CATEGORY     | インタレストカテゴリー名    | Interest Category           | interestCategory     | string | -
 DELIVER_URL       | 配信先URL         | Ad Delivery URL          | adDeliveryURL       | string | -
 AD_STYLE   | 掲載フォーマット（画像タイプ） | Ad Style (Image Type) | adStyle   | string | [AD_STYLE Response](#ad_style)
-MEDIA_ID              | 画像ID            | Image ID                           | imageID              | long | -  
-MEDIA_NAME            | 画像名             | Image Name                        | imageName            | string | -
+MEDIA_ID              | メディアID            | Media ID                           | imageID              | string | -  
+MEDIA_NAME            | メディア名             | Media Name                        | imageName            | string | -
 MEDIA_FILE_NAME       | ファイル名             | File Name                      | fileName            | string | -
 MEDIA_AD_FORMAT      | ピクセルサイズ           | Pixel Size                    | pixelSize           | string   | [MEDIA_AD_FORMAT Response](#media_ad_format)
 AD_TITLE                | タイトル            | Title                    | title                | string | -
@@ -67,7 +67,18 @@ VIEWABLE_IMPS           | ビューインプレッション数      | Viewable I
 INVIEW_RATE           | ビューインプレッション率      | Viewable Impression Rate     | viewableImpressionRate      | long | -
 INVIEW_CLICK           | ビュークリック数      | Viewable Clicks            | viewableClicks          | long | -
 INVIEW_CLICK_RATE           | ビュークリック率      | Viewable CTR            | viewableCtr          | long | -
-
+AUTO_VIDEO_PLAYS   　       | 動画の自動再生数      | Auto Video Plays         | autoVideoPlays          | long | -
+CLICK_VIDEO_PLAYS           | クリックによる動画再生数      | Click Video Plays       | 	clickVideoPlays    | long | -
+VIDEO_VIEWED_RATE           | 動画の再生率      | Video Viewed Rate            | videoViewedRate          | double | -
+AVG_CPV                     | 平均CPV      | Average CPV            | avgCpv          | double | -
+VIDEO_PLAYS                 | 動画が再生開始された回数      | Video Plays            | videoPlays          | long | -
+VIDEO_VIEWS_TO_25           | 動画が25%まで再生された回数      | Video Views to 25%    | videoViewsTo25      | long | -
+VIDEO_VIEWS_TO_50           | 動画が50%まで再生された回数      | Video Views to 50%     | videoViewsTo50       | long | -
+VIDEO_VIEWS_TO_75           | 動画が75%まで再生された回数      | Video Views to 75%      | videoViewsTo75      | long | -
+VIDEO_VIEWS_TO_95           | 動画が95%まで再生された回数      | Video Views to 95%      | videoViewsTo95      | long | -
+VIDEO_VIEWS_TO_100          | 動画が100%まで再生された回数      |Video Views to 100%      | videoViewsTo100      | long | -
+AVG_PERCENT_VIDEO_VIEWED    | 動画の平均再生率      | Average % of Video Viewed      | avgPercentVideoViewed     | double | -
+AVG_DURATION_VIDEO_VIEWED   | 動画の平均再生時間（秒） | Average Duration of Video Viewed | avgDurationVideoViewed  | double | -
 
 ### Response Details
 <a name="ad_type">
