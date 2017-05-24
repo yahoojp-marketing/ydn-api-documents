@@ -137,7 +137,8 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
  </tr>
  <tr>
   <td>bid</td>
-  <td>AdGroupAdBid<br>inherited <a href="../data/ManualCPCAdGroupAdBid.md">ManualCPCAdGroupAdBid</a></td>
+  <td>AdGroupAdBid<br>inherited<br>
+  <a href="./ManualCPCAdGroupAdBid.md">ManualCPCAdGroupAdBid</a><br> <a href="./ManualCPVAdGroupAdBid.md">ManualCPVAdGroupAdBid</a></td>
   <td>入札価格です。</td>
   <td>yes</td>
   <td>-</td>
@@ -153,6 +154,7 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
   inherited <a href="../data/PosAd.md">PosAd</a><br>
   inherited <a href="../data/ResponsiveAd.md">ResponsiveAd</a><br>
   inherited <a href="../data/StaticFrameAd.md">StaticFrameAd</a><br>
+  inherited <a href="../data/VideoAd.md">VideoAd</a><br>
   inherited <a href="../data/None.md">None</a></td>
   <td>広告を含むコンテナです。</td>
   <td>yes</td>

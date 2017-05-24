@@ -6,7 +6,7 @@ RetargetingListServiceでは、サイトリターゲティングのターゲッ�
 | production  | https://location.im.yahooapis.jp/services/Vx.x/RetargetingListService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/RetargetingListService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 サイトリターゲティングターゲットリストの取得および作成・更新・削除を行います。<br>
 <br>
@@ -35,17 +35,17 @@ RetargetingListServiceで提供される操作を説明します。
 |---|---|---|---|
 | selector | ○ | [RetargetingListSelector](../data/RetargetingListSelector.md) | サイトリターゲティングのターゲットリスト情報を取得します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -56,46 +56,12 @@ RetargetingListServiceで提供される操作を説明します。
                 <ns1:targetListIds>9000000001</ns1:targetListIds>
                 <ns1:targetListIds>9000000002</ns1:targetListIds>
                 <ns1:targetListIds>9000000003</ns1:targetListIds>
+                <ns1:targetListIds>9000000004</ns1:targetListIds>
                 <ns1:targetListTypes>RULE</ns1:targetListTypes>
                 <ns1:targetListTypes>COMBINATION</ns1:targetListTypes>
                 <ns1:targetListTypes>DEFAULT_LIST</ns1:targetListTypes>
-                <ns1:paging>
-                    <ns1:startIndex>1</ns1:startIndex>
-                    <ns1:numberResults>20</ns1:numberResults>
-                </ns1:paging>
-            </ns1:selector>
-        </ns1:get>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:selector>
-                <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:targetListIds>9000000001</ns1:targetListIds>
-                <ns1:targetListIds>9000000002</ns1:targetListIds>
-                <ns1:targetListIds>9000000003</ns1:targetListIds>
-                <ns1:targetListTypes>RULE</ns1:targetListTypes>
-                <ns1:targetListTypes>COMBINATION</ns1:targetListTypes>
-                <ns1:targetListTypes>DEFAULT_LIST</ns1:targetListTypes>
+                <ns1:targetListTypes>SIMILARITY</ns1:targetListTypes>
+                <ns1:targetListTypes>CUSTOM_AUDIENCE</ns1:targetListTypes>
                 <ns1:paging>
                     <ns1:startIndex>1</ns1:startIndex>
                     <ns1:numberResults>20</ns1:numberResults>
@@ -116,7 +82,7 @@ RetargetingListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -131,6 +97,21 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:rval>
                 <ns1:totalNumEntries>2</ns1:totalNumEntries>
                 <ns1:Page.Type>RetargetingListPage</ns1:Page.Type>
+               <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:retargetingList>
+                        <ns1:accountId>1000000001</ns1:accountId>
+                        <ns1:targetListId>9000000004</ns1:targetListId>
+                        <ns1:targetListName>CustomAudience_List</ns1:targetListName>
+                        <ns1:description>example for CustomAudience_List</ns1:description>
+                        <ns1:deliveryStatus>ACTIVE</ns1:deliveryStatus>
+                       <ns1:targetList xsi:type="ns1:CustomAudienceTargetList">
+                            <ns1:targetListType>CUSTOM_AUDIENCE</ns1:targetListType>
+                            <ns1:reachPeriod>60</ns1:reachPeriod>
+                            <ns1:customAudienceId>123abc</ns1:customAudienceId>
+                        </ns1:targetList>                       
+                    </ns1:retargetingList>
+                </ns1:values>               
                 <ns1:values>
                     <ns1:operationSucceeded>true</ns1:operationSucceeded>
                     <ns1:retargetingList>
@@ -170,7 +151,7 @@ RetargetingListServiceで提供される操作を説明します。
                                     <ns1:value>label2</ns1:value>
                                 </ns1:ruleConditions>
                             </ns1:rules>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
                 <ns1:values>
@@ -183,7 +164,7 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:deliveryStatus>ACTIVE</ns1:deliveryStatus>
                         <ns1:reach>500</ns1:reach>
                         <ns1:targetList xsi:type="ns1:CombinationTargetList">
-                            <ns1:targetListType>COMBINATION</ns1:targetListType>
+                            <ns1:targetListType>COMBINATION</ns1:targetListType>                           
                             <ns1:combinations>
                                 <ns1:logicalOperator>NOTIN</ns1:logicalOperator>
                                 <ns1:targetLists>
@@ -206,7 +187,7 @@ RetargetingListServiceで提供される操作を説明します。
                                     <ns1:targetListName>TargetListName_5</ns1:targetListName>
                                 </ns1:targetLists>
                             </ns1:combinations>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
                 <ns1:values>
@@ -224,7 +205,7 @@ RetargetingListServiceで提供される操作を説明します。
                             <ns1:isPreset>FALSE</ns1:isPreset>
                             <ns1:isOpen>TRUE</ns1:isOpen>
                             <ns1:reachPeriod>540</ns1:reachPeriod>
-                        </ns1:targetList>                        
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
             </ns1:rval>
@@ -247,11 +228,11 @@ RetargetingListServiceで提供される操作を説明します。
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -260,8 +241,7 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:operations>
                 <ns1:operator>ADD</ns1:operator>
                 <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:targetListType>RULE</ns1:targetListType>
-                <ns1:operand>
+               <ns1:operand>
                     <ns1:accountId>1000000001</ns1:accountId>
                     <ns1:targetListName>Rule_Target</ns1:targetListName>
                     <ns1:description>example for Rule</ns1:description>
@@ -295,7 +275,7 @@ RetargetingListServiceで提供される操作を説明します。
                                 <ns1:value>label2</ns1:value>
                             </ns1:ruleConditions>
                         </ns1:rules>
-                    </ns1:targetList>
+                    </ns1:targetList>                      
                 </ns1:operand>
                 <ns1:operand>
                     <ns1:accountId>1000000001</ns1:accountId>
@@ -308,7 +288,7 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:isOpen>TRUE</ns1:isOpen>
                         <ns1:reachPeriod>540</ns1:reachPeriod>
                         <ns1:rules></ns1:rules>
-                    </ns1:targetList>
+                    </ns1:targetList>                      
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -322,11 +302,11 @@ RetargetingListServiceで提供される操作を説明します。
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
             <ns1:accountId>100000001</ns1:accountId>
             <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
@@ -338,13 +318,11 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:operations>
                 <ns1:operator>ADD</ns1:operator>
                 <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:targetListType>COMBINATION</ns1:targetListType>
-                <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
-                    <ns1:targetListName>TargetListName_2</ns1:targetListName>
+              <ns1:operand>
+                   <ns1:targetListName>TargetListName_2</ns1:targetListName>
                     <ns1:description>TargetListDescription_2</ns1:description>
                     <ns1:targetList xsi:type="ns1:CombinationTargetList">
-                        <ns1:targetListType>COMBINATION</ns1:targetListType>
+                        <ns1:targetListType>COMBINATION</ns1:targetListType>                          
                         <ns1:combinations>
                             <ns1:logicalOperator>NOTIN</ns1:logicalOperator>
                             <ns1:targetLists>
@@ -377,11 +355,11 @@ RetargetingListServiceで提供される操作を説明します。
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -390,20 +368,51 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:operations>
                 <ns1:operator>ADD</ns1:operator>
                 <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:targetListType>SIMILARITY</ns1:targetListType>
                 <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
-                    <ns1:targetListName>Similarity_Target</ns1:targetListName>
+                   <ns1:targetListName>Similarity_Target</ns1:targetListName>
                     <ns1:description>example for Similarity</ns1:description>
                     <ns1:targetList xsi:type="ns1:SimilarityTargetList">
                         <ns1:targetListType>SIMILARITY</ns1:targetListType>
                         <ns1:targetListId>9000000000</ns1:targetListId>
-                    </ns1:targetList>
+                    </ns1:targetList>                       
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+```
+
+##### ＜リクエストサンプル＞（カスタムオーディエンスリストの場合）
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:ns1="http://im.yahooapis.jp/V6">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
+            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutate>
+            <ns1:operations>
+                <ns1:operator>ADD</ns1:operator>
+                <ns1:accountId>1000000001</ns1:accountId>
+               <ns1:operand>
+                   <ns1:targetListName>Example Custom Audience TargetList</ns1:targetListName>
+                    <ns1:description>Example for CustomAudienceTargetList</ns1:description>
+                    <ns1:targetList xsi:type="ns1:CustomAudienceTargetList">
+                        <ns1:targetListType>CUSTOM_AUDIENCE</ns1:targetListType>
+                        <ns1:reachPeriod>60</ns1:reachPeriod>
+                    </ns1:targetList>                     
+                </ns1:operand>
+            </ns1:operations>
+        </ns1:mutate>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope> 
 ```
 
 ### レスポンス
@@ -416,7 +425,7 @@ RetargetingListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -469,7 +478,7 @@ RetargetingListServiceで提供される操作を説明します。
                                  <ns1:value>label2</ns1:value>
                              </ns1:ruleConditions>
                          </ns1:rules>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
                 <ns1:values>
@@ -486,7 +495,7 @@ RetargetingListServiceで提供される操作を説明します。
                             <ns1:isPreset>TRUE</ns1:isPreset>
                             <ns1:isOpen>TRUE</ns1:isOpen>
                             <ns1:reachPeriod>540</ns1:reachPeriod>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
             </ns1:rval>
@@ -500,7 +509,7 @@ RetargetingListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -524,7 +533,7 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:description>TargetListDescription_2</ns1:description>
                         <ns1:deliveryStatus>ACTIVE</ns1:deliveryStatus>
                         <ns1:targetList xsi:type="ns1:CombinationTargetList">
-                            <ns1:targetListType>COMBINATION</ns1:targetListType>
+                            <ns1:targetListType>COMBINATION</ns1:targetListType>                           
                             <ns1:combinations>
                                 <ns1:logicalOperator>NOTIN</ns1:logicalOperator>
                                 <ns1:targetLists>
@@ -547,7 +556,7 @@ RetargetingListServiceで提供される操作を説明します。
                                     <ns1:targetListName>TargetListName_5</ns1:targetListName>
                                 </ns1:targetLists>
                             </ns1:combinations>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
             </ns1:rval>
@@ -561,7 +570,7 @@ RetargetingListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -587,13 +596,54 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:targetList xsi:type="ns1:SimilarityTargetList">
                             <ns1:targetListType>SIMILARITY</ns1:targetListType>
                             <ns1:targetListId>9000000000</ns1:targetListId>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
             </ns1:rval>
         </ns1:mutateResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+```
+
+##### ＜レスポンスサンプル＞（カスタムオーディエンスリスト）
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>RetargetingListService</ns1:service>
+            <ns1:remainingQuota>-1</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>RetargetingListReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>ADD</ns1:Operation.Type>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:retargetingList>
+                        <ns1:accountId>1000000001</ns1:accountId>
+                        <ns1:targetListId>9000000004</ns1:targetListId>
+                        <ns1:targetListName>Example Custom Audience TargetList</ns1:targetListName>
+                        <ns1:description>Example for CustomAudienceTargetList</ns1:description>
+                        <ns1:deliveryStatus>ACTIVE</ns1:deliveryStatus>
+                        <ns1:targetList xsi:type="ns1:CustomAudienceTargetList">
+                            <ns1:targetListType>CUSTOM_AUDIENCE</ns1:targetListType>
+                            <ns1:reachPeriod>60</ns1:reachPeriod>
+                            <ns1:customAudienceId>123abc</ns1:customAudienceId>
+                        </ns1:targetList>                      
+                    </ns1:retargetingList>
+                </ns1:values>
+            </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope> 
 ```
 
 ## mutate(SET)
@@ -609,11 +659,11 @@ RetargetingListServiceで提供される操作を説明します。
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -622,9 +672,7 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:operations>
                 <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:targetListType>RULE</ns1:targetListType>
                 <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
                     <ns1:targetListId>9000000001</ns1:targetListId>
                     <ns1:targetListName>Rull_Target</ns1:targetListName>
                     <ns1:description>example for Rull</ns1:description>
@@ -656,7 +704,7 @@ RetargetingListServiceで提供される操作を説明します。
                                 <ns1:value>label3</ns1:value>
                             </ns1:ruleConditions>
                         </ns1:rules>
-                    </ns1:targetList>
+                    </ns1:targetList>                       
                 </ns1:operand>
                 <ns1:operand>
                     <ns1:accountId>1000000001</ns1:accountId>
@@ -668,7 +716,7 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:isOpen>FALSE</ns1:isOpen>
                         <ns1:reachPeriod>530</ns1:reachPeriod>
                         <ns1:rules></ns1:rules>
-                    </ns1:targetList>
+                    </ns1:targetList>                       
                 </ns1:operand>
                 <ns1:operand>
                     <ns1:accountId>1000000001</ns1:accountId>
@@ -679,7 +727,7 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:targetListType>RULE</ns1:targetListType>
                         <ns1:isOpen>FALSE</ns1:isOpen>
                         <ns1:reachPeriod>530</ns1:reachPeriod>
-                    </ns1:targetList>
+                    </ns1:targetList>                       
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -693,11 +741,11 @@ RetargetingListServiceで提供される操作を説明します。
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
             <ns1:accountId>100000001</ns1:accountId>
             <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
@@ -709,14 +757,12 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:operations>
                 <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:targetListType>COMBINATION</ns1:targetListType>
                 <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
                     <ns1:targetListId>9000000002</ns1:targetListId>
                     <ns1:targetListName>TargetListName_2</ns1:targetListName>
                     <ns1:description>TargetListDescription_2</ns1:description>
                     <ns1:targetList xsi:type="ns1:CombinationTargetList">
-                        <ns1:targetListType>COMBINATION</ns1:targetListType>
+                        <ns1:targetListType>COMBINATION</ns1:targetListType>                           
                         <ns1:combinations>
                             <ns1:logicalOperator>NOTIN</ns1:logicalOperator>
                             <ns1:targetLists>
@@ -749,11 +795,11 @@ RetargetingListServiceで提供される操作を説明します。
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -762,9 +808,7 @@ RetargetingListServiceで提供される操作を説明します。
             <ns1:operations>
                 <ns1:operator>SET</ns1:operator>
                 <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:targetListType>SIMILARITY</ns1:targetListType>
                 <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
                     <ns1:targetListId>9000000001</ns1:targetListId>
                     <ns1:targetListName>Similarity_Target</ns1:targetListName>
                     <ns1:description>example for Similarity</ns1:description>
@@ -773,6 +817,38 @@ RetargetingListServiceで提供される操作を説明します。
         </ns1:mutate>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+```
+
+##### ＜リクエストサンプル＞（カスタムオーディエンスリスト）
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:ns1="http://im.yahooapis.jp/V6">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
+            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutate>
+            <ns1:operations>
+                <ns1:operator>SET</ns1:operator>
+                <ns1:accountId>1000000001</ns1:accountId>
+                <ns1:operand>
+                    <ns1:targetListId>9000000004</ns1:targetListId>
+                   <ns1:targetList xsi:type="ns1:CustomAudienceTargetList">
+                        <ns1:targetListType>CUSTOM_AUDIENCE</ns1:targetListType>
+                        <ns1:reachPeriod>10</ns1:reachPeriod>
+                    </ns1:targetList>                      
+                </ns1:operand>
+            </ns1:operations>
+        </ns1:mutate>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope> 
 ```
 
 ### レスポンス
@@ -785,7 +861,7 @@ RetargetingListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -838,7 +914,7 @@ RetargetingListServiceで提供される操作を説明します。
                                  <ns1:value>label3</ns1:value>
                              </ns1:ruleConditions>
                          </ns1:rules>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
                 <ns1:values>
@@ -855,7 +931,7 @@ RetargetingListServiceで提供される操作を説明します。
                             <ns1:isPreset>TRUE</ns1:isPreset>
                             <ns1:isOpen>FALSE</ns1:isOpen>
                             <ns1:reachPeriod>530</ns1:reachPeriod>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
                 <ns1:values>
@@ -884,7 +960,7 @@ RetargetingListServiceで提供される操作を説明します。
                                     <ns1:value>label4</ns1:value>
                                 </ns1:ruleConditions>
                             </ns1:rules>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
             </ns1:rval>
@@ -898,7 +974,7 @@ RetargetingListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -922,7 +998,7 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:description>TargetListDescription_2</ns1:description>
                         <ns1:deliveryStatus>ACTIVE</ns1:deliveryStatus>
                         <ns1:targetList xsi:type="ns1:CombinationTargetList">
-                            <ns1:targetListType>COMBINATION</ns1:targetListType>
+                            <ns1:targetListType>COMBINATION</ns1:targetListType>                           
                             <ns1:combinations>
                                 <ns1:logicalOperator>NOTIN</ns1:logicalOperator>
                                 <ns1:targetLists>
@@ -945,7 +1021,7 @@ RetargetingListServiceで提供される操作を説明します。
                                     <ns1:targetListName>TargetListName_5</ns1:targetListName>
                                 </ns1:targetLists>
                             </ns1:combinations>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
             </ns1:rval>
@@ -959,7 +1035,7 @@ RetargetingListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -985,7 +1061,48 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:targetList xsi:type="ns1:SimilarityTargetList">
                             <ns1:targetListType>SIMILARITY</ns1:targetListType>
                             <ns1:targetListId>9000000000</ns1:targetListId>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
+                    </ns1:retargetingList>
+                </ns1:values>
+            </ns1:rval>
+        </ns1:mutateResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+##### ＜リクエストサンプル＞（カスタムオーディエンスリスト）
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>RetargetingListService</ns1:service>
+            <ns1:remainingQuota>-1</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:mutateResponse>
+            <ns1:rval>
+                <ns1:ListReturnValue.Type>RetargetingListReturnValue</ns1:ListReturnValue.Type>
+                <ns1:Operation.Type>SET</ns1:Operation.Type>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:retargetingList>
+                        <ns1:accountId>1000000001</ns1:accountId>
+                        <ns1:targetListId>9000000004</ns1:targetListId>
+                        <ns1:targetListName>Example Custom Audience TargetList</ns1:targetListName>
+                        <ns1:description>Example for CustomAudienceTargetList</ns1:description>
+                        <ns1:deliveryStatus>ACTIVE</ns1:deliveryStatus>
+                        <ns1:targetList xsi:type="ns1:CustomAudienceTargetList">
+                            <ns1:targetListType>CUSTOM_AUDIENCE</ns1:targetListType>
+                            <ns1:reachPeriod>10</ns1:reachPeriod>
+                            <ns1:customAudienceId>123abc</ns1:customAudienceId>
+                        </ns1:targetList>                      
                     </ns1:retargetingList>
                 </ns1:values>
             </ns1:rval>
@@ -1001,17 +1118,17 @@ RetargetingListServiceで提供される操作を説明します。
 |---|---|---|---|
 | operations | ○ | [RetargetingListOperation](../data/RetargetingListOperation.md)|サイトリターゲティングのターゲットリストを削除します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -1021,47 +1138,9 @@ RetargetingListServiceで提供される操作を説明します。
                 <ns1:operator>REMOVE</ns1:operator>
                 <ns1:accountId>1000000001</ns1:accountId>
                 <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
                     <ns1:targetListId>9000000001</ns1:targetListId>
                 </ns1:operand>
                 <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
-                    <ns1:targetListId>9000000002</ns1:targetListId>
-                </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml														
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>100000001</ns1:accountId>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>REMOVE</ns1:operator>
-                <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
-                    <ns1:targetListId>9000000001</ns1:targetListId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>1000000001</ns1:accountId>
                     <ns1:targetListId>9000000002</ns1:targetListId>
                 </ns1:operand>
             </ns1:operations>
@@ -1080,7 +1159,7 @@ RetargetingListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -1133,7 +1212,7 @@ RetargetingListServiceで提供される操作を説明します。
                                     <ns1:value>label2</ns1:value>
                                 </ns1:ruleConditions>
                             </ns1:rules>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
                 <ns1:values>
@@ -1145,7 +1224,7 @@ RetargetingListServiceで提供される操作を説明します。
                         <ns1:description>example for Combination</ns1:description>
                         <ns1:deliveryStatus>ACTIVE</ns1:deliveryStatus>
                         <ns1:targetList xsi:type="ns1:CombinationTargetList">
-                            <ns1:targetListType>COMBINATION</ns1:targetListType>
+                            <ns1:targetListType>COMBINATION</ns1:targetListType>                           
                             <ns1:combinations>
                                 <ns1:logicalOperator>NOTIN</ns1:logicalOperator>
                                 <ns1:targetLists>
@@ -1168,7 +1247,7 @@ RetargetingListServiceで提供される操作を説明します。
                                     <ns1:targetListName>TargetListName_5</ns1:targetListName>
                                 </ns1:targetLists>
                             </ns1:combinations>
-                        </ns1:targetList>
+                        </ns1:targetList>                       
                     </ns1:retargetingList>
                 </ns1:values>
             </ns1:rval>
@@ -1176,4 +1255,5 @@ RetargetingListServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

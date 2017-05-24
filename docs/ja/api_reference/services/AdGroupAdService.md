@@ -6,7 +6,7 @@ AdGroupAdServiceは広告の操作を提供します。
 | production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 広告の取得と更新を行います。
 #### 操作
@@ -25,7 +25,7 @@ AdGroupAdServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:ns1="http://im.yahooapis.jp/V5"
+  xmlns:ns1="http://im.yahooapis.jp/V6"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -66,7 +66,7 @@ AdGroupAdServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -127,7 +127,7 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -231,6 +231,28 @@ AdGroupAdServiceで提供される操作を説明します。
                         <ns1:colorSetId>123213</ns1:colorSetId>
                     </ns1:ad>
                </ns1:operand>
+                <ns1:operand>
+                    <ns1:accountId>111111111</ns1:accountId>
+                    <ns1:campaignId>2222222</ns1:campaignId>
+                    <ns1:adGroupId>3333333</ns1:adGroupId>
+                    <ns1:adName>広告名1e</ns1:adName>
+                    <ns1:userStatus>ACTIVE</ns1:userStatus>
+                    <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                        <ns1:type>MANUAL_CPV</ns1:type>
+                        <ns1:maxCpv>100</ns1:maxCpv>
+                    </ns1:bid>
+                    <ns1:ad xsi:type="ns1:VideoAd">
+                        <ns1:type>VIDEO_AD</ns1:type>
+                        <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
+                        <ns1:headline>タイトル</ns1:headline>
+                        <ns1:description>説明</ns1:description>
+                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                        <ns1:principal>主体者表記</ns1:principal>
+                        <ns1:logoMediaId>1111</ns1:logoMediaId>
+                    </ns1:ad>
+               </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
     </SOAP-ENV:Body>
@@ -246,7 +268,7 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -383,6 +405,36 @@ AdGroupAdServiceで提供される操作を説明します。
                    </ns1:adGroupAd>
                 </ns1:values>
                 <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupAd>
+                        <ns1:accountId>111111111</ns1:accountId>
+                        <ns1:campaignId>2222222</ns1:campaignId>
+                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
+                        <ns1:adGroupId>3333333</ns1:adGroupId>
+                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
+                        <ns1:adId>12341234</ns1:adId>
+                        <ns1:adName>広告名1e</ns1:adName >
+                        <ns1:adStyle>VIDEO</ns1:adStyle>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                            <ns1:type>MANUAL_CPV</ns1:type>
+                            <ns1:maxCpv>100</ns1:maxCpv>
+                        </ns1:bid>
+                        <ns1:ad xsi:type="ns1:VideoAd">
+                            <ns1:type>VIDEO_AD</ns1:type>
+                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
+                            <ns1:headline>タイトル</ns1:headline>
+                            <ns1:description>説明</ns1:description>
+                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                            <ns1:principal>主体者表記</ns1:principal>
+                            <ns1:logoMediaId>1111</ns1:logoMediaId>
+                        </ns1:ad>
+                   </ns1:adGroupAd>
+                </ns1:values>
+                <ns1:values>
                     <ns1:operationSucceeded>false</ns1:operationSucceeded>
                     <ns1:error>
                         <ns1:code>2012</ns1:code>
@@ -409,7 +461,7 @@ AdGroupAdServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -513,6 +565,28 @@ AdGroupAdServiceで提供される操作を説明します。
                         <ns1:colorSetId>123213</ns1:colorSetId>
                     </ns1:ad>
                </ns1:operand>
+                <ns1:operand>
+                    <ns1:accountId>111111111</ns1:accountId>
+                    <ns1:campaignId>2222222</ns1:campaignId>
+                    <ns1:adGroupId>3333333</ns1:adGroupId>
+                    <ns1:adName>広告名1e</ns1:adName>
+                    <ns1:userStatus>ACTIVE</ns1:userStatus>
+                    <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                        <ns1:type>MANUAL_CPV</ns1:type>
+                        <ns1:maxCpv>100</ns1:maxCpv>
+                    </ns1:bid>
+                    <ns1:ad xsi:type="ns1:VideoAd">
+                        <ns1:type>VIDEO_AD</ns1:type>
+                        <ns1:thumbnailMediaId>1234567</ns1:thumbnailMediaId>
+                        <ns1:headline>タイトル</ns1:headline>
+                        <ns1:description>説明</ns1:description>
+                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                        <ns1:principal>主体者表記</ns1:principal>
+                        <ns1:logoMediaId>1111</ns1:logoMediaId>
+                    </ns1:ad>
+               </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
     </SOAP-ENV:Body>
@@ -529,7 +603,7 @@ AdGroupAdServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -666,6 +740,36 @@ AdGroupAdServiceで提供される操作を説明します。
                    </ns1:adGroupAd>
                 </ns1:values>
                 <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupAd>
+                        <ns1:accountId>111111111</ns1:accountId>
+                        <ns1:campaignId>2222222</ns1:campaignId>
+                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
+                        <ns1:adGroupId>3333333</ns1:adGroupId>
+                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
+                        <ns1:adId>12341234</ns1:adId>
+                        <ns1:adName>広告名1e</ns1:adName >
+                        <ns1:adStyle>VIDEO</ns1:adStyle>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                            <ns1:type>MANUAL_CPV</ns1:type>
+                            <ns1:maxCpv>100</ns1:maxCpv>
+                        </ns1:bid>
+                        <ns1:ad xsi:type="ns1:VideoAd">
+                            <ns1:type>VIDEO_AD</ns1:type>
+                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
+                            <ns1:headline>タイトル</ns1:headline>
+                            <ns1:description>説明</ns1:description>
+                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                            <ns1:principal>主体者表記</ns1:principal>
+                            <ns1:logoMediaId>1111</ns1:logoMediaId>
+                        </ns1:ad>
+                   </ns1:adGroupAd>
+                </ns1:values>
+                <ns1:values>
                     <ns1:operationSucceeded>false</ns1:operationSucceeded>
                     <ns1:error>
                         <ns1:code>2012</ns1:code>
@@ -692,7 +796,7 @@ AdGroupAdServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -729,6 +833,12 @@ AdGroupAdServiceで提供される操作を説明します。
                     <ns1:adGroupId>3333333</ns1:adGroupId>
                     <ns1:adId>9999999</ns1:adId>
                 </ns1:operand>
+                <ns1:operand>
+                    <ns1:accountId>111111111</ns1:accountId>
+                    <ns1:campaignId>2222222</ns1:campaignId>
+                    <ns1:adGroupId>3333333</ns1:adGroupId>
+                    <ns1:adId>1231231</ns1:adId>
+                </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
     </SOAP-ENV:Body>
@@ -744,7 +854,7 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -877,6 +987,36 @@ AdGroupAdServiceで提供される操作を説明します。
                             <ns1:principal>主体者表記</ns1:principal>
                             <ns1:logoMediaId>1111</ns1:logoMediaId>
                             <ns1:colorSetId>123213</ns1:colorSetId>
+                        </ns1:ad>
+                   </ns1:adGroupAd>
+                </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupAd>
+                        <ns1:accountId>111111111</ns1:accountId>
+                        <ns1:campaignId>2222222</ns1:campaignId>
+                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
+                        <ns1:adGroupId>3333333</ns1:adGroupId>
+                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
+                        <ns1:adId>1231231</ns1:adId>
+                        <ns1:adName>広告名1e</ns1:adName >
+                        <ns1:adStyle>VIDEO</ns1:adStyle>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                            <ns1:type>MANUAL_CPV</ns1:type>
+                            <ns1:maxCpv>100</ns1:maxCpv>
+                        </ns1:bid>
+                        <ns1:ad xsi:type="ns1:VideoAd">
+                            <ns1:type>VIDEO_AD</ns1:type>
+                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
+                            <ns1:headline>タイトル</ns1:headline>
+                            <ns1:description>説明</ns1:description>
+                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                            <ns1:principal>主体者表記</ns1:principal>
+                            <ns1:logoMediaId>1111</ns1:logoMediaId>
                         </ns1:ad>
                    </ns1:adGroupAd>
                 </ns1:values>

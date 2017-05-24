@@ -6,7 +6,7 @@ CampaignServiceは、キャンペーンの操作を提供します。
 | production  | https://location.im.yahooapis.jp/services/Vx.x/CampaignService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/CampaignService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 キャンペーンの操作を提供します。
 #### 操作
@@ -24,7 +24,7 @@ CampaignServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
@@ -51,41 +51,6 @@ CampaignServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>1111-1111-1111-1111</ns1:license>
-      <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-      <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      <ns1:accountId>1111111111</ns1:accountId>
-      <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>1111111111</ns1:accountId>
-        <ns1:campaignIds>1111111110</ns1:campaignIds>
-        <ns1:campaignIds>2222222220</ns1:campaignIds>
-        <ns1:userStatus>ACTIVE</ns1:userStatus>
-        <ns1:userStatus>PAUSED</ns1:userStatus>       
-        <ns1:paging>
-          <ns1:startIndex>1</ns1:startIndex>
-          <ns1:numberResults>20</ns1:numberResults>
-        </ns1:paging>
-      </ns1:selector>
-    </ns1:get>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
@@ -96,7 +61,7 @@ CampaignServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -166,6 +131,25 @@ CampaignServiceで提供される操作を説明します。
                         </ns1:conversionOptimizer>
                     </ns1:campaign>
                 </ns1:values>
+                <ns1:values>
+                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                      <ns1:campaign>
+                         <ns1:accountId>1000000001</ns1:accountId>
+                         <ns1:campaignId>1000000003</ns1:campaignId>
+                         <ns1:campaignName>campaign name3</ns1:campaignName>
+                         <ns1:userStatus>ACTIVE</ns1:userStatus>
+                         <ns1:servingStatus>SERVING</ns1:servingStatus>
+                         <ns1:startDate>20170316</ns1:startDate>
+                         <ns1:endDate>20371231</ns1:endDate>
+                         <ns1:budget>
+                            <ns1:deliveryMethod>ACCELERATED</ns1:deliveryMethod>
+                         </ns1:budget>
+                         <ns1:biddingStrategy xsi:type="ns1:ManualCPV">
+                            <ns1:type>MANUAL_CPV</ns1:type>
+                         </ns1:biddingStrategy>
+                         <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                      </ns1:campaign>
+                </ns1:values>
             </ns1:rval>
         </ns1:getResponse>
     </SOAP-ENV:Body>
@@ -185,7 +169,7 @@ CampaignServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
      <ns1:RequestHeader>
@@ -233,68 +217,19 @@ CampaignServiceで提供される操作を説明します。
                         <ns1:impression>15</ns1:impression>
                     </ns1:frequencyCap>
                 </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-### レスポンス
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-       <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-       </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>ADD</ns1:operator>
-                <ns1:accountId>1111111111</ns1:accountId>
                 <ns1:operand>
-                    <ns1:accountId>1111111111</ns1:accountId>
-                    <ns1:campaignName>Sample campaign1</ns1:campaignName>
-                    <ns1:userStatus>PAUSED</ns1:userStatus>
-                    <ns1:startDate>20101201</ns1:startDate>
-                    <ns1:endDate>20101231</ns1:endDate>
-                    <ns1:budget>
-                        <ns1:amount>10000</ns1:amount>
-                        <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-                    </ns1:budget>
-                    <ns1:biddingStrategy xsi:type="ns1:ManualCPC">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                    </ns1:biddingStrategy>
-                    <ns1:adProductType>INTEREST_MATCH</ns1:adProductType>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>1111111111</ns1:accountId>
-                    <ns1:campaignName>Sample campaign2</ns1:campaignName>
+                    <ns1:accountId>100000001</ns1:accountId>
+                    <ns1:campaignName>Sample campaign3</ns1:campaignName>
                     <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:startDate>20120601</ns1:startDate>
+                    <ns1:startDate>20121201</ns1:startDate>
                     <ns1:endDate>20121231</ns1:endDate>
                     <ns1:budget>
                         <ns1:deliveryMethod>ACCELERATED</ns1:deliveryMethod>
                     </ns1:budget>
-                    <ns1:biddingStrategy xsi:type="ns1:ManualCPC">
-                        <ns1:type>MANUAL_CPC</ns1:type>
+                    <ns1:biddingStrategy xsi:type="ns1:ManualCPV">
+                        <ns1:type>MANUAL_CPV</ns1:type>
                     </ns1:biddingStrategy>
-                    <ns1:adProductType>TARGET_MATCH</ns1:adProductType>
-                    <ns1:frequencyCap>
-                        <ns1:level>AD_GROUP</ns1:level>
-                        <ns1:timeUnit>MONTH</ns1:timeUnit>
-                        <ns1:impression>15</ns1:impression>
-                    </ns1:frequencyCap>
+                    <ns1:adProductType>VIDEO_AD</ns1:adProductType>
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -312,7 +247,7 @@ CampaignServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -381,6 +316,25 @@ CampaignServiceで提供される操作を説明します。
                         </ns1:conversionOptimizer>
                     </ns1:campaign>
                 </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaign>
+                        <ns1:accountId>1111111111</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:campaignName>Sample campaign3</ns1:campaignName>
+                        <ns1:userStatus>ACTIVE</ns1:userStatus>
+                        <ns1:servingStatus>SERVING</ns1:servingStatus>
+                        <ns1:startDate>20120601</ns1:startDate>
+                        <ns1:endDate>20121231</ns1:endDate>
+                        <ns1:budget>
+                            <ns1:deliveryMethod>ACCELERATED</ns1:deliveryMethod>
+                        </ns1:budget>
+                        <ns1:biddingStrategy xsi:type="ns1:ManualCPV">
+                           <ns1:type>MANUAL_CPV</ns1:type>
+                        </ns1:biddingStrategy>
+                        <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                    </ns1:campaign>
+                </ns1:values>
             </ns1:rval>
         </ns1:mutateResponse>
     </SOAP-ENV:Body>
@@ -400,7 +354,7 @@ CampaignServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -462,85 +416,6 @@ CampaignServiceで提供される操作を説明します。
                     <ns1:accountId>100000001</ns1:accountId>
                     <ns1:campaignId>100000004</ns1:campaignId>
                     <ns1:campaignName>Modify sample campaign002</ns1:campaignName>
-<!-- 空エレメントでフリークエンシ設定解除 -->
-                    <ns1:frequencyCap></ns1:frequencyCap>
-                </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>SET</ns1:operator>
-                <ns1:accountId>100000001</ns1:accountId>
-                <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
-                    <ns1:campaignId>100000001</ns1:campaignId>
-                    <ns1:campaignName>Modify sample campaign001</ns1:campaignName>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:startDate>20130101</ns1:startDate>
-                    <ns1:endDate>20131231</ns1:endDate>
-                    <ns1:budget>
-                        <ns1:amount>1000000</ns1:amount>
-                        <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-                    </ns1:budget>
-                    <ns1:biddingStrategy xsi:type="ns1:ManualCPC">
-                         <ns1:type>MANUAL_CPC</ns1:type>
-                    </ns1:biddingStrategy>
-<!-- フリークエンシ設定リクエストが無ければ変更なし -->
-<!-- コンバージョン最適化設定を有効にする場合はtargetCpaに1以上9999999999までの値を設定 -->
-                    <ns1:conversionOptimizer>
-                        <ns1:targetCpa>30</ns1:targetCpa>
-                    </ns1:conversionOptimizer>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
-                    <ns1:campaignId>100000002</ns1:campaignId>
-                    <ns1:campaignName>Modify sample campaign002</ns1:campaignName>
-<!-- フリークエンシ設定追加時はすべての項目をリクエスト -->
-                    <ns1:frequencyCap>
-                        <ns1:level>CAMPAIGN</ns1:level>
-                        <ns1:timeUnit>WEEK</ns1:timeUnit>
-                        <ns1:impression>5</ns1:impression>
-                    </ns1:frequencyCap>
-<!-- コンバージョン最適化設定を無効にする場合はtargetCpaに0を設定 -->
-                    <ns1:conversionOptimizer>
-                        <ns1:targetCpa>0</ns1:targetCpa>
-                    </ns1:conversionOptimizer>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
-                    <ns1:campaignId>100000003</ns1:campaignId>
-                    <ns1:campaignName>Modify sample campaign003</ns1:campaignName>
-<!-- フリークエンシ設定変更時は変更したい項目のみでリクエスト可能 -->
-                    <ns1:frequencyCap>
-                        <ns1:impression>8</ns1:impression>
-                    </ns1:frequencyCap>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
-                    <ns1:campaignId>100000004</ns1:campaignId>
-                    <ns1:campaignName>Modify sample campaign004</ns1:campaignName>
 <!-- 空エレメントでフリークエンシ設定解除 -->
                     <ns1:frequencyCap></ns1:frequencyCap>
                 </ns1:operand>
@@ -560,7 +435,7 @@ CampaignServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -697,7 +572,7 @@ CampaignServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -719,41 +594,9 @@ CampaignServiceで提供される操作を説明します。
                     <ns1:accountId>100000001</ns1:accountId>
                     <ns1:campaignId>100000002</ns1:campaignId>
                 </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>REMOVE</ns1:operator>
-                <ns1:accountId>1111111111</ns1:accountId>
                 <ns1:operand>
-                    <ns1:accountId>1111111111</ns1:accountId>
-                    <ns1:campaignId>100000001</ns1:campaignId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>1111111111</ns1:accountId>
-                    <ns1:campaignId>100000002</ns1:campaignId>
+                    <ns1:accountId>100000001</ns1:accountId>
+                    <ns1:campaignId>100000003</ns1:campaignId>
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -771,7 +614,7 @@ CampaignServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -836,6 +679,25 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                    </ns1:campaign>
+                </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaign>
+                        <ns1:accountId>1111111111</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:campaignName>Sample campaign3</ns1:campaignName>
+                        <ns1:userStatus>ACTIVE</ns1:userStatus>
+                        <ns1:servingStatus>SERVING</ns1:servingStatus>
+                        <ns1:startDate>20120601</ns1:startDate>
+                        <ns1:endDate>20121231</ns1:endDate>
+                        <ns1:budget>
+                           <ns1:deliveryMethod>ACCELERATED</ns1:deliveryMethod>
+                        </ns1:budget>
+                        <ns1:biddingStrategy xsi:type="ns1:ManualCPV">
+                           <ns1:type>MANUAL_CPV</ns1:type>
+                        </ns1:biddingStrategy>
+                        <ns1:adProductType>VIDEO_AD</ns1:adProductType>
                     </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
