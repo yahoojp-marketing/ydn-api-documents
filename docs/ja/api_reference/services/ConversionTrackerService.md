@@ -7,7 +7,7 @@ ConversionTrackerServiceでは、コンバージョントラッカー情報の�
 | production  | https://location.im.yahooapis.jp/services/Vx.x/ConversionTrackerService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/ConversionTrackerService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 コンバージョントラッカー情報の取得およびコンバージョントラッカー情報の追加・更新を行います。
 #### 操作
@@ -24,7 +24,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（標準認証）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -53,7 +53,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（代行認証）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -90,7 +90,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>
          <ns1:service>ConversionTrackerService</ns1:service>
@@ -146,7 +146,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（標準認証）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -176,7 +176,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（代行認証）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -214,7 +214,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>
          <ns1:service>ConversionTrackerService</ns1:service>
@@ -268,7 +268,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（標準認証）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -299,7 +299,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（代行認証）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -338,7 +338,7 @@ ConversionTrackerServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header>
       <ns1:ResponseHeader>
          <ns1:service>ConversionTrackerService</ns1:service>

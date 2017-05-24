@@ -9,7 +9,7 @@ SearchKeywordListServiceは、サーチキーワードリストの取得およ�
 | production  | https://location.im.yahooapis.jp/services/Vx.x/SearchKeywordListService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/SearchKeywordListService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 サーチキーワードリストを操作します。
 #### 操作
@@ -28,7 +28,7 @@ SearchKeywordListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:ns1="http://im.yahooapis.jp/V5"
+  xmlns:ns1="http://im.yahooapis.jp/V6"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
@@ -63,7 +63,7 @@ SearchKeywordListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:ns1="http://im.yahooapis.jp/V5">
+  xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>SearchKeywordListService</ns1:service>
@@ -127,7 +127,7 @@ SearchKeywordListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope
   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:ns1="http://im.yahooapis.jp/V5">
+  xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -179,7 +179,7 @@ SearchKeywordListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?> 
  <SOAP-ENV:Envelope
    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-   xmlns:ns1="http://im.yahooapis.jp/V5">
+   xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>SearchKeywordListService</ns1:service>
@@ -243,7 +243,7 @@ SearchKeywordListServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -294,7 +294,7 @@ SearchKeywordListServiceで提供される操作を説明します。
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>SearchKeywordListService</ns1:service>
@@ -363,7 +363,7 @@ SearchKeywordListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
  <SOAP-ENV:Envelope
    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-   xmlns:ns1="http://im.yahooapis.jp/V5">
+   xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -400,7 +400,7 @@ SearchKeywordListServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
  <SOAP-ENV:Envelope
    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-   xmlns:ns1="http://im.yahooapis.jp/V5">
+   xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>SearchKeywordListService</ns1:service>

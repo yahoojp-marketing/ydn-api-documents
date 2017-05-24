@@ -159,11 +159,34 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220129 | Invalid combination in user status and logo flag. | 配信フラグとロゴフラグの組み合わせが無効です。
 220130 | Invalid combination in logo flag and media format. | ロゴフラグと画像フォーマットの組み合わせが無効です。
 220131 | Field value is not updatable. | 更新不可項目に変更が実施されました
+220135 | Invalid relation in thumbnail flag and media format. | サムネイルフラグと画像フォーマットの組み合わせが無効です。
+
+##### Service
+[VideoService](/docs/ja/api_reference/services/VideoService.md)
+
+コード         | メッセージ                  | 説明                   
+-------------- | --------------------------- | ---------------------------
+220201 | Creating video downloadUrl is failed. | 動画ダウンロードURLの生成に失敗しました。
+220202 | Invalid video download request. | 動画ダウンロードURLが不正です。
+220203 | Video download URL has expired. | 動画ダウンロードURLの期限が切れています。
+220204 | Creating video uploadUrl is failed. | 動画アップロードURLの生成に失敗しました。
+220205 | Invalid video upload request. | 動画アップロードURLが不正です。
+220206 | Video upload URL has expired. | 動画アップロードURLの期限が切れています。
+220207 | Invalid aspect ratio of an video. | 動画ファイルのピクセルサイズが間違っています。
+220208 | Duplicate video file. | すでに登録済みの動画ファイルが指定されています。
+220209 | Video play time is too long (Max 60 seconds). | 再生時間が60秒を超える動画が指定されています。
+220210 | Video play time is too short (Min 5 seconds). | 再生時間が5秒未満の動画が指定されています。
+220211 | Invalid video codec. | 動画ファイルの映像コーデックが不正です。
+220212 | Invalid audio codec. | 動画ファイルの音声コーデックが不正です。
+220213 | Invalid major brand. | 動画ファイルのメジャーブランドが不正です。
+220214 | Invalid video index. | moov atomが動画ファイルの先頭にありません。
+220215 | Over limit of frame rate. | 動画ファイルのフレームレートが上限値を超えています。
+220216 | Over limit of audio volume. | 動画ファイルの音量が上限値を超えています。
 
 
 ### レポート処理に関連するエラー
 ##### Service
-[ReportService](/docs/ja/api_reference/services/ReportService.md), [ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
+[ReportService](/docs/ja/api_reference/services/ReportService.md),[ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
 
 コード         | メッセージ                  | 説明                   
 -------------- | --------------------------- | ---------------------------
@@ -178,5 +201,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 240009 | Invalid report download request.  | レポートダウンロードURLが不正です。
 240010 | Over limit of report template number.  | 登録されるテンプレート登録数が上限を超えています。 
 240011 | Custom date is unavailable when is set as template.  | テンプレートフラグが指定されている場合、集計期間は「任意日付」を選択できません。
-240012 | Field item was not set properly on the specified report type.  | 指定されたレポートタイプで必須となるfield項目値が設定されていません。
-240013 | Sort setting was made to the field that is not specified.  | fieldに指定されていない項目がsortに設定されています。
+240012 | Field item was not set properly on the specified report type.  | 指定されたレポートタイプで必須となるフィールド項目値が設定されていません。
+240013 | Sort setting was made to the field that is not specified.  | フィールドに指定されていない項目がソートに設定されています。
+250005 | Invalid filter`s field. | フィルターに指定できないフィールドを指定しています。
+

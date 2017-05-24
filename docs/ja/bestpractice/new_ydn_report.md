@@ -32,7 +32,7 @@ ReportCategoryを指定して、レポートフィールドのリストを取得
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -55,7 +55,7 @@ ReportCategoryを指定して、レポートフィールドのリストを取得
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -81,7 +81,7 @@ ReportCategoryを指定して、レポートフィールドのリストを取得
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -195,7 +195,7 @@ ReportDefinitionServiceのmutate:addを使用します。  <br>
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -290,7 +290,7 @@ ReportDefinitionServiceのmutate:addを使用します。  <br>
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -351,7 +351,7 @@ ReportDefinitionServiceのmutate:addを使用します。  <br>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -450,7 +450,7 @@ ReportDefinitionServiceのmutate:addを使用します。  <br>
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -529,7 +529,7 @@ ReportServiceのmutate:addを使用します。<br>
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -559,7 +559,7 @@ ReportServiceのmutate:addを使用します。<br>
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V5">
+xmlns:ns1="http://im.yahooapis.jp/V6">
 <SOAP-ENV:Header>
     <ns1:RequestHeader>
         <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -592,7 +592,7 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -649,7 +649,7 @@ ReportServiceのgetを使用します。<br>
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -684,7 +684,7 @@ ReportServiceのgetを使用します。<br>
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V5">
+xmlns:ns1="http://im.yahooapis.jp/V6">
 <SOAP-ENV:Header>
     <ns1:RequestHeader>
         <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -722,7 +722,7 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -796,7 +796,7 @@ accountID、reportJobIDを指定し、レポートファイルを取得します
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -825,7 +825,7 @@ accountID、reportJobIDを指定し、レポートファイルを取得します
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V5">
+xmlns:ns1="http://im.yahooapis.jp/V6">
 <SOAP-ENV:Header>
     <ns1:RequestHeader>
         <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -857,7 +857,7 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -887,7 +887,7 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
                             <ns1:endDate>20120402</ns1:endDate>
                         </ns1:dateRange>
                         <ns1:status>COMPLETED</ns1:status>
-                        <ns1:downloadUrl>https://sample.api.yahooapis.jp/report/V5/download/XXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
+                        <ns1:downloadUrl>https://sample.api.yahooapis.jp/report/V6/download/XXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
                     </ns1:reportDownloadUrl>
                 </ns1:values>
                 <ns1:values>
@@ -905,7 +905,7 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
                     <ns1:endDate>20120402</ns1:endDate>
                     </ns1:dateRange>
                     <ns1:status>COMPLETED</ns1:status>
-                    <ns1:downloadUrl>https://sample.api.yahooapis.jp/report/V5/download/XXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
+                    <ns1:downloadUrl>https://sample.api.yahooapis.jp/report/V6/download/XXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
                     </ns1:reportDownloadUrl>
                 </ns1:values>
             </ns1:rval>
@@ -923,7 +923,7 @@ ReportServiceのmutate:removeを使用します。<br>
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V5">
+xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -953,7 +953,7 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V5">
+xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -986,7 +986,7 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -1029,7 +1029,7 @@ ReportDefinitionServiceのmutate:removeを使用します。<br>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -1060,7 +1060,7 @@ ReportDefinitionServiceのmutate:removeを使用します。<br>
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:ns1="http://im.yahooapis.jp/V5">
+xmlns:ns1="http://im.yahooapis.jp/V6">
 <SOAP-ENV:Header>
     <ns1:RequestHeader>
         <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -1093,7 +1093,7 @@ xmlns:ns1="http://im.yahooapis.jp/V5">
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V5"
+xmlns:ns1="http://im.yahooapis.jp/V6"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <SOAP-ENV:Header>
     <ns1:ResponseHeader>

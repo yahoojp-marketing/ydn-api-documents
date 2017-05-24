@@ -1,84 +1,12 @@
 # レポートフィールド
-作成するレポートの指定可能なフィールド集です。
+YDN APIで利用できるレポートフィールド集です。<br>
+希望のレポートタイプをクリックすると、指定可能なレポートフィールドの詳細が表示されます。<br>
 
-### レポートのフィールド集
-値           | 表示名（日本語） | 表示名（英語） | XML属性| 型/単位 | レスポンス値
--------------------- | ------------------------ | ---------------------- | ---------------- | --------- | ------------
-ACCOUNT_ID            | アカウントID         | Account ID                         | accountID            | long  | -
-ACCOUNT_NAME          | アカウント名          | Account Name                       | accountName          | string | -
-CAMPAIGN_ID           | キャンペーンID        | Campaign ID                        | campaignID           | long  | -
-CAMPAIGN_NAME         | キャンペーン名         | Campaign Name                      | campaignName         | string | -
-ADGROUP_ID            | 広告グループID        | Ad Group ID                   | adgroupID            | long  | -
-ADGROUP_NAME          | 広告グループ名         | Ad Group Name                 | adgroupName          | string | -
-AD_ID                 | 広告ID            | Ad ID                     | adID                 | long | -  
-AD_NAME               | 広告名             | Ad Name                   | adName               | string | -
-AD_TYPE       | 広告タイプ           | Ad Type       | adType               | string | [AD_TYPEレスポンス](#ad_type)
-URL_ID     | リンク先URLID             | Destination URL ID            | destinationURLID         | long | -
-URL_NAME       | リンク先URL         | Destination URL          | destinationURL       | stirng | -
-PREF_ID         | 都道府県ID          | Prefecture ID                           | prefectureID         | long | -
-PREF_NAME       | 都道府県            | Prefectures                             | prefecture           | string | -
-CITY_ID               | 市区郡ID           | City ID                                 | cityID               | long | -
-CITY_NAME             | 市区郡             | City                                    | city                 | string | -
-WARD_ID               | 行政区ID           | Ward ID                                 | wardID               | long | -
-WARD_NAME             | 行政区             | Ward                                    | ward                 | string | -
-GENDER               | 性別              | Gender           | gender               | string | [GENDERレスポンス](#gender)
-AGE                  | 年齢              | Age               | age                  | long | [AGEレスポンス](#age)
-MONTH                | 月              | Month               | month                  | string | -
-DAY                  | 日               | Daily                                   | day                  | string | -
-HOUR                  | 時間　　　　　　| Hourly                           | hourofday             | string | -
-DELIVER      | 広告掲載方式     | Ad Distribution      | deliverName       | string | [DELIVERレスポンス](#deliver)
-DEVICE               | デバイス            | Device             | device               | string | [DEVICEレスポンス](#device)
-SITE_CATEGORY         | サイトカテゴリー名       | Site Category                  | siteCategory         | string | -
-INTEREST_CATEGORY     | インタレストカテゴリー名    | Interest Category           | interestCategory     | string | -
-DELIVER_URL       | 配信先URL         | Ad Delivery URL          | adDeliveryURL       | string | -
-AD_STYLE    | 掲載フォーマット（画像タイプ） | Ad Style (Image Type) | adStyle   | string | [AD_STYLEレスポンス](#ad_style)
-MEDIA_ID              | メディアID            | Media ID                           | imageID              | string | -  
-MEDIA_NAME            | メディア名             | Media Name                        | imageName            | string | -
-MEDIA_FILE_NAME       | ファイル名             | File Name                      | fileName            | string | -
-MEDIA_AD_FORMAT    | ピクセルサイズ     | Pixel Size     | pixelSize    | string   | [MEDIA_AD_FORMATレスポンス](#media_ad_format)
-AD_TITLE                | タイトル            | Title                    | title                | string | -
-DESCRIPTION1         | 説明文1            | Description 1            | description1         | string | -
-DESCRIPTION2         | 説明文2            | Description 2            | description2         | string | -
-DISPLAY_URL           | 表示URL           | Display URL            | displayURL           | string | -
-SEARCHKEYWORD_ID      | サーチキーワードID      | Search Keyword ID                       | searchKeywordID      | long  | -
-SEARCHKEYWORD        | サーチキーワード        | Search Keyword                          | searchKeyword        | string | -
-FREQUENCY       | フリークエンシー数    | Frequency          | frequency     | long    | -
-CONVERSION_LABEL       | コンバージョンラベル名    | Conversion Name          | conversionName     | string    | -
-CONVERSION_CATEGORY | コンバージョン測定の目的 | Objective of Conversion Tracking |objectiveOfConversionTracking | string  | -
-CARRIER       | キャリア    | Carrier          | carrier     | string    | [CARRIERレスポンス](#carrier)
-AD_LAYOUT       | レイアウト    | Layout          | adLayout     | string    | [AD_LAYOUTレスポンス](#ad_layout)
-IMAGE_OPTION   | 画像自動付与    | Dynamic Image Extensions | imageOption    | string    | [IMAGE_OPTIONレスポンス](#image_option)
-OS          | OS       | OS                   | OS          | string   | -
-APPLI          | ウェブ/アプリ       | Web/Application                   | appli          | string   | - 
-IMPS          | インプレッション数       | Impressions                   | impressions          | long   | - 
-CLICK_RATE       | クリック率           | CTR         |           ctr                  | double | -
-COST                 | コスト             | Cost                                    | cost                 | long  | -  
-CLICK               | クリック数           | Clicks                                  | clicks               | long  | -  
-AVG_CPC           | 平均CPC           | Avg. CPC                                 | averageCpc           | double | -
-CONVERSION     | 総コンバージョン数       | Total Conversions                  | totalConversions     | long  | -  
-CONVERSION_RATE  | 総コンバージョン率       | Total Conversion Rate         | totalConversionRate  | double | -
-CPA | コスト/総コンバージョン数   | Cost / Total Conversions | costTotalConversions | double | -
-AVG_DELIVER_RANK | 平均掲載順位 | Avg. Position | averagePosition | double | -
-UNIQUE_USERS           | ユニークユーザ数      | Unique Users             | uniqueUsers          | long | -
-REVENUE           | 合計売上金額     | Total Revenue             | totalRevenue          | long | -
-REVENUE_CONVERSION     | 売上/総コンバージョン数      | Rev. / Total Conversions   | revenueTotalConversion   | long | -
-TOTAL_VIEWABLE_IMPS    | ビュー計測対象インプレッション数  | Impressions on the measurement object        | measurableImpressions    | long | -
-VIEWABLE_IMPS    | ビューインプレッション数      | Viewable Impressions           | viewableImpressions    | long | -
-INVIEW_RATE      | ビューインプレッション率      | Viewable Impression Rate     | viewableImpressionRate          | long | -
-INVIEW_CLICK           | ビュークリック数      | Viewable Clicks            | viewableClicks          | long | -
-INVIEW_CLICK_RATE           | ビュークリック率      | Viewable CTR            | viewableCtr          | long | -
-AUTO_VIDEO_PLAYS   　       | 動画の自動再生数      | Auto Video Plays         | autoVideoPlays          | long | -
-CLICK_VIDEO_PLAYS           | クリックによる動画再生数      | Click Video Plays       | 	clickVideoPlays    | long | -
-VIDEO_VIEWED_RATE           | 動画の再生率      | Video Viewed Rate            | videoViewedRate          | double | -
-AVG_CPV                     | 平均CPV      | Average CPV            | avgCpv          | double | -
-VIDEO_PLAYS                 | 動画が再生開始された回数      | Video Plays            | videoPlays          | long | -
-VIDEO_VIEWS_TO_25           | 動画が25%まで再生された回数      | Video Views to 25%    | videoViewsTo25      | long | -
-VIDEO_VIEWS_TO_50           | 動画が50%まで再生された回数      | Video Views to 50%     | videoViewsTo50       | long | -
-VIDEO_VIEWS_TO_75           | 動画が75%まで再生された回数      | Video Views to 75%      | videoViewsTo75      | long | -
-VIDEO_VIEWS_TO_95           | 動画が95%まで再生された回数      | Video Views to 95%      | videoViewsTo95      | long | -
-VIDEO_VIEWS_TO_100          | 動画が100%まで再生された回数      |Video Views to 100%      | videoViewsTo100      | long | -
-AVG_PERCENT_VIDEO_VIEWED    | 動画の平均再生率      | Average % of Video Viewed      | avgPercentVideoViewed     | double | -
-AVG_DURATION_VIDEO_VIEWED   | 動画の平均再生時間（秒） | Average Duration of Video Viewed | avgDurationVideoViewed  | double | -
+* [アカウントレポート、キャンペーンレポート、広告グループレポート、広告レポート、リンク先URLレポート](./reports/AD.csv)
+* [インタレストカテゴリーレポート](./reports/INTEREST_CATEGORY.csv)
+* [サイトカテゴリーレポート](./reports/SITE_CATEGORY.csv)
+* [配信先URLレポート](./reports/URL.csv)
+* [フリークエンシーレポート](./reports/FREQUENCY.csv)
 
 ### レスポンス詳細
 <a name="ad_type"></a>

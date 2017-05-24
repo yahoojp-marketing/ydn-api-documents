@@ -6,7 +6,7 @@ AccountAdProductServiceは、広告掲載方式のリストを提供します。
 | production  | https://location.im.yahooapis.jp/services/Vx.x/AccountAdProductService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AccountAdProductService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 AccountAdProductServiceは、広告掲載方式のリストを提供します。
 #### 操作
@@ -19,38 +19,15 @@ AccountAdProductServiceで提供される操作を説明します。
 |---|---|---|---|
 | selector |  | [AccountAdProductSelector](../data/AccountAdProductSelector.md)|アカウントで利用できる広告掲載方式を取得します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
-      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+      <ns1:license>1111-1111-1111-1111</ns1:license>
+      <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
       <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountIds>12345</ns1:accountIds>
-      </ns1:selector>
-    </ns1:get>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-##### ＜リクエストサンプル＞（代行認証）
-```xml	
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
-  <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      <ns1:accountId>12345</ns1:accountId>
-      <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>    
     </ns1:RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
@@ -72,7 +49,7 @@ AccountAdProductServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>AccountAdProductService</ns1:service>

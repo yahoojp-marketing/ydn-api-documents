@@ -9,9 +9,9 @@ StatsTypeは、統計情報の種別を表します。
 | CAMPAIGN | xsd:string | キャンペーンの統計情報です。 |
 | ADGROUP | xsd:string | 広告グループの統計情報です。 |
 | AD | xsd:string | 広告の統計情報です。 |
-| MEDIA | xsd:string | 画像の統計情報です。 |
+| IMAGE | xsd:string | 画像の統計情報です。※Ver.5.4以前は「MEDIA」　|
+| VIDEO | xsd:string | 動画の統計情報です。 |
 
- 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">
 <img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" />
 </a><br />

@@ -6,7 +6,7 @@ LocationServiceでは、アカウントのロケーション情報を取得し�
 | production  | https://location.im.yahooapis.jp/services/Vx.x/LocationService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/LocationService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 Webサービスをリクエストする際には、まずLocationServiceを利用し、アカウントのコロケーションを取得してください。<br>
 次に取得したコロケーションのURL接頭部よりローカルURLを作成しWebサービスをリクエストします。<br>
@@ -36,7 +36,7 @@ Webサービスをリクエストする際には、まずLocationServiceを利�
 ##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5"> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6"> 
   <SOAP-ENV:Header> 
     <ns1:RequestHeader> 
       <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
@@ -62,7 +62,7 @@ Webサービスをリクエストする際には、まずLocationServiceを利�
 ##### ＜レスポンスサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
       <ns1:service>LocationService</ns1:service>

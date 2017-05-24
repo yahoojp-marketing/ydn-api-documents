@@ -4,6 +4,7 @@ Statsオブジェクトは、統計情報を保持します。
 ### Service
 + [StatsService](../services/StatsService.md)
  
+
 <table>
  <tr>
   <th>Field</th>
@@ -29,17 +30,6 @@ Statsオブジェクトは、統計情報を保持します。
   <td>clickRate</td>
   <td>xsd:double</td>
   <td>クリック率です。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>clickRateComparisionResult</td>
-  <td>enum<br>
-  <a href="./ComparisionResult.md">ComparisionResult</a></td>
-  <td>クリック率を前日、前週、前月のいずれかと比較した結果です。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -77,17 +67,6 @@ Statsオブジェクトは、統計情報を保持します。
   <td>-</td>
  </tr>
  <tr>
-  <td>avgClickCostComparisionResult</td>
-  <td>enum<br>
-  <a href="./ComparisionResult.md">ComparisionResult</a></td>
-  <td>平均クリックコストを前日、前週、前月のいずれかと比較した結果です。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
   <td>convCnt</td>
   <td>xsd:long</td>
   <td>コンバージョン数（広告経由でコンバージョンした数）です。</td>
@@ -108,31 +87,9 @@ Statsオブジェクトは、統計情報を保持します。
   <td>-</td>
  </tr>
  <tr>
-  <td>convRateComparisionResult</td>
-  <td>enum<br>
-  <a href="./ComparisionResult.md">ComparisionResult</a></td>
-  <td>コンバージョン率を前日、前週、前月のいずれかと比較した結果です。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
   <td>cpa</td>
   <td>xsd:double</td>
   <td>コンパージョン単価です。</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>cpaComparisionResult</td>
-  <td>enum<br>
-  <a href="./ComparisionResult.md">ComparisionResult</a></td>
-  <td>コンバージョン単価を前日、前週、前月のいずれかと比較した結果です。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -199,3 +156,126 @@ Statsオブジェクトは、統計情報を保持します。
   <td>-</td>
   <td>-</td>
  </tr>
+ <tr>
+  <td>autoVideoPlays</td>
+  <td>xsd:long</td>
+  <td>動画自動再生数です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>clickVideoPlays</td>
+  <td>xsd:long</td>
+  <td>動画クリック再生数です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>videoViewedRate</td>
+  <td>xsd:double</td>
+  <td>動画再生率(動画再生数/インプレッション数)です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>averageCpv</td>
+  <td>xsd:double</td>
+  <td>平均CPVです。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>videoPlays</td>
+  <td>xsd:long</td>
+  <td>動画再生数です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>videoViewsTo25</td>
+  <td>xsd:long</td>
+  <td>動画25％再生数です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
+  <td>videoViewsTo50</td>
+  <td>xsd:long</td>
+  <td>動画50％再生数です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
+  <td>videoViewsTo75</td>
+  <td>xsd:long</td>
+  <td>動画75％再生数です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
+  <td>videoViewsTo95</td>
+  <td>xsd:long</td>
+  <td>動画95％再生数です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
+  <td>videoViewsTo100</td>
+  <td>xsd:long</td>
+  <td>動画100％再生数です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
+  <td>averageRateVideoViewed</td>
+  <td>xsd:double</td>
+  <td>動画の平均再生率（動画が全体の長さの何％まで再生されたかの平均値）です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+<tr>
+  <td>averageDurationVideoViewed</td>
+  <td>xsd:double</td>
+  <td>動画の平均再生時間です。※動画広告のみ。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+</table>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

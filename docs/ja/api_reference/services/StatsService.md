@@ -6,7 +6,7 @@ StatsServiceは、キャンペーン、広告グループ、広告、画像の�
 | production  | https://location.im.yahooapis.jp/services/Vx.x/StatsService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/StatsService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 キャンペーン、広告グループ、広告、画像の単位で統計情報の取得を行います。
 #### 操作
@@ -22,7 +22,7 @@ StatsServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（キャンペーン統計情報）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -50,7 +50,7 @@ StatsServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（広告グループ統計情報）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -80,7 +80,7 @@ StatsServiceで提供される操作を説明します。
 ##### ＜リクエストサンプル＞（広告統計情報）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
    <SOAP-ENV:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -107,11 +107,10 @@ StatsServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-
-##### ＜リクエストサンプル＞（メディア統計情報）
+##### ＜リクエストサンプル＞（画像統計情報）
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5">
+<?xml version="1.0" encoding="UTF-8"?> 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
    <soapenv:Header>
       <ns1:RequestHeader>
          <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -131,7 +130,7 @@ StatsServiceで提供される操作を説明します。
             <ns1:adIds>444444</ns1:adIds>
             <ns1:mediaIds>444444</ns1:mediaIds>
             <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-            <ns1:statsType>MEDIA</ns1:statsType>
+            <ns1:statsType>IMAGE</ns1:statsType>
             <ns1:paging>
                <ns1:startIndex>1</ns1:startIndex>
                <ns1:numberResults>20</ns1:numberResults>
@@ -142,6 +141,39 @@ StatsServiceで提供される操作を説明します。
 </soapenv:Envelope>
 ```
 
+##### ＜リクエストサンプル＞（動画統計情報）
+```xml
+<?xml version="1.0" encoding="UTF-8"?> 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
+   <soapenv:Header>
+      <ns1:RequestHeader>
+         <ns1:license>1111-1111-1111-1111</ns1:license>
+         <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
+         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+         <ns1:accountId>1111-1111-1111-1111</ns1:accountId>
+         <ns1:onBehalfOfAccountId>2222-2222-2222-2222</ns1:onBehalfOfAccountId>
+         <ns1:onBehalfOfPassword>password</ns1:onBehalfOfPassword>
+      </ns1:RequestHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ns1:get>
+         <ns1:selector>
+            <ns1:accountId>111111</ns1:accountId>
+            <ns1:campaignIds>222222</ns1:campaignIds>
+            <ns1:adGroupIds>333333</ns1:adGroupIds>
+            <ns1:adIds>444444</ns1:adIds>
+            <ns1:mediaIds>444444</ns1:mediaIds>
+            <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
+            <ns1:statsType>VIDEO</ns1:statsType>
+            <ns1:paging>
+               <ns1:startIndex>1</ns1:startIndex>
+               <ns1:numberResults>20</ns1:numberResults>
+            </ns1:paging>
+         </ns1:selector>
+      </ns1:get>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
 
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
@@ -151,7 +183,7 @@ StatsServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞（キャンペーン統計情報）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5”>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6”>
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>StatsService</ns1:service>
@@ -202,7 +234,7 @@ StatsServiceで提供される操作を説明します。
 ##### ＜レスポンスサンプル＞（広告グループ統計情報）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5”>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6”>
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>StatsService</ns1:service>
@@ -250,11 +282,10 @@ StatsServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-
 ##### ＜レスポンスサンプル＞（広告統計情報）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5”>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6”>
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>StatsService</ns1:service>
@@ -303,11 +334,10 @@ StatsServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-
-##### ＜レスポンスサンプル＞（メディア統計情報）
+##### ＜レスポンスサンプル＞（画像統計情報）
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V5”>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6”>
    <SOAP-ENV:Header>
       <ns1:ResponseHeader>
          <ns1:service>StatsService</ns1:service>
@@ -326,7 +356,7 @@ StatsServiceで提供される操作を説明します。
                <ns1:accountId>1000000001</ns1:accountId>
                <ns1:mediaId>555555</ns1:mediaId>
                <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-               <ns1:statsType>MEDIA</ns1:statsType>
+               <ns1:statsType>IMAGE</ns1:statsType>
                <ns1:stats>
                   <ns1:imps>10000</ns1:imps>
                   <ns1:clickRate>95</ns1:clickRate>
@@ -346,6 +376,64 @@ StatsServiceで提供される操作を説明します。
                   <ns1:inViewClickCnt>30</ns1:inViewClickCnt>
                   <ns1:inViewRate>30</ns1:inViewRate>
                   <ns1:inViewClickRate>40</ns1:inViewClickRate>
+               </ns1:stats>
+            </ns1:values>
+         </ns1:rval>
+      </ns1:getResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+##### ＜レスポンスサンプル＞（動画統計情報）
+```xml
+<?xml version="1.0" encoding="UTF-8"?> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6”>
+   <SOAP-ENV:Header>
+      <ns1:ResponseHeader>
+         <ns1:service>StatsService</ns1:service>
+         <ns1:remainingQuota>100</ns1:remainingQuota>
+         <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+      </ns1:ResponseHeader>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:getResponse>
+         <ns1:rval>
+            <ns1:totalNumEntries>1</ns1:totalNumEntries>
+            <ns1:Page.Type>StatsPage</ns1:Page.Type>
+            <ns1:values>
+               <ns1:operationSucceeded>true</ns1:operationSucceeded>
+               <ns1:accountId>1000000001</ns1:accountId>
+               <ns1:mediaId>555555</ns1:mediaId>
+               <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
+               <ns1:statsType>VIDEO</ns1:statsType>
+               <ns1:stats>
+                  <ns1:imps>10000</ns1:imps>
+　　　　　　　　　<ns1:clickRate>95</ns1:clickRate>
+                  <ns1:totalClickCost>3000</ns1:totalClickCost>
+                  <ns1:clickCnt>5000</ns1:clickCnt>
+                  <ns1:avgClickCost>3000</ns1:avgClickCost>
+                  <ns1:convCnt>30</ns1:convCnt>
+                  <ns1:convRate>12</ns1:convRate>
+                  <ns1:cpa>1000000000</ns1:cpa>
+                  <ns1:avgDeliverRank>3</ns1:avgDeliverRank>
+                  <ns1:totalVimps>1</ns1:totalVimps>
+                  <ns1:vImps>123456790</ns1:vImps>
+                  <ns1:inViewClickCnt>1</ns1:inViewClickCnt>
+                  <ns1:inViewRate>58.5</ns1:inViewRate>
+                  <ns1:inViewClickRate>5</ns1:inViewClickRate>
+                  <ns1:autoVideoPlays>0</ns1:autoVideoPlays>
+                  <ns1:clickVideoPlays>40000</ns1:clickVideoPlays>
+                  <ns1:videoViewedRate>500</ns1:videoViewedRate>
+                  <ns1:averageCpv>50000</ns1:averageCpv>
+                  <ns1:videoPlays>90000</ns1:videoPlays>
+                  <ns1:videoViewsTo25>100</ns1:videoViewsTo25>
+                  <ns1:videoViewsTo50>200</ns1:videoViewsTo50>
+                  <ns1:videoViewsTo75>300</ns1:videoViewsTo75>
+                  <ns1:videoViewsTo95>400</ns1:videoViewsTo95>
+                  <ns1:videoViewsTo100>500</ns1:videoViewsTo100>
+                  <ns1:averageRateVideoViewed>622</ns1:averageRateVideoViewed>
+                  <ns1:averageDurationVideoViewed>722</ns1:averageDurationVideoViewed>
                </ns1:stats>
             </ns1:values>
          </ns1:rval>

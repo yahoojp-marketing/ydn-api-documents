@@ -6,7 +6,7 @@ SearchKeywordIdeaServiceは、サーチターゲティング対象キーワー�
 | production  | https://location.im.yahooapis.jp/services/Vx.x/SearchKeywordIdeaService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/SearchKeywordIdeaService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 サーチターゲティング対象キーワードを取得します。
 #### 操作
@@ -25,7 +25,7 @@ SearchKeywordIdeaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -49,7 +49,7 @@ SearchKeywordIdeaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -72,7 +72,7 @@ SearchKeywordIdeaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -110,7 +110,7 @@ SearchKeywordIdeaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>

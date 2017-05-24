@@ -6,7 +6,7 @@ MediaServiceでは、画像入稿に関する機能を提供します。
 | production  | https://location.im.yahooapis.jp/services/Vx.x/MediaService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/MediaService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V5
+http://im.yahooapis.jp/V6
 #### サービス概要
 画像入稿に関する情報の取得および追加・更新・削除を行います。
 
@@ -25,7 +25,7 @@ MediaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
@@ -51,39 +51,6 @@ MediaServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>　
 ```
 
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:selector>
-                <ns1:accountId>111111111</ns1:accountId>
-                <ns1:mediaIds>5555555</ns1:mediaIds>
-                <ns1:mediaIds>7777777</ns1:mediaIds>
-                <ns1:userStatuses>PAUSED</ns1:userStatuses>
-                <ns1:approvalStatuses>REVIEW</ns1:approvalStatuses>
-                <ns1:paging>
-                  <ns1:startIndex>1</ns1:startIndex>
-                  <ns1:numberResults>20</ns1:numberResults>
-                </ns1:paging>
-            </ns1:selector>
-        </ns1:get>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
 ### レスポンス
 | フィールド | データ型 | 説明 | 
 |---|---|---|
@@ -94,7 +61,7 @@ MediaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -117,6 +84,8 @@ MediaServiceで提供される操作を説明します。
                         <ns1:mediaName>ad_sample001.jpeg</ns1:mediaName>
                         <ns1:mediaTitle>画像広告００１</ns1:mediaTitle>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:logoFlg>FALSE</ns1:logoFlg>
+                        <ns1:thumbnailFlg>FALSE</ns1:thumbnailFlg>
                         <ns1:creationTime>2147483647</ns1:creationTime>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:disapprovalReasonCodes></ns1:disapprovalReasonCodes>
@@ -127,7 +96,7 @@ MediaServiceで提供される操作を説明します。
                             <ns1:fileSize>12345</ns1:fileSize>
                             <ns1:width>728</ns1:width>
                             <ns1:height>90</ns1:height>
-                            <ns1:downloadUrl>https://sample.api.yahooapis.jp/media/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
+                            <ns1:downloadUrl>https: //sample.api.yahooapis.jp/media/V4/download/2e4BGiEh4wKJgaSVomutjZJzJq95oU1R4kGiB6nhYJ8YTMXTTlZLKnJRfyDUbCRPMWyp0cHr.1BtrKHIph9Mw3I-</ns1:downloadUrl>
                         </ns1:media>
                     </ns1:mediaRecord>
                 </ns1:values>
@@ -139,6 +108,8 @@ MediaServiceで提供される操作を説明します。
                         <ns1:mediaName>ad_sample002.jpeg</ns1:mediaName>
                         <ns1:mediaTitle>画像広告００２</ns1:mediaTitle>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:logoFlg>TRUE</ns1:logoFlg>
+                        <ns1:thumbnailFlg>FALSE</ns1:thumbnailFlg>
                         <ns1:creationTime>2147483647</ns1:creationTime>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:disapprovalReasonCodes></ns1:disapprovalReasonCodes>
@@ -149,7 +120,7 @@ MediaServiceで提供される操作を説明します。
                             <ns1:fileSize>12345</ns1:fileSize>
                             <ns1:width>320</ns1:width>
                             <ns1:height>50</ns1:height>
-                            <ns1:downloadUrl>https://sample.api.yahooapis.jp/media/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
+                            <ns1:downloadUrl>https: //sample.api.yahooapis.jp/media/V4/download/2e4BGiEh4wKJgaSVomutjZJzJq95oU1R4kGiB6nhYJ8YTMXTTlZLKnJRfyDUbCRPMWyp0cHr.1BtrKHIph9Mw3I-</ns1:downloadUrl>
                         </ns1:media>
                     </ns1:mediaRecord>
                 </ns1:values>
@@ -172,7 +143,7 @@ MediaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
@@ -222,62 +193,6 @@ MediaServiceで提供される操作を説明します。
 </SOAP-ENV:Envelope>
 ```
 
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
-    <SOAP-ENV:Header> 
-        <ns1:RequestHeader> 
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId> 
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword> 
-            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxxx</ns1:onBehalfOfAccountId> 
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword> 
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-           <ns1:operations>
-             <ns1:operator>ADD</ns1:operator>
-               <ns1:accountId>111111111</ns1:accountId>
-               <ns1:operand>
-                 <ns1:accountId>1111111111</ns1:accountId>
-                 <ns1:mediaName>ad_sample001.jpeg</ns1:mediaName>
-                 <ns1:mediaTitle>画像００１</ns1:mediaTitle>
-                 <ns1:userStatus>ACTIVE</ns1:userStatus>
-                 <ns1:media xsi:type="ns1:ImageMedia">
-                   <ns1:data>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX（※画像ファイルのbase64エンコードを入力ください。）
-</ns1:data>
-                 </ns1:media>
-               </ns1:operand>
-               <ns1:operand>
-                 <ns1:accountId>1111111111</ns1:accountId>
-                 <ns1:mediaName>ad_sample002.jpeg</ns1:mediaName>
-                 <ns1:mediaTitle>画像００２</ns1:mediaTitle>
-                 <ns1:userStatus>ACTIVE</ns1:userStatus>
-                 <ns1:media xsi:type="ns1:ImageMedia">
-                   <ns1:data>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX（※画像ファイルのbase64エンコードを入力ください。）
-</ns1:data>
-                 </ns1:media>
-               </ns1:operand>
-               <ns1:operand>
-                 <ns1:accountId>1111111111</ns1:accountId>
-                 <ns1:mediaName>ad_sample003.jpeg</ns1:mediaName>
-                 <ns1:mediaTitle>画像００３</ns1:mediaTitle>
-                 <ns1:userStatus>ACTIVE</ns1:userStatus>
-                 <ns1:media xsi:type="ns1:ImageMedia">
-                   <ns1:data>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX（※画像ファイルのbase64エンコードを入力ください。）
-</ns1:data>
-                 </ns1:media>
-               </ns1:operand>
-           </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
 
 ### レスポンス
 | フィールド | データ型 | 説明 | 
@@ -289,7 +204,7 @@ MediaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -312,6 +227,8 @@ MediaServiceで提供される操作を説明します。
                         <ns1:mediaName>ad_sample001.jpeg</ns1:mediaName>
                         <ns1:mediaTitle>画像広告００１</ns1:mediaTitle>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:logoFlg>FALSE</ns1:logoFlg>
+                        <ns1:thumbnailFlg>FALSE</ns1:thumbnailFlg>
                         <ns1:creationTime>2147483647</ns1:creationTime>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:disapprovalReasonCodes></ns1:disapprovalReasonCodes>
@@ -322,7 +239,7 @@ MediaServiceで提供される操作を説明します。
                             <ns1:fileSize>12345</ns1:fileSize>
                             <ns1:width>728</ns1:width>
                             <ns1:height>90</ns1:height>
-                            <ns1:downloadUrl>https://sample.api.yahooapis.jp/media/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
+                            <ns1:downloadUrl>https: //sample.api.yahooapis.jp/media/V6/download/2e4BGiEh4wKJgaSVomutjZJzJq95oU1R4kGiB6nhYJ8YTMXTTlZLKnJRfyDUbCRPMWyp0cHr.1BtrKHIph9Mw3I-</ns1:downloadUrl>
                         </ns1:media>
                     </ns1:mediaRecord>
                 </ns1:values>
@@ -334,6 +251,8 @@ MediaServiceで提供される操作を説明します。
                         <ns1:mediaName>ad_sample002.jpeg</ns1:mediaName>
                         <ns1:mediaTitle>画像広告００２</ns1:mediaTitle>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:logoFlg>TRUE</ns1:logoFlg>
+                        <ns1:thumbnailFlg>FALSE</ns1:thumbnailFlg>
                         <ns1:creationTime>2147483647</ns1:creationTime>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:disapprovalReasonCodes></ns1:disapprovalReasonCodes>
@@ -344,7 +263,7 @@ MediaServiceで提供される操作を説明します。
                             <ns1:fileSize>12345</ns1:fileSize>
                             <ns1:width>320</ns1:width>
                             <ns1:height>50</ns1:height>
-                            <ns1:downloadUrl>https://sample.api.yahooapis.jp/media/V5/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadUrl>
+                            <ns1:downloadUrl>https: //sample.api.yahooapis.jp/media/V6/download/2e4BGiEh4wKJgaSVomutjZJzJq95oU1R4kGiB6nhYJ8YTMXTTlZLKnJRfyDUbCRPMWyp0cHr.1BtrKHIph9Mw3I-</ns1:downloadUrl>
                         </ns1:media>
                     </ns1:mediaRecord>
                 </ns1:values>
@@ -375,56 +294,12 @@ MediaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
             <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-              <ns1:operator>SET</ns1:operator>
-                <ns1:accountId>111111111</ns1:accountId>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:mediaId>5555555</ns1:mediaId>
-                    <ns1:mediaTitle>画像広告００１</ns1:mediaTitle>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:mediaId>7777777</ns1:mediaId>
-                    <ns1:mediaTitle>画像広告００２</ns1:mediaTitle>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:mediaId>9999999</ns1:mediaId>
-                    <ns1:mediaTitle>画像広告００３</ns1:mediaTitle>
-                    <ns1:userStatus>PAUSED</ns1:userStatus>
-                </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
@@ -466,7 +341,7 @@ MediaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -489,6 +364,8 @@ MediaServiceで提供される操作を説明します。
                         <ns1:mediaName>ad_sample001.jpeg</ns1:mediaName>
                         <ns1:mediaTitle>画像広告００１</ns1:mediaTitle>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:logoFlg>FALSE</ns1:logoFlg>
+                        <ns1:thumbnailFlg>FALSE</ns1:thumbnailFlg>
                         <ns1:creationTime>2147483647</ns1:creationTime>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:disapprovalReasonCodes></ns1:disapprovalReasonCodes>
@@ -510,6 +387,8 @@ MediaServiceで提供される操作を説明します。
                         <ns1:mediaName>ad_sample002.jpeg</ns1:mediaName>
                         <ns1:mediaTitle>画像広告００２</ns1:mediaTitle>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:logoFlg>TRUE</ns1:logoFlg>
+                        <ns1:thumbnailFlg>FALSE</ns1:thumbnailFlg>
                         <ns1:creationTime>2147483647</ns1:creationTime>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:disapprovalReasonCodes></ns1:disapprovalReasonCodes>
@@ -550,50 +429,12 @@ MediaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
+ xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
             <ns1:license>1111-1111-1111-1111</ns1:license>
             <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-              <ns1:operator>REMOVE</ns1:operator>
-                <ns1:accountId>111111111</ns1:accountId>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:mediaId>5555555</ns1:mediaId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:mediaId>7777777</ns1:mediaId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:mediaId>9999999</ns1:mediaId>
-                </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
@@ -629,7 +470,7 @@ MediaServiceで提供される操作を説明します。
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V5"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:ResponseHeader>
@@ -652,6 +493,8 @@ MediaServiceで提供される操作を説明します。
                         <ns1:mediaName>ad_sample001.jpeg</ns1:mediaName>
                         <ns1:mediaTitle>画像広告００１</ns1:mediaTitle>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:logoFlg>FALSE</ns1:logoFlg>
+                        <ns1:thumbnailFlg>FALSE</ns1:thumbnailFlg>
                         <ns1:creationTime>2147483647</ns1:creationTime>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:disapprovalReasonCodes></ns1:disapprovalReasonCodes>
@@ -673,6 +516,8 @@ MediaServiceで提供される操作を説明します。
                         <ns1:mediaName>ad_sample002.jpeg</ns1:mediaName>
                         <ns1:mediaTitle>画像広告００２</ns1:mediaTitle>
                         <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:logoFlg>TRUE</ns1:logoFlg>
+                        <ns1:thumbnailFlg>FALSE</ns1:thumbnailFlg>
                         <ns1:creationTime>2147483647</ns1:creationTime>
                         <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
                         <ns1:disapprovalReasonCodes></ns1:disapprovalReasonCodes>
@@ -699,4 +544,5 @@ MediaServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
