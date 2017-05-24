@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V5"
-  xmlns:tns="http://im.yahooapis.jp/V5"
+  targetNamespace="http://im.yahooapis.jp/V6"
+  xmlns:tns="http://im.yahooapis.jp/V6"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://im.yahooapis.jp/V5"
-      xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://im.yahooapis.jp/V5">
+            targetNamespace="http://im.yahooapis.jp/V6"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.4.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -74,22 +74,30 @@
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="imps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="clickRate" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="clickRateComparisionResult" type="tns:ComparisionResult"/>
           <element maxOccurs="1" minOccurs="0" name="totalClickCost" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="clickCnt" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="avgClickCost" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="avgClickCostComparisionResult" type="tns:ComparisionResult"/>
           <element maxOccurs="1" minOccurs="0" name="convCnt" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="convRate" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="convRateComparisionResult" type="tns:ComparisionResult"/>
           <element maxOccurs="1" minOccurs="0" name="cpa" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="cpaComparisionResult" type="tns:ComparisionResult"/>
           <element maxOccurs="1" minOccurs="0" name="avgDeliverRank" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="totalVimps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="vImps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="inViewClickCnt" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="inViewRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="inViewClickRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="autoVideoPlays" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="clickVideoPlays" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViewedRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="averageCpv" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="videoPlays" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViewsTo25" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViewsTo50" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViewsTo75" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViewsTo95" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViewsTo100" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="averageRateVideoViewed" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="averageDurationVideoViewed" type="xsd:double"/>
         </sequence>
       </complexType>
       <simpleType name="StatsType">
@@ -97,7 +105,8 @@
           <enumeration value="CAMPAIGN"/>
           <enumeration value="ADGROUP"/>
           <enumeration value="AD"/>
-          <enumeration value="MEDIA"/>
+          <enumeration value="IMAGE"/>
+          <enumeration value="VIDEO"/>
         </restriction>
       </simpleType>
       <simpleType name="StatsPeriod">
@@ -111,13 +120,6 @@
           <enumeration value="DEFINITE_VALUE_THIRTYDAY"/>
           <enumeration value="REALTIME_MONTH"/>
           <enumeration value="DEFINITE_VALUE_LASTMONTH"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="ComparisionResult">
-        <restriction base="xsd:string">
-          <enumeration value="DOWN"/>
-          <enumeration value="UP"/>
-          <enumeration value="KEEP"/>
         </restriction>
       </simpleType>
       <complexType name="Paging">
@@ -212,7 +214,7 @@
   </wsdl:binding>
   <wsdl:service name="StatsService">
     <wsdl:port binding="tns:StatsServiceSoapBinding" name="StatsService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.4/StatsService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/StatsService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V5"
-  xmlns:tns="http://im.yahooapis.jp/V5"
+  targetNamespace="http://im.yahooapis.jp/V6"
+  xmlns:tns="http://im.yahooapis.jp/V6"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
    <schema elementFormDefault="qualified" 
-      targetNamespace="http://im.yahooapis.jp/V5"
+      targetNamespace="http://im.yahooapis.jp/V6"
       xmlns="http://www.w3.org/2001/XMLSchema" 
-      xmlns:tns="http://im.yahooapis.jp/V5">
+      xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.4.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -255,7 +255,7 @@
   </wsdl:binding>
   <wsdl:service name="PlacementUrlListService">
     <wsdl:port binding="tns:PlacementUrlListServiceSoapBinding" name="PlacementUrlListService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.4/PlacementUrlListService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/PlacementUrlListService"/>
     </wsdl:port>
   </wsdl:service>  
 </wsdl:definitions>

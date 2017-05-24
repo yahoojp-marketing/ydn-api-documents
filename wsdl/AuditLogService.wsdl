@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V5"
-  xmlns:tns="http://im.yahooapis.jp/V5"
+  targetNamespace="http://im.yahooapis.jp/V6"
+  xmlns:tns="http://im.yahooapis.jp/V6"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://im.yahooapis.jp/V5"
+      targetNamespace="http://im.yahooapis.jp/V6"
       xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://im.yahooapis.jp/V5">
+      xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.4.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -199,12 +199,6 @@
   <wsdl:message name="ApiException">
     <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
   </wsdl:message>
- <wsdl:message name="downloadRequest">
-   <wsdl:part name="parameters" element="tns:download"></wsdl:part>
- </wsdl:message>
- <wsdl:message name="downloadResponse">
-   <wsdl:part name="parameters" element="tns:downloadResponse"></wsdl:part>
- </wsdl:message>
  <wsdl:portType name="AuditLogServiceInterface">
     <wsdl:operation name="getDownload">
       <wsdl:input message="tns:getDownloadRequest" name="getDownloadRequest"/>
@@ -215,10 +209,6 @@
       <wsdl:input message="tns:getDownloadStatusRequest" name="getDownloadStatusRequest"/>
       <wsdl:output message="tns:getDownloadStatusResponse" name="getDownloadStatusResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
-    </wsdl:operation>
-    <wsdl:operation name="download">
-      <wsdl:input message="tns:downloadRequest"></wsdl:input>
-      <wsdl:output message="tns:downloadResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AuditLogServiceSoapBinding" type="tns:AuditLogServiceInterface">
@@ -254,7 +244,7 @@
   </wsdl:binding>
   <wsdl:service name="AuditLogServiceService">
     <wsdl:port binding="tns:AuditLogServiceSoapBinding" name="AuditLogService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.4/AuditLogService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/AuditLogService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

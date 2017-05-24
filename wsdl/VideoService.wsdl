@@ -6,10 +6,10 @@
   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
-    <schema elementFormDefault="qualified" 
-      targetNamespace="http://im.yahooapis.jp/V6"
-      xmlns="http://www.w3.org/2001/XMLSchema" 
-      xmlns:tns="http://im.yahooapis.jp/V6">
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://im.yahooapis.jp/V6"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
           <version>6.0.0</version>
@@ -33,125 +33,15 @@
           <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
         </sequence>
       </complexType>
-      <complexType name="MediaSelector">
+      <complexType name="VideoSelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="mediaIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:MediaApprovalStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:ApprovalStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="processStatuses" type="tns:VideoProcessStatus"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
-      </complexType>
-      <complexType name="MediaPage">
-        <complexContent>
-          <extension base="tns:Page">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:MediaValues"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="MediaValues">
-        <complexContent>
-          <extension base="tns:ReturnValue">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="mediaRecord" type="tns:MediaRecord"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="MediaRecord">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="mediaId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="mediaName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="mediaTitle" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="userStatus" type="tns:UserStatus"/>
-          <element maxOccurs="1" minOccurs="0" name="logoFlg" type="tns:LogoFlg"/>
-          <element maxOccurs="1" minOccurs="0" name="thumbnailFlg" type="tns:ThumbnailFlg"/>
-          <element maxOccurs="1" minOccurs="0" name="creationTime" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="approvalStatus" type="tns:MediaApprovalStatus"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="disapprovalReasonCodes" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="media" type="tns:Media"/>
-        </sequence>
-      </complexType>
-      <complexType name="Media">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="mediaType" type="tns:MediaType"/>
-        </sequence>
-      </complexType>
-      <complexType name="ImageMedia">
-        <complexContent>
-          <extension base="tns:Media">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="mediaFileType" type="tns:MediaFileType"/>
-              <element maxOccurs="1" minOccurs="0" name="mediaAdFormat" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="fileSize" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="width" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="height" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="downloadUrl" type="xsd:string"/>
-              <element maxOccurs="1" minOccurs="0" name="data" type="xsd:base64Binary"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <simpleType name="LogoFlg">
-        <restriction base="xsd:string">
-          <enumeration value="FALSE"/>
-          <enumeration value="TRUE"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="ThumbnailFlg">
-        <restriction base="xsd:string">
-          <enumeration value="FALSE"/>
-          <enumeration value="TRUE"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="UserStatus">
-        <restriction base="xsd:string">
-          <enumeration value="ACTIVE"/>
-          <enumeration value="PAUSED"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="MediaFileType">
-        <restriction base="xsd:string">
-          <enumeration value="JPEG"/>
-          <enumeration value="GIF"/>
-          <enumeration value="PNG"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="MediaType">
-        <restriction base="xsd:string">
-          <enumeration value="IMAGE"/>
-          <enumeration value="ANIMATION_IMAGE"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="MediaApprovalStatus">
-        <restriction base="xsd:string">
-          <enumeration value="APPROVED"/>
-          <enumeration value="REVIEW"/>
-          <enumeration value="PRE_DISAPPROVED"/>
-          <enumeration value="POST_DISAPPROVED"/>
-        </restriction>
-      </simpleType>
-      <complexType name="MediaOperation">
-        <complexContent>
-          <extension base="tns:Operation">
-            <sequence>
-              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:MediaRecord"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="MediaReturnValue">
-        <complexContent>
-          <extension base="tns:ListReturnValue">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:MediaValues"/>
-            </sequence>
-          </extension>
-        </complexContent>
       </complexType>
       <complexType name="Paging">
         <sequence>
@@ -159,11 +49,102 @@
           <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
         </sequence>
       </complexType>
-      <complexType abstract="true" name="ReturnValue">
+      <complexType name="VideoPage">
+        <complexContent>
+          <extension base="tns:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:VideoValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="VideoValues">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="video" type="tns:Video"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="Video">
         <sequence>
-          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="mediaId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="videoTitle" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="userStatus" type="tns:UserStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="creationTime" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="approvalStatus" type="tns:ApprovalStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="disapprovalReasonCodes" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="processStatus" type="tns:VideoProcessStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="videoSetting" type="tns:VideoSetting"/>
         </sequence>
+      </complexType>
+      <complexType name="VideoSetting">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="videoFileType" type="tns:VideoFileType"/>
+          <element maxOccurs="1" minOccurs="0" name="videoAdFormat" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="fileSize" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="width" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="height" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="playbackTime" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="downloadOriginalUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="downloadHighBitrateUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="downloadMiddleBitrateUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="downloadLowBitrateUrl" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="UploadVideo">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="videoName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="videoTitle" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="userStatus" type="tns:UserStatus"/>
+        </sequence>
+      </complexType>
+      <complexType name="UploadUrlPage">
+        <complexContent>
+          <extension base="tns:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:UploadUrlValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="UploadUrlValues">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="uploadUrlValue" type="tns:UploadUrlValue"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="UploadUrlValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="acceptableUploadStatus" type="xsd:boolean"/>
+          <element maxOccurs="1" minOccurs="0" name="uploadUrl" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="VideoOperation">
+        <complexContent>
+          <extension base="tns:Operation">
+            <sequence>
+              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:Video"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="VideoReturnValue">
+        <complexContent>
+          <extension base="tns:ListReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:VideoValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
       </complexType>
       <complexType name="Error">
         <sequence>
@@ -178,41 +159,72 @@
           <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
         </sequence>
       </complexType>
+      <complexType abstract="true" name="Operation">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
+        </sequence>
+      </complexType>
       <complexType abstract="true" name="Page">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
           <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
         </sequence>
       </complexType>
-      <complexType abstract="true" name="Operation">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
-        </sequence>
-      </complexType>
-      <simpleType name="Operator">
-        <restriction base="xsd:string">
-          <enumeration value="ADD"/>
-          <enumeration value="SET"/>
-          <enumeration value="REMOVE"/>
-        </restriction>
-      </simpleType>
       <complexType abstract="true" name="ListReturnValue">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
         </sequence>
       </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <simpleType name="Operator">
+        <restriction base="xsd:string">
+          <enumeration value="SET"/>
+          <enumeration value="REMOVE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="UserStatus">
+        <restriction base="xsd:string">
+          <enumeration value="ACTIVE"/>
+          <enumeration value="PAUSED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ApprovalStatus">
+        <restriction base="xsd:string">
+          <enumeration value="APPROVED"/>
+          <enumeration value="REVIEW"/>
+          <enumeration value="PRE_DISAPPROVED"/>
+          <enumeration value="POST_DISAPPROVED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="VideoProcessStatus">
+        <restriction base="xsd:string">
+          <enumeration value="PROCESSING"/>
+          <enumeration value="FINISHED"/>
+          <enumeration value="FAILED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="VideoFileType">
+        <restriction base="xsd:string">
+          <enumeration value="MP4"/>
+        </restriction>
+      </simpleType>
       <element name="get">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:MediaSelector"/>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:VideoSelector"/>
           </sequence>
         </complexType>
       </element>
       <element name="getResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:MediaPage"/>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:VideoPage"/>
             <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
           </sequence>
         </complexType>
@@ -220,14 +232,30 @@
       <element name="mutate">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:MediaOperation"/>
+            <element maxOccurs="1" minOccurs="1" name="operations" type="tns:VideoOperation"/>
           </sequence>
         </complexType>
       </element>
       <element name="mutateResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:MediaReturnValue"/>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:VideoReturnValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadUrl">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+            <element maxOccurs="unbounded" minOccurs="1" name="uploadVideo" type="tns:UploadVideo"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadUrlResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:UploadUrlPage"/>
             <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
           </sequence>
         </complexType>
@@ -255,10 +283,16 @@
   <wsdl:message name="mutateResponse">
     <wsdl:part element="tns:mutateResponse" name="parameters"/>
   </wsdl:message>
+  <wsdl:message name="getUploadUrlRequest">
+    <wsdl:part element="tns:getUploadUrl" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadUrlResponse">
+    <wsdl:part element="tns:getUploadUrlResponse" name="parameters"/>
+  </wsdl:message>
   <wsdl:message name="ApiException">
     <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
   </wsdl:message>
-  <wsdl:portType name="MediaServiceInterface">
+  <wsdl:portType name="VideoServiceInterface">
     <wsdl:operation name="get">
       <wsdl:input message="tns:getRequest" name="getRequest"/>
       <wsdl:output message="tns:getResponse" name="getResponse"/>
@@ -269,8 +303,13 @@
       <wsdl:output message="tns:mutateResponse" name="mutateResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
+    <wsdl:operation name="getUploadUrl">
+      <wsdl:input message="tns:getUploadUrlRequest" name="getUploadUrlRequest"/>
+      <wsdl:output message="tns:getUploadUrlResponse" name="getUploadUrlResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="MediaServiceSoapBinding" type="tns:MediaServiceInterface">
+  <wsdl:binding name="VideoServiceSoapBinding" type="tns:VideoServiceInterface">
     <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="get">
       <wsdlsoap:operation soapAction=""/>
@@ -300,10 +339,24 @@
         <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="getUploadUrl">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getUploadUrlRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUploadUrlResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="MediaServiceService">
-    <wsdl:port binding="tns:MediaServiceSoapBinding" name="MediaService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/MediaService"/>
+  <wsdl:service name="VideoService">
+    <wsdl:port binding="tns:VideoServiceSoapBinding" name="VideoService">
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/VideoService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

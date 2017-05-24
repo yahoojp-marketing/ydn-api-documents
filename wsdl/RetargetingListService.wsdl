@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V5"
-  xmlns:tns="http://im.yahooapis.jp/V5"
+  targetNamespace="http://im.yahooapis.jp/V6"
+  xmlns:tns="http://im.yahooapis.jp/V6"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-      targetNamespace="http://im.yahooapis.jp/V5"
+      targetNamespace="http://im.yahooapis.jp/V6"
       xmlns="http://www.w3.org/2001/XMLSchema"
-      xmlns:tns="http://im.yahooapis.jp/V5">
+      xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.4.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -53,11 +53,12 @@
           <enumeration value="RULE"/>
           <enumeration value="COMBINATION"/>
           <enumeration value="SIMILARITY"/>
+          <enumeration value="CUSTOM_AUDIENCE"/>
         </restriction>
       </simpleType>
       <complexType name="RetargetingList">
         <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="targetListId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="targetListName" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
@@ -78,7 +79,7 @@
               <element maxOccurs="1" minOccurs="0" name="retargetingTagId" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="isPreset" type="tns:IsPreset"/>
               <element maxOccurs="1" minOccurs="0" name="isOpen" type="tns:IsOpen"/>
-              <element maxOccurs="1" minOccurs="0" name="reachPeriod" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="reachPeriod" type="xsd:int"/>
               <element maxOccurs="unbounded" minOccurs="0" name="rules" type="tns:Rule"/>
             </sequence>
           </extension>
@@ -122,6 +123,16 @@
           <extension base="tns:RetargetingTargetList">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="targetListId" type="xsd:long"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="CustomAudienceTargetList">
+        <complexContent>
+          <extension base="tns:RetargetingTargetList">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="reachPeriod" type="xsd:int"/>
+              <element maxOccurs="1" minOccurs="0" name="customAudienceId" type="xsd:string"/>
             </sequence>
           </extension>
         </complexContent>
@@ -221,7 +232,6 @@
           <extension base="tns:Operation">
             <sequence>
               <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="targetListType" type="tns:TargetListType"/>
               <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:RetargetingList"/>
             </sequence>
           </extension>
@@ -355,7 +365,7 @@
   </wsdl:binding>
   <wsdl:service name="RetargetingListServiceService">
     <wsdl:port binding="tns:RetargetingListServiceSoapBinding" name="RetargetingListService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.4/RetargetingListService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/RetargetingListService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
