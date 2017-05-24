@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-targetNamespace="http://im.yahooapis.jp/V5"
-xmlns:tns="http://im.yahooapis.jp/V5"
+targetNamespace="http://im.yahooapis.jp/V6"
+xmlns:tns="http://im.yahooapis.jp/V6"
 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-    targetNamespace="http://im.yahooapis.jp/V5"
+    targetNamespace="http://im.yahooapis.jp/V6"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:tns="http://im.yahooapis.jp/V5">
+    xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.4.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -65,15 +65,8 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <complexType name="AdProduct">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="adProductType" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="status" type="tns:AdProductStatus"/>
         </sequence>
       </complexType>
-      <simpleType name="AdProductStatus">
-        <restriction base="xsd:string">
-          <enumeration value="OPEN"/>
-          <enumeration value="SHUT"/>
-        </restriction>
-      </simpleType>
       <complexType abstract="true" name="ReturnValue">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
@@ -160,7 +153,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="AccountAdProductService">
     <wsdl:port binding="tns:AccountAdProductServiceSoapBinding" name="AccountAdProductService">
-      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V5.4/AccountAdProductService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V6.0/AccountAdProductService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

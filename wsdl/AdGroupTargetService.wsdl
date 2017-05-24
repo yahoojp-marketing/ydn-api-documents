@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V5"
-  xmlns:tns="http://im.yahooapis.jp/V5"
+  targetNamespace="http://im.yahooapis.jp/V6"
+  xmlns:tns="http://im.yahooapis.jp/V6"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified" 
-      targetNamespace="http://im.yahooapis.jp/V5"
+      targetNamespace="http://im.yahooapis.jp/V6"
       xmlns="http://www.w3.org/2001/XMLSchema" 
-      xmlns:tns="http://im.yahooapis.jp/V5">
+      xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.4.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -111,22 +111,10 @@
           <enumeration value="PLACEMENT_TARGET"/>
         </restriction>
       </simpleType>
-      <simpleType name="TargetListStatus">
-        <restriction base="xsd:string">
-          <enumeration value="EXISTS"/>
-          <enumeration value="DELETED"/>
-        </restriction>
-      </simpleType>
       <simpleType name="TargetListDeliverType">
         <restriction base="xsd:string">
           <enumeration value="INCLUDE"/>
           <enumeration value="EXCLUDE"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="SearchTargetListStatus">
-        <restriction base="xsd:string">
-          <enumeration value="EXISTS"/>
-          <enumeration value="DELETED"/>
         </restriction>
       </simpleType>
       <simpleType name="DayOfWeek">
@@ -267,7 +255,6 @@
           <element maxOccurs="1" minOccurs="1" name="type" type="tns:TargetType"/>
           <element maxOccurs="1" minOccurs="1" name="searchKeywordListId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="searchKeywordListName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="searchKeywordListStatus" type="tns:SearchTargetListStatus"/>
         </sequence>
       </complexType>
       <complexType name="SiteCategoryTargetList">
@@ -299,7 +286,6 @@
           <element maxOccurs="1" minOccurs="1" name="type" type="tns:TargetType"/>
           <element maxOccurs="1" minOccurs="1" name="targetListId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="targetListName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="targetListStatus" type="tns:TargetListStatus"/>
           <element maxOccurs="1" minOccurs="0" name="targetListDeliverType" type="tns:TargetListDeliverType"/>
         </sequence>
       </complexType>
@@ -468,7 +454,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupTargetServiceService">
     <wsdl:port binding="tns:AdGroupTargetServiceSoapBinding" name="AdGroupTargetService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.4/AdGroupTargetService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/AdGroupTargetService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

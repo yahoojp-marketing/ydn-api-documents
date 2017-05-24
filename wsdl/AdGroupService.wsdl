@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V5"
-  xmlns:tns="http://im.yahooapis.jp/V5"
+  targetNamespace="http://im.yahooapis.jp/V6"
+  xmlns:tns="http://im.yahooapis.jp/V6"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified" 
-    targetNamespace="http://im.yahooapis.jp/V5"
+    targetNamespace="http://im.yahooapis.jp/V6"
     xmlns="http://www.w3.org/2001/XMLSchema" 
-    xmlns:tns="http://im.yahooapis.jp/V5">
+    xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.4.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -92,6 +92,15 @@
           <extension base="tns:AdGroupBid">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="maxCpc" type="xsd:long"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ManualCPVAdGroupBid">
+        <complexContent>
+          <extension base="tns:AdGroupBid">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="maxCpv" type="xsd:long"/>
             </sequence>
           </extension>
         </complexContent>
@@ -201,6 +210,7 @@
       <simpleType name="BiddingStrategyType">
         <restriction base="xsd:string">
           <enumeration value="MANUAL_CPC"/>
+          <enumeration value="MANUAL_CPV"/>
         </restriction>
       </simpleType>
       <simpleType name="DeviceType">
@@ -233,6 +243,7 @@
           <enumeration value="SOFTBANK"/>
           <enumeration value="YMOBILE"/>
           <enumeration value="OTHERS"/>
+          <enumeration value="NONE"/>
         </restriction>
       </simpleType>
       <simpleType name="DynamicImageExtensions">
@@ -309,7 +320,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupServiceService">
     <wsdl:port binding="tns:AdGroupServiceSoapBinding" name="AdGroupService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V5.4/AdGroupService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/AdGroupService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

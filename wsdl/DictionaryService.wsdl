@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-targetNamespace="http://im.yahooapis.jp/V5"
-xmlns:tns="http://im.yahooapis.jp/V5"
+targetNamespace="http://im.yahooapis.jp/V6"
+xmlns:tns="http://im.yahooapis.jp/V6"
 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-    targetNamespace="http://im.yahooapis.jp/V5"
+    targetNamespace="http://im.yahooapis.jp/V6"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:tns="http://im.yahooapis.jp/V5">
+    xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>5.4.0</version>
+          <version>6.0.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -420,7 +420,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   </wsdl:binding>
   <wsdl:service name="DictionaryService">
     <wsdl:port binding="tns:DictionaryServiceSoapBinding" name="DictionaryService">
-      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V5.4/DictionaryService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V6.0/DictionaryService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
