@@ -1,6 +1,6 @@
 # ManualCPVAdGroupAdBid
-ManualCPCAdGroupAdBidオブジェクトは、広告の手動入札方法（CPV）を表します。  
-※広告掲載方式がIDEO_AD(動画広告）のキャンペーンIDを指定した時のみ利用できます。
+ManualCPVAdGroupAdBidオブジェクトは、広告の手動入札方法（CPV）を表します。  
+※広告掲載方式がVIDEO_AD(動画広告）のキャンペーンIDを指定した時のみ利用できます。
 
 ### Service
 + [AdGroupAdService](../services/AdGroupAdService.md)
@@ -28,7 +28,7 @@ ManualCPCAdGroupAdBidオブジェクトは、広告の手動入札方法（CPV�
   <td>Ignore<br>NotUpdatable</td>
  </tr>
  <tr>
-  <td>maxCpc</td>
+  <td>maxCpv</td>
   <td>xsd:long</td>
   <td>入札価格です。</td>
   <td>yes</td>
