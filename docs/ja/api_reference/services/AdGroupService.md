@@ -3,8 +3,8 @@ AdGroupServiceは広告グループの操作を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupService?wsdl |
 #### Namespace
 http://im.yahooapis.jp/V6
 #### サービス概要
@@ -13,7 +13,7 @@ http://im.yahooapis.jp/V6
 AdGroupServiceで提供される操作を説明します。
 ## get
 ### リクエスト
-広告の情報を取得します。
+広告グループの情報を取得します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
