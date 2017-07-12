@@ -9,7 +9,6 @@ BiddingStrategyオブジェクトは、キャンペーンの入札方法を表�
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -19,9 +18,8 @@ BiddingStrategyオブジェクトは、キャンペーンの入札方法を表�
   <td>enum<br><a href="./BiddingStrategyType.md">BiddingStrategyType</a></td>
   <td>入札方法です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Ignore<br>※Ver.5.4以前は「-」</td>
-  <td>Ignore<br>※Ver.5.4以前は「-」</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
 </table>

@@ -9,7 +9,6 @@ The BiddingStrategy object displays campaign bidding strategy.
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -19,9 +18,8 @@ The BiddingStrategy object displays campaign bidding strategy.
   <td>enum<br><a href="./BiddingStrategyType.md">BiddingStrategyType</a></td>
   <td>Container including bidding strategy.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Ignore<br>※It was "-" on Ver.5.4 or before./td>
-  <td>Ignore<br>※It was "-" on Ver.5.4 or before.</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
 </table>
