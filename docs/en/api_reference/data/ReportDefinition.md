@@ -9,18 +9,14 @@ The ReportDefinition object serves report definitions.
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
-  <th>set</th>
   <th>remove</th>
  <tr>
   <td>reportId</td>
   <td>xsd:long</td>
   <td>Report ID.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Ignore</td>
-  <td>-</td>
   <td>Requirement<br>(Not updatable)</td>
  </tr>
  <tr>
@@ -28,9 +24,7 @@ The ReportDefinition object serves report definitions.
   <td>xsd:long</td>
   <td>Account ID.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Ignore</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -38,9 +32,7 @@ The ReportDefinition object serves report definitions.
   <td>xsd:string</td>
   <td>Report name.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -48,9 +40,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportDateRangeType.md">ReportDateRangeType</a></td>
   <td>Compilation target period for a defined report.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -58,19 +48,15 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportDateRange.md">ReportDateRange</a></td>
   <td>The date range for report compilation.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
   <td>frequencyRange</td>
-  <td>enum<br><a href="./ReportDateRangeType.md">ReportDateRangeType</a></td>
+  <td>enum<br><a href="./ReportFrequencyRange.md">ReportFrequencyRange</a></td>
   <td>Performance range of frequency.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -78,9 +64,7 @@ The ReportDefinition object serves report definitions.
   <td><a href="./ReportFilter.md">ReportFilter</a></td>
   <td>Filter of report.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -91,9 +75,7 @@ The ReportDefinition object serves report definitions.
   ・Add "+" before the field name to arrange in ascending order.<br>
   ・Add "-" before the field name to arrange in descending order.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -101,9 +83,7 @@ The ReportDefinition object serves report definitions.
   <td>xsd:string</td>
   <td>Select the fields. <br>Confirm the available field name from <a href="../appendix/reports.md">Report Fields Page</a>.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -111,9 +91,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportDownloadFormat.md">ReportDownloadFormat</a></td>
   <td>File format for the defined download report.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -121,9 +99,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportDownloadEncode.md">ReportDownloadEncode</a></td>
   <td>Encoding for the defined download report.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -131,9 +107,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportZip.md">ReportZip</a></td>
   <td>Whether or not a compressed file exists for the defined report.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -141,9 +115,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportLang.md">ReportLang</a></td>
   <td>Reporting language for the defined column name.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -151,9 +123,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportIntervalType.md">ReportIntervalType</a></td>
   <td>Selects a timing (interval type) to create a report.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -161,9 +131,7 @@ The ReportDefinition object serves report definitions.
   <td>xsd:int</td>
   <td>Selects day to create a report.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -171,9 +139,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportAddTemplate.md">ReportAddTemplate</a></td>
   <td>Set the definition for a template flag.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
-  <td>-</td>
   <td>Ignore</td>
  </tr>
 </table>
