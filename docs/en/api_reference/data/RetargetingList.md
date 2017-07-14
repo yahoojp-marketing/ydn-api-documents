@@ -9,7 +9,6 @@ RetargetingList object diplays the target list for site retargeting.
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -19,18 +18,16 @@ RetargetingList object diplays the target list for site retargeting.
   <td>xsd:long</td>
   <td>Account ID.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>targetListId</td>
   <td>xsd:long</td>
   <td>Target List ID.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Requirement<br>NonUpdatable</td>
   <td>Requirement<br>NonUpdatable</td>
  </tr>
@@ -39,40 +36,36 @@ RetargetingList object diplays the target list for site retargeting.
   <td>xsd:string</td>
   <td>Target List name.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>description</td>
   <td>xsd:string</td>
   <td>Description of Target List.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>deliveryStatus</td>
   <td>enum<br><a href="./DeliveryStatus.md">DeliveryStatus</a></td>
   <td>Ad distribution statys.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>reach</td>
   <td>xsd:long</td>
   <td>Number of reaches.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>targetList</td>
@@ -83,10 +76,9 @@ RetargetingList object diplays the target list for site retargeting.
  <a href="./CustomAudienceTargetList.md">CustomAudienceTargetList</a></td>
   <td>Settings of Target List.</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
-  <td>Optional</td>
-  <td>-</td>
+  <td>Requirement</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

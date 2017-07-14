@@ -9,7 +9,6 @@ RetargetingListオブジェクトは、サイトリターゲティング のタ�
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -19,18 +18,16 @@ RetargetingListオブジェクトは、サイトリターゲティング のタ�
   <td>xsd:long</td>
   <td>アカウントIDです。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>targetListId</td>
   <td>xsd:long</td>
   <td>ターゲットリストIDです。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Requirement<br>NonUpdatable</td>
   <td>Requirement<br>NonUpdatable</td>
  </tr>
@@ -39,40 +36,36 @@ RetargetingListオブジェクトは、サイトリターゲティング のタ�
   <td>xsd:string</td>
   <td>ターゲットリスト名です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>description</td>
   <td>xsd:string</td>
   <td>ターゲットリストの説明です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>deliveryStatus</td>
   <td>enum<br><a href="./DeliveryStatus.md">DeliveryStatus</a></td>
   <td>配信ステータスです。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>reach</td>
   <td>xsd:long</td>
   <td>リーチ数です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>targetList</td>
@@ -83,10 +76,9 @@ RetargetingListオブジェクトは、サイトリターゲティング のタ�
  <a href="./CustomAudienceTargetList.md">CustomAudienceTargetList</a></td>
   <td>ターゲットリストの設定内容です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
-  <td>Optional</td>
-  <td>-</td>
+  <td>Requirement</td>
+  <td>Ignore</td>
  </tr>
 </table>
 
