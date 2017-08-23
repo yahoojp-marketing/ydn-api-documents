@@ -301,7 +301,7 @@
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>◯</td>
  </tr>
  <tr>
   <td>getClosedDate</td>
