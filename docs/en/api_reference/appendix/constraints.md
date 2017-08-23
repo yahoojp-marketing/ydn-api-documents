@@ -301,7 +301,7 @@ The following are value limits for the number of each type.
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>getClosedDate</td>
