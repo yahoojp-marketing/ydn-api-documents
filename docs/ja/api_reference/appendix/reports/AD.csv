@@ -1,76 +1,80 @@
 "フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","組合せ不可フィールド/Not compatible fields"
-"ACCOUNT_ID","アカウントID","Account ID","accountID","LONG","[]"
-"ACCOUNT_NAME","アカウント名","Account Name","accountName","STRING","[]"
-"CAMPAIGN_ID","キャンペーンID","Campaign ID","campaignID","LONG","[]"
-"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","[]"
-"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG","[]"
-"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","[]"
-"AD_ID","広告ID","Ad ID","adID","LONG","[]"
-"AD_NAME","広告名","Ad Name","adName","STRING","[]"
-"AD_TYPE","広告タイプ","Ad Type","adType","STRING","[]"
-"URL_ID","リンク先URLID","Destination URL ID","destinationURLID","LONG","[]"
-"URL_NAME","リンク先URL","Destination URL","destinationURL","STRING","[]"
-"PREF_ID","都道府県ID","Prefecture ID","prefectureID","STRING","[""INVIEW_CLICK_RATE"",""TOTAL_VIEWABLE_IMPS"",""INVIEW_CLICK"",""INVIEW_RATE"",""VIEWABLE_IMPS""]"
-"PREF_NAME","都道府県","Prefectures","prefecture","STRING","[""INVIEW_CLICK_RATE"",""TOTAL_VIEWABLE_IMPS"",""INVIEW_CLICK"",""INVIEW_RATE"",""VIEWABLE_IMPS""]"
-"CITY_ID","市区郡ID","City ID","cityID","STRING","[""INVIEW_CLICK_RATE"",""TOTAL_VIEWABLE_IMPS"",""INVIEW_CLICK"",""INVIEW_RATE"",""VIEWABLE_IMPS""]"
-"CITY_NAME","市区郡","City","city","STRING","[""INVIEW_CLICK_RATE"",""TOTAL_VIEWABLE_IMPS"",""INVIEW_CLICK"",""INVIEW_RATE"",""VIEWABLE_IMPS""]"
-"WARD_ID","行政区ID","Ward ID","wardID","STRING","[""INVIEW_CLICK_RATE"",""TOTAL_VIEWABLE_IMPS"",""INVIEW_CLICK"",""INVIEW_RATE"",""VIEWABLE_IMPS""]"
-"WARD_NAME","行政区","Ward","ward","STRING","[""INVIEW_CLICK_RATE"",""TOTAL_VIEWABLE_IMPS"",""INVIEW_CLICK"",""INVIEW_RATE"",""VIEWABLE_IMPS""]"
-"GENDER","性別","Gender","gender","STRING","[""INVIEW_CLICK_RATE"",""TOTAL_VIEWABLE_IMPS"",""INVIEW_CLICK"",""INVIEW_RATE"",""VIEWABLE_IMPS""]"
-"AGE","年齢","Age","age","STRING","[""INVIEW_CLICK_RATE"",""TOTAL_VIEWABLE_IMPS"",""INVIEW_CLICK"",""INVIEW_RATE"",""VIEWABLE_IMPS""]"
-"MONTH","月","Month","month","STRING","[]"
-"DAY","日","Daily","day","STRING","[]"
-"HOUR","時間","Hourly","hourofday","LONG","[]"
-"DELIVER","広告掲載方式","Ad Distribution","deliverName","STRING","[]"
-"DEVICE","デバイス","Device","device","STRING","[]"
-"AD_STYLE","掲載フォーマット（画像タイプ）","Ad Style (Image Type)","adStyle","STRING","[]"
-"MEDIA_ID","メディアID","Media ID","mediaID","STRING","[]"
-"MEDIA_NAME","メディア名","Media Name","mediaName","STRING","[]"
-"MEDIA_FILE_NAME","ファイル名","File Name","fileName","STRING","[]"
-"MEDIA_AD_FORMAT","ピクセルサイズ","Pixel Size","pixelSize","STRING","[]"
-"AD_TITLE","タイトル","Title","title","STRING","[]"
-"DESCRIPTION1","説明文1","Description 1","description1","STRING","[]"
-"DESCRIPTION2","説明文2","Description 2","description2","STRING","[]"
-"DISPLAY_URL","表示URL","Display URL","displayURL","STRING","[]"
-"SEARCHKEYWORD_ID","サーチキーワードID","Search Keyword ID","searchKeywordID","LONG","[]"
-"SEARCHKEYWORD","サーチキーワード","Search Keyword","searchKeyword","STRING","[]"
-"CONVERSION_LABEL","コンバージョンラベル名","Conversion Name","conversionName","STRING","[""IMPS"",""CLICK_RATE"",""COST"",""CLICK"",""AVG_CPC"",""CONVERSION_RATE_OLD"",""CPA_OLD"",""AVG_DELIVER_RANK"",""TOTAL_VIEWABLE_IMPS"",""VIEWABLE_IMPS"",""INVIEW_RATE"",""INVIEW_CLICK"",""INVIEW_CLICK_RATE"",""AUTO_VIDEO_PLAYS"",""CLICK_VIDEO_PLAYS"",""VIDEO_VIEWED_RATE"",""AVG_CPV"",""VIDEO_PLAYS"",""VIDEO_VIEWS_TO_25"",""VIDEO_VIEWS_TO_50"",""VIDEO_VIEWS_TO_75"",""VIDEO_VIEWS_TO_95"",""VIDEO_VIEWS_TO_100"",""AVG_PERCENT_VIDEO_VIEWED"",""AVG_DURATION_VIDEO_VIEWED"",""CONV_RATE"",""COST_PER_CONV""]"
-"CONVERSION_CATEGORY","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","STRING","[""IMPS"",""CLICK_RATE"",""COST"",""CLICK"",""AVG_CPC"",""CONVERSION_RATE_OLD"",""CPA_OLD"",""AVG_DELIVER_RANK"",""TOTAL_VIEWABLE_IMPS"",""VIEWABLE_IMPS"",""INVIEW_RATE"",""INVIEW_CLICK"",""INVIEW_CLICK_RATE"",""AUTO_VIDEO_PLAYS"",""CLICK_VIDEO_PLAYS"",""VIDEO_VIEWED_RATE"",""AVG_CPV"",""VIDEO_PLAYS"",""VIDEO_VIEWS_TO_25"",""VIDEO_VIEWS_TO_50"",""VIDEO_VIEWS_TO_75"",""VIDEO_VIEWS_TO_95"",""VIDEO_VIEWS_TO_100"",""AVG_PERCENT_VIDEO_VIEWED"",""AVG_DURATION_VIDEO_VIEWED"",""CONV_RATE"",""COST_PER_CONV""]"
-"CARRIER","キャリア","Carrier","carrier","STRING","[]"
-"AD_LAYOUT","レイアウト","Layout","adLayout","STRING","[]"
-"IMAGE_OPTION","画像自動付与","Dynamic Image Extensions","imageOption","STRING","[]"
-"OS","OS","OS","os","STRING","[]"
-"APPLI","ウェブ/アプリ","Web/App","appli","STRING","[]"
-"IMPS","インプレッション数","Impressions","impressions","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"COST","コスト","Cost","cost","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"CLICK","クリック数","Clicks","clicks","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"CONVERSION_OLD","コンバージョン数（旧）","Conversions (old)","totalConversionsOld","LONG","[]"
-"CONVERSION_RATE_OLD","コンバージョン率（旧）","Conversion Rate (old)","totalConversionRateOld","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"CPA_OLD","コスト/コンバージョン数（旧）","Cost per Conversions (old)","costTotalConversionsOld","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"REVENUE_OLD","合計売上金額（旧）","Revenue (old)","totalRevenueOld","LONG","[]"
-"REVENUE_CONVERSION_OLD","売上/コンバージョン数（旧）","Revenue per Conversions (old)","revenueTotalConversionOld","DOUBLE","[]"
-"TOTAL_VIEWABLE_IMPS","ビュー計測対象インプレッション数","Impressions on the measurement object","measurableImpressions","LONG","[""PREF_ID"",""PREF_NAME"",""CITY_ID"",""CITY_NAME"",""WARD_ID"",""WARD_NAME"",""GENDER"",""AGE"",""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"VIEWABLE_IMPS","ビューインプレッション数","Viewable Impressions","viewableImpressions","LONG","[""PREF_ID"",""PREF_NAME"",""CITY_ID"",""CITY_NAME"",""WARD_ID"",""WARD_NAME"",""GENDER"",""AGE"",""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"INVIEW_RATE","ビューインプレッション率","Viewable Impression Rate","viewableImpressionRate","DOUBLE","[""PREF_ID"",""PREF_NAME"",""CITY_ID"",""CITY_NAME"",""WARD_ID"",""WARD_NAME"",""GENDER"",""AGE"",""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"INVIEW_CLICK","ビュークリック数","Viewable Clicks","viewableClicks","LONG","[""PREF_ID"",""PREF_NAME"",""CITY_ID"",""CITY_NAME"",""WARD_ID"",""WARD_NAME"",""GENDER"",""AGE"",""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"INVIEW_CLICK_RATE","ビュークリック率","Viewable CTR","viewableCtr","DOUBLE","[""PREF_ID"",""PREF_NAME"",""CITY_ID"",""CITY_NAME"",""WARD_ID"",""WARD_NAME"",""GENDER"",""AGE"",""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"AUTO_VIDEO_PLAYS","動画の自動再生数","Auto Video Plays","autoVideoPlays","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"CLICK_VIDEO_PLAYS","クリックによる動画再生数","Click Video Plays","clickVideoPlays","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"VIDEO_VIEWED_RATE","動画の再生率","Video Viewed Rate","videoViewedRate","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"AVG_CPV","平均CPV","Average CPV","avgCpv","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"VIDEO_PLAYS","動画が再生開始された回数","Video Plays","videoPlays","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"VIDEO_VIEWS_TO_25","動画が25%まで再生された回数","Video Views to 25%","videoViewsTo25","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"VIDEO_VIEWS_TO_50","動画が50%まで再生された回数","Video Views to 50%","videoViewsTo50","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"VIDEO_VIEWS_TO_75","動画が75%まで再生された回数","Video Views to 75%","videoViewsTo75","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"VIDEO_VIEWS_TO_95","動画が95%まで再生された回数","Video Views to 95%","videoViewsTo95","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"VIDEO_VIEWS_TO_100","動画が100%まで再生された回数","Video Views to 100%","videoViewsTo100","LONG","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"AVG_PERCENT_VIDEO_VIEWED","動画の平均再生率","Average % of Video Viewed","avgPercentVideoViewed","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"AVG_DURATION_VIDEO_VIEWED","動画の平均再生時間（秒）","Average Duration of Video Viewed","avgDurationVideoViewed","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"CONVERSIONS","コンバージョン数","Conversions","conversions","LONG","[]"
-"CONV_RATE","コンバージョン率","Conversion Rate","convRate","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"COST_PER_CONV","コスト/コンバージョン数","Cost per Conversions","costPerConv","DOUBLE","[""CONVERSION_CATEGORY"",""CONVERSION_LABEL""]"
-"REVENUE","合計売上金額","Revenue","revenue","LONG","[]"
-"REVENUE_PER_CONV","売上/コンバージョン数","Revenue per Conversions","revenuePerConv","LONG","[]"
+"ACCOUNT_ID","アカウントID","Account ID","accountID","LONG",
+"ACCOUNT_NAME","アカウント名","Account Name","accountName","STRING",
+"CAMPAIGN_ID","キャンペーンID","Campaign ID","campaignID","LONG",
+"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING",
+"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG",
+"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING",
+"AD_ID","広告ID","Ad ID","adID","LONG",
+"AD_NAME","広告名","Ad Name","adName","STRING",
+"AD_TYPE","広告タイプ","Ad Type","adType","STRING",
+"URL_ID","リンク先URLID","Destination URL ID","destinationURLID","LONG",
+"URL_NAME","リンク先URL","Destination URL","destinationURL","STRING",
+"PREF_ID","都道府県ID","Prefecture ID","prefectureID","STRING","[INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIEWABLE_IMPS]"
+"PREF_NAME","都道府県","Prefectures","prefecture","STRING","[INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIEWABLE_IMPS]"
+"CITY_ID","市区郡ID","City ID","cityID","STRING","[INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIEWABLE_IMPS]"
+"CITY_NAME","市区郡","City","city","STRING","[INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIEWABLE_IMPS]"
+"WARD_ID","行政区ID","Ward ID","wardID","STRING","[INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIEWABLE_IMPS]"
+"WARD_NAME","行政区","Ward","ward","STRING","[INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIEWABLE_IMPS]"
+"GENDER","性別","Gender","gender","STRING","[INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIEWABLE_IMPS]"
+"AGE","年齢","Age","age","STRING","[INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIEWABLE_IMPS]"
+"MONTH","月","Month","month","STRING",
+"DAY","日","Daily","day","STRING",
+"HOUR","時間","Hourly","hourofday","LONG",
+"DELIVER","広告掲載方式","Ad Distribution","deliverName","STRING",
+"DEVICE","デバイス","Device","device","STRING",
+"AD_STYLE","掲載フォーマット（画像タイプ）","Ad Style (Image Type)","adStyle","STRING",
+"MEDIA_ID","メディアID","Media ID","mediaID","STRING",
+"MEDIA_NAME","メディア名","Media Name","mediaName","STRING",
+"MEDIA_FILE_NAME","ファイル名","File Name","fileName","STRING",
+"MEDIA_AD_FORMAT","ピクセルサイズ","Pixel Size","pixelSize","STRING",
+"AD_TITLE","タイトル","Title","title","STRING",
+"DESCRIPTION1","説明文1","Description 1","description1","STRING",
+"DESCRIPTION2","説明文2","Description 2","description2","STRING",
+"DISPLAY_URL","表示URL","Display URL","displayURL","STRING",
+"SEARCHKEYWORD_ID","サーチキーワードID","Search Keyword ID","searchKeywordID","LONG",
+"SEARCHKEYWORD","サーチキーワード","Search Keyword","searchKeyword","STRING",
+"CONVERSION_LABEL","コンバージョンラベル名","Conversion Name","conversionName","STRING","[AUTO_VIDEO_PLAYS, AVG_CPC, AVG_CPV, AVG_DELIVER_RANK, AVG_DURATION_VIDEO_VIEWED, AVG_PERCENT_VIDEO_VIEWED, CLICK, CLICK_RATE, CLICK_VIDEO_PLAYS, CONVERSION_RATE_OLD, CONV_RATE, COST, COST_PER_CONV, CPA_OLD, IMPS, INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIDEO_PLAYS, VIDEO_VIEWED_RATE, VIDEO_VIEWS_TO_100, VIDEO_VIEWS_TO_25, VIDEO_VIEWS_TO_50, VIDEO_VIEWS_TO_75, VIDEO_VIEWS_TO_95, VIEWABLE_IMPS]"
+"CONVERSION_CATEGORY","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","STRING","[AUTO_VIDEO_PLAYS, AVG_CPC, AVG_CPV, AVG_DELIVER_RANK, AVG_DURATION_VIDEO_VIEWED, AVG_PERCENT_VIDEO_VIEWED, CLICK, CLICK_RATE, CLICK_VIDEO_PLAYS, CONVERSION_RATE_OLD, CONV_RATE, COST, COST_PER_CONV, CPA_OLD, IMPS, INVIEW_CLICK, INVIEW_CLICK_RATE, INVIEW_RATE, TOTAL_VIEWABLE_IMPS, VIDEO_PLAYS, VIDEO_VIEWED_RATE, VIDEO_VIEWS_TO_100, VIDEO_VIEWS_TO_25, VIDEO_VIEWS_TO_50, VIDEO_VIEWS_TO_75, VIDEO_VIEWS_TO_95, VIEWABLE_IMPS]"
+"CARRIER","キャリア","Carrier","carrier","STRING",
+"AD_LAYOUT","レイアウト","Layout","adLayout","STRING",
+"IMAGE_OPTION","画像自動付与","Dynamic Image Extensions","imageOption","STRING",
+"OS","OS","OS","os","STRING",
+"APPLI","ウェブ/アプリ","Web/App","appli","STRING",
+"CAMPAIGN_TYPE","キャンペーンタイプ","Campaign Type","campaignType","STRING",
+"APP_ID","アプリID/パッケージ名","App ID/Package name","appID","STRING",
+"APP_NAME","アプリ名","App Name","appName","STRING",
+"APP_OS","アプリOS","App OS","appOS","STRING",
+"IMPS","インプレッション数","Impressions","impressions","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"COST","コスト","Cost","cost","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"CLICK","クリック数","Clicks","clicks","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"CONVERSION_OLD","コンバージョン数（旧）","Conversions (old)","totalConversionsOld","LONG",
+"CONVERSION_RATE_OLD","コンバージョン率（旧）","Conversion Rate (old)","totalConversionRateOld","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"CPA_OLD","コスト/コンバージョン数（旧）","Cost per Conversions (old)","costTotalConversionsOld","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"REVENUE_OLD","合計売上金額（旧）","Revenue (old)","totalRevenueOld","LONG",
+"REVENUE_CONVERSION_OLD","売上/コンバージョン数（旧）","Revenue per Conversions (old)","revenueTotalConversionOld","DOUBLE",
+"TOTAL_VIEWABLE_IMPS","ビュー計測対象インプレッション数","Impressions on the measurement object","measurableImpressions","LONG","[AGE, CITY_ID, CITY_NAME, CONVERSION_CATEGORY, CONVERSION_LABEL, GENDER, PREF_ID, PREF_NAME, WARD_ID, WARD_NAME]"
+"VIEWABLE_IMPS","ビューインプレッション数","Viewable Impressions","viewableImpressions","LONG","[AGE, CITY_ID, CITY_NAME, CONVERSION_CATEGORY, CONVERSION_LABEL, GENDER, PREF_ID, PREF_NAME, WARD_ID, WARD_NAME]"
+"INVIEW_RATE","ビューインプレッション率","Viewable Impression Rate","viewableImpressionRate","DOUBLE","[AGE, CITY_ID, CITY_NAME, CONVERSION_CATEGORY, CONVERSION_LABEL, GENDER, PREF_ID, PREF_NAME, WARD_ID, WARD_NAME]"
+"INVIEW_CLICK","ビュークリック数","Viewable Clicks","viewableClicks","LONG","[AGE, CITY_ID, CITY_NAME, CONVERSION_CATEGORY, CONVERSION_LABEL, GENDER, PREF_ID, PREF_NAME, WARD_ID, WARD_NAME]"
+"INVIEW_CLICK_RATE","ビュークリック率","Viewable CTR","viewableCtr","DOUBLE","[AGE, CITY_ID, CITY_NAME, CONVERSION_CATEGORY, CONVERSION_LABEL, GENDER, PREF_ID, PREF_NAME, WARD_ID, WARD_NAME]"
+"AUTO_VIDEO_PLAYS","動画の自動再生数","Auto Video Plays","autoVideoPlays","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"CLICK_VIDEO_PLAYS","クリックによる動画再生数","Click Video Plays","clickVideoPlays","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"VIDEO_VIEWED_RATE","動画の再生率","Video Viewed Rate","videoViewedRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"AVG_CPV","平均CPV","Average CPV","avgCpv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"VIDEO_PLAYS","動画が再生開始された回数","Video Plays","videoPlays","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"VIDEO_VIEWS_TO_25","動画が25%まで再生された回数","Video Views to 25%","videoViewsTo25","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"VIDEO_VIEWS_TO_50","動画が50%まで再生された回数","Video Views to 50%","videoViewsTo50","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"VIDEO_VIEWS_TO_75","動画が75%まで再生された回数","Video Views to 75%","videoViewsTo75","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"VIDEO_VIEWS_TO_95","動画が95%まで再生された回数","Video Views to 95%","videoViewsTo95","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"VIDEO_VIEWS_TO_100","動画が100%まで再生された回数","Video Views to 100%","videoViewsTo100","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"AVG_PERCENT_VIDEO_VIEWED","動画の平均再生率","Average % of Video Viewed","avgPercentVideoViewed","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"AVG_DURATION_VIDEO_VIEWED","動画の平均再生時間（秒）","Average Duration of Video Viewed","avgDurationVideoViewed","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"CONVERSIONS","コンバージョン数","Conversions","conversions","LONG",
+"CONV_RATE","コンバージョン率","Conversion Rate","convRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"COST_PER_CONV","コスト/コンバージョン数","Cost per Conversions","costPerConv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"REVENUE","合計売上金額","Revenue","revenue","LONG",
+"REVENUE_PER_CONV","売上/コンバージョン数","Revenue per Conversions","revenuePerConv","LONG",

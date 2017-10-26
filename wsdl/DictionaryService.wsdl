@@ -12,7 +12,7 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -274,6 +274,98 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           </sequence>
         </complexType>
       </element>
+      <element name="getOsVersion">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:OsVersionSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getOsVersionResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:OsVersionPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <complexType name="OsVersionSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="osType" type="tns:DeviceOsType"/>
+        </sequence>
+      </complexType>
+      <complexType name="OsVersionPage">
+        <complexContent>
+          <extension base="tns:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:OsVersionValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="OsVersionValues">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="osVersion" type="tns:OsVersion"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="OsVersion">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="osType" type="tns:DeviceOsType"/>
+          <element maxOccurs="1" minOccurs="1" name="version" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="DeviceOsType">
+        <restriction base="xsd:string">
+          <enumeration value="ANDROID"/>
+          <enumeration value="IOS"/>
+        </restriction>
+      </simpleType>
+      <element name="getMediaAdFormat">
+        <complexType />
+      </element>
+      <element name="getMediaAdFormatResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:MediaAdFormatPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <complexType name="MediaAdFormatPage">
+        <complexContent>
+          <extension base="tns:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:MediaAdFormatValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="MediaAdFormatValues">
+        <complexContent>
+          <extension base="tns:ReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="mediaAdFormat" type="tns:MediaAdFormat"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="MediaAdFormat">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="width" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="height" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="size" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="transparent" type="xsd:boolean"/>
+          <element maxOccurs="1" minOccurs="1" name="animation" type="xsd:boolean"/>
+          <element maxOccurs="1" minOccurs="1" name="logo" type="xsd:boolean"/>
+          <element maxOccurs="1" minOccurs="1" name="thumbnail" type="xsd:boolean"/>
+          <element maxOccurs="1" minOccurs="1" name="adFormat" type="xsd:string"/>
+        </sequence>
+      </complexType>
       <element name="RequestHeader" type="tns:SoapHeader"/>
       <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
       <element name="ApiExceptionFault" type="xsd:string"/>
@@ -315,6 +407,18 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:message name="getColorSetResponse">
     <wsdl:part element="tns:getColorSetResponse" name="parameters"/>
   </wsdl:message>
+  <wsdl:message name="getOsVersionRequest">
+    <wsdl:part element="tns:getOsVersion" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getOsVersionResponse">
+    <wsdl:part element="tns:getOsVersionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getMediaAdFormatRequest">
+    <wsdl:part element="tns:getMediaAdFormat" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getMediaAdFormatResponse">
+    <wsdl:part element="tns:getMediaAdFormatResponse" name="parameters"/>
+  </wsdl:message>
   <wsdl:message name="ApiException">
     <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
   </wsdl:message>
@@ -342,6 +446,16 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <wsdl:operation name="getColorSet">
       <wsdl:input message="tns:getColorSetRequest" name="getColorSetRequest"/>
       <wsdl:output message="tns:getColorSetResponse" name="getColorSetResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getOsVersion">
+      <wsdl:input message="tns:getOsVersionRequest" name="getOsVersionRequest"/>
+      <wsdl:output message="tns:getOsVersionResponse" name="getOsVersionResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getMediaAdFormat">
+      <wsdl:input message="tns:getMediaAdFormatRequest" name="getMediaAdFormatRequest"/>
+      <wsdl:output message="tns:getMediaAdFormatResponse" name="getMediaAdFormatResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
   </wsdl:portType>
@@ -417,10 +531,38 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="getOsVersion">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getOsVersionRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOsVersionResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMediaAdFormat">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getMediaAdFormatRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMediaAdFormatResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="DictionaryService">
     <wsdl:port binding="tns:DictionaryServiceSoapBinding" name="DictionaryService">
-      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V6.0/DictionaryService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V6.1/DictionaryService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -1,13 +1,23 @@
 # AdGroupTargetReturnValue
-The AdGroupTargetReturnValue object is a container for storing ad target information.
+The AdGroupTargetReturnValue object contains the results (a list of all entities) for mutate method.
+
 ### Service
 + [AdGroupTargetService](../services/AdGroupTargetService.md)
 
-| Field | Data Type | Description | 
-|---|---|---|
-| ListReturnValue(inherited)|||
-| ListReturnValue.Type| xsd: string| This field indicates the subtype of ListReturnValue of this instance. |
-| Operation.Type| xsd: string| It is the mutate operation. |
-| AdGroupTargetReturnValue|||
-| values| <a href="./AdGroupTargetValues.md">AdGroupTargetValues</a>| List of AdGroupTarget |
+### Inheritance
++ [ListReturnValue](./ListReturnValue.md)
+
+<table>
+ <tr>
+  <th>Field</th>
+  <th>Type</th>
+  <th>Description</th>
+ </tr>
+ <tr>
+  <td>values</td>
+  <td><a href="./AdGroupTargetValue.md">AdGroupTargetValue</a></td>
+  <td>Contains the results (a list of all entities) for mutate method.</td>
+ </tr>
+</table>
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

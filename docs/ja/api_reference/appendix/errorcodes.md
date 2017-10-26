@@ -84,6 +84,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 -------------- | --------------------------- | ---------------------------
 220016 | Advance setting was made to the product or targeting that is not available.  | 指定された広告商品またはターゲティングの値では拡張設定できません。
 220018 | This Target settings is unavailable.  | キャンペーンの商品種別が、ターゲティング設定できない商品です。
+220141 | Can not set bidMultiplier. | 入札価格調整率が設定できないターゲティングです。
 															
 ##### Service
 [BulkService](/docs/ja/api_reference/services/BulkService.md)
@@ -108,6 +109,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220122 | Unavailable combination of frequency settings.  | フリークエンシー設定の組み合わせが不正です。 
 220123 | Unavailable conversion optimizer.  | インタレストマッチ・ターゲティング・モバイルターゲティング以外の広告商品の場合、<br>コンバージョンオプティマイザーの設定はできません。 
 220124 | Disable conversion optimizer.  | コンバージョンオプティマイザーの有効設定が不正です。 
+220143 | Invalid appId.  | アプリIDのフォーマットが不正です。 
 
 ##### Service
 [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
@@ -126,6 +128,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220127 | Invalid ad type.  | レスポンシブと広告枠サイズ固定の広告タイプ以外は利用できない項目です。 
 220128 | Invalid color set ID.  | カラーセットIDが不正です。 
 220133 | Not allowed to set impression beacon url. | 広告効果測定ツール提供企業など外部との連係許可がないため、<br>インプレッションビーコンURLの設定はできません。 
+220321 | Invalid displayUrl. | キャンペーンのデバイス種別では設定できない表示URLが入力されています。 
 
 ##### Service
 [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
@@ -134,6 +137,9 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 -------------- | --------------------------- | ---------------------------
 220125 | Unavailable the dynamicImageExtensions.  | インタレストマッチ・ターゲティング以外の広告商品の場合、画像自動付与フラグの設定はできません。 
 220132 | Cannot set the carrier type. | 選択したデバイスは、キャリアの選択ができません。
+220138 | Unsupported Os Version. | OSバージョンが不正です。
+220139 | Invalid Os Version. | アプリキャンペーンで指定したOSとターゲティングのOSバージョンが適合しません。
+220140 | Invalid device type. | キャンペーンタイプがAPPの場合、DeviceTypeはSMARTPHONE、またはTABLETでなければいけません。
 
 ##### Service
 [MediaService](/docs/ja/api_reference/services/MediaService.md)

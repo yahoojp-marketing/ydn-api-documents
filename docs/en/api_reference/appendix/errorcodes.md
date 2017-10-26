@@ -18,7 +18,7 @@ For details, please refer to [Error](/docs/en/api_reference/data/Error.md) and/o
             <requestValue>detail/requestValue</requestValue>             
          </detail>         
       </SOAP-ENV:Fault>     
-   </SOAP-ENV:Body> 
+   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 ### Error Code
@@ -26,14 +26,14 @@ The following list provides SOAP error codes and error content displayed when an
 
 #### General Errors
 ##### Service
-Same for all services: 
+Same for all services:
 
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
 110001 | Invalid Request.  | Invalid Request.  
 110002 | Frequency limit exceeded. Please try your request again later.  | Frequency limit exceeded. Please try your request again later.  
 110003 | Invalid location.  | Invalid location.  
-110004 | Quota exceeded. service = %s , Quota = %s | Quota exceeded.  service = %s , Quota = %s 
+110004 | Quota exceeded. service = %s , Quota = %s | Quota exceeded.  service = %s , Quota = %s
 110005 | Not a valid id.  | Not a valid id.  
 110006 | Can not login for %s.  | Cannot login for %s.  
 110007 | Invalid method.  | Invalid method.  
@@ -85,6 +85,7 @@ Code           | Message                     | Description
 -------------- | --------------------------- | ---------------------------
 220016 | Advance setting was made to the product or targeting that is not available.  | The advance setting is only available for the specified product.
 220018 | This Target settings is unavailable.  | The type of campaign is not available for the target settings.
+220141 | Can not set bidMultiplier. | The bid adjustment rate is not available for the targeting.
 
 ##### Service
 [BulkService](/docs/en/api_reference/services/BulkService.md)
@@ -103,12 +104,13 @@ Code           | Message                     | Description
 
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
-220007 | Unavailable the adProductType.  | adProductType specified is not available. 
+220007 | Unavailable the adProductType.  | adProductType specified is not available.
 220014 | Budget is lower than bidding price.  | The bidding price has been set higher than the budget.
 220121 | Frequency setting was made to the product that is not available.  | You can not set frequency ads instruments designated.
 220122 | Unavailable combination of frequency settings.  | Combination of frequency setting is invalid.
 220123 | Unavailable conversion optimizer.  | Conversion optimization setting is not possible due to the non-eligible Ad distribution.
 220124 | Disable conversion optimizer.  | Target CPA cannot be set, due to the unusable conversion optimization.
+220143 | Invalid appId.  | Unavailable format of App ID has been set.
 
 ##### Service
 [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
@@ -119,7 +121,7 @@ Code           | Message                     | Description
 220008 | Under examination.  | Review in progress of edited data.
 220009 | Ad type you chose does not support the specified adProductType.  | Ad type you chose does not support the specified adProductType.
 220010 | Can not specify APP and OS for the device type.  | APP and OS you specified does not support for the device type.
-220015 | Bidding price is higher than campaign budget.  | The bidding price has been set higher than the campaign budget. 
+220015 | Bidding price is higher than campaign budget.  | The bidding price has been set higher than the campaign budget.
 220113 | Unsupported ad product type.  | Delivery method of campaign (AdproductType) cannot relate to media.
 220114 | Invalid ad style.  | Invalid ad style.
 220115 | Unavailable aspect ratio of an image. | The pixel size is not available to use for the specific image.
@@ -127,14 +129,18 @@ Code           | Message                     | Description
 220127 | Invalid ad type. | Setting is only available for Responsive Ad or Static Frame Ad.
 220128 | Invalid color set ID. | Unavailable Color Set ID has been set.
 220133 | Not allowed to set impression beacon url. | Impression beacon URL is not available since the external link to analyzing tool providers is not allowed.
+220321 | Invalid displayUrl. | The display URL is not available for the selected device type on Campaign.
 
 ##### Service
 [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
-  
+
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
 220125 | Unavailable the dynamicImageExtensions.  | Cannot set Dynamic Image Extensions, due to the non-eligible Ad distribution.
 220132 | Cannot set the carrier type. | Selected device is not available to select the carrier type.
+220138 | Unsupported Os Version. | The set OS version is invalid.
+220139 | Invalid Os Version. | The OS specified on Mobile App Campaign and the OS version set by targeting do not match.
+220140 | Invalid device type. | DeviceType must be SMARTPHONE or TABLET when Campaign type is APP.
 
 ##### Service
 [MediaService](/docs/en/api_reference/services/MediaService.md)
@@ -200,9 +206,9 @@ Code           | Message                     | Description
 240006 | Invalid sort item.  | Invalid sort item.
 240007 | Creating report downloadUrl is failed.  | Creation of report download URL failed.
 240008 | Report download URL has expired.  | Report download URL has expired.
-240009 | Invalid report download request.  | The report download URL is illegal. 
-240010 | Over limit of report template number.  | The number of registeration template is over the limit number. 
-240011 | Custom date is unavailable when is set as template.  | Cannot select “custom date” for the period when template flag is set.
+240009 | Invalid report download request.  | The report download URL is illegal.
+240010 | Over limit of report template number.  | The number of registeration template is over the limit number.
+240011 | Custom date is unavailable when is set as template.  | Cannot select "custom date" for the period when template flag is set.
 240012 | Field item was not set properly on the specified report type.  | The field item value required for the specified report type was not set properly.
 240013 | Sort setting was made to the field that is not specified.  | An item which is not specified for the field was set for sorting.
 250005 | Invalid filter`s field. | Specifing the field which cannot be set to the filter.

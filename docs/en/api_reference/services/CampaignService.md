@@ -1,23 +1,28 @@
 # CampaignService
 Use this service to get, add, update, or delete campaigns.
+
 #### WSDL
 | environment | url |
 |---|---|
 | production  | https://location.im.yahooapis.jp/services/Vx.x/CampaignService?wsdl |
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/CampaignService?wsdl |
+
 #### Namespace
 http://im.yahooapis.jp/V6
+
 #### Service Overview
 Offers campaign operation.
+
 #### Operation
 Describes operations provided by CampaignService.
+
 ## get
 ### Request
 Gets information related to campaigns.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| selector | required | [CampaignSelector](../data/CampaignSelector.md) | Assigns campaign information to be acquired. | 
+| selector | required | [CampaignSelector](../data/CampaignSelector.md) | Contains a set of criteria (parameters) for get method. |
 
 ##### Request Sample
 ```xml
@@ -45,41 +50,7 @@ Gets information related to campaigns.
           <ns1:startIndex>1</ns1:startIndex>
           <ns1:numberResults>20</ns1:numberResults>
         </ns1:paging>
-      </ns1:selector>
-    </ns1:get>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>1111-1111-1111-1111</ns1:license>
-      <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-      <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      <ns1:accountId>1111111111</ns1:accountId>
-      <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-    </ns1:RequestHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:get>
-      <ns1:selector>
-        <ns1:accountId>1111111111</ns1:accountId>
-        <ns1:campaignIds>1111111110</ns1:campaignIds>
-        <ns1:campaignIds>2222222220</ns1:campaignIds>
-        <ns1:userStatus>ACTIVE</ns1:userStatus>
-        <ns1:userStatus>PAUSED</ns1:userStatus>       
-        <ns1:paging>
-          <ns1:startIndex>1</ns1:startIndex>
-          <ns1:numberResults>20</ns1:numberResults>
-        </ns1:paging>
+        <ns1:campaignType>APP</ns1:campaignType>
       </ns1:selector>
     </ns1:get>
   </SOAP-ENV:Body>
@@ -87,9 +58,9 @@ Gets information related to campaigns.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [CampaignPage](../data/CampaignPage.md) | Container including operation results. | 
+| rval | [CampaignPage](../data/CampaignPage.md) | Contains the results (a list of all entities) for get method. |
 
 ##### Response Sample
 ```xml
@@ -135,6 +106,10 @@ Gets information related to campaigns.
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -164,7 +139,34 @@ Gets information related to campaigns.
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                     </ns1:campaign>
+                </ns1:values>
+                <ns1:values>
+                   <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                      <ns1:campaign>
+                         <ns1:accountId>1000000001</ns1:accountId>
+                         <ns1:campaignId>1000000003</ns1:campaignId>
+                         <ns1:campaignName>campaign name3</ns1:campaignName>
+                         <ns1:userStatus>ACTIVE</ns1:userStatus>
+                         <ns1:servingStatus>SERVING</ns1:servingStatus>
+                         <ns1:startDate>20170316</ns1:startDate>
+                         <ns1:endDate>20371231</ns1:endDate>
+                         <ns1:budget>
+                            <ns1:deliveryMethod>ACCELERATED</ns1:deliveryMethod>
+                         </ns1:budget>
+                         <ns1:biddingStrategy xsi:type="ns1:ManualCPV">
+                            <ns1:type>MANUAL_CPV</ns1:type>
+                         </ns1:biddingStrategy>
+                         <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                        <ns1:appName>app Name</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
+                      </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
         </ns1:getResponse>
@@ -176,9 +178,9 @@ Gets information related to campaigns.
 ### Request
 Adds campaign information.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
+| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Contains the  campaign information for mutate method operation. |
 
 ##### Request Sample
 ```xml
@@ -213,6 +215,7 @@ Adds campaign information.
                         <ns1:type>MANUAL_CPC</ns1:type>
                     </ns1:biddingStrategy>
                     <ns1:adProductType>INTEREST_MATCH</ns1:adProductType>
+                    <ns1:campaignType>STANDARD</ns1:campaignType>
                 </ns1:operand>
                 <ns1:operand>
                     <ns1:accountId>100000001</ns1:accountId>
@@ -232,68 +235,28 @@ Adds campaign information.
                         <ns1:timeUnit>MONTH</ns1:timeUnit>
                         <ns1:impression>15</ns1:impression>
                     </ns1:frequencyCap>
-                </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-       <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-       </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>ADD</ns1:operator>
-                <ns1:accountId>1111111111</ns1:accountId>
-                <ns1:operand>
-                    <ns1:accountId>1111111111</ns1:accountId>
-                    <ns1:campaignName>Sample campaign1</ns1:campaignName>
-                    <ns1:userStatus>PAUSED</ns1:userStatus>
-                    <ns1:startDate>20101201</ns1:startDate>
-                    <ns1:endDate>20101231</ns1:endDate>
-                    <ns1:budget>
-                        <ns1:amount>10000</ns1:amount>
-                        <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-                    </ns1:budget>
-                    <ns1:biddingStrategy xsi:type="ns1:ManualCPC">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                    </ns1:biddingStrategy>
-                    <ns1:adProductType>INTEREST_MATCH</ns1:adProductType>
+                    <ns1:appName>app Name1</ns1:appName>
+                    <ns1:campaignType>APP</ns1:campaignType>
+                    <ns1:appId>1000000004</ns1:appId>
+                    <ns1:appOs>IOS</ns1:appOs>
                 </ns1:operand>
                 <ns1:operand>
-                    <ns1:accountId>1111111111</ns1:accountId>
-                    <ns1:campaignName>Sample campaign2</ns1:campaignName>
+                    <ns1:accountId>100000001</ns1:accountId>
+                    <ns1:campaignName>Sample campaign3</ns1:campaignName>
                     <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:startDate>20120601</ns1:startDate>
+                    <ns1:startDate>20121201</ns1:startDate>
                     <ns1:endDate>20121231</ns1:endDate>
                     <ns1:budget>
                         <ns1:deliveryMethod>ACCELERATED</ns1:deliveryMethod>
                     </ns1:budget>
-                    <ns1:biddingStrategy xsi:type="ns1:ManualCPC">
-                        <ns1:type>MANUAL_CPC</ns1:type>
+                    <ns1:biddingStrategy xsi:type="ns1:ManualCPV">
+                        <ns1:type>MANUAL_CPV</ns1:type>
                     </ns1:biddingStrategy>
-                    <ns1:adProductType>TARGET_MATCH</ns1:adProductType>
-                    <ns1:frequencyCap>
-                        <ns1:level>AD_GROUP</ns1:level>
-                        <ns1:timeUnit>MONTH</ns1:timeUnit>
-                        <ns1:impression>15</ns1:impression>
-                    </ns1:frequencyCap>
+                    <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                    <ns1:appName>app Name2</ns1:appName>
+                    <ns1:campaignType>APP</ns1:campaignType>
+                    <ns1:appId>sample.app.package</ns1:appId>
+                    <ns1:appOs>ANDROID</ns1:appOs>
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -302,9 +265,9 @@ Adds campaign information.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Container including operation results. | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Contains the results (a list of all entities) for mutate method. |
 
 ##### Response Sample
 ```xml
@@ -349,6 +312,7 @@ Adds campaign information.
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:campaignType>STANDARD</ns1:campaignType>
                    </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -378,6 +342,33 @@ Adds campaign information.
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name1</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
+                    </ns1:campaign>
+                </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaign>
+                        <ns1:accountId>1111111111</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:campaignName>Sample campaign3</ns1:campaignName>
+                        <ns1:userStatus>ACTIVE</ns1:userStatus>
+                        <ns1:servingStatus>SERVING</ns1:servingStatus>
+                        <ns1:startDate>20120601</ns1:startDate>
+                        <ns1:endDate>20121231</ns1:endDate>
+                        <ns1:budget>
+                            <ns1:deliveryMethod>ACCELERATED</ns1:deliveryMethod>
+                        </ns1:budget>
+                        <ns1:biddingStrategy xsi:type="ns1:ManualCPV">
+                           <ns1:type>MANUAL_CPV</ns1:type>
+                        </ns1:biddingStrategy>
+                        <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                        <ns1:appName>app Name2</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>sample.app.package</ns1:appId>
+                        <ns1:appOs>ANDROID</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
@@ -390,9 +381,9 @@ Adds campaign information.
 ### Request
 Updates campaign information.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
+| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Contains the  campaign information for mutate method operation. |
 
 ##### Request Sample
 ```xml
@@ -461,87 +452,10 @@ Updates campaign information.
                     <ns1:accountId>100000001</ns1:accountId>
                     <ns1:campaignId>100000004</ns1:campaignId>
                     <ns1:campaignName>Modify sample campaign002</ns1:campaignName>
-<!-- Frequecy setting will deactivate by not adding any elements -->
-                    <ns1:frequencyCap></ns1:frequencyCap>
-                </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>SET</ns1:operator>
-                <ns1:accountId>100000001</ns1:accountId>
-                <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
-                    <ns1:campaignId>100000001</ns1:campaignId>
-                    <ns1:campaignName>Modify sample campaign001</ns1:campaignName>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:startDate>20130101</ns1:startDate>
-                    <ns1:endDate>20131231</ns1:endDate>
-                    <ns1:budget>
-                        <ns1:amount>1000000</ns1:amount>
-                        <ns1:deliveryMethod>STANDARD</ns1:deliveryMethod>
-                    </ns1:budget>
-                    <ns1:biddingStrategy xsi:type="ns1:ManualCPC">
-                         <ns1:type>MANUAL_CPC</ns1:type>
-                    </ns1:biddingStrategy>
-<!-- No change if there is no requests in frequency settings -->
-<!-- To validate the conversion optimizer, set targetCpa between 1 and 9999999999  -->
-                    <ns1:conversionOptimizer>
-                        <ns1:targetCpa>30</ns1:targetCpa>
-                    </ns1:conversionOptimizer>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
-                    <ns1:campaignId>100000002</ns1:campaignId>
-                    <ns1:campaignName>Modify sample campaign002</ns1:campaignName>
-<!-- To add frequency settings, request all of the necessary elements -->
+<!-- Frequecy setting will deactivate by specifying 0 -->
                     <ns1:frequencyCap>
-                        <ns1:level>CAMPAIGN</ns1:level>
-                        <ns1:timeUnit>WEEK</ns1:timeUnit>
-                        <ns1:impression>5</ns1:impression>
+                        <ns1:impression>0</ns1:impression>
                     </ns1:frequencyCap>
-<!-- To deactivate conversion optimization, set targetCpa to 0 -->
-                    <ns1:conversionOptimizer>
-                        <ns1:targetCpa>0</ns1:targetCpa>
-                    </ns1:conversionOptimizer>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
-                    <ns1:campaignId>100000003</ns1:campaignId>
-                    <ns1:campaignName>Modify sample campaign003</ns1:campaignName>
-<!-- Can request only the elements you want to change the frequency settings -->
-                    <ns1:frequencyCap>
-                        <ns1:impression>8</ns1:impression>
-                    </ns1:frequencyCap>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>100000001</ns1:accountId>
-                    <ns1:campaignId>100000004</ns1:campaignId>
-                    <ns1:campaignName>Modify sample campaign004</ns1:campaignName>
-<!-- Frequecy setting will deactivate by not adding any elements -->
-                    <ns1:frequencyCap></ns1:frequencyCap>
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -550,9 +464,9 @@ Updates campaign information.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Container including operation results. | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Contains the results (a list of all entities) for mutate method. |
 
 ##### Response Sample
 ```xml
@@ -597,6 +511,7 @@ Updates campaign information.
                             <ns1:targetCpa>30</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:campaignType>STANDARD</ns1:campaignType>
                    </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -622,6 +537,7 @@ Updates campaign information.
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:campaignType>STANDARD</ns1:campaignType>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -651,6 +567,10 @@ Updates campaign information.
                             <ns1:targetCpa>30</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name1</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -670,12 +590,15 @@ Updates campaign information.
                            <ns1:type>MANUAL_CPC</ns1:type>
                         </ns1:biddingStrategy>
                         <ns1:adProductType>TARGET_MATCH</ns1:adProductType>
-                        
 <!-- Conversion optimization is not valid. targetCpa setting is not possible, because eligibilityFlg=DISABLE and targetCpa=0-->
                         <ns1:conversionOptimizer>
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name2</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>sample.app.package</ns1:appId>
+                        <ns1:appOs>ANDROID</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
@@ -688,9 +611,9 @@ Updates campaign information.
 ### Request
 Deletes campaign information.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Assigns campaign information for operation. | 
+| operations | required | [CampaignOperation](../data/CampaignOperation.md) | Contains the campaign information for mutate method operation. |
 
 ##### Request Sample
 ```xml
@@ -719,41 +642,9 @@ Deletes campaign information.
                     <ns1:accountId>100000001</ns1:accountId>
                     <ns1:campaignId>100000002</ns1:campaignId>
                 </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>33333-3333-33333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>REMOVE</ns1:operator>
-                <ns1:accountId>1111111111</ns1:accountId>
                 <ns1:operand>
-                    <ns1:accountId>1111111111</ns1:accountId>
-                    <ns1:campaignId>100000001</ns1:campaignId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>1111111111</ns1:accountId>
-                    <ns1:campaignId>100000002</ns1:campaignId>
+                    <ns1:accountId>100000001</ns1:accountId>
+                    <ns1:campaignId>100000003</ns1:campaignId>
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -762,9 +653,9 @@ Deletes campaign information.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Container including operation results. | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | Contains the results (a list of all entities) for mutate method. |
 
 ##### Response Sample
 ```xml
@@ -808,6 +699,7 @@ Deletes campaign information.
                             <ns1:targetCpa>30</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:campaignType>STANDARD</ns1:campaignType>
                    </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -836,6 +728,33 @@ Deletes campaign information.
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name1</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
+                    </ns1:campaign>
+                </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:campaign>
+                        <ns1:accountId>1111111111</ns1:accountId>
+                        <ns1:campaignId>100000003</ns1:campaignId>
+                        <ns1:campaignName>Sample campaign3</ns1:campaignName>
+                        <ns1:userStatus>ACTIVE</ns1:userStatus>
+                        <ns1:servingStatus>SERVING</ns1:servingStatus>
+                        <ns1:startDate>20120601</ns1:startDate>
+                        <ns1:endDate>20121231</ns1:endDate>
+                        <ns1:budget>
+                           <ns1:deliveryMethod>ACCELERATED</ns1:deliveryMethod>
+                        </ns1:budget>
+                        <ns1:biddingStrategy xsi:type="ns1:ManualCPV">
+                           <ns1:type>MANUAL_CPV</ns1:type>
+                        </ns1:biddingStrategy>
+                        <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                        <ns1:appName>app Name2</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>sample.app.package</ns1:appId>
+                        <ns1:appOs>ANDROID</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
@@ -843,4 +762,5 @@ Deletes campaign information.
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

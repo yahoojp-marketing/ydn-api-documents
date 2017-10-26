@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -112,9 +112,9 @@
       </simpleType>
       <simpleType name="BulkOutput">
         <restriction base="xsd:string">
-          <enumeration value="XML"/>
+          <enumeration value="TSV"/>
           <enumeration value="CSV"/>
-          <enumeration value="ZIPPED_XML"/>
+          <enumeration value="ZIPPED_TSV"/>
           <enumeration value="ZIPPED_CSV"/>
         </restriction>
       </simpleType>
@@ -196,9 +196,7 @@
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="1" name="uploadBulkJobIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="uploadBulkJobStatus" type="tns:UploadBulkJobStatus"/>
-          <element maxOccurs="1" minOccurs="0" name="lang" type="tns:BulkLang"/>
           <element maxOccurs="1" minOccurs="1" name="output" type="tns:BulkOutput"/>
-          <element maxOccurs="1" minOccurs="1" name="encoding" type="tns:BulkEncoding"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
       </complexType>
@@ -232,7 +230,6 @@
           <element maxOccurs="1" minOccurs="0" name="processingItemsCount" type="tns:ProcessingItemsCount"/>
           <element maxOccurs="1" minOccurs="0" name="progress" type="xsd:int"/>
           <element maxOccurs="1" minOccurs="0" name="downloadBulkUploadFileUrl" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="downloadBulkUploadErrorFileUrl" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="ProcessingItemsCount">
@@ -242,11 +239,13 @@
           <element maxOccurs="1" minOccurs="0" name="adGroupAdCount" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupTargetCount" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="mediaCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoCount" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="campaignErrorCount" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupErrorCount" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupAdErrorCount" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="adGroupTargetErrorCount" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="mediaErrorCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoErrorCount" type="xsd:long"/>
         </sequence>
       </complexType>
       <simpleType name="UploadBulkJobStatus">
@@ -310,6 +309,7 @@
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+            <element maxOccurs="1" minOccurs="0" name="uploadBulkJobName" type="xsd:string"/>
           </sequence>
         </complexType>
       </element>
@@ -457,7 +457,7 @@
   </wsdl:binding>
   <wsdl:service name="BulkServiceService">
     <wsdl:port binding="tns:BulkServiceSoapBinding" name="BulkService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/BulkService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/BulkService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

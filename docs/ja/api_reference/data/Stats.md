@@ -11,270 +11,163 @@ Statsオブジェクトは、統計情報を保持します。
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
  </tr>
  <tr>
   <td>imps</td>
   <td>xsd:long</td>
   <td>インプレッション数です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>clickRate</td>
   <td>xsd:double</td>
   <td>クリック率です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>totalClickCost</td>
-  <td>xsd:long</td>
+  <td>xsd:double</td>
   <td>トータルコスト（クリックされた金額の合計）です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>clickCnt</td>
   <td>xsd:long</td>
   <td>クリック数です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>avgClickCost</td>
   <td>xsd:double</td>
   <td>平均クリックコスト（クリックされた金額の平均）です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
-  <td>convCnt</td>
-  <td>xsd:long</td>
-  <td>コンバージョン数（広告経由でコンバージョンした数）です。</td>
+  <td>totalConversions</td>
+  <td>xsd:string</td>
+  <td>総コンバージョン数です。<br>※デバイスをまたいだコンバージョンの値をを加味します。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
-  <td>convRate</td>
+  <td>totalConversionRate</td>
   <td>xsd:double</td>
-  <td>コンバージョン率です。</td>
+  <td>総コンバージョン率です。<br>※デバイスをまたいだコンバージョンの値をを加味します。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+
+<tr>
   <td>cpa</td>
-  <td>xsd:double</td>
-  <td>コンパージョン単価です。</td>
+  <td>xsd:string</td>
+  <td>コンバージョン単価です。<br>※デバイスをまたいだコンバージョンの値をを加味します。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>avgDeliverRank</td>
   <td>xsd:double</td>
   <td>平均掲載順位（配信された時のeCPM順位の平均）です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>totalVimps</td>
   <td>xsd:long</td>
   <td>ビュー計測対象インプレッション数です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>vimps</td>
   <td>xsd:long</td>
   <td>ビューインプレッション数です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>inViewClickCnt</td>
   <td>xsd:long</td>
   <td>ビュークリック数です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>inViewRate</td>
   <td>xsd:double</td>
   <td>ビューインプレッション率です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>inViewClickRate</td>
   <td>xsd:double</td>
   <td>ビュークリック率です。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>autoVideoPlays</td>
   <td>xsd:long</td>
   <td>動画自動再生数です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>clickVideoPlays</td>
   <td>xsd:long</td>
   <td>動画クリック再生数です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>videoViewedRate</td>
   <td>xsd:double</td>
   <td>動画再生率(動画再生数/インプレッション数)です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>averageCpv</td>
   <td>xsd:double</td>
   <td>平均CPVです。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>videoPlays</td>
   <td>xsd:long</td>
   <td>動画再生数です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>videoViewsTo25</td>
   <td>xsd:long</td>
   <td>動画25％再生数です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 <tr>
   <td>videoViewsTo50</td>
   <td>xsd:long</td>
   <td>動画50％再生数です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 <tr>
   <td>videoViewsTo75</td>
   <td>xsd:long</td>
   <td>動画75％再生数です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 <tr>
   <td>videoViewsTo95</td>
   <td>xsd:long</td>
   <td>動画95％再生数です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 <tr>
   <td>videoViewsTo100</td>
   <td>xsd:long</td>
   <td>動画100％再生数です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 <tr>
   <td>averageRateVideoViewed</td>
   <td>xsd:double</td>
   <td>動画の平均再生率（動画が全体の長さの何％まで再生されたかの平均値）です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 <tr>
   <td>averageDurationVideoViewed</td>
   <td>xsd:double</td>
   <td>動画の平均再生時間です。※動画広告のみ。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 </table>
 

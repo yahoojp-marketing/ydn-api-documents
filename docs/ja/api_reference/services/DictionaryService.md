@@ -4,12 +4,15 @@ DictionaryServiceは、審査否認理由、地域情報、インタレストカ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/DictionaryService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/DictionaryService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/DictionaryService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/DictionaryService?wsdl |
+
 #### Namespace
 http://im.yahooapis.jp/V6
+
 #### サービス概要
 各種情報の一覧を取得します。
+
 #### 操作
 DictionaryServiceで提供される操作を説明します。
 
@@ -21,7 +24,7 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 |---|---|---|---|
 | operations | ○ | [DisapprovalReasonSelector](../data/DisapprovalReasonSelector.md) | 取得するEditorialReason一覧の言語を指定します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
@@ -30,30 +33,6 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
       <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
       <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
       <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:getDisapprovalReason>
-      <ns1:selector>
-        <ns1:lang>JA</ns1:lang>
-      </ns1:selector>
-    </ns1:getDisapprovalReason>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-  <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
     </ns1:RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
@@ -102,7 +81,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:disapprovalReason>
-            <ns1:desapprovalReasonCode>2</ns1:disapprovalReasonCode>
+            <ns1:disapprovalReasonCode>2</ns1:disapprovalReasonCode>
             <ns1:lang>JA</ns1:lang>
             <ns1:title>表示できないサイト</ns1:title>
             <ns1:description>リンク先ページが正しく読み込みできません。</ns1:description>
@@ -131,9 +110,9 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| selector |  | [GeographicLocationSelector](../data/GeographicLocationSelector.md) | 地域情報の一覧を取得します。 | 
+| selector | - | [GeographicLocationSelector](../data/GeographicLocationSelector.md) | 地域情報の一覧を取得します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -151,33 +130,6 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
         <ns1:getGeographicLocation>
           <ns1:selector>
             <ns1:lang>JA</ns1:lang>
-          </ns1:selector>
-        </ns1:getGeographicLocation>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1234567890</ns1:accountId>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getGeographicLocation>
-          <ns1:selector>
-            <ns1:lang>EN</ns1:lang>
           </ns1:selector>
         </ns1:getGeographicLocation>
     </SOAP-ENV:Body>
@@ -246,9 +198,9 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| selector |  | [CategorySelector](../data/CategorySelector.md) | インタレストカテゴリーリストを取得します。 | 
+| selector | - | [CategorySelector](../data/CategorySelector.md) | インタレストカテゴリーリストを取得します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -260,32 +212,6 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
             <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
             <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getInterestCategory>
-          <ns1:selector>
-            <ns1:lang>JA</ns1:lang>
-          </ns1:selector>
-        </ns1:getInterestCategory>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
@@ -367,9 +293,9 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| selector |  | [CategorySelector](../data/CategorySelector.md) | サイトカテゴリーリストを取得します。 | 
+| selector | - | [CategorySelector](../data/CategorySelector.md) | サイトカテゴリーリストを取得します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -387,32 +313,6 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
         <ns1:getSiteCategory>
           <ns1:selector>
             <ns1:lang>JA</ns1:lang>
-          </ns1:selector>
-        </ns1:getSiteCategory>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getSiteCategory>
-          <ns1:selector>
-            <ns1:lang>EN</ns1:lang>
           </ns1:selector>
         </ns1:getSiteCategory>
     </SOAP-ENV:Body>
@@ -490,7 +390,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
 |---|---|---|---|
 | operations | ○ | [ColorSetSelector](../data/ColorSetSelector.md)|広告レイアウトのテーマ設定を取得します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -508,32 +408,6 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
         <ns1:getColorSet>
           <ns1:selector>
             <ns1:lang>JA</ns1:lang>
-          </ns1:selector>
-        </ns1:getColorSet>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getColorSet>
-          <ns1:selector>
-            <ns1:lang>EN</ns1:lang>
           </ns1:selector>
         </ns1:getColorSet>
     </SOAP-ENV:Body>
@@ -588,4 +462,169 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
+## getOsVersion
+### リクエスト
+OSのバージョンを取得します。
+
+| パラメータ | 必須 | データ型 | 説明 | 
+|---|---|---|---|
+| selector | - | [OsVersionSelector](../data/OsVersionSelector.md) | getOsVersionメソッドの検索条件（実行パラメータ）を保持します。 | 
+
+##### ＜リクエストサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
+            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:getOsVersion>
+          <ns1:selector>
+            <ns1:osType>ANDROID</ns1:osType>
+          </ns1:selector>
+        </ns1:getOsVersion>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### レスポンス
+| パラメータ | データ型 | 説明 | 
+|---|---|---|
+| rval | [OsVersionPage](../data/OsVersionPage.md) | getOsVersionメソッドの実行結果（全Entityのリスト）を保持します。 | 
+
+##### ＜レスポンスサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns1:ResponseHeader>
+      <ns1:service>DictionaryService</ns1:service>
+      <ns1:remainingQuota>100</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:getOsVersionResponse>
+      <ns1:rval>
+        <ns1:totalNumEntries>2</ns1:totalNumEntries>
+        <ns1:Page.Type>OsVersionPage</ns1:Page.Type>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:osVersion>
+             <ns1:osType>ANDROID</ns1:osType>
+             <ns1:version>7.1</ns1:version>
+          </ns1:osVersion>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:osVersion>
+             <ns1:osType>IOS</ns1:osType>
+             <ns1:version>10.3.2</ns1:version>
+          </ns1:osVersion>
+        </ns1:values>
+      </ns1:rval>
+    </ns1:getOsVersionResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+## getMediaAdFormat
+### リクエスト
+入稿可能な画像の形式(MediaAdFormat)を照会します。
+
+| パラメータ | 必須 | データ型 | 説明 | 
+|---|---|---|---|
+| - | - | - | なし | 
+
+##### ＜リクエストサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
+            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:getMediaAdFormat />
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### レスポンス
+| パラメータ | データ型 | 説明 | 
+|---|---|---|
+| rval | [MediaAdFormatPage](../data/MediaAdFormatPage.md) | getMediaAdFormatメソッドの実行結果（全Entityのリスト）を保持します。 | 
+
+##### ＜レスポンスサンプル＞
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns1:ResponseHeader>
+      <ns1:service>DictionaryService</ns1:service>
+      <ns1:remainingQuota>100</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:getMediaAdFormatResponse>
+      <ns1:rval>
+        <ns1:totalNumEntries>2</ns1:totalNumEntries>
+        <ns1:Page.Type>OsVersionPage</ns1:Page.Type>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:mediaAdFormat>
+             <ns1:id>1</ns1:id>
+             <ns1:width>728</ns1:width>
+             <ns1:height>90</ns1:height>
+             <ns1:size>153600</ns1:size>
+             <ns1:transparent>false</ns1:transparent>
+             <ns1:animation>false</ns1:animation>
+             <ns1:logo>false</ns1:logo>
+             <ns1:thumbnail>false</ns1:thumbnail>
+             <ns1:adFormat>ICON</ns1:adFormat>
+          </ns1:mediaAdFormat>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:mediaAdFormat>
+             <ns1:id>2</ns1:id>
+             <ns1:width>320</ns1:width>
+             <ns1:height>50</ns1:height>
+             <ns1:size>153600</ns1:size>
+             <ns1:transparent>false</ns1:transparent>
+             <ns1:animation>true</ns1:animation>
+             <ns1:logo>false</ns1:logo>
+             <ns1:thumbnail>false</ns1:thumbnail>
+             <ns1:adFormat>SQUARE_57</ns1:adFormat>
+          </ns1:mediaAdFormat>
+        </ns1:values>
+      </ns1:rval>
+    </ns1:getMediaAdFormatResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

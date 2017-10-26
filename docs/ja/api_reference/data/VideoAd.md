@@ -13,7 +13,6 @@ VideoAdオブジェクトは、動画広告の情報を表します。<br>
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
   <th>add</th>
   <th>set</th>
   <th>remove</th>
@@ -22,80 +21,83 @@ VideoAdオブジェクトは、動画広告の情報を表します。<br>
   <td>xsd:long</td>
   <td>サムネイルIDです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>headline</td>
   <td>xsd:string</td>
   <td>広告のタイトルです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>description</td>
   <td>xsd:string</td>
   <td>広告の説明文です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>url</td>
   <td>xsd:string</td>
   <td>リンク先URLです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>displayUrl</td>
   <td>xsd:string</td>
   <td>表示URLです。</td>
   <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Optional</td>
-  <td>-</td>
+  <td>Optional<br>
+  <br>
+  ※Default値<br>
+  -標準キャンペーン：<br>入力必須<br>
+  -アプリキャンペーン（iOS）：<br>「itunes.apple.com」<br>
+  -アプリキャンペーン（Android）：<br>「play.google.com」
+  </td>
+  <td>Optional<br>
+  <br>
+  ※入力許可<br>
+  -アプリキャンペーン（iOS）：<br>「itunes.apple.com」のみ可能<br>
+  -アプリキャンペーン（Android）：<br>「play.google.com」のみ可能
+  </td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>buttonText</td>
   <td>enum<br><a href="./ButtonText.md">ButtonText</a></td>
   <td>広告のボタンに表示されるテキストです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>principal</td>
   <td>xsd:string</td>
   <td>広告の主体者表記です。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Requirement</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>logoMediaId</td>
   <td>xsd:long</td>
   <td>ロゴの画像IDです。</td>
   <td>yes</td>
-  <td>-</td>
   <td>Optional</td>
   <td>Optional</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

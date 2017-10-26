@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -39,6 +39,7 @@
           <element maxOccurs="unbounded" minOccurs="0" name="campaignIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatus" type="tns:UserStatus"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
+          <element maxOccurs="1" minOccurs="0" name="campaignType" type="tns:CampaignType"/>
         </sequence>
       </complexType>
       <complexType name="Paging">
@@ -67,6 +68,10 @@
           <element maxOccurs="1" minOccurs="0" name="adProductType" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="frequencyCap" type="tns:FrequencyCap"/>
           <element maxOccurs="1" minOccurs="0" name="conversionOptimizer" type="tns:ConversionOptimizer"/>
+          <element maxOccurs="1" minOccurs="0" name="campaignType" type="tns:CampaignType"/>
+          <element maxOccurs="1" minOccurs="0" name="appName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="appId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="appOs" type="tns:DeviceOsType"/>
         </sequence>
       </complexType>
       <simpleType name="CampaignServingStatus">
@@ -140,6 +145,18 @@
         <restriction base="xsd:string">
           <enumeration value="ENABLE"/>
           <enumeration value="DISABLE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="CampaignType">
+        <restriction base="xsd:string">
+          <enumeration value="STANDARD"/>
+          <enumeration value="APP"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="DeviceOsType">
+        <restriction base="xsd:string">
+          <enumeration value="ANDROID"/>
+          <enumeration value="IOS"/>
         </restriction>
       </simpleType>
       <complexType name="CampaignPage">
@@ -323,7 +340,7 @@
   </wsdl:binding>
   <wsdl:service name="CampaignServiceService">
     <wsdl:port binding="tns:CampaignServiceSoapBinding" name="CampaignService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/CampaignService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/CampaignService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

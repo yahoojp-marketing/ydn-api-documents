@@ -1,36 +1,36 @@
 "フィールド名/fieldName","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","組合せ不可フィールド/Not compatible fields"
-"ACCOUNT_ID","アカウントID","Account ID","accountID","LONG","[]"
-"ACCOUNT_NAME","アカウント名","Account Name","accountName","STRING","[]"
-"CAMPAIGN_ID","キャンペーンID","Campaign ID","campaignID","LONG","[]"
-"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING","[]"
-"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG","[]"
-"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING","[]"
-"AD_ID","広告ID","Ad ID","adID","LONG","[]"
-"AD_NAME","広告名","Ad Name","adName","STRING","[]"
-"DAY","日","Daily","day","STRING","[]"
-"FREQUENCY","フリークエンシー数","Frequency","frequency","STRING","[]"
-"IMPS","インプレッション数","Impressions","impressions","LONG","[]"
-"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","[]"
-"COST","コスト","Cost","cost","LONG","[]"
-"CLICK","クリック数","Clicks","clicks","LONG","[]"
-"CONVERSION_OLD","コンバージョン数（旧）","Conversions (old)","totalConversionsOld","LONG","[]"
-"CONVERSION_RATE_OLD","コンバージョン率（旧）","Conversion Rate (old)","totalConversionRateOld","DOUBLE","[]"
-"CPA_OLD","コスト/コンバージョン数（旧）","Cost per Conversions (old)","costTotalConversionsOld","DOUBLE","[]"
-"UNIQUE_USERS","ユニークユーザ数","Unique Users","uniqueUsers","LONG","[]"
-"AUTO_VIDEO_PLAYS","動画の自動再生数","Auto Video Plays","autoVideoPlays","LONG","[]"
-"CLICK_VIDEO_PLAYS","クリックによる動画再生数","Click Video Plays","clickVideoPlays","LONG","[]"
-"VIDEO_VIEWED_RATE","動画の再生率","Video Viewed Rate","videoViewedRate","DOUBLE","[]"
-"AVG_CPV","平均CPV","Average CPV","avgCpv","DOUBLE","[]"
-"VIDEO_PLAYS","動画が再生開始された回数","Video Plays","videoPlays","LONG","[]"
-"VIDEO_VIEWS_TO_25","動画が25%まで再生された回数","Video Views to 25%","videoViewsTo25","LONG","[]"
-"VIDEO_VIEWS_TO_50","動画が50%まで再生された回数","Video Views to 50%","videoViewsTo50","LONG","[]"
-"VIDEO_VIEWS_TO_75","動画が75%まで再生された回数","Video Views to 75%","videoViewsTo75","LONG","[]"
-"VIDEO_VIEWS_TO_95","動画が95%まで再生された回数","Video Views to 95%","videoViewsTo95","LONG","[]"
-"VIDEO_VIEWS_TO_100","動画が100%まで再生された回数","Video Views to 100%","videoViewsTo100","LONG","[]"
-"AVG_PERCENT_VIDEO_VIEWED","動画の平均再生率","Average % of Video Viewed","avgPercentVideoViewed","DOUBLE","[]"
-"AVG_DURATION_VIDEO_VIEWED","動画の平均再生時間（秒）","Average Duration of Video Viewed","avgDurationVideoViewed","DOUBLE","[]"
-"CONVERSIONS","コンバージョン数","Conversions","conversions","LONG","[]"
-"CONV_RATE","コンバージョン率","Conversion Rate","convRate","DOUBLE","[]"
-"COST_PER_CONV","コスト/コンバージョン数","Cost per Conversions","costPerConv","DOUBLE","[]"
-"REVENUE","合計売上金額","Revenue","revenue","LONG","[]"
-"REVENUE_PER_CONV","売上/コンバージョン数","Revenue per Conversions","revenuePerConv","LONG","[]"
+"ACCOUNT_ID","アカウントID","Account ID","accountID","LONG",
+"ACCOUNT_NAME","アカウント名","Account Name","accountName","STRING",
+"CAMPAIGN_ID","キャンペーンID","Campaign ID","campaignID","LONG",
+"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING",
+"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG",
+"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING",
+"AD_ID","広告ID","Ad ID","adID","LONG",
+"AD_NAME","広告名","Ad Name","adName","STRING",
+"DAY","日","Daily","day","STRING",
+"FREQUENCY","フリークエンシー数","Frequency","frequency","STRING",
+"IMPS","インプレッション数","Impressions","impressions","LONG",
+"CLICK_RATE","クリック率","CTR","ctr","DOUBLE",
+"COST","コスト","Cost","cost","LONG",
+"CLICK","クリック数","Clicks","clicks","LONG",
+"CONVERSION_OLD","コンバージョン数（旧）","Conversions (old)","totalConversionsOld","LONG",
+"CONVERSION_RATE_OLD","コンバージョン率（旧）","Conversion Rate (old)","totalConversionRateOld","DOUBLE",
+"CPA_OLD","コスト/コンバージョン数（旧）","Cost per Conversions (old)","costTotalConversionsOld","DOUBLE",
+"UNIQUE_USERS","ユニークユーザ数","Unique Users","uniqueUsers","LONG",
+"AUTO_VIDEO_PLAYS","動画の自動再生数","Auto Video Plays","autoVideoPlays","LONG",
+"CLICK_VIDEO_PLAYS","クリックによる動画再生数","Click Video Plays","clickVideoPlays","LONG",
+"VIDEO_VIEWED_RATE","動画の再生率","Video Viewed Rate","videoViewedRate","DOUBLE",
+"AVG_CPV","平均CPV","Average CPV","avgCpv","DOUBLE",
+"VIDEO_PLAYS","動画が再生開始された回数","Video Plays","videoPlays","LONG",
+"VIDEO_VIEWS_TO_25","動画が25%まで再生された回数","Video Views to 25%","videoViewsTo25","LONG",
+"VIDEO_VIEWS_TO_50","動画が50%まで再生された回数","Video Views to 50%","videoViewsTo50","LONG",
+"VIDEO_VIEWS_TO_75","動画が75%まで再生された回数","Video Views to 75%","videoViewsTo75","LONG",
+"VIDEO_VIEWS_TO_95","動画が95%まで再生された回数","Video Views to 95%","videoViewsTo95","LONG",
+"VIDEO_VIEWS_TO_100","動画が100%まで再生された回数","Video Views to 100%","videoViewsTo100","LONG",
+"AVG_PERCENT_VIDEO_VIEWED","動画の平均再生率","Average % of Video Viewed","avgPercentVideoViewed","DOUBLE",
+"AVG_DURATION_VIDEO_VIEWED","動画の平均再生時間（秒）","Average Duration of Video Viewed","avgDurationVideoViewed","DOUBLE",
+"CONVERSIONS","コンバージョン数","Conversions","conversions","LONG",
+"CONV_RATE","コンバージョン率","Conversion Rate","convRate","DOUBLE",
+"COST_PER_CONV","コスト/コンバージョン数","Cost per Conversions","costPerConv","DOUBLE",
+"REVENUE","合計売上金額","Revenue","revenue","LONG",
+"REVENUE_PER_CONV","売上/コンバージョン数","Revenue per Conversions","revenuePerConv","LONG",

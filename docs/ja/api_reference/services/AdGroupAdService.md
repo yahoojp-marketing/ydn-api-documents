@@ -3,8 +3,8 @@ AdGroupAdServiceは広告の操作を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl |
 #### Namespace
 http://im.yahooapis.jp/V6
 #### サービス概要
@@ -18,7 +18,7 @@ AdGroupAdServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| selector | ○ | [AdGroupAdSelector](../data/AdGroupAdSelector.md) | 広告の情報を取得します。 | 
+| selector | ○ | [AdGroupAdSelector](../data/AdGroupAdSelector.md) | getメソッドの検索条件（実行パラメータ）を保持します。 | 
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -59,7 +59,7 @@ AdGroupAdServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [AdGroupAdPage](../data/AdGroupAdPage.md) | 操作結果を含むコンテナです。 | 
+| rval | [AdGroupAdPage](../data/AdGroupAdPage.md) | getメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -121,10 +121,11 @@ AdGroupAdServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | 広告グループに広告を追加します。 | 
+| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 | 
 
 ##### ＜リクエストサンプル＞
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://im.yahooapis.jp/V6"
@@ -262,10 +263,11 @@ AdGroupAdServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | 操作結果を含むコンテナです。 | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://im.yahooapis.jp/V6"
@@ -454,7 +456,7 @@ AdGroupAdServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | 広告グループに登録された広告を変更します。 | 
+| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 | 
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -596,7 +598,7 @@ AdGroupAdServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | 操作結果を含むコンテナです。 | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -789,7 +791,7 @@ AdGroupAdServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | 広告を削除します。 | 
+| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 | 
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -848,10 +850,11 @@ AdGroupAdServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | 操作結果を含むコンテナです。 | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://im.yahooapis.jp/V6"
@@ -1033,4 +1036,5 @@ AdGroupAdServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
