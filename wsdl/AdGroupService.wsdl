@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V6"
-  xmlns:tns="http://im.yahooapis.jp/V6"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        targetNamespace="http://im.yahooapis.jp/V6"
+        xmlns:tns="http://im.yahooapis.jp/V6"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
-    <schema elementFormDefault="qualified" 
-    targetNamespace="http://im.yahooapis.jp/V6"
-    xmlns="http://www.w3.org/2001/XMLSchema" 
-    xmlns:tns="http://im.yahooapis.jp/V6">
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://im.yahooapis.jp/V6"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -79,6 +79,7 @@
           <element maxOccurs="unbounded" minOccurs="0" name="deviceApp" type="tns:DeviceAppType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="deviceOs" type="tns:DeviceOsType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="smartDeviceCarriers" type="tns:SmartDeviceCarrier"/>
+          <element maxOccurs="1" minOccurs="0" name="deviceOsVersion" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="dynamicImageExtensions" type="tns:DynamicImageExtensions"/>
         </sequence>
       </complexType>
@@ -320,7 +321,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupServiceService">
     <wsdl:port binding="tns:AdGroupServiceSoapBinding" name="AdGroupService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/AdGroupService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/AdGroupService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

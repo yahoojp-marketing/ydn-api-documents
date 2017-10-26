@@ -1,279 +1,173 @@
 # Stats
-Stats object serves the stats information.
+Stats object contains the stats information.
 
 ### Service
 + [StatsService](../services/StatsService.md)
- 
+
+
 <table>
  <tr>
   <th>Field</th>
   <th>Type</th>
   <th>Description</th>
   <th>response</th>
-  <th>get</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
  </tr>
  <tr>
   <td>imps</td>
   <td>xsd:long</td>
   <td>Number of impressions</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>clickRate</td>
   <td>xsd:double</td>
-  <td>Number of click through rate.</td>
+  <td>Click through rate</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>totalClickCost</td>
-  <td>xsd:long</td>
-  <td>Total value of click cost.</td>
+  <td>xsd:double</td>
+  <td>Total value of click cost</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>clickCnt</td>
   <td>xsd:long</td>
   <td>Number of clicks</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>avgClickCost</td>
   <td>xsd:double</td>
-  <td>Average of click cost.</td>
+  <td>Average of click cost</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
-  <tr>
-  <td>convCnt</td>
-  <td>xsd:long</td>
-  <td>Number of conversions occurs via your ads.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
-  <td>convRate</td>
+  <td>totalConversions</td>
+  <td>xsd:string</td>
+  <td>Total Conversions<br>&lowast;Contains conversions made across devices.</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>totalConversionRate</td>
   <td>xsd:double</td>
-  <td>Number of conversion rate.</td>
+  <td>Total Conversion Rate<br>&lowast;Contains conversions made across devices.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+
+<tr>
   <td>cpa</td>
-  <td>xsd:double</td>
-  <td>Conversion cost per acquisition.</td>
+  <td>xsd:string</td>
+  <td>Conversion cost per acquisition<br>&lowast;Contains conversions made across devices.</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
-  <tr>
+ <tr>
   <td>avgDeliverRank</td>
   <td>xsd:double</td>
-  <td>Average display position of your ads, i.e. the average of eCPM rank on ad delivery.</td>
+  <td>Average display position of the ads (the average of eCPM rank on ads delivery) </td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>totalVimps</td>
   <td>xsd:long</td>
-  <td>Total number of impressions on the measurement object.</td>
+  <td>Impressions for the measurement object</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>vimps</td>
   <td>xsd:long</td>
-  <td>Number of impressions on the measurement object.</td>
+  <td>Viewable impressions</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>inViewClickCnt</td>
   <td>xsd:long</td>
-  <td>Number of viewable clicks.</td>
+  <td>Viewable clicks</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>inViewRate</td>
   <td>xsd:double</td>
-  <td>Number of viewable impression rate.</td>
+  <td>Viewable impression rate</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>inViewClickRate</td>
   <td>xsd:double</td>
-  <td>Number of viewable click through rate.</td>
+  <td>Viewable click through rate</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>autoVideoPlays</td>
   <td>xsd:long</td>
-  <td>Number of times the video played automatically. <br>※For Video Ads only.</td>
+  <td>Number of times the video played automatically<br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>clickVideoPlays</td>
   <td>xsd:long</td>
-  <td>Number of times the video played by user's click. <br>※For Video Ads only.</td>
+  <td>Number of times the video played by user's click<br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>videoViewedRate</td>
   <td>xsd:double</td>
-  <td>The rate of video plays (Number of video plays/Impressions). <br>※For Video Ads only.</td>
+  <td>The rate of video plays (Number of video plays/Impressions)<br>&lowast;Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>averageCpv</td>
   <td>xsd:double</td>
-  <td>Average CPV. <br>※For Video Ads only.</td>
+  <td>Average CPV <br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>videoPlays</td>
   <td>xsd:long</td>
-  <td>Number of the video viewed. <br>※For Video Ads only.</td>
+  <td>Number of the video viewed<br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td>videoViewsTo25</td>
   <td>xsd:long</td>
-  <td>The number of times of video viewed over 25%. <br>※For Video Ads only.</td>
+  <td>The number of times of video viewed over 25% <br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+<tr>
   <td>videoViewsTo50</td>
   <td>xsd:long</td>
-  <td>The number of times of video viewed over 50%. <br>※For Video Ads only.</td>
+  <td>The number of times of video viewed over 50% <br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+<tr>
   <td>videoViewsTo75</td>
   <td>xsd:long</td>
-  <td>The number of times of video viewed over 75%. <br>※For Video Ads only.</td>
+  <td>The number of times of video viewed over 75% <br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+<tr>
   <td>videoViewsTo95</td>
   <td>xsd:long</td>
-  <td>The number of times of video viewed over 95%. <br>※For Video Ads only.</td>
+  <td>The number of times of video viewed over 95% <br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+<tr>
   <td>videoViewsTo100</td>
   <td>xsd:long</td>
-  <td>The number of times of video viewed 100%. <br>※For Video Ads only.</td>
+  <td>The number of times of video viewed 100% <br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+<tr>
   <td>averageRateVideoViewed</td>
   <td>xsd:double</td>
-  <td>Average % of Video Viewed (Average value of the video viewed rate). <br>※For Video Ads only.</td>
+  <td>Average % of Video Viewed (Average value of the video viewed rate) <br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
- <tr>
+<tr>
   <td>averageDurationVideoViewed</td>
   <td>xsd:double</td>
-  <td>Average Duration of Video Viewed. <br>※For Video Ads only.</td>
+  <td>Average Duration of Video Viewed <br>&lowast;For Video Ads only</td>
   <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
 </table>
 

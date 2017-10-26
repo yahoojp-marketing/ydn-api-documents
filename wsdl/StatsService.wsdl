@@ -12,7 +12,7 @@
             xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -74,12 +74,12 @@
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="imps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="clickRate" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="totalClickCost" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="totalClickCost" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="clickCnt" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="avgClickCost" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="convCnt" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="convRate" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="cpa" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="totalConversions" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="totalConversionRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="cpa" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="avgDeliverRank" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="totalVimps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="vImps" type="xsd:long"/>
@@ -214,7 +214,7 @@
   </wsdl:binding>
   <wsdl:service name="StatsService">
     <wsdl:port binding="tns:StatsServiceSoapBinding" name="StatsService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/StatsService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/StatsService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

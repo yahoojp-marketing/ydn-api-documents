@@ -1,6 +1,6 @@
 # CustomAudienceTargetList
 CustomAudienceTargetList object displays Target List using users' visit/activity history from Yahoo! JAPAN DMP.<br />
-To use the data, it is required to conclude a contract for Yahoo! JAPAN DMP.
+To use the data, it is required to conclude a contract for Yahoo! DMP.
 
 ### Service
 + [RetargetingListService](../services/RetargetingListService.md)

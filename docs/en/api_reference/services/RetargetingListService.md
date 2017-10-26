@@ -13,19 +13,17 @@ Use this service to retrieve , add, update, and delete the target list for site 
 [About "Target List"]<br>
 Target List can distribute and group the users' browsing history to specified conditions.<br>
 This can narrow down and deliver more appropriate ads to each user's interest.<br>
-It has following five types: <br>
-・Default: Automatically made from the creation of site retargeting tag<br>
-・Rule: Made from specified conditions (URL or label)<br>
-・Combination: Made by both Default list and Target list<br>
-・Similar: Made from Default list, Target list and extracted user that is similar to behavior history on the web<br>
-・Custom: Used for delivery of YDN with the date of Yahoo! JAPAN DMP<br><br>
-
+It has three types of lists: <br>
+・Default list: Automatically made from the creation of site retargeting tag<br>
+・Target list: Made from specified conditions (URL or label)<br>
+・Combination list: Made by both Default list and Target list<br>
+<br>
 [Notes]<br>
-・Can create "one tag" per account for site retargeting tag<br>
-・Can set up to 300 target lists per account<br>
-・Can set up to 10 conditions per target list<br>
-・Can set up to 10 combination of target lists per target list<br>
-・To use the data, it is required to conclude a contract for Yahoo! JAPAN DMP.<br><br>
+Can create "one tag" per account for site retargeting tag<br>
+Can set up to 300 target lists per account<br>
+Can set up to 10 conditions per target list<br>
+Can set up to 10 combination of target lists per target list<br>
+
 #### Operation
 Explains the operatons provided by RetargetingListService.
 

@@ -81,15 +81,33 @@
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="2">AdGroupTargetService</td>
+  <td rowspan="5">AdGroupTargetService</td>
   <td>get</td>
   <td>-</td>
-  <td>500</td>
+  <td>1000</td>
+  <td>◯</td>
+ </tr>
+ <tr>
+  <td>mutate(ADD)</td>
+  <td>3000</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
-  <td>20</td>
+  <td>3000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>3000</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>replace</td>
+  <td>3000</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -177,7 +195,7 @@
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="4">DictionaryService</td>
+  <td rowspan="7">DictionaryService</td>
   <td>getDisapprovalReason</td>
   <td>-</td>
   <td>全件</td>
@@ -197,6 +215,24 @@
  </tr>
  <tr>
   <td>getSiteCateory</td>
+  <td>-</td>
+  <td>全件</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>getColorSet</td>
+  <td>-</td>
+  <td>全件</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>getOsVersion</td>
+  <td>-</td>
+  <td>全件</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>getMediaAdFormat</td>
   <td>-</td>
   <td>全件</td>
   <td>-</td>
@@ -297,7 +333,7 @@
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="5">ReportService</td>
+  <td rowspan="4">ReportService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
@@ -308,12 +344,6 @@
   <td>-</td>
   <td>1</td>
   <td>-</td>
- </tr>
- <tr>
-  <td>getDownloadUrl</td>
-  <td>-</td>
-  <td>20</td>
-  <td>◯</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>

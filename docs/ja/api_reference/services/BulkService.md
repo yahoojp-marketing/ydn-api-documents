@@ -3,14 +3,14 @@ BulkServiceは、バルクシートを使用した一括アップロードおよ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/BulkService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/BulkService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/BulkService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/BulkService?wsdl |
 #### Namespace
 http://im.yahooapis.jp/V6
 #### サービス概要
 バルクシートを使用した一括アップロードおよびダウンロードの機能を提供します。
 
-#### 操作
+#### ダウンロード処理の流れ
 1. getBulkDownloadで、一括ダウンロードをするデータをリクエストします。<br>
 2. レスポンス内に含まれるdownloadBulkJobId（以下バルクID）を取得します。<br>
 3. 取得したバルクIDを利用し、getBulkDownloadStatusでステータスを確認します。<br>
@@ -20,19 +20,18 @@ http://im.yahooapis.jp/V6
 7. ステータスが"TIMEOUT"（タイムアウト）ならば、再度一括ダウンロードのリクエストを実施します。<br>
 　問題が解決しない場合は、弊社API担当者まで連絡をして下さい。
 
-### ダウンロード処理の流れ
+#### アップロード処理の流れ
 1. getUploadUrlで一括アップロード用のURLをリクエストします。<br>
 2. アップロード用のURLがレスポンスとして戻されます。<br>
-3. アップロードURLにバルクシートのアップロード処理を実施します。<br>
-4.アップロード処理が完了すると、HTTPのレスポンス内に含まれる、uploadBulkJobId（以下バルクID）を取得します。<br>
-5. uploadBulkJobIdをもとに、getBulkUploadStatusでアップロードのステータスを取得します。<br>
-6. ステータス(uploadBulkJobStatu)が"IN_PROGRESS"ならば、アップロード処理の実行中です。<br>
+3. アップロードURLにバルクシートのアップロード処理を実施します。<br>アップロード処理が完了すると、HTTPのレスポンス内に含まれる、uploadBulkJobId（以下バルクID）を取得します。
+4. uploadBulkJobIdをもとに、getBulkUploadStatusでアップロードのステータスを取得します。<br>
+5. ステータス(uploadBulkJobStatus)が"IN_PROGRESS"ならば、アップロード処理の実行中です。<br>
 　ステータスの確認を完了になるまで実施してください。<br>
-7. ステータスが"COMPLETED"ならば、アップロード処理が正常に終了しました。<br>
+6. ステータスが"COMPLETED"ならば、アップロード処理が正常に終了しました。<br>
 　processingItemsCountで処理した件数を確認できます。<br>
 　エラーの詳細を取得したい場合は、downloadBulkUploadFileUrlでバルクシートに処理結果が追記されたファイルをダウンロードできます。
 
-### 注意事項
+#### 注意事項
 ・セキュリティ上、ダウンロードURLは15分間のみ有効です。<br>
 　URL取得後、15分経過した場合は、再度getBulkDownloadにて新規のダウンロードURLを取得して下さい。<br>
 ・ダウンロードファイルには、削除されたキャンペーン情報は含まれません。<br>
@@ -45,9 +44,9 @@ http://im.yahooapis.jp/V6
 ### リクエスト
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| selector | ○ | [BulkDownloadSelector](../data/BulkDownloadSelector.md) | 一括取得する対象を定義します。 | 
+| selector | ○ | [BulkDownloadSelector](../data/BulkDownloadSelector.md) | getBulkDownloadメソッドのダウンロードジョブの実行パラメータを保持します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -55,8 +54,8 @@ http://im.yahooapis.jp/V6
  xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -78,40 +77,6 @@ http://im.yahooapis.jp/V6
         <ns1:downloadBulkJob>
           <ns1:downloadBulkJobName>サンプルバルクジョブ1</ns1:downloadBulkJobName>
         </ns1:downloadBulkJob>
-        <ns1:downloadType>REVIEW_AD</ns1:downloadType>
-        <ns1:lang>JA</ns1:lang>
-        <ns1:output>ZIPPED_CSV</ns1:output>
-        <ns1:encoding>UTF-8</ns1:encoding>
-      </ns1:selector>
-      </ns1:getBulkDownload>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:getBulkDownload>
-      <ns1:selector>
-        <ns1:accountId>1000000001</ns1:accountId>
-        <ns1:entityTypes>ALL</ns1:entityTypes>
-        <ns1:downloadBulkJob>
-          <ns1:downloadBulkJobName>サンプルバルクジョブ2</ns1:downloadBulkJobName>
-        </ns1:downloadBulkJob>
         <ns1:downloadType>CAMPAIGN</ns1:downloadType>
         <ns1:lang>JA</ns1:lang>
         <ns1:output>ZIPPED_CSV</ns1:output>
@@ -125,7 +90,7 @@ http://im.yahooapis.jp/V6
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [BulkDownloadReturnValue](../data/BulkDownloadReturnValue.md) | 結果を格納するコンテナです。 | error | [Error](../data/Error.md) | エラーです。 | 
+| rval | [BulkDownloadReturnValue](../data/BulkDownloadReturnValue.md) | getBulkDownloadメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -167,9 +132,9 @@ http://im.yahooapis.jp/V6
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| selector | ○ | [BulkDownloadStatusSelector](../data/BulkDownloadStatusSelector.md) | 取得する対象を定義します。 | 
+| selector | ○ | [BulkDownloadStatusSelector](../data/BulkDownloadStatusSelector.md) | getBulkDownloadStatusメソッドの検索条件（実行パラメータ）を保持します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -177,8 +142,8 @@ http://im.yahooapis.jp/V6
  xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -200,86 +165,62 @@ http://im.yahooapis.jp/V6
 </SOAP-ENV:Envelope>
 ```
 
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getBulkDownloadStatus>
-            <ns1:selector>
-                <ns1:accountId>1111111111</ns1:accountId>
-            </ns1:selector>
-         </ns1:getBulkDownloadStatus>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [BulkDownloadStatusPage](../data/BulkDownloadStatusPage.md) | 対象の処理状況を含むコンテナです。 | error | [Error](../data/Error.md) | エラーです。 | 
+| rval | [BulkDownloadStatusPage](../data/BulkDownloadStatusPage.md) | getBulkDownloadStatusメソッドの実行結果（1Entity）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6"> 
-  <SOAP-ENV:Header> 
-    <ns1:ResponseHeader> 
-      <ns1:service>BulkService</ns1:service> 
-      <ns1:remainingQuota>129997</ns1:remainingQuota> 
-      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest> 
-      <ns1:timeTakenMillis>3.995</ns1:timeTakenMillis> 
-    </ns1:ResponseHeader> 
-  </SOAP-ENV:Header> 
-  <SOAP-ENV:Body> 
-    <ns1:getBulkDownloadStatusResponse> 
-      <ns1:rval> 
-        <ns1:totalNumEntries>2</ns1:totalNumEntries> 
-        <ns1:Page.Type>BulkDownloadStatusPage</ns1:Page.Type> 
-        <ns1:values> 
-          <ns1:operationSucceeded>true</ns1:operationSucceeded> 
-          <ns1:downloadBulkJob> 
-            <ns1:accountId>1000000001</ns1:accountId> 
-            <ns1:downloadBulkJobId>100001</ns1:downloadBulkJobId> 
-            <ns1:downloadBulkJobName>ダウンロードジョブ名1</ns1:downloadBulkJobName> 
-            <ns1:downloadBulkUserName>EXTERNAL_API</ns1:downloadBulkUserName> 
-            <ns1:downloadBulkStartDate>2012-04-03T12:52:04+09:00</ns1:downloadBulkStartDate> 
-            <ns1:downloadBulkEndDate>2012-04-03T12:52:15+09:00</ns1:downloadBulkEndDate> 
-            <ns1:progress>100</ns1:progress> 
-            <ns1:downloadJobStatus>COMPLETED</ns1:downloadJobStatus> 
-            <ns1:downloadBulkDownloadUrl>https://sample.api.yahooapis.jp/bulkDownload/V6/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkDownloadUrl> 
-          </ns1:downloadBulkJob> 
-        </ns1:values> 
-        <ns1:values> 
-          <ns1:operationSucceeded>true</ns1:operationSucceeded> 
-          <ns1:downloadBulkJob> 
-            <ns1:accountId>1000000001</ns1:accountId> 
-            <ns1:downloadBulkJobId>100002</ns1:downloadBulkJobId> 
-            <ns1:downloadBulkJobName>ダウンロードジョブ名2</ns1:downloadBulkJobName> 
-            <ns1:downloadBulkUserName>EXTERNAL_API</ns1:downloadBulkUserName> 
-            <ns1:downloadBulkStartDate>2012-04-03T12:53:08+09:00</ns1:downloadBulkStartDate> 
-            <ns1:downloadBulkEndDate>2012-04-03T12:53:30+09:00</ns1:downloadBulkEndDate> 
-            <ns1:progress>100</ns1:progress> 
-            <ns1:downloadJobStatus>COMPLETED</ns1:downloadJobStatus> 
-            <ns1:downloadBulkDownloadUrl>https://sample.api.yahooapis.jp/bulkDownload/V6/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkDownloadUrl> 
-          </ns1:downloadBulkJob> 
-        </ns1:values> 
-      </ns1:rval> 
-    </ns1:getBulkDownloadStatusResponse> 
-  </SOAP-ENV:Body> 
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1=http://im.yahooapis.jp/V6>
+  <SOAP-ENV:Header>
+    <ns1:ResponseHeader>
+      <ns1:service>BulkService</ns1:service>
+      <ns1:remainingQuota>129997</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>3.995</ns1:timeTakenMillis>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:getBulkDownloadStatusResponse>
+      <ns1:rval>
+        <ns1:totalNumEntries>2</ns1:totalNumEntries>
+        <ns1:Page.Type>BulkDownloadStatusPage</ns1:Page.Type>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:downloadBulkJob>
+            <ns1:accountId>1000000001</ns1:accountId>
+            <ns1:downloadBulkJobId>100001</ns1:downloadBulkJobId>
+            <ns1:downloadBulkJobName>ダウンロードジョブ名1</ns1:downloadBulkJobName>
+            <ns1:downloadBulkUserName>EXTERNAL_API</ns1:downloadBulkUserName>
+            <ns1:downloadBulkStartDate>2012-04-03T12:52:04+09:00</ns1:downloadBulkStartDate>
+            <ns1:downloadBulkEndDate>2012-04-03T12:52:15+09:00</ns1:downloadBulkEndDate>
+            <ns1:progress>100</ns1:progress>
+            <ns1:downloadJobStatus>COMPLETED</ns1:downloadJobStatus>
+            <ns1:downloadBulkDownloadUrl>https ://sample.api.yahooapis.jp/bulkDownload/V6.1/download/iBXYtsbwryBRGfYACzEAyGSuORCilbjw5OSqHmCXL.n4ngB_NhxJ2XfmdscmSBHBnXpaw.hHf1Xxv.g0CBr4uaUeXA--</ns1:downloadBulkDownloadUrl>
+          </ns1:downloadBulkJob>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:downloadBulkJob>
+            <ns1:accountId>1000000001</ns1:accountId>
+            <ns1:downloadBulkJobId>100002</ns1:downloadBulkJobId>
+            <ns1:downloadBulkJobName>ダウンロードジョブ名2</ns1:downloadBulkJobName>
+            <ns1:downloadBulkUserName>EXTERNAL_API</ns1:downloadBulkUserName>
+            <ns1:downloadBulkStartDate>2012-04-03T12:53:08+09:00</ns1:downloadBulkStartDate>
+            <ns1:downloadBulkEndDate>2012-04-03T12:53:30+09:00</ns1:downloadBulkEndDate>
+            <ns1:progress>100</ns1:progress>
+            <ns1:downloadJobStatus>COMPLETED</ns1:downloadJobStatus>
+            <ns1:downloadBulkDownloadUrl>https://sample.api.yahooapis.jp/bulkDownload/V6.1/download/qCYSrtswpqAPGaYAXcQycgsGRaIBekaQp3BN1JaHPL.s0s8B_ApxJ3lrislgkBKBSeo4l.dik3Xio.e9B8aloaQ7oC--</ns1:downloadBulkDownloadUrl>
+          </ns1:downloadBulkJob>
+        </ns1:values>
+      </ns1:rval>
+    </ns1:getBulkDownloadStatusResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ## getUploadUrl
 ### リクエスト
 アップロード対象になるURLを定義します。
@@ -287,8 +228,9 @@ http://im.yahooapis.jp/V6
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
 | accountId | ○ | xsd:long | アカウントIDです。 | 
+| uploadBulkJobName | - | xsd:string | バルクジョブ名です。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -296,8 +238,8 @@ http://im.yahooapis.jp/V6
  xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -306,62 +248,38 @@ http://im.yahooapis.jp/V6
             <ns1:accountId>111111111</ns1:accountId>
         </ns1:getUploadUrl>
     </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getUploadUrl>
-            <ns1:accountId>111111111</ns1:accountId>
-        </ns1:getUploadUrl>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
+</SOAP-ENV:Envelope>　
 ```
 
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [UploadUrlValue](../data/UploadUrlValue.md) | 結果を格納するコンテナです。 | error | [Error](../data/Error.md) | エラーです。 | 
+| rval | [UploadUrlValue](../data/UploadUrlValue.md) | アップロードURLの情報を保持します。 | error | [Error](../data/Error.md) | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
-    <SOAP-ENV:Header> 
-        <ns1:ResponseHeader> 
-            <ns1:service>BulkService</ns1:service> 
-            <ns1:remainingQuota>100</ns1:remainingQuota> 
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest> 
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis> 
-        </ns1:ResponseHeader> 
-    </SOAP-ENV:Header> 
-    <SOAP-ENV:Body> 
-       <ns1:getUploadUrlResponse> 
-           <ns1:rval> 
-               <ns1:accountId>1000000001</ns1:accountId> 
-               <ns1:acceptableUploadStatus>true</ns1:acceptableUploadStatus> 
-               <ns1:uploadUrl>https://sample.api.yahooapis.jp/bulkUpload/V6/upload/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:uploadUrl> 
-           </ns1:rval> 
-       </ns1:getUploadUrlResponse> 
-   </SOAP-ENV:Body> 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:ResponseHeader>
+            <ns1:service>BulkService</ns1:service>
+            <ns1:remainingQuota>100</ns1:remainingQuota>
+            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
+            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+        </ns1:ResponseHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+       <ns1:getUploadUrlResponse>
+           <ns1:rval>
+               <ns1:accountId>1000000001</ns1:accountId>
+               <ns1:acceptableUploadStatus>true</ns1:acceptableUploadStatus>
+               <ns1:uploadUrl>https://sample.api.yahooapis.jp/bulkUpload/V4/upload/3CRAGObSahcIylBoDZS5ftx7qS4VM5jSHqs77QZqmpBFnJFP2jvKe3Dy72UEX3InsUoShWXa3YcX3AmbtqxGco6B </ns1:uploadUrl>
+           </ns1:rval>
+       </ns1:getUploadUrlResponse>
+   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -371,9 +289,9 @@ http://im.yahooapis.jp/V6
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| selector | ○ | [BulkUploadStatusSelector](../data/BulkUploadStatusSelector.md) | 一括取得する対象を定義します。 | 
+| selector | ○ | [BulkUploadStatusSelector](../data/BulkUploadStatusSelector.md) | getBulkUploadStatusメソッドの検索条件（実行パラメータ）を保持します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -381,8 +299,8 @@ http://im.yahooapis.jp/V6
  xmlns:ns1="http://im.yahooapis.jp/V6">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -392,8 +310,7 @@ http://im.yahooapis.jp/V6
                 <ns1:accountId>1111111111</ns1:accountId>
                 <ns1:uploadBulkJobIds>2222222222</ns1:uploadBulkJobIds>
                 <ns1:uploadBulkJobStatus>IN_PROGRESS</ns1:uploadBulkJobStatus>
-                <ns1:output>ZIPPED_XML</ns1:output>
-                <ns1:encoding>UTF-8</ns1:encoding>
+                <ns1:output>ZIPPED_CSV</ns1:output>
                 <ns1:paging>
                   <ns1:startIndex>1</ns1:startIndex>
                   <ns1:numberResults>20</ns1:numberResults>
@@ -404,36 +321,10 @@ http://im.yahooapis.jp/V6
 </SOAP-ENV:Envelope>
 ```
 
-##### ＜リクエストサンプル＞（代行認証）
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1111111111</ns1:accountId>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getBulkUploadStatus>
-            <ns1:selector>
-                <ns1:accountId>1111111111</ns1:accountId>
-            </ns1:selector>
-        </ns1:getBulkUploadStatus>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [BulkUploadStatusPage](../data/BulkUploadStatusPage.md)|結果を格納するコンテナです。|error|[Error](../data/Error.md) | エラーです。 | 
+| rval | [BulkUploadStatusPage](../data/BulkUploadStatusPage.md)|　etBulkUploadStatusメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -471,14 +362,16 @@ http://im.yahooapis.jp/V6
                             <ns1:adGroupAdCount>0</ns1:adGroupAdCount>
                             <ns1:adGroupTargetCount>0</ns1:adGroupTargetCount>
                             <ns1:mediaCount>0</ns1:mediaCount>
+                            <ns1:videoCount>0</ns1:videoCount>
                             <ns1:campaignErrorCount>18</ns1:campaignErrorCount>
                             <ns1:adGroupErrorCount>0</ns1:adGroupErrorCount>
                             <ns1:adGroupAdErrorCount>0</ns1:adGroupAdErrorCount>
                             <ns1:adGroupTargetErrorCount>0</ns1:adGroupTargetErrorCount>
                             <ns1:mediaErrorCount>0</ns1:mediaErrorCount>
+                            <ns1:videoErrorCount>0</ns1:videoErrorCount>
                         </ns1:processingItemsCount>
                         <ns1:progress>100</ns1:progress>
-                        <ns1:downloadBulkUploadFileUrl>https://sample.api.yahooapis.jp/bulkUpload/V6/download/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</ns1:downloadBulkUploadFileUrl>
+                        <ns1:downloadBulkUploadFileUrl>https://sample.api.yahooapis.jp/bulkUpload/V6/download/3CRAGObSahcIylBoDZS5ftx7qS4VM5jSHqs77QZqmpBFnJFP2jvKe3Dy72UEX3InsUoShWXa3YcX3AmbtqxGco6B</ns1:downloadBulkUploadFileUrl>
                     </ns1:uploadBulkJob>
                 </ns1:values>
             </ns1:rval>

@@ -12,7 +12,7 @@
       xmlns:tns="http://im.yahooapis.jp/V6">
       <annotation>
         <appinfo>
-          <version>6.0.0</version>
+          <version>6.1.0</version>
         </appinfo>
       </annotation>
       <complexType name="SoapHeader">
@@ -39,13 +39,6 @@
           <element maxOccurs="unbounded" minOccurs="0" name="reportIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="reportJobIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="reportJobStatuses" type="tns:ReportJobStatus"/>
-          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
-        </sequence>
-      </complexType>
-      <complexType name="ReportDownloadUrlSelector">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-          <element maxOccurs="unbounded" minOccurs="1" name="reportJobIds" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
         </sequence>
       </complexType>
@@ -81,6 +74,7 @@
           <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:ReportDateRange"/>
           <element maxOccurs="1" minOccurs="0" name="status" type="tns:ReportJobStatus"/>
           <element maxOccurs="1" minOccurs="0" name="jobErrorDetail" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="reportDownloadUrl" type="xsd:string"/>
         </sequence>
       </complexType>
       <simpleType name="ReportDateRangeType">
@@ -111,38 +105,11 @@
           </extension>
         </complexContent>
       </complexType>
-      <complexType name="ReportDownloadUrlPage">
-        <complexContent>
-          <extension base="tns:Page">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportDownloadUrlValues"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
       <complexType name="ReportValues">
         <complexContent>
           <extension base="tns:ReturnValue">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="reportRecord" type="tns:ReportRecord"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="ReportDownloadUrlValues">
-        <complexContent>
-          <extension base="tns:ReturnValue">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="reportDownloadUrl" type="tns:ReportDownloadUrl"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="ReportDownloadUrl">
-        <complexContent>
-          <extension base="tns:ReportRecord">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="downloadUrl" type="xsd:string"/>
             </sequence>
           </extension>
         </complexContent>
@@ -239,21 +206,6 @@
           </sequence>
         </complexType>
       </element>
-      <element name="getDownloadUrl">
-        <complexType>
-          <sequence>
-            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:ReportDownloadUrlSelector"/>
-          </sequence>
-        </complexType>
-      </element>
-      <element name="getDownloadUrlResponse">
-        <complexType>
-          <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportDownloadUrlPage"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
-          </sequence>
-        </complexType>
-      </element>
       <element name="getClosedDate">
         <complexType>
           <sequence>
@@ -301,12 +253,6 @@
   <wsdl:message name="getResponse">
     <wsdl:part element="tns:getResponse" name="parameters"/>
   </wsdl:message>
-  <wsdl:message name="getDownloadUrlRequest">
-    <wsdl:part element="tns:getDownloadUrl" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="getDownloadUrlResponse">
-    <wsdl:part element="tns:getDownloadUrlResponse" name="parameters"/>
-  </wsdl:message>
   <wsdl:message name="getClosedDateRequest">
     <wsdl:part element="tns:getClosedDate" name="parameters"/>
   </wsdl:message>
@@ -328,12 +274,7 @@
       <wsdl:output message="tns:getResponse" name="getResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
-    <wsdl:operation name="getDownloadUrl">
-      <wsdl:input message="tns:getDownloadUrlRequest" name="getDownloadUrlRequest"/>
-      <wsdl:output message="tns:getDownloadUrlResponse" name="getDownloadUrlResponse"/>
-      <wsdl:fault message="tns:ApiException" name="ApiException"/>
-    </wsdl:operation>
-    <wsdl:operation name="getClosedDate">     
+    <wsdl:operation name="getClosedDate">
       <wsdl:input message="tns:getClosedDateRequest" name="getClosedDateRequest"/> 
       <wsdl:output message="tns:getClosedDateResponse" name="getClosedDateResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
@@ -353,20 +294,6 @@
         <wsdlsoap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="getResponse">
-        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
-        <wsdlsoap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="ApiException">
-        <wsdlsoap:fault name="ApiException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getDownloadUrl">
-      <wsdlsoap:operation soapAction=""/>
-      <wsdl:input name="getDownloadUrlRequest">
-        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
-        <wsdlsoap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getDownloadUrlResponse">
         <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
         <wsdlsoap:body use="literal"/>
       </wsdl:output>
@@ -405,7 +332,7 @@
   </wsdl:binding>
   <wsdl:service name="ReportServiceService">
     <wsdl:port binding="tns:ReportServiceSoapBinding" name="ReportService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.0/ReportService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/ReportService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

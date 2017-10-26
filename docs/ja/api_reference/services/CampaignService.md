@@ -1,25 +1,30 @@
 # CampaignService
 CampaignServiceは、キャンペーンの操作を提供します。
+
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/CampaignService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/CampaignService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/Vx.x/CampaignService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/CampaignService?wsdl |
+
 #### Namespace
 http://im.yahooapis.jp/V6
+
 #### サービス概要
 キャンペーンの操作を提供します。
+
 #### 操作
 CampaignServiceで提供される操作を説明します。
+
 ## get
 ### リクエスト
 キャンペーン情報を取得します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| selector | ○ | [CampaignSelector](../data/CampaignSelector.md) | 取得するキャンペーン情報を指定します。 | 
+| selector | ○ | [CampaignSelector](../data/CampaignSelector.md) | getメソッドの検索条件（実行パラメータ）を保持します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -45,6 +50,7 @@ CampaignServiceで提供される操作を説明します。
           <ns1:startIndex>1</ns1:startIndex>
           <ns1:numberResults>20</ns1:numberResults>
         </ns1:paging>
+        <ns1:campaignType>APP</ns1:campaignType>
       </ns1:selector>
     </ns1:get>
   </SOAP-ENV:Body>
@@ -54,7 +60,7 @@ CampaignServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [CampaignPage](../data/CampaignPage.md) | 操作結果を含むコンテナです。 | 
+| rval | [CampaignPage](../data/CampaignPage.md) | getメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -100,6 +106,10 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -129,6 +139,10 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -148,6 +162,10 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:type>MANUAL_CPV</ns1:type>
                          </ns1:biddingStrategy>
                          <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                        <ns1:appName>app Name</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                       </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
@@ -162,9 +180,9 @@ CampaignServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | 操作するキャンペーン情報を指定します。 | 
+| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | mutateメソッドで操作対象となるキャンペーン情報を保持します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -197,6 +215,7 @@ CampaignServiceで提供される操作を説明します。
                         <ns1:type>MANUAL_CPC</ns1:type>
                     </ns1:biddingStrategy>
                     <ns1:adProductType>INTEREST_MATCH</ns1:adProductType>
+                    <ns1:campaignType>STANDARD</ns1:campaignType>
                 </ns1:operand>
                 <ns1:operand>
                     <ns1:accountId>100000001</ns1:accountId>
@@ -216,6 +235,10 @@ CampaignServiceで提供される操作を説明します。
                         <ns1:timeUnit>MONTH</ns1:timeUnit>
                         <ns1:impression>15</ns1:impression>
                     </ns1:frequencyCap>
+                    <ns1:appName>app Name1</ns1:appName>
+                    <ns1:campaignType>APP</ns1:campaignType>
+                    <ns1:appId>1000000004</ns1:appId>
+                    <ns1:appOs>IOS</ns1:appOs>
                 </ns1:operand>
                 <ns1:operand>
                     <ns1:accountId>100000001</ns1:accountId>
@@ -230,6 +253,10 @@ CampaignServiceで提供される操作を説明します。
                         <ns1:type>MANUAL_CPV</ns1:type>
                     </ns1:biddingStrategy>
                     <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                    <ns1:appName>app Name2</ns1:appName>
+                    <ns1:campaignType>APP</ns1:campaignType>
+                    <ns1:appId>sample.app.package</ns1:appId>
+                    <ns1:appOs>ANDROID</ns1:appOs>
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -240,7 +267,7 @@ CampaignServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | 操作結果を含むコンテナです。 | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -285,6 +312,7 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:campaignType>STANDARD</ns1:campaignType>
                    </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -314,6 +342,10 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name1</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -333,6 +365,10 @@ CampaignServiceで提供される操作を説明します。
                            <ns1:type>MANUAL_CPV</ns1:type>
                         </ns1:biddingStrategy>
                         <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                        <ns1:appName>app Name2</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>sample.app.package</ns1:appId>
+                        <ns1:appOs>ANDROID</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
@@ -347,9 +383,9 @@ CampaignServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | 操作するキャンペーン情報を指定します。 | 
+| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | mutateメソッドで操作対象となるキャンペーン情報を保持します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -416,8 +452,10 @@ CampaignServiceで提供される操作を説明します。
                     <ns1:accountId>100000001</ns1:accountId>
                     <ns1:campaignId>100000004</ns1:campaignId>
                     <ns1:campaignName>Modify sample campaign002</ns1:campaignName>
-<!-- 空エレメントでフリークエンシ設定解除 -->
-                    <ns1:frequencyCap></ns1:frequencyCap>
+<!-- ０指定でフリークエンシ設定解除 -->
+                    <ns1:frequencyCap>
+                        <ns1:impression>0</ns1:impression>
+                    </ns1:frequencyCap>
                 </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
@@ -428,7 +466,7 @@ CampaignServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | 操作結果を含むコンテナです。 | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -473,6 +511,7 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>30</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:campaignType>STANDARD</ns1:campaignType>
                    </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -498,6 +537,7 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:campaignType>STANDARD</ns1:campaignType>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -527,6 +567,10 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>30</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name1</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -551,6 +595,10 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>DISABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name2</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>sample.app.package</ns1:appId>
+                        <ns1:appOs>ANDROID</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
@@ -565,9 +613,9 @@ CampaignServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 | 
 |---|---|---|---|
-| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | 操作するキャンペーン情報を指定します。 | 
+| operations | ○ | [CampaignOperation](../data/CampaignOperation.md) | mutateメソッドで操作対象となるキャンペーン情報を保持します。 | 
 
-##### ＜リクエストサンプル＞（標準認証）
+##### ＜リクエストサンプル＞
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -607,7 +655,7 @@ CampaignServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 | 
 |---|---|---|
-| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | 操作結果を含むコンテナです。 | 
+| rval | [CampaignReturnValue](../data/CampaignReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -651,6 +699,7 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>30</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:campaignType>STANDARD</ns1:campaignType>
                    </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -679,6 +728,10 @@ CampaignServiceで提供される操作を説明します。
                             <ns1:targetCpa>0</ns1:targetCpa>
                             <ns1:eligibilityFlg>ENABLE</ns1:eligibilityFlg>
                         </ns1:conversionOptimizer>
+                        <ns1:appName>app Name1</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>1000000004</ns1:appId>
+                        <ns1:appOs>IOS</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
                 <ns1:values>
@@ -698,6 +751,10 @@ CampaignServiceで提供される操作を説明します。
                            <ns1:type>MANUAL_CPV</ns1:type>
                         </ns1:biddingStrategy>
                         <ns1:adProductType>VIDEO_AD</ns1:adProductType>
+                        <ns1:appName>app Name2</ns1:appName>
+                        <ns1:campaignType>APP</ns1:campaignType>
+                        <ns1:appId>sample.app.package</ns1:appId>
+                        <ns1:appOs>ANDROID</ns1:appOs>
                     </ns1:campaign>
                 </ns1:values>
             </ns1:rval>
@@ -705,4 +762,5 @@ CampaignServiceで提供される操作を説明します。
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

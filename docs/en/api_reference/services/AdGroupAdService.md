@@ -1,14 +1,18 @@
 # AdGroupAdService
 Use this service to get, add, update or delete ad information.
+
 #### WSDL
 | environment | url |
 |---|---|
 | production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl |
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl |
+
 #### Namespace
 http://im.yahooapis.jp/V6
+
 #### Service Overview
 Retrieves and updates ads.
+
 #### Operation
 Explains operations provided by AdGroupAdService.
 
@@ -16,9 +20,9 @@ Explains operations provided by AdGroupAdService.
 ### Request
 Retrieves ad information.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| selector | required | [AdGroupAdSelector](../data/AdGroupAdSelector.md) | Retrieves ad information. | 
+| selector | required | [AdGroupAdSelector](../data/AdGroupAdSelector.md) | Contains a set of criteria (parameters) for get method. |
 
 ##### Request Sample
 ```xml
@@ -57,11 +61,11 @@ Retrieves ad information.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupAdPage](../data/AdGroupAdPage.md) | Container including operation results. | 
+| rval | [AdGroupAdPage](../data/AdGroupAdPage.md) | Contains the results (a list of all entities) for get method. |
 
-##### Response Sample 
+##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -119,12 +123,13 @@ Retrieves ad information.
 ### Request
 Adds an ad.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | Operates an ad to ad group. | 
+| operations | required | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | Contains the information of ad targeted for mutate method operation. |
 
-##### Request Sample 
+##### Request Sample
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://im.yahooapis.jp/V6"
@@ -231,6 +236,28 @@ Adds an ad.
                         <ns1:colorSetId>123213</ns1:colorSetId>
                     </ns1:ad>
                </ns1:operand>
+                <ns1:operand>
+                    <ns1:accountId>111111111</ns1:accountId>
+                    <ns1:campaignId>2222222</ns1:campaignId>
+                    <ns1:adGroupId>3333333</ns1:adGroupId>
+                    <ns1:adName>Ad name 1e</ns1:adName>
+                    <ns1:userStatus>ACTIVE</ns1:userStatus>
+                    <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                        <ns1:type>MANUAL_CPV</ns1:type>
+                        <ns1:maxCpv>100</ns1:maxCpv>
+                    </ns1:bid>
+                    <ns1:ad xsi:type="ns1:VideoAd">
+                        <ns1:type>VIDEO_AD</ns1:type>
+                        <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
+                        <ns1:headline>Title</ns1:headline>
+                        <ns1:description>Description</ns1:description>
+                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                        <ns1:principal>Advertiser Indication</ns1:principal>
+                        <ns1:logoMediaId>1111</ns1:logoMediaId>
+                    </ns1:ad>
+               </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
     </SOAP-ENV:Body>
@@ -238,12 +265,13 @@ Adds an ad.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | Container including operation results. | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | Contains the results (a list of all entities) of mutate method. |
 
 ##### Response Sample
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://im.yahooapis.jp/V6"
@@ -383,6 +411,36 @@ Adds an ad.
                    </ns1:adGroupAd>
                 </ns1:values>
                 <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupAd>
+                        <ns1:accountId>111111111</ns1:accountId>
+                        <ns1:campaignId>2222222</ns1:campaignId>
+                        <ns1:campaignName>Sample campaign</ns1:campaignName>
+                        <ns1:adGroupId>3333333</ns1:adGroupId>
+                        <ns1:adGroupName>Sample ad group</ns1:adGroupName>
+                        <ns1:adId>12341234</ns1:adId>
+                        <ns1:adName>Ad name 1e</ns1:adName >
+                        <ns1:adStyle>VIDEO</ns1:adStyle>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                            <ns1:type>MANUAL_CPV</ns1:type>
+                            <ns1:maxCpv>100</ns1:maxCpv>
+                        </ns1:bid>
+                        <ns1:ad xsi:type="ns1:VideoAd">
+                            <ns1:type>VIDEO_AD</ns1:type>
+                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
+                            <ns1:headline>Title</ns1:headline>
+                            <ns1:description>Description</ns1:description>
+                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                            <ns1:principal>Advertiser Indication</ns1:principal>
+                            <ns1:logoMediaId>1111</ns1:logoMediaId>
+                        </ns1:ad>
+                   </ns1:adGroupAd>
+                </ns1:values>
+                <ns1:values>
                     <ns1:operationSucceeded>false</ns1:operationSucceeded>
                     <ns1:error>
                         <ns1:code>2012</ns1:code>
@@ -400,11 +458,11 @@ Adds an ad.
 ### Request
 Updates an ad.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | Updates the ad in the ad group. | 
+| operations | required | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | Contains the information of ad targeted for mutate method operation. |
 
-##### Request Sample 
+##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
@@ -513,6 +571,28 @@ Updates an ad.
                         <ns1:colorSetId>123213</ns1:colorSetId>
                     </ns1:ad>
                </ns1:operand>
+                <ns1:operand>
+                    <ns1:accountId>111111111</ns1:accountId>
+                    <ns1:campaignId>2222222</ns1:campaignId>
+                    <ns1:adGroupId>3333333</ns1:adGroupId>
+                    <ns1:adName>Ad name1e</ns1:adName>
+                    <ns1:userStatus>ACTIVE</ns1:userStatus>
+                    <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                        <ns1:type>MANUAL_CPV</ns1:type>
+                        <ns1:maxCpv>100</ns1:maxCpv>
+                    </ns1:bid>
+                    <ns1:ad xsi:type="ns1:VideoAd">
+                        <ns1:type>VIDEO_AD</ns1:type>
+                        <ns1:thumbnailMediaId>1234567</ns1:thumbnailMediaId>
+                        <ns1:headline>Title</ns1:headline>
+                        <ns1:description>Description</ns1:description>
+                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                        <ns1:principal>Advertiser Indication</ns1:principal>
+                        <ns1:logoMediaId>1111</ns1:logoMediaId>
+                    </ns1:ad>
+               </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
     </SOAP-ENV:Body>
@@ -520,9 +600,9 @@ Updates an ad.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | Container including operation results. | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | Contains the results (a list of all entities) of mutate method. |
 
 ##### Response Sample
 ```xml
@@ -666,6 +746,36 @@ Updates an ad.
                    </ns1:adGroupAd>
                 </ns1:values>
                 <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupAd>
+                        <ns1:accountId>111111111</ns1:accountId>
+                        <ns1:campaignId>2222222</ns1:campaignId>
+                        <ns1:campaignName>Sample campaign</ns1:campaignName>
+                        <ns1:adGroupId>3333333</ns1:adGroupId>
+                        <ns1:adGroupName>Sample ad group</ns1:adGroupName>
+                        <ns1:adId>12341234</ns1:adId>
+                        <ns1:adName>Ad name1e</ns1:adName >
+                        <ns1:adStyle>VIDEO</ns1:adStyle>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                            <ns1:type>MANUAL_CPV</ns1:type>
+                            <ns1:maxCpv>100</ns1:maxCpv>
+                        </ns1:bid>
+                        <ns1:ad xsi:type="ns1:VideoAd">
+                            <ns1:type>VIDEO_AD</ns1:type>
+                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
+                            <ns1:headline>Title</ns1:headline>
+                            <ns1:description>Description</ns1:description>
+                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                            <ns1:principal>Advertiser Indication</ns1:principal>
+                            <ns1:logoMediaId>1111</ns1:logoMediaId>
+                        </ns1:ad>
+                   </ns1:adGroupAd>
+                </ns1:values>
+                <ns1:values>
                     <ns1:operationSucceeded>false</ns1:operationSucceeded>
                     <ns1:error>
                         <ns1:code>2012</ns1:code>
@@ -683,9 +793,9 @@ Updates an ad.
 ### Request
 Removes an ad.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | Removes an ad. | 
+| operations | required | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | Contains the information of ad targeted for mutate method operation. |
 
 ##### Response Sample
 ```xml
@@ -729,6 +839,12 @@ Removes an ad.
                     <ns1:adGroupId>3333333</ns1:adGroupId>
                     <ns1:adId>9999999</ns1:adId>
                 </ns1:operand>
+                <ns1:operand>
+                    <ns1:accountId>111111111</ns1:accountId>
+                    <ns1:campaignId>2222222</ns1:campaignId>
+                    <ns1:adGroupId>3333333</ns1:adGroupId>
+                    <ns1:adId>1231231</ns1:adId>
+                </ns1:operand>
             </ns1:operations>
         </ns1:mutate>
     </SOAP-ENV:Body>
@@ -736,12 +852,13 @@ Removes an ad.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | Container including operation results. | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | Contains the results (a list of all entities) of mutate method. |
 
 ##### Response Sample
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope
  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
  xmlns:ns1="http://im.yahooapis.jp/V6"
@@ -877,6 +994,36 @@ Removes an ad.
                             <ns1:principal>Advertiser Indication</ns1:principal>
                             <ns1:logoMediaId>1111</ns1:logoMediaId>
                             <ns1:colorSetId>123213</ns1:colorSetId>
+                        </ns1:ad>
+                   </ns1:adGroupAd>
+                </ns1:values>
+                <ns1:values>
+                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
+                    <ns1:adGroupAd>
+                        <ns1:accountId>111111111</ns1:accountId>
+                        <ns1:campaignId>2222222</ns1:campaignId>
+                        <ns1:campaignName>Sample campaign</ns1:campaignName>
+                        <ns1:adGroupId>3333333</ns1:adGroupId>
+                        <ns1:adGroupName>Sample ad group</ns1:adGroupName>
+                        <ns1:adId>1231231</ns1:adId>
+                        <ns1:adName>Ad name1e</ns1:adName >
+                        <ns1:adStyle>VIDEO</ns1:adStyle>
+                        <ns1:userStatus>PAUSED</ns1:userStatus>
+                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
+                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
+                            <ns1:type>MANUAL_CPV</ns1:type>
+                            <ns1:maxCpv>100</ns1:maxCpv>
+                        </ns1:bid>
+                        <ns1:ad xsi:type="ns1:VideoAd">
+                            <ns1:type>VIDEO_AD</ns1:type>
+                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
+                            <ns1:headline>Title</ns1:headline>
+                            <ns1:description>Description</ns1:description>
+                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
+                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
+                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
+                            <ns1:principal>Advertiser Indication</ns1:principal>
+                            <ns1:logoMediaId>1111</ns1:logoMediaId>
                         </ns1:ad>
                    </ns1:adGroupAd>
                 </ns1:values>

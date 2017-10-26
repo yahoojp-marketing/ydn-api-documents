@@ -6,55 +6,33 @@ DictionaryService retrieves the list of rejected reasons, geo targeting, interes
 |---|---|
 | production  | https://location.im.yahooapis.jp/services/Vx.x/DictionaryService?wsdl |
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/DictionaryService?wsdl |
+
 #### Namespace
 http://im.yahooapis.jp/V6
+
 #### Service Overview
 Use this service to retrieve each information.
+
 #### Operation
 Explains operations provided by DictionaryService.
+
 ## getDisapprovalReason
 ### Request
 Reterieve the list of reponse from recommendation with EditorialReason.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [DisapprovalReasonSelector](../data/DisapprovalReasonSelector.md) | Designate the language of EditorialReason list to be retrieved. | 
+| operations | required | [DisapprovalReasonSelector](../data/DisapprovalReasonSelector.md) | Designate the language of EditorialReason list to be retrieved. |
 
 ##### Request Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
-xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
+      <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+      <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
       <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-    </ns1:RequestHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns1:getDisapprovalReason>
-      <ns1:selector>
-        <ns1:lang>JA</ns1:lang>
-      </ns1:selector>
-    </ns1:getDisapprovalReason>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
-xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-  <SOAP-ENV:Header>
-    <ns1:RequestHeader>
-      <ns1:license>xxxxxxxxxxxxxxx</ns1:license>
-      <ns1:apiAccountId>xxxxxxxxxxxxxxxxxx</ns1:apiAccountId>
-      <ns1:apiAccountPassword>passwd</ns1:apiAccountPassword>
-      <ns1:accountId>1000000001</ns1:accountId>
-      <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-      <ns1:onBehalfOfPassword>passwd2</ns1:onBehalfOfPassword>
     </ns1:RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
@@ -68,14 +46,14 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [DisapprovalReasonPage](../data/DisapprovalReasonPage.md) | A container that stores results. | 
+| rval | [DisapprovalReasonPage](../data/DisapprovalReasonPage.md) | A container that stores results. |
 
 ##### Response Sample
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope 
+<SOAP-ENV:Envelope
 xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
   <SOAP-ENV:Header>
     <ns1:ResponseHeader>
@@ -103,7 +81,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
         <ns1:values>
           <ns1:operationSucceeded>true</ns1:operationSucceeded>
           <ns1:disapprovalReason>
-            <ns1:desapprovalReasonCode>2</ns1:disapprovalReasonCode>
+            <ns1:disapprovalReasonCode>2</ns1:disapprovalReasonCode>
             <ns1:lang>JA</ns1:lang>
             <ns1:title>表示できないサイト</ns1:title>
             <ns1:description>リンク先ページが正しく読み込みできません。</ns1:description>
@@ -130,9 +108,9 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.
 ### Request
 Retrieves the information list of geo targeting.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [GeographicLocationSelector](../data/GeographicLocationSelector.md) | Retrieves the list of geo targeting information. | 
+| selector | - | [GeographicLocationSelector](../data/GeographicLocationSelector.md) | Retrieves the list of geo targeting information. |
 
 ##### Request Sample
 ```xml
@@ -143,8 +121,8 @@ Retrieves the information list of geo targeting.
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxx</ns1:apiAccountId>
+            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -158,37 +136,10 @@ Retrieves the information list of geo targeting.
 </SOAP-ENV:Envelope>
 ```
 
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:accountId>1234567890</ns1:accountId>
-            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getGeographicLocation>
-          <ns1:selector>
-            <ns1:lang>EN</ns1:lang>
-          </ns1:selector>
-        </ns1:getGeographicLocation>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [GeographicLocationPage](../data/GeographicLocationPage.md) | A container that stores results. | 
+| rval | [GeographicLocationPage](../data/GeographicLocationPage.md) | A container that stores results. |
 
 ##### Response Sample
 ```xml
@@ -245,9 +196,9 @@ Retrieves the information list of geo targeting.
 ### Request
 Retrieves the list of interest category.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations |  | [CategorySelector](../data/CategorySelector.md) | Retrieves interest category list. | 
+| selector | - | [CategorySelector](../data/CategorySelector.md) | Retrieves interest category list. |
 
 ##### Request Sample
 ```xml
@@ -258,35 +209,9 @@ Retrieves the list of interest category.
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxx</ns1:apiAccountId>
+            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getInterestCategory>
-          <ns1:selector>
-            <ns1:lang>JA</ns1:lang>
-          </ns1:selector>
-        </ns1:getInterestCategory>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
     <SOAP-ENV:Body>
@@ -300,9 +225,9 @@ Retrieves the list of interest category.
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [CategoryPage](../data/CategoryPage.md) | A container that stores results. | 
+| rval | [CategoryPage](../data/CategoryPage.md) | A container that stores results. |
 
 ##### Response Sample
 ```xml
@@ -366,9 +291,9 @@ Retrieves the list of interest category.
 ### Request
 Retrieves the list of site category.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations |  | [CategorySelector](../data/CategorySelector.md) | Retrieves interest category list. | 
+| selector | - | [CategorySelector](../data/CategorySelector.md) | Retrieves site category list. |
 
 ##### Request Sample
 ```xml
@@ -379,8 +304,8 @@ Retrieves the list of site category.
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SOAP-ENV:Header>
         <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxx</ns1:apiAccountId>
+            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license>
+            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId>
             <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
         </ns1:RequestHeader>
     </SOAP-ENV:Header>
@@ -394,36 +319,10 @@ Retrieves the list of site category.
 </SOAP-ENV:Envelope>
 ```
 
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>xxxxxxxxxxxxxxxx</ns1:license>
-            <ns1:apiAccountId>xxxxxxxxxxxxxxxx</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>xxxxxxxxxxxxxxxx</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getSiteCategory>
-          <ns1:selector>
-            <ns1:lang>EN</ns1:lang>
-          </ns1:selector>
-        </ns1:getSiteCategory>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [CategoryPage](../data/CategoryPage.md) | A container that stores results. | 
+| rval | [CategoryPage](../data/CategoryPage.md) | A container that stores results. |
 
 ##### Response Sample
 ```xml
@@ -487,9 +386,9 @@ Retrieves the list of site category.
 ### Request
 Retrieves the list of color set.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations |  | [ColorSetSelector](../data/ColorSetSelector.md) | Obtain the setting of ad layout. | 
+| operations | required | [ColorSetSelector](../data/ColorSetSelector.md) | Obtain the setting of ad layout. |
 
 ##### Request Sample
 ```xml
@@ -515,36 +414,10 @@ Retrieves the list of color set.
 </SOAP-ENV:Envelope>
 ```
 
-##### Request Sample (On-Behalf-Of Account) 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-            <ns1:onBehalfOfAccountId>3333-3333-3333-3333</ns1:onBehalfOfAccountId>
-            <ns1:onBehalfOfPassword>password2</ns1:onBehalfOfPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getColorSet>
-          <ns1:selector>
-            <ns1:lang>EN</ns1:lang>
-          </ns1:selector>
-        </ns1:getColorSet>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [ColorSetPage](../data/ColorSetPage.md) | A container that stores results. | 
+| rval | [ColorSetPage](../data/ColorSetPage.md) | A container that stores results. |
 
 ##### Response Sample
 ```xml
@@ -589,4 +462,169 @@ Retrieves the list of color set.
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
+## getOsVersion
+### Request
+Retrieves the version of OS.
+
+| Parameter | Requirement | Data Type | Description |
+|---|---|---|---|
+| selector | - | [OsVersionSelector](../data/OsVersionSelector.md) | Contains a set of criteria (parameters) for getOsVersion method. |
+
+##### Request Sample
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
+            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:getOsVersion>
+          <ns1:selector>
+            <ns1:osType>ANDROID</ns1:osType>
+          </ns1:selector>
+        </ns1:getOsVersion>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### Response
+| Parameter | Data Type | Description |
+|---|---|---|
+| rval | [OsVersionPage](../data/OsVersionPage.md) | Contains the results (a list of all entities) for getOsVersion method. |
+
+##### Response Sample
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns1:ResponseHeader>
+      <ns1:service>DictionaryService</ns1:service>
+      <ns1:remainingQuota>100</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:getOsVersionResponse>
+      <ns1:rval>
+        <ns1:totalNumEntries>2</ns1:totalNumEntries>
+        <ns1:Page.Type>OsVersionPage</ns1:Page.Type>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:osVersion>
+             <ns1:osType>ANDROID</ns1:osType>
+             <ns1:version>7.1</ns1:version>
+          </ns1:osVersion>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:osVersion>
+             <ns1:osType>IOS</ns1:osType>
+             <ns1:version>10.3.2</ns1:version>
+          </ns1:osVersion>
+        </ns1:values>
+      </ns1:rval>
+    </ns1:getOsVersionResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+## getMediaAdFormat
+### Request
+Queries acceptable format (MediaAdFormat) of ad creatives.
+
+| Parameter | Requirement | Data Type | Description |
+|---|---|---|---|
+| - | - | - | none |
+
+##### Request Sample
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:RequestHeader>
+            <ns1:license>1111-1111-1111-1111</ns1:license>
+            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
+            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
+        </ns1:RequestHeader>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:getMediaAdFormat />
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### Response
+| Parameter | Data Type | Description |
+|---|---|---|
+| rval | [MediaAdFormatPage](../data/MediaAdFormatPage.md) | Contains the results (a list of all entities) for getMediaAdFormat method. |
+
+##### Response Sample
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:ns1="http://im.yahooapis.jp/V6"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns1:ResponseHeader>
+      <ns1:service>DictionaryService</ns1:service>
+      <ns1:remainingQuota>100</ns1:remainingQuota>
+      <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
+      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:getMediaAdFormatResponse>
+      <ns1:rval>
+        <ns1:totalNumEntries>2</ns1:totalNumEntries>
+        <ns1:Page.Type>OsVersionPage</ns1:Page.Type>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:mediaAdFormat>
+             <ns1:id>1</ns1:id>
+             <ns1:width>728</ns1:width>
+             <ns1:height>90</ns1:height>
+             <ns1:size>153600</ns1:size>
+             <ns1:transparent>false</ns1:transparent>
+             <ns1:animation>false</ns1:animation>
+             <ns1:logo>false</ns1:logo>
+             <ns1:thumbnail>false</ns1:thumbnail>
+             <ns1:adFormat>ICON</ns1:adFormat>
+          </ns1:mediaAdFormat>
+        </ns1:values>
+        <ns1:values>
+          <ns1:operationSucceeded>true</ns1:operationSucceeded>
+          <ns1:mediaAdFormat>
+             <ns1:id>2</ns1:id>
+             <ns1:width>320</ns1:width>
+             <ns1:height>50</ns1:height>
+             <ns1:size>153600</ns1:size>
+             <ns1:transparent>false</ns1:transparent>
+             <ns1:animation>true</ns1:animation>
+             <ns1:logo>false</ns1:logo>
+             <ns1:thumbnail>false</ns1:thumbnail>
+             <ns1:adFormat>SQUARE_57</ns1:adFormat>
+          </ns1:mediaAdFormat>
+        </ns1:values>
+      </ns1:rval>
+    </ns1:getMediaAdFormatResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
