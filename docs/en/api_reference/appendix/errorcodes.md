@@ -1,8 +1,6 @@
 # SOAP Error Codes
-
 ### Error Process Outline
-When a SOAP request is successful, YDN API sends back the "HTTP 200 OK" response code, along with a SOAP response. <br>
-If an error occurs while a SOAP request is being processed, YDN API sends back a message with an error code. <br>
+When a SOAP request is successful, YDN API sends back the "HTTP 200 OK" response code, along with a SOAP response. <br>If an error occurs while a SOAP request is being processed, YDN API sends back a message with an error code. <br>
 For details, please refer to [Error](/docs/en/api_reference/data/Error.md) and/or [ErrorDetail](/docs/en/api_reference/data/ErrorDetail.md).<br>
 
 ##### Response Sample
@@ -69,6 +67,7 @@ Code           | Message                     | Description
 120026 | Status error.  | Status error.
 120029 | This value is registered.  | This value is registered.
 
+
 #### Submission-related Errors
 ##### Service
 [RetargetingListService](/docs/en/api_reference/services/RetargetingListService.md)
@@ -77,6 +76,7 @@ Code           | Message                     | Description
 -------------- | --------------------------- | ---------------------------
 210001 | Selected value is not approved to update.  | The selected elements is not approved to use for the updates of target list.
 210002 | Cannot update from the dependency.  | Due to the dependency relations, updateis not possible.
+210003 | A function is not permitted this account.| Custom audience is not available for this account. 
 
 ##### Service
 [AdGroupTargetService](/docs/en/api_reference/services/AdGroupTargetService.md)
@@ -129,6 +129,8 @@ Code           | Message                     | Description
 220127 | Invalid ad type. | Setting is only available for Responsive Ad or Static Frame Ad.
 220128 | Invalid color set ID. | Unavailable Color Set ID has been set.
 220133 | Not allowed to set impression beacon url. | Impression beacon URL is not available since the external link to analyzing tool providers is not allowed.
+220301 | Over limit to delivered ad. | Number of ads set to be distributed exceeded the limit. 
+220302 | Over limit to ad under account. | Number of ads under an account exceeded the limit. 
 220321 | Invalid displayUrl. | The display URL is not available for the selected device type on Campaign.
 
 ##### Service
@@ -141,6 +143,7 @@ Code           | Message                     | Description
 220138 | Unsupported Os Version. | The set OS version is invalid.
 220139 | Invalid Os Version. | The OS specified on Mobile App Campaign and the OS version set by targeting do not match.
 220140 | Invalid device type. | DeviceType must be SMARTPHONE or TABLET when Campaign type is APP.
+220310 | Over limit to ad group under account. | Number of ad groups under an account exceeded the limit. 
 
 ##### Service
 [MediaService](/docs/en/api_reference/services/MediaService.md)
@@ -193,8 +196,7 @@ Code           | Message                     | Description
 
 ### Report Process-related Errors
 ##### Service
-[ReportService](/docs/ja/api_reference/services/ReportService.md),
-[ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
+[ReportService](/docs/ja/api_reference/services/ReportService.md),[ReportDefinitionService](/docs/ja/api_reference/services/ReportDefinitionService.md)
 
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
@@ -208,7 +210,8 @@ Code           | Message                     | Description
 240008 | Report download URL has expired.  | Report download URL has expired.
 240009 | Invalid report download request.  | The report download URL is illegal.
 240010 | Over limit of report template number.  | The number of registeration template is over the limit number.
-240011 | Custom date is unavailable when is set as template.  | Cannot select "custom date" for the period when template flag is set.
-240012 | Field item was not set properly on the specified report type.  | The field item value required for the specified report type was not set properly.
-240013 | Sort setting was made to the field that is not specified.  | An item which is not specified for the field was set for sorting.
+250001 | Invalid combination in Template settings. | Cannot select "custom date" for the period when template flag is set.
+250002 | Invalid field settings. | Incorrect combination in report fields is set.
+250003 | Invalid combination in report date settings. | Cannot specify a certain date for the timing (interval type) to create a report you specified.
+250004 | Invalid combination in date range type. | Cannot select "custom date" for the period you specified.
 250005 | Invalid filter`s field. | Specifing the field which cannot be set to the filter.

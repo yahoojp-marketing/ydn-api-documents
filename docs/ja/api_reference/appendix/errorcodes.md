@@ -76,6 +76,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 -------------- | --------------------------- | ---------------------------
 210001 | Selected value is not approved to update.  | 選択した内容は更新が許可されておりません。 
 210002 | Cannot update from the dependency.| 依存関係があるため、更新できません。
+210003 | A function is not permitted this account.| カスタムオーディエンスが利用できないアカウントです。
 
 ##### Service
 [AdGroupTargetService](/docs/ja/api_reference/services/AdGroupTargetService.md)
@@ -128,6 +129,8 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220127 | Invalid ad type.  | レスポンシブと広告枠サイズ固定の広告タイプ以外は利用できない項目です。 
 220128 | Invalid color set ID.  | カラーセットIDが不正です。 
 220133 | Not allowed to set impression beacon url. | 広告効果測定ツール提供企業など外部との連係許可がないため、<br>インプレッションビーコンURLの設定はできません。 
+220301 | Over limit to delivered ad. | 配信設定中の広告の件数が上限を超えています。
+220302 | Over limit to ad under account. | アカウント配下の広告の件数が上限を超えています。
 220321 | Invalid displayUrl. | キャンペーンのデバイス種別では設定できない表示URLが入力されています。 
 
 ##### Service
@@ -140,6 +143,7 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220138 | Unsupported Os Version. | OSバージョンが不正です。
 220139 | Invalid Os Version. | アプリキャンペーンで指定したOSとターゲティングのOSバージョンが適合しません。
 220140 | Invalid device type. | キャンペーンタイプがAPPの場合、DeviceTypeはSMARTPHONE、またはTABLETでなければいけません。
+220310 | Over limit to ad group under account. | アカウント配下の広告グループの件数が上限を超えています。
 
 ##### Service
 [MediaService](/docs/ja/api_reference/services/MediaService.md)
@@ -206,8 +210,9 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 240008 | Report download URL has expired.  | レポートダウンロードURLの有効期限が過ぎています。
 240009 | Invalid report download request.  | レポートダウンロードURLが不正です。
 240010 | Over limit of report template number.  | 登録されるテンプレート登録数が上限を超えています。 
-240011 | Custom date is unavailable when is set as template.  | テンプレートフラグが指定されている場合、集計期間は「任意日付」を選択できません。
-240012 | Field item was not set properly on the specified report type.  | 指定されたレポートタイプで必須となるフィールド項目値が設定されていません。
-240013 | Sort setting was made to the field that is not specified.  | フィールドに指定されていない項目がソートに設定されています。
+250001 | Invalid combination in Template settings. | テンプレートフラグが指定されている場合、集計期間に「任意日付」は選択できません。
+250002 | Invalid field settings. | フィールドに指定できない組み合わせ項目が設定されています。
+250003 | Invalid combination in report date settings. | 指定されたレポート作成のタイミングでは、指定日を設定できません。
+250004 | Invalid combination in date range type. | 指定されたレポートの集計期間では、「任意日付」は選択できません。
 250005 | Invalid filter`s field. | フィルターに指定できないフィールドを指定しています。
 
