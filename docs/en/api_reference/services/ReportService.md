@@ -12,17 +12,23 @@ It also includes an operation that acquires report download URLs.
 http://im.yahooapis.jp/V6
 
 #### Service Overview
-Acquires, creates, and deletes reports. <br>
-It also includes an operation that acquires report download URLs. <br>
-<br>
-[Notes]<br>
+The following operations are provided:
+- Get reports
+- Add reports
+- Delete reports
+- Get the date of report completion
 
-* Reports are downloaded using URLs obtained with get method. <br> URLs are valid for 5 minutes. <br> Requests can only be made with the IP used to create the URL.
-* Up to 30 download jobs can be done per account for reports that can be simultaneously registered. <br> If more than 30 are done, the following error will occur. <br> Add the downlaod job again after deleting the unnecessary download jobs.<br>
- "240001：Over limit of uncompleted report download job."<br>
-* Up to 20,000 report download jobs can be registered per account, including completed ones. <br> If more than 20,000 are registered, the following error will occur. <br> Add the downlaod job again after deleting the unnecessary download jobs.<br>
- "240002：Over limit of report download job."<br>
-* Report download jobs will be automatically deleted in one week.
+[Maximum number of report download job]
+- Up to 30 report download jobs can be added for regular and proxy authentications combined.<br>
+Example：<br>
+If you have already saved 20 report download jobs for regular authentication, you can add a maximum of 10 jobs for proxy authentication.<br>
+*If you wish to add more jobs though the upper saving limit is reached, delete some of the download jobs you already saved.<br>
+
+[Notes]<br>
+- Reports can be downloaded from the URL created with 'get' method.<br>
+The URL is valid in the first 5 minutes after the status becomes COMPLETED.
+- Any ad data without actual performance is not output for all report types.
+- Report download jobs will be automatically deleted after a week (7 days) from requested.
 
 #### Operation
 Describes operations provided by ReportService.

@@ -8,17 +8,26 @@ It provides operation to get available report fields for specific report type.
 |---|---|
 | production  | https://location.im.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl |
 | sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl |
+
 #### Namespace
 http://im.yahooapis.jp/V6
+
 #### Service Overview
-Retrieves and adds report definitions.<br>
-If registered as template: The maximum of setting definition is 30.<br>
-If not registered as template: There is no limit in setting definition.<br>
-<br>
-[Notes]<br>
-Report definition can be confirmed only by the API Account ID which created the report definition.<br>
-Definitions created by same API Account ID can be confirmed regardless of authentication method.<br>
-<br>
+The following operations are provided:
+- Get report definitions
+- Add report definitions
+- Delete report definitions
+- Get report fields' information
+
+[Maximum number of report definitions to be saved]
+- Up to 30 definitions for a scheduled report can be added as a template for regular and proxy authentications combined.
+- There is no upper limits to the number of report definitions for one-time report that is not saved as a template.<br>
+Example：<br>
+If you have already saved 20 report definitions as a report template for regular authentication, you can add a maximum of 10 definitions for proxy authentication.<br> 
+　*If you wish to add more definitions though the upper saving limit is reached, delete some of the definitions you already saved.
+ 
+[Note]
+- All of the report definitions created using the same API account ID can be confirmed regardless of authentication method.
 
 #### Operation
 Describes operations provided by ReportDefinitionService.
