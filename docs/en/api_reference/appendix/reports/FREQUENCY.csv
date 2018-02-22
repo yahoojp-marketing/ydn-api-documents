@@ -32,5 +32,3 @@
 "CONVERSIONS","コンバージョン数","Conversions","conversions","LONG",
 "CONV_RATE","コンバージョン率","Conversion Rate","convRate","DOUBLE",
 "COST_PER_CONV","コスト/コンバージョン数","Cost per Conversions","costPerConv","DOUBLE",
-"REVENUE","合計売上金額","Revenue","revenue","LONG",
-"REVENUE_PER_CONV","売上/コンバージョン数","Revenue per Conversions","revenuePerConv","LONG",

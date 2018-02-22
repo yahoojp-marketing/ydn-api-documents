@@ -99,7 +99,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>adProductType</td>
   <td>xsd:string</td>
-  <td>配信方法です。</td>
+  <td>広告商品情報です。<br>※指定可能な値は、<a href="../services/AccountAdProductService.md">AccountAdProductService</a>のget操作でご確認ください。</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>NotUpdatable</td>
