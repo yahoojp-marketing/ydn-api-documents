@@ -100,7 +100,7 @@ Campaign object describes campaign information.
  <tr>
   <td>adProductType</td>
   <td>xsd:string</td>
-  <td>Ad Product Type</td>
+  <td>Ad product information<br>*Check the available values by get operation on <a href="../services/AccountAdProductService.md">AccountAdProductService</a>.</td>
   <td>yes</td>
   <td>Required</td>
   <td>NotUpdatable</td>
