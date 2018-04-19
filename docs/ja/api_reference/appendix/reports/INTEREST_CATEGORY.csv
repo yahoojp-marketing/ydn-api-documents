@@ -42,8 +42,12 @@
 "VIDEO_VIEWS_TO_100","動画が100%まで再生された回数","Video Views to 100%","videoViewsTo100","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
 "AVG_PERCENT_VIDEO_VIEWED","動画の平均再生率","Average % of Video Viewed","avgPercentVideoViewed","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
 "AVG_DURATION_VIDEO_VIEWED","動画の平均再生時間（秒）","Average Duration of Video Viewed","avgDurationVideoViewed","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"VIDEO_VIEWS","動画再生数","Video Views","videoViews","LONG",
+"PAID_VIDEO_VIEWS","課金が発生した動画再生数","Paid Video Views","paidVideoViews","LONG",
+"PAID_VIDEO_VIEW_RATE","課金が発生した動画再生率","Paid Video View Rate","paidVideoViewRate","DOUBLE",
+"VIDEO_VIEWS_TO_3_SEC","動画が3秒以上再生された回数","3-second Video Views","videoViewsTo3sec","LONG",
 "CONVERSIONS","コンバージョン数","Conversions","conversions","LONG",
 "CONV_RATE","コンバージョン率","Conversion Rate","convRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
 "COST_PER_CONV","コスト/コンバージョン数","Cost per Conversions","costPerConv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
 "REVENUE","合計売上金額","Revenue","revenue","LONG",
-"REVENUE_PER_CONV","売上/コンバージョン数","Revenue per Conversions","revenuePerConv","LONG",
+"REVENUE_PER_CONV","売上/コンバージョン数","Revenue per Conversions","revenuePerConv","DOUBLE",
