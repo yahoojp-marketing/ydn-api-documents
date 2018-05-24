@@ -132,6 +132,9 @@ Code           | Message                     | Description
 220301 | Over limit to delivered ad. | Number of ads set to be distributed exceeded the limit. 
 220302 | Over limit to ad under account. | Number of ads under an account exceeded the limit. 
 220321 | Invalid displayUrl. | The display URL is not available for the selected device type on Campaign.
+220322 | Invalid tracking parameter. | Invalid string (such as invalid Tracking Parameter, etc.) was found.
+220323 | Unavailable tracking parameter for ad. | There is a Tracking Parameter which is not available for the ad product.
+220324 | Unavailable tracking parameter for ad. | There is a Tracking Parameter which is not available for the YDN-unaligned tracking tool, or a discontinued Tracking Parameter.
 
 ##### Service
 [AdGroupService](/docs/en/api_reference/services/AdGroupService.md)
