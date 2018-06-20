@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V6"
-  xmlns:tns="http://im.yahooapis.jp/V6"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        targetNamespace="http://im.yahooapis.jp/V201806/Video"
+        xmlns:tns="http://im.yahooapis.jp/V201806/Video"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V6"
+            targetNamespace="http://im.yahooapis.jp/V201806"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V6">
-      <annotation>
-        <appinfo>
-          <version>6.1.0</version>
-        </appinfo>
-      </annotation>
+            xmlns:tns="http://im.yahooapis.jp/V201806">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -28,19 +23,8 @@
       <complexType name="SoapResponseHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <complexType name="VideoSelector">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="mediaIds" type="xsd:long"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:ApprovalStatus"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="processStatuses" type="tns:VideoProcessStatus"/>
-          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenSeconds" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
         </sequence>
       </complexType>
       <complexType name="Paging">
@@ -49,9 +33,62 @@
           <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
         </sequence>
       </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://im.yahooapis.jp/V201806/Video"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:adv="http://im.yahooapis.jp/V201806"
+            xmlns:tns="http://im.yahooapis.jp/V201806/Video">
+      <xsd:import namespace="http://im.yahooapis.jp/V201806"/>
+      <annotation>
+        <appinfo>
+          <version>201806</version>
+        </appinfo>
+      </annotation>
+      <complexType name="VideoSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="mediaIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:ApprovalStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="processStatuses" type="tns:VideoProcessStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
+        </sequence>
+      </complexType>
       <complexType name="VideoPage">
         <complexContent>
-          <extension base="tns:Page">
+          <extension base="adv:Page">
             <sequence>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:VideoValues"/>
             </sequence>
@@ -60,7 +97,7 @@
       </complexType>
       <complexType name="VideoValues">
         <complexContent>
-          <extension base="tns:ReturnValue">
+          <extension base="adv:ReturnValue">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="video" type="tns:Video"/>
             </sequence>
@@ -104,7 +141,7 @@
       </complexType>
       <complexType name="UploadUrlPage">
         <complexContent>
-          <extension base="tns:Page">
+          <extension base="adv:Page">
             <sequence>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:UploadUrlValues"/>
             </sequence>
@@ -113,7 +150,7 @@
       </complexType>
       <complexType name="UploadUrlValues">
         <complexContent>
-          <extension base="tns:ReturnValue">
+          <extension base="adv:ReturnValue">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="uploadUrlValue" type="tns:UploadUrlValue"/>
             </sequence>
@@ -139,47 +176,16 @@
       </complexType>
       <complexType name="VideoReturnValue">
         <complexContent>
-          <extension base="tns:ListReturnValue">
+          <extension base="adv:ListReturnValue">
             <sequence>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:VideoValues"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
-      <complexType name="Error">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
-        </sequence>
-      </complexType>
-      <complexType name="ErrorDetail">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
-        </sequence>
-      </complexType>
       <complexType abstract="true" name="Operation">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="Page">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="ListReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="ReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
         </sequence>
       </complexType>
       <simpleType name="Operator">
@@ -225,7 +231,7 @@
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="0" name="rval" type="tns:VideoPage"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
@@ -240,7 +246,7 @@
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="0" name="rval" type="tns:VideoReturnValue"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
@@ -256,12 +262,12 @@
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="0" name="rval" type="tns:UploadUrlPage"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
-      <element name="RequestHeader" type="tns:SoapHeader"/>
-      <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
       <element name="ApiExceptionFault" type="xsd:string"/>
     </schema>
   </wsdl:types>
@@ -356,7 +362,7 @@
   </wsdl:binding>
   <wsdl:service name="VideoService">
     <wsdl:port binding="tns:VideoServiceSoapBinding" name="VideoService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/VideoService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201806/VideoService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

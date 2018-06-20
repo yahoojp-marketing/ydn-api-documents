@@ -5,11 +5,11 @@ ReportServiceでは、レポートの取得および作成・削除を行いま�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/ReportService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/ReportService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201806/ReportService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/ReportService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V6
+http://im.yahooapis.jp/V201806/
 
 #### サービス概要
 以下の操作が実行可能です。
@@ -31,362 +31,241 @@ http://im.yahooapis.jp/V6
 
 #### 操作
 ReportServiceで提供される操作を説明します。
+
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(REMOVE)](#mutateremove)
++ [getClosedDate](#getcloseddate)
+
+#### オブジェクト
+[Report](../data/Report/Report)
+
 ## get
+
 ### リクエスト
 レポートに関する情報を取得します。レポートのダウンロードURLもgetメソッドで取得します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [ReportSelector](../data/ReportSelector.md) | 操作の対象とするレポートです。 | 
+| selector | ○ | [ReportSelector](../data/Report/ReportSelector.md) | 操作の対象とするレポートです。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:selector>
-                <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:reportIds>9000000001</ns1:reportIds>
-                <ns1:reportIds>9000000002</ns1:reportIds>
-                <ns1:reportIds>9000000003</ns1:reportIds>
-                <ns1:reportJobIds>8000000001</ns1:reportJobIds>
-                <ns1:reportJobIds>8000000002</ns1:reportJobIds>
-                <ns1:reportJobIds>8000000003</ns1:reportJobIds>
-                <ns1:reportJobStatuses>COMPLETED</ns1:reportJobStatuses>
-                <ns1:reportJobStatuses>FAILED</ns1:reportJobStatuses>
-                <ns1:paging>
-                    <ns1:startIndex>1</ns1:startIndex>
-                    <ns1:numberResults>20</ns1:numberResults>
-                </ns1:paging>
-            </ns1:selector>
-        </ns1:get>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Report" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/Report" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>12345</accountId>
+        <reportIds>1</reportIds>
+        <reportIds>2</reportIds>
+        <reportJobIds>100</reportJobIds>
+        <reportJobIds>1000</reportJobIds>
+        <reportJobStatuses>ACCEPTED</reportJobStatuses>
+        <reportJobStatuses>COMPLETED</reportJobStatuses>
+        <paging>
+          <ns2:startIndex>10</ns2:startIndex>
+          <ns2:numberResults>1340</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [ReportPage](../data/ReportPage.md) | 取得されるレポート定義のコンテナです。 | error | [Error](../data/Error.md) | エラーです。 | 
+| rval | [ReportPage](../data/Report/ReportPage.md) | 取得されるレポート定義のコンテナです。 | error | [Error](../data/Report/Error.md) | エラーです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>ReportService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getResponse>
-            <ns1:rval>
-                <ns1:totalNumEntries>3</ns1:totalNumEntries>
-                <ns1:Page.Type>ReportPage</ns1:Page.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:reportRecord>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:reportJobId>8000000001</ns1:reportJobId>
-                        <ns1:reportId>9000000001</ns1:reportId>
-                        <ns1:reportName>SandboxAccountReport_csv</ns1:reportName>
-                        <ns1:requestTime>20120403175909</ns1:requestTime>
-                        <ns1:completeTime>20120403175910</ns1:completeTime>
-                        <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-                        <ns1:dateRange>
-                            <ns1:startDate>20120303</ns1:startDate>
-                            <ns1:endDate>20120402</ns1:endDate>
-                        </ns1:dateRange>
-                        <ns1:status>COMPLETED</ns1:status>
-                        <ns1:reportDownloadUrl>https: //sample.api.yahooapis.jp/report/V6.1/download/dqy0_L5Oa9vS5z2BzN9dBOrL.f.4oSOB1O81JI_UmMa98_SXxeo8eQ21TfimDDSuizf990IRIVDf3YPqW8u5Jw--</ns1:reportDownloadUrl>
-                    </ns1:reportRecord>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:reportRecord>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:reportJobId>8000000002</ns1:reportJobId>
-                        <ns1:reportId>9000000002</ns1:reportId>
-                        <ns1:reportName>SandboxCampaignReport_csv</ns1:reportName>
-                        <ns1:requestTime>20120403175908</ns1:requestTime>
-                        <ns1:completeTime>20120403175909</ns1:completeTime>
-                        <ns1:dateRangeType>YESTERDAY</ns1:dateRangeType>
-                        <ns1:status>COMPLETED</ns1:status>
-                        <ns1:reportDownloadUrl>https: //sample.api.yahooapis.jp/report/V6.1/download/dqy0_L5Oa9vS5z2BzN9dBOrL.f.4oSOB1O81JI_UmMa98_SXxeo8eQ21TfimDDSuizf990IRIVDf3YPqW8u5Jw--</ns1:reportDownloadUrl>                       
-                     </ns1:reportRecord>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:reportRecord>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:reportJobId>8000000003</ns1:reportJobId>
-                        <ns1:reportId>9000000003</ns1:reportId>
-                        <ns1:reportName>SandboxAdgroupReport_csv</ns1:reportName>
-                        <ns1:requestTime>20120403175911</ns1:requestTime>
-                        <ns1:completeTime>20120403175912</ns1:completeTime>
-                        <ns1:dateRangeType>YESTERDAY</ns1:dateRangeType>
-                        <ns1:status>FAILED</ns1:status>
-                        <ns1:jobErrorDetail>Over limit of file size.</ns1:jobErrorDetail>
-                    </ns1:reportRecord>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:getResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Report" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>Report</ns2:service>
+      <ns2:requestTime>1528278915365</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Report">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>ReportPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportRecord>
+            <ns2:accountId>12345</ns2:accountId>
+            <ns2:reportJobId>100</ns2:reportJobId>
+            <ns2:reportId>1</ns2:reportId>
+            <ns2:reportName>sample Report</ns2:reportName>
+            <ns2:status>COMPLETED</ns2:status>
+            <ns2:reportDownloadUrl>https://colo01.im.yahooapis.jp/ReportService/V201806/XXXXXXXX</ns2:reportDownloadUrl>
+          </ns2:reportRecord>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(ADD)
+
 ### リクエスト
 レポートを作成します。
 
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [ReportOperation](../data/ReportOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 | 
+| operations | ○ | [ReportJobOperation](../data/Report/ReportJobOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 |
 
-##### ＜リクエストサンプル＞
-```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"> 
-    <SOAP-ENV:Header> 
-        <ns1:RequestHeader> 
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId> 
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword> 
-        </ns1:RequestHeader> 
-    </SOAP-ENV:Header> 
-    <SOAP-ENV:Body> 
-        <ns1:mutate> 
-            <ns1:operations> 
-                <ns1:operator>ADD</ns1:operator> 
-                <ns1:accountId>1000000001</ns1:accountId> 
-                <ns1:operand> 
-                    <ns1:reportId>9000000001</ns1:reportId> 
-                </ns1:operand> 
-                <ns1:operand> 
-                    <ns1:reportId>9000000002</ns1:reportId> 
-                </ns1:operand> 
-            </ns1:operations> 
-         </ns1:mutate> 
-    </SOAP-ENV:Body> 
-</SOAP-ENV:Envelope>
-```
 
 ### レスポンス
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [ReportReturnValue](../data/ReportReturnValue.md) | 操作結果を含むレポートのコンテナです。 | error | [Error](../data/Error.md) | エラーです。 | 
+| rval | [ReportReturnValue](../data/Report/ReportReturnValue.md) | 操作結果を含むレポートのコンテナです。 | error | [Error](../data/Report/Error.md) | エラーです。 |
 
 ##### レスポンスサンプル
-```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
-    <SOAP-ENV:Header> 
-        <ns1:ResponseHeader> 
-            <ns1:service>ReportService</ns1:service> 
-            <ns1:remainingQuota>100</ns1:remainingQuota> 
-            <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest> 
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis> 
-        </ns1:ResponseHeader> 
-    </SOAP-ENV:Header> 
-    <SOAP-ENV:Body> 
-        <ns1:mutateResponse> 
-            <ns1:rval> 
-                <ns1:ListReturnValue.Type>ReportReturnValue</ns1:ListReturnValue.Type> 
-                <ns1:Operation.Type>ADD</ns1:Operation.Type> 
-                <ns1:values> 
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded> 
-                    <ns1:reportRecord> 
-                        <ns1:accountId>1000000001</ns1:accountId> 
-                        <ns1:reportJobId>8000000001</ns1:reportJobId> 
-                        <ns1:reportId>9000000001</ns1:reportId> 
-                        <ns1:reportName>SandboxAccountReport_csv</ns1:reportName> 
-                        <ns1:requestTime>20120403175909</ns1:requestTime> 
-                        <ns1:completeTime /> 
-                        <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType> 
-                        <ns1:dateRange> 
-                            <ns1:startDate>20120303</ns1:startDate> 
-                            <ns1:endDate>20120402</ns1:endDate> 
-                        </ns1:dateRange> 
-                        <ns1:status>IN_PROGRESS</ns1:status> 
-                     </ns1:reportRecord> 
-                     <ns1:reportRecord> 
-                         <ns1:accountId>1000000001</ns1:accountId> 
-                         <ns1:reportJobId>8000000002</ns1:reportJobId> 
-                         <ns1:reportId>9000000002</ns1:reportId> 
-                         <ns1:reportName>SandboxCampaignReport_csv</ns1:reportName> 
-                         <ns1:requestTime>20120403175908</ns1:requestTime> 
-                         <ns1:completeTime /> 
-                         <ns1:dateRangeType>YESTERDAY</ns1:dateRangeType> 
-                         <ns1:status>IN_PROGRESS</ns1:status> 
-                    </ns1:reportRecord> 
-                </ns1:values> 
-            </ns1:rval> 
-        </ns1:mutateResponse> 
-    </SOAP-ENV:Body> 
-</SOAP-ENV:Envelope>
-```
+
 
 ## mutate(REMOVE)
+
 ### リクエスト
 レポートを削除します。
 
-| パラメータ | 必須 | 値 | 説明 | 
+| パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [ReportOperation](../data/ReportOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 | 
+| operations | ○ | [ReportJobOperation](../data/Report/ReportJobOperation.md) | 操作の対象となるレポートおよび操作の内容を表します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope
-xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://im.yahooapis.jp/V6"> 
-    <SOAP-ENV:Header> 
-        <ns1:RequestHeader> 
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId> 
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword> 
-        </ns1:RequestHeader> 
-    </SOAP-ENV:Header> 
-    <SOAP-ENV:Body> 
-        <ns1:mutate> 
-            <ns1:operations> 
-                <ns1:operator>REMOVE</ns1:operator> 
-                <ns1:accountId>1000000001</ns1:accountId>                
-                <ns1:operand> 
-                    <ns1:reportJobId>8000000001</ns1:reportJobId>                     
-                </ns1:operand> 
-                <ns1:operand> 
-                    <ns1:reportJobId>8000000002</ns1:reportJobId>                     
-                </ns1:operand> 
-            </ns1:operations> 
-        </ns1:mutate> 
-    </SOAP-ENV:Body> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Report" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/Report">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>11111</accountId>
+        <operand>
+          <accountId>1111</accountId>
+          <reportId>2222</reportId>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [ReportReturnValue](../data/ReportReturnValue.md) | 操作結果を含むレポートのコンテナです。 | error | [Error](../data/Error.md) | エラーです。 | 
+| rval | [ReportReturnValue](../data/Report/ReportReturnValue.md) | 操作結果を含むレポートのコンテナです。 | error | [Error](../data/Report/Error.md) | エラーです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
-    <SOAP-ENV:Header> 
-        <ns1:ResponseHeader> 
-            <ns1:service>ReportService</ns1:service> 
-            <ns1:remainingQuota>100</ns1:remainingQuota> 
-            <ns1:quotaUsedForThisRequest>2</ns1:quotaUsedForThisRequest> 
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis> 
-        </ns1:ResponseHeader> 
-    </SOAP-ENV:Header> 
-    <SOAP-ENV:Body> 
-        <ns1:mutateResponse> 
-            <ns1:rval> 
-                <ns1:ListReturnValue.Type>ReportReturnValue</ns1:ListReturnValue.Type> 
-                <ns1:Operation.Type>REMOVE</ns1:Operation.Type> 
-                <ns1:values> 
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded> 
-                    <ns1:reportRecord> 
-                        <ns1:reportJobId>8000000001</ns1:reportJobId> 
-                    </ns1:reportRecord> 
-                </ns1:values> 
-                <ns1:values> 
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded> 
-                    <ns1:reportRecord> 
-                        <ns1:reportJobId>8000000002</ns1:reportJobId> 
-                    </ns1:reportRecord> 
-                </ns1:values> 
-            </ns1:rval> 
-        </ns1:mutateResponse> 
-    </SOAP-ENV:Body> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Report" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>Report</ns2:service>
+      <ns2:requestTime>1528278915392</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Report">
+      <ns2:rval>
+        <ListReturnValue.Type>ReportReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportRecord>
+            <ns2:accountId>12345</ns2:accountId>
+            <ns2:reportJobId>100</ns2:reportJobId>
+            <ns2:reportId>1</ns2:reportId>
+            <ns2:reportName>sample Report</ns2:reportName>
+            <ns2:status>COMPLETED</ns2:status>
+            <ns2:reportDownloadUrl>https://colo01.im.yahooapis.jp/ReportService/V201806/XXXXXXXX</ns2:reportDownloadUrl>
+          </ns2:reportRecord>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## getClosedDate
+
 ### リクエスト
 レポート集計完了日付取得を実行します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [ReportClosedDateSelector](../data/ReportClosedDateSelector.md) | 操作の対象とするレポートを指定します。 | 
+| selector | ○ | [ReportClosedDateSelector](../data/Report/ReportClosedDateSelector.md) | 操作の対象とするレポートを指定します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"> 
-    <SOAP-ENV:Header> 
-        <ns1:RequestHeader> 
-            <ns1:license>xxxx-xxxx-xxxx-xxxx</ns1:license> 
-            <ns1:apiAccountId>xxxx-xxxx-xxxx-xxxx</ns1:apiAccountId> 
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword> 
-        </ns1:RequestHeader> 
-    </SOAP-ENV:Header> 
-    <SOAP-ENV:Body> 
-        <ns1:getClosedDate> 
-            <ns1:selector> 
-                <ns1:accountId>1000000001</ns1:accountId> 
-            </ns1:selector> 
-        </ns1:getClosedDate> 
-    </SOAP-ENV:Body> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Report" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getClosedDate xmlns="http://im.yahooapis.jp/V201806/Report">
+      <selector>
+        <accountId>12345</accountId>
+      </selector>
+    </getClosedDate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [ReportClosedDateValue](../data/ReportClosedDateValue.md) | 取得される情報のコンテナです。 | 
+| rval | [ReportClosedDateValue](../data/Report/ReportClosedDateValue.md) | 取得される情報のコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>ReportService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getClosedDateResponse>
-            <ns1:rval>
-                <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                <ns1:closedDate>20120303</ns1:closedDate>
-            </ns1:rval>
-        </ns1:getClosedDateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Report" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>Report</ns2:service>
+      <ns2:requestTime>1528278915409</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getClosedDateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Report">
+      <ns2:rval>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:key>FREQ_REPORT_CLOSED_DATE</ns2:key>
+          <ns2:closedDate>20180101</ns2:closedDate>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:key>REPORT_CLOSED_DATE</ns2:key>
+          <ns2:closedDate>20180101</ns2:closedDate>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getClosedDateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

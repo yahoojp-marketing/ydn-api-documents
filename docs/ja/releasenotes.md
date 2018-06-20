@@ -1,209 +1,264 @@
 # リリースノート
 ## リリースバージョン　　
-6.1 (WSDLバージョン: 6.1)
-
-## バージョンアップの種類　　
-マイナーバージョンアップ 
+V201806（WSDLバージョン V201806）
 
 ## 本リリースの主な内容
 ※対象データオブジェクトとEnumerationは、データオブジェクト（Enumeration）集をご確認ください。 
 
-#### 1. ターゲティング単位での入札価格調整率の設定 
-各種ターゲティングの単位で入札価格調整率が設定できるようになりました。<br>
-入札価格調整率が設定可能なターゲティング一覧は以下をご確認ください。
+### 1.システムリリースの定期化とバージョン体系の変更
 
-| No | ターゲティング | 入札価格調整率 | 
-|---|---|---|
-| 1 | AD_SCHEDULE_TARGET | 可 | 
-| 2 | AGE_TARGET | 可 | 
-| 3 | GENDER_TARGET | 可 | 
-| 4 | GEO_TARGET | 可 | 
-| 5 | INTEREST_CATEGORY | 可 | 
-| 6 | SITE_CATEGORY | 可 | 
-| 7 | SITE_RETARGETING | 不可 | 
-| 8 | SEARCH_TARGET | 不可 | 
-| 9 | PLACEMENT_TARGET | 不可 | 
-| 10 | DEVICE_TARGET<br>(V6.1 追加) | 可 | 
-| 11 | CARRIER_TARGET<br>(V6.1 追加) | 可 | 
-| 12 | APP_TARGET<br>(V6.1 追加) | 不可 | 
-| 13 | OS_TARGET<br>(V6.1 追加) | 不可 | 
-| 14 | OS_VERSION_TARGET<br>(V6.1 追加) | 不可 | 
+#### (1)システムリリースの定期化
 
-##### 対象ウェブサービス  
- * [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md)
- * [AdGroupTargetService](/docs/ja/api_reference/services/AdGroupTargetService.md)
+システムリリースのスケジュールを定期化し、以下のとおり変更しました。
 
-#### 2.	アプリキャンペーンの追加に対応
-スマートフォンやタブレットのアプリをプロモーションするためのアプリキャンペーンの追加に対応しました。これにより以下の機能変更を行いました。<br>
-‐アプリ向けのターゲティング機能を追加<br>
-‐アプリインストールのコンバージョン計測が可能<br>
+（これまで）
+ * リリースタイミング<br>機能のリリースごとに、新バージョンをリリース
+ * バージョン体系<br>VX.X（例：V6.1）
 
-##### 対象ウェブサービス  
- * [CampaignService](/docs/ja/api_reference/services/CampaignService.md)
- * [AdGroupTargetService](/docs/ja/api_reference/services/AdGroupTargetService.md)
- * [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
- * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
- * [DictionaryService](/docs/ja/api_reference/services/DictionaryService.md)
+（V201806以降）
+ * リリースタイミング<br>一定期間ごとに機能をまとめて、新バージョンをリリース<br>
+※新しいバージョンをリリースするタイミングで、現在公開中のうち最も古いバージョンのサポート終了日をお知らせします。<br>
+ * バージョン体系<br>VYYYYMM（例：V201806）
 
-#### 3.	コンバージョン機能の改善
-デバイスをまたいだコンバージョンの計測が可能になりました。これによりコンバージョンの計測期間を7日から90日の範囲内で設定可能になりました。<br>
+#### (2)バージョン体系の変更
+一部の環境において、自動生成によりEntityが重複してしまう問題を解消するため、NameSpaceを細分化しオブジェクトの構成を変更いたしました。
+
+※詳細は「[バージョン体系とwsdlの構成変更について](./api_reference/appendix/numbering_new_versions.md)」をご確認ください。
+
+### 2.コスト関連の指標で小数点以下の金額を表示
+
+コスト関連の指標について、小数点以下の金額の表示（小数点以下第3位まで）を開始しました。対象は以下のレポートフィールドです。
+* cost（コスト）
+* averageCpc（平均CPC）
+* avgCpv（平均CPV）
+
+※V6.1以前に作成したReportIntervalTypeがONETIME（レポート作成タイミングが一度のみ）のレポートでは、整数値を表示します。小数点以下の表示には、V201806で新たにONETIMEのレポートを作成してください。  
+※ReportIntervalTypeがONETIME以外のレポートでは、V201806以降に作成した場合も、引き続き整数値を表示します。
 
 ##### 対象ウェブサービス  
- * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
- * [StatsService](/docs/ja/api_reference/services/StatsService.md)
+ * [ReportService](./api_reference/services/ReportService.md)
+ * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
 
+### 3. 動画再生に関するレポートフィールドを追加
+動画広告のレポートで、動画再生数に関する以下の項目を追加しました。
 
-#### 4.	システムの保守、改善の実施
+* videoViews　（動画再生数）
+* videoViewsTo3Sec　（動画が3秒以上再生された回数）
+* paidVideoViews　（課金が発生した動画再生数）
+* paidVideoViewRate　（課金が発生した動画再生率）
+
+なお、以下のレポートフィールドは、V201806の次のバージョンでは利用できなくなります。  
+※V201806、およびV6.1以前のバージョンでは引き続き利用可能です。
+
+* autoVideoPlays（動画の自動再生数）
+* clickVideoPlays（クリックによる動画再生数）
+* videoPlays（動画が再生開始された回数）
+* videoViewedRate（動画の再生率）
+これらをレポート定義などでご利用の場合は、お早めに設定の変更をお願いいたします。  
+変更先となる項目は、以下をご参照ください。
+
+<table>
+<tr><th>提供終了予定</th><th>変更先</th></tr>
+<tr><td>autoVideoPlays（動画の自動再生数）</td><td rowspan="2">paidVideoViews（課金が発生した動画再生数）</td></tr>
+<tr><td>clickVideoPlays（クリックによる動画再生数）</td></tr>
+<tr><td>videoPlays（動画が再生開始された回数）</td><td>videoViews（動画再生数）</td></tr>
+<tr><td>videoViewedRate（動画の再生率）	</td><td>paidVideoViewRate（課金が発生した動画再生率）</td></tr>
+</table>
+
+##### 対象ウェブサービス  
+ * [StatsService](./api_reference/services/StatsService.md)
+ * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
+
+### 4. コンバージョン関連機能の改修
+#### （1）コンバージョン最適化で広告グループ単位の設定に対応
+従来のキャンペーン単位に加えて、広告グループ単位でもコンバージョン最適化を設定できます。  
+※キャンペーンと広告グループのどちらも、「optimizerType」でコンバージョン最適化を設定します。
+
+#### （2）コンバージョン測定に「コンバージョン列に含める/含めない」を追加
+コンバージョン測定の設定時に、「コンバージョン列に含める/含めない」　を選択できます。「コンバージョン列に含める」を選択すると、コンバージョン最適化の集計対象となり、特定のコンバージョンのみを反映した最適化が可能です。
+
+#### （3）レポートフィールドの追加　※全バージョン対象
+「コンバージョン列に含める/含めない」設定の追加に伴い、レポートフィールドに以下の項目を追加しました。  
+現状の項目では、「コンバージョン列に含めない」を設定した場合、コンバージョン数を取得できませんでした。今回追加した、日本語名称に「すべての～」　を含む項目では、「コンバージョン列に含める/含めない」の設定にかかわらず、すべてのコンバージョン数を取得できます。
+
+* allConv（すべてのコンバージョン数）
+* allConvRate（すべてのコンバージョン率）
+* costPerAllConv（コスト/すべてのコンバージョン数）
+* allConvValue（すべてのコンバージョンの価値）
+* valuePerAllConv（価値/すべてのコンバージョン数）
+* convValue（コンバージョンの価値）
+* valuePerConv（価値/コンバージョン数）
+* convValueOld（コンバージョンの価値（旧））
+* valuePerConvOld（価値/コンバージョン数（旧））
+
+#### （4）コンバージョン測定に計測方法（毎回/初回のみ）を追加
+同一訪問者による複数のコンバージョンが発生した場合、毎回コンバージョンとして測定するか、初回のみを測定するかを選択できます。初回のみを選択すると、同一訪問者のコンバージョンを排除したユニークコンバージョン数を取得できます。
+
+#### （5）コンバージョン測定タグの変更
+ConversionTrackerServiceで取得するコンバージョン測定タグの一部を変更しました。変更箇所は以下のとおりです。
+
+　　現在　yahoo_ydn_conv_amount  
+　　変更後　yahoo_ydn_conv_value  
+
+※実施日以前からコンバージョン測定を行っている場合は、引き続き従来のタグを利用できます。
+
+##### 対象ウェブサービス
+ * [AdGroupService](./api_reference/services/AdGroupService.md)
+ * [CampaignService](./api_reference/services/CampaignService.md)
+ * [ConversionTrackerService](./api_reference/services/ConversionTrackerService.md)
+ * [ReportService](./api_reference/services/ReportService.md)
+ * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
+
+### 5. システムの保守、改善の実施
 以下のサービスにおいてシステムの保守、改善を実施しました。<br>
 対象サービスごとの変更内容は「Serviceの変更による各Versionへの影響」の項目をご参照ください。<br>
 
 ##### 対象ウェブサービス  
- * [ReportService](/docs/ja/api_reference/services/ReportService.md)
- * [DictionaryService](/docs/ja/api_reference/services/DictionaryService.md)
- * [BulkService](/docs/ja/api_reference/services/BulkService.md)
  * [StatsService](/docs/ja/api_reference/services/StatsService.md)
-
+ * [BulkService](/docs/ja/api_reference/services/BulkService.md)
+ * [ReportService](/docs/ja/api_reference/services/ReportService.md)
+ * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
 
 ## Serviceの変更による各Versionへの主な影響
 <table class="standard">
-  <tbody>
-  <tr>
-    <th>Service</th>
-    <th>Ver.6.0以前</th>
-    <th>Ver.6.1</th>
-  </tr>
-  <tr>
-    <td><p>AdGroupService</p></td>
-    <td><p>
-    変更なし<br><br>
-    広告グループ作成時は以下の設定が必要<br>
-    ‐device<br>
-    ‐deviceApp<br>
-    ‐deviceOs<br>
-    ‐smartDeviceCarriers
-    </p></td>
-    <td><p>
-    ・AdGroupにdeviceOsVersion（OSバージョン）を追加<br>
-    これによりアプリキャンペーンの広告グループにて、OSバージョンを指定できる<br>
-    ・エラーコードを追加
-    </p></td>
-  </tr>
-  <tr>
-    <td><p>AdGroupTargetService</p></td>
-    <td><p>
-    変更なし<br><br>
-    ・入札価格調整率の設定、照会は不可<br>
-    ・ターゲティング操作はsetメソッドのみ<br>
-    ・デバイスターゲティング、OSバージョンターゲティングなどの設定、照会は不可
-    </p></td>
-    <td><p>
-    ・各種ターゲティング単位で入札価格調整率が設定が可能<br>
-    ・ターゲティング操作でmutate(add)、mutate(remove)、replaceメソッドを新規追加<br>
-    ・以下のターゲティング機能を新規追加<br>
-    　‐デバイスターゲティング<br>
-    　‐キャリアターゲティング<br>
-    　‐ウェブ/アプリターゲティング<br>
-    　‐OSターゲティング<br>
-    　‐OSバージョンターゲティング<br>
-    ・エラーコードを追加
-    </p></td>
-  </tr>
-  <tr>
-    <td><p>CampaignService</p></td>
-    <td><p>
-    変更なし<br><br>
-    ・アプリキャンペーンの登録、変更、照会は不可
-    </p></td>
-    <td><p>
-    ・アプリキャンペーンの登録、変更、照会、削除が可能<br>
-    ※Ver.6.1以降で登録、変更、照会、削除が可能なキャンペーンの種類は以下のとおり<br>
-    　-標準キャンペーン<br>
-    　-アプリキャンペーン<br>
-    ・エラーコードを追加
-    </p></td>
-  </tr>
-  <tr>
-    <td><p>AdGroupAdService</p></td>
-    <td><p>
-    変更なし<br><br>
-    </p></td>
-    <td><p>
-    変更なし<br>
-    ※エラーコードの追加のみ
-    </p></td>
-  </tr>
-  <tr>
-    <td><p>ConversionTrackerService</p></td>
-    <td><p>
-    変更なし<br><br>
-    ・コンバージョン計測期間の設定、照会は不可（測定期間は30日固定）<br>
-    </p></td>
-    <td><p>
-    ・コンバージョン計測期間を7日から90日の範囲内で設定が可能<br>
-    ・アプリインストールのコンバージョン計測が可能
-    </p></td>
-  </tr>
-  <tr>
-    <td><p>DictionaryService</p></td>
-    <td><p>
-    変更なし<br><br>
-    </p></td>
-    <td><p>
-    ・getOsVersion、getMediaAdFormatメソッドを新規追加<br>
-    ・アプリキャンペーンにおいてOS、およびOSバージョンをターゲティングで指定できる<br>
-    ・アプリのOSとバージョンを照会できる。<br>
-    ・入稿できる画像の形式を照会できる。
-    </p></td>
-  </tr>
-  <tr>
-    <td><p>ReportService</p></td>
-    <td><p>
-    変更なし<br><br>
-    getDownloadUrlの利用が可能
-    </p></td>
-    <td><p>
-    getDownloadUrlメソッドの利用は不可（getメソッドでダウンロードURLの照会が可能）
-    </p></td>
-  </tr>
-  <tr>
-    <td><p>BulkService</p></td>
-    <td><p>
-    ・BulkUploadStatusSelectorのoutputフォーマットでXML、ZIPPED_XMLを指定した場合、バリデーションエラーに変更<br>
-    ・BulkUploadStatusSelectorのlang、encodingをサポート対象外（ignore）に変更<br>
-    ・downloadBulkUploadFileUrlとdownloadBulkUploadErrorFileUrlで取得できるファイルが同一になる<br>
-    (downloadBulkUploadFileUrlで取得するファイルにもエラーメッセージが含まれるようになる)
-    </p></td>
-    <td><p>
-    ・BulkUploadStatusSelectorのoutputフォーマットを以下のとおり変更<br>
-    　-TSV<br>
-    　-CSV<br>
-    　-ZIPPED_TSV<br>
-    　-ZIPPED_CSV<br>
-    　※XML、ZIPPED_XMLを削除<br>
-    ・BulkUploadStatusSelectorのlang、encodingを削除<br>
-    ・ProcessingItemsCountにvideoCount、videoErrorCountを追加<br>
-    ・getUploadUrlのリクエストにuploadBulkJobNameを追加<br>
-    ・downloadBulkUploadErrorFileUrl項目を削除
-    </p></td>
-  </tr>
-  <tr>
-    <td><p>StatsServcie</p></td>
-    <td><p>
-    変更なし<br><br>
-    コンバージョンの旧指標のみ照会可能
-    </p></td>
-    <td><p>
-    ・コンバージョンの旧指標、および新しい指標の照会が可能<br>
-    ・コンバージョンの新指標値（クロスデバイスコンバージョンを加味した値）が照会可能
-    </p></td>
-  </tr>
+<tbody>
+<tr>
+<th>Service</th>
+<th>Ver.6.1以前</th>
+<th>V201806</th>
+</tr>
+<tr>
+<td>StatsService</td>
+<td>
+・コンバージョンの現指標値のみ照会できる。<br><br>
+・統計情報を取得した場合、取得時点は「昨日」「今日」等の日単位の情報のみ。<br></td>
+<td>
+・コンバージョンの現指標値、新指標値を照会できる。追加されたレポートフィールドは以下のとおり。<br>
+-allConv（すべてのコンバージョン数）<br>
+-allConvRate（すべてのコンバージョン率）<br>
+-costPerAllConv（コスト/すべてのコンバージョン数）<br>
+-allConvValue（すべてのコンバージョンの価値）<br>
+-valuePerAllConv（価値/すべてのコンバージョン数）<br>
+-convValue（コンバージョンの価値）<br>
+-valuePerConv（価値/コンバージョン数）<br>
+-convValueOld（コンバージョンの価値（旧））<br>
+-valuePerConvOld（価値/コンバージョン数（旧））<br><br>
+
+・動画再生に関する以下のレポートフィールドを追加。<br>
+-videoViews（動画再生数）<br>
+-videoViewsTo3Sec（動画が3秒以上再生された回数）<br>
+-paidVideoViews（課金が発生した動画再生数）<br>
+-paidVideoViewRate（課金が発生した動画再生率）<br><br>
+
+・統計情報の開始と終了を、年月日時分で表示。<br>
+</td>
+</tr>
+<tr>
+<td>AdGroupService</td>
+<td>
+・広告グループ単位でのコンバージョン最適化は設定できない。</td>
+<td>
+・広告グループ単位でのコンバージョン最適化を設定できる。<br><br>
+・以下のオブジェクトを追加。<br>
+-AdGroupConversionOptimizer<br>
+-AdGroupConversionOptimizerType<br>
+-NoneAdGroupConversionOptimizer<br>
+-ManualAdGroupConversionOptimizer<br>
+-AutoAdGroupConversionOptimizer<br>
+-ConversionOptimizerEligibilityFlg<br><br>
+・AdGroupOperationからcampaignId項目を削除。<br><br>
+・エラーコードを追加。
+</td>
+</tr>
+<tr>
+<td>CampaignService</td>
+<td>・コンバージョン最適化の設定をtargetCpaで指定。<br>
+</td>
+<td>
+・コンバージョン最適化の設定をoptimizerTypeで指定。<br><br>
+・以下のオブジェクトを追加。<br>
+-CampaignConversionOptimizer<br>
+-CampaignConversionOptimizerType<br>
+-ManualCampaignConversionOptimizer<br>
+-AutoCampaignConversionOptimizer<br>
+-CampaignConversionOptimizerType<br>
+-ConversionOptimizerEligibilityFlg<br><br>
+・エラーコードを追加。
+</td>
+</tr>
+<tr>
+<td>ReportService</td>
+<td>・インターフェースに変更はありません。<br></td>
+<td>・以下の項目で小数点第3位まで表示。<br>
+-cost（コスト）<br>
+-averageCpc（平均CPC）<br>
+-avgCpv（平均CPV）<br>
+</td>
+</tr>
+<tr>
+<td>ReportDefinitionService</td>
+<td>
+・コンバージョンに関する以下のレポートフィールドを追加。<br>
+-allConv（すべてのコンバージョン数）<br>
+-allConvRate（すべてのコンバージョン率）<br>
+-costPerAllConv（コスト/すべてのコンバージョン数）<br>
+-allConvValue（すべてのコンバージョンの価値）<br>
+-valuePerAllConv（価値/すべてのコンバージョン数）<br>
+-convValue（コンバージョンの価値）<br>
+-valuePerConv（価値/コンバージョン数）<br>
+-convValueOld（コンバージョンの価値（旧））<br>
+-valuePerConvOld（価値/コンバージョン数（旧））<br><br>
+</td>
+<td>
+・以下の項目で小数点第3位まで表示。<br>
+-cost（コスト）<br>
+-averageCpc（平均CPC）<br>
+-avgCpv（平均CPV）<br><br>
+
+・コンバージョンに関する以下のレポートフィールドを追加。<br>
+-allConv（すべてのコンバージョン数）<br>
+-allConvRate（すべてのコンバージョン率）<br>
+-costPerAllConv（コスト/すべてのコンバージョン数）<br>
+-allConvValue（すべてのコンバージョンの価値）<br>
+-valuePerAllConv（価値/すべてのコンバージョン数）<br>
+-convValue（コンバージョンの価値）<br>
+-valuePerConv（価値/コンバージョン数）<br>
+-convValueOld（コンバージョンの価値（旧））<br>
+-valuePerConvOld（価値/コンバージョン数（旧））<br><br>
+・ReportDefinitionFieldからdisplayFieldName項目を削除し、以下を追加。<br>
+-displayFieldNameJA<br>
+-displayFieldNameEN<br>
+-fieldType<br>
+-impossibleCombinationFields<br>
+</td>
+</tr>
+<tr>
+<td>BulkService</td>
+<td>・インターフェースに変更はありません。<br></td>
+<td>・downloadTypeでCAMPAIGN以外の設定を不可に変更。<br><br>
+・BulkUploadの検索条件からoutput（フォーマット）の指定を削除。<br>
+</td>
+</tr>
+<tr>
+<td>ConversionTrackerService</td>
+<td>・インターフェースに変更はありません。<br></td>
+<td>・ConversionTrackerSelectorに以下の項目を追加。<br>
+-countingType<br>
+-excludeFromBidding<br><br>
+・ConversionTrackerPageに以下の項目を追加。<br>
+-totalAllConversions<br>
+-totalAllConversionValue<br><br>
+・ConversionTrackerに以下の項目を追加。<br>
+-countingType<br>
+-excludeFromBidding<br>
+-allConversions<br>
+-allConversionValue<br>
+</td></tr>
 </tbody>
 </table>
 
-## YDN API　レポートドキュメントの改修
-YDN APIのレポートドキュメントを改修しました。以下の資料をご参照ください。
- * [レポートフィールド一覧](/docs/ja/api_reference/appendix/reports.md)
 
-
-## YDN API Ver.5.4のサポート終了予定日
-YDN API Ver.5.4は、2017年12月21日（木）にサポート終了予定です。
+## YDN API Ver.6.0の提供終了について
+以下の日程でYDN API Ver.6.0のサポートおよびシステムの提供を終了いたします。
+* サポート終了日：2018年7月20日（金）
+* システム終了日：2018年9月20日（木）

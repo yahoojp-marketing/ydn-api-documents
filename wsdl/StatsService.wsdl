@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-  targetNamespace="http://im.yahooapis.jp/V6"
-  xmlns:tns="http://im.yahooapis.jp/V6"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        targetNamespace="http://im.yahooapis.jp/V201806/Stats"
+        xmlns:tns="http://im.yahooapis.jp/V201806/Stats"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V6"
+            targetNamespace="http://im.yahooapis.jp/V201806"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V6">
-      <annotation>
-        <appinfo>
-          <version>6.1.0</version>
-        </appinfo>
-      </annotation>
+            xmlns:tns="http://im.yahooapis.jp/V201806">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -28,11 +23,59 @@
       <complexType name="SoapResponseHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="remainingQuota" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="quotaUsedForThisRequest" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="timeTakenMillis" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenSeconds" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
         </sequence>
       </complexType>
+      <complexType name="Paging">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://im.yahooapis.jp/V201806/Stats"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:adv="http://im.yahooapis.jp/V201806"
+            xmlns:tns="http://im.yahooapis.jp/V201806/Stats">
+      <xsd:import namespace="http://im.yahooapis.jp/V201806"/>
+      <annotation>
+        <appinfo>
+          <version>201806</version>
+        </appinfo>
+      </annotation>
       <complexType name="StatsSelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
@@ -42,21 +85,28 @@
           <element maxOccurs="unbounded" minOccurs="0" name="mediaIds" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="statsPeriod" type="tns:StatsPeriod"/>
           <element maxOccurs="1" minOccurs="0" name="statsType" type="tns:StatsType"/>
-          <element maxOccurs="1" minOccurs="0" name="paging" type="tns:Paging"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
       <complexType name="StatsPage">
         <complexContent>
-          <extension base="tns:Page">
+          <extension base="adv:Page">
             <sequence>
+              <element maxOccurs="1" minOccurs="0" name="period" type="tns:Period"/>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:StatsValues"/>
             </sequence>
           </extension>
         </complexContent>
       </complexType>
+      <complexType name="Period">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="periodStartDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="periodEndDate" type="xsd:string"/>
+        </sequence>
+      </complexType>
       <complexType name="StatsValues">
         <complexContent>
-          <extension base="tns:ReturnValue">
+          <extension base="adv:ReturnValue">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
               <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
@@ -77,9 +127,16 @@
           <element maxOccurs="1" minOccurs="0" name="totalClickCost" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="clickCnt" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="avgClickCost" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="totalConversions" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="totalConversionRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="conversions" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="conversionRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="cpa" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="conversionValue" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="valuePerConversions" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="allConversions" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="allConversionRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="allCpa" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="allConversionValue" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="valuePerAllConversions" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="avgDeliverRank" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="totalVimps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="vImps" type="xsd:long"/>
@@ -89,13 +146,17 @@
           <element maxOccurs="1" minOccurs="0" name="autoVideoPlays" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="clickVideoPlays" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViewedRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="paidVideoViews" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="paidVideoViewRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="averageCpv" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="videoPlays" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViews" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViewsTo25" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViewsTo50" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViewsTo75" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViewsTo95" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViewsTo100" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViewsTo3Sec" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="averageRateVideoViewed" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="averageDurationVideoViewed" type="xsd:double"/>
         </sequence>
@@ -122,37 +183,6 @@
           <enumeration value="DEFINITE_VALUE_LASTMONTH"/>
         </restriction>
       </simpleType>
-      <complexType name="Paging">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="ReturnValue">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
-        </sequence>
-      </complexType>
-      <complexType name="Error">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
-        </sequence>
-      </complexType>
-      <complexType name="ErrorDetail">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <complexType abstract="true" name="Page">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
-        </sequence>
-      </complexType>
       <element name="get">
         <complexType>
           <sequence>
@@ -164,12 +194,12 @@
         <complexType>
           <sequence>
             <element maxOccurs="1" minOccurs="0" name="rval" type="tns:StatsPage"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
       </element>
-      <element name="RequestHeader" type="tns:SoapHeader"/>
-      <element name="ResponseHeader" type="tns:SoapResponseHeader"/>
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
       <element name="ApiExceptionFault" type="xsd:string"/>
     </schema>
   </wsdl:types>
@@ -214,7 +244,7 @@
   </wsdl:binding>
   <wsdl:service name="StatsService">
     <wsdl:port binding="tns:StatsServiceSoapBinding" name="StatsService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6.1/StatsService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201806/StatsService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -4,11 +4,11 @@ StatsService retrieves the stats data of each campaign, ad group, ad, image and 
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/StatsService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/StatsService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201806/StatsService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/StatsService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V6
+http://im.yahooapis.jp/V201806/Stats
 
 #### Service Overview
 StatsService retrieves the stats data of each campaign, ad group, ad, image and video.
@@ -16,416 +16,510 @@ StatsService retrieves the stats data of each campaign, ad group, ad, image and 
 #### Operation
 Describes operations provided by StatsService.
 
++ [get](#get)
+
+#### Object
+[Stats](../data/Stats)
+
 ## get
+
 ### Request
 Retrieves the stats information of each campaign, ad group, ad, image and video.
 
-| Parameter | Requirement | Data Type | Description | 
+| Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| selector | required | [StatsSelector](../data/StatsSelector.md) |Contains a set of criteria (parameters) for get method. | 
+| selector | required | [StatsSelector](../data/Stats/StatsSelector.md) |Contains a set of criteria (parameters) for get method. |
 
-##### Request Sample (Campaign Stats Information)
+##### Request Sample(Campaign Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>1111-1111-1111-1111</ns1:license>
-         <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:get>
-         <ns1:selector>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignIds>2222222</ns1:campaignIds>
-            <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-            <ns1:statsType>CAMPAIGN</ns1:statsType>
-            <ns1:paging>
-               <ns1:startIndex>1</ns1:startIndex>
-               <ns1:numberResults>20</ns1:numberResults>
-            </ns1:paging>
-         </ns1:selector>
-      </ns1:get>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>11111</accountId>
+        <campaignIds>22222</campaignIds>
+        <statsPeriod>DEFINITE_VALUE_TWOWEEK</statsPeriod>
+        <statsType>CAMPAIGN</statsType>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-##### Request Sample (Ad group Stats Information)
+##### Request Sample(Ad group Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>1111-1111-1111-1111</ns1:license>
-         <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:get>
-         <ns1:selector>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignIds>2222222</ns1:campaignIds>
-            <ns1:adGroupIds>3333333</ns1:adGroupIds>
-            <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-            <ns1:statsType>ADGROUP</ns1:statsType>
-            <ns1:paging>
-               <ns1:startIndex>1</ns1:startIndex>
-               <ns1:numberResults>20</ns1:numberResults>
-            </ns1:paging>
-         </ns1:selector>
-      </ns1:get>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>11111</accountId>
+        <campaignIds>22222</campaignIds>
+        <adGroupIds>33333</adGroupIds>
+        <statsPeriod>DEFINITE_VALUE_TWOWEEK</statsPeriod>
+        <statsType>ADGROUP</statsType>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-##### Request Sample (Ad Stats Information)
+##### Request Sample(Ad Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>1111-1111-1111-1111</ns1:license>
-         <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:get>
-         <ns1:selector>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:campaignIds>2222222</ns1:campaignIds>
-            <ns1:adGroupIds>3333333</ns1:adGroupIds>
-            <ns1:adIds>4444444</ns1:adIds>
-            <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-            <ns1:statsType>AD</ns1:statsType>
-            <ns1:paging>
-               <ns1:startIndex>1</ns1:startIndex>
-               <ns1:numberResults>20</ns1:numberResults>
-            </ns1:paging>
-         </ns1:selector>
-      </ns1:get>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>11111</accountId>
+        <campaignIds>22222</campaignIds>
+        <adGroupIds>33333</adGroupIds>
+        <adIds>444444</adIds>
+        <statsPeriod>DEFINITE_VALUE_TWOWEEK</statsPeriod>
+        <statsType>AD</statsType>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-##### Request Sample (Image Stats Information)
+##### Request Sample(Image Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>1111-1111-1111-1111</ns1:license>
-         <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-         <ns1:accountId>1111-1111-1111-1111</ns1:accountId>
-         <ns1:onBehalfOfAccountId>2222-2222-2222-2222</ns1:onBehalfOfAccountId>
-         <ns1:onBehalfOfPassword>password</ns1:onBehalfOfPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:get>
-         <ns1:selector>
-            <ns1:accountId>111111</ns1:accountId>
-            <ns1:campaignIds>222222</ns1:campaignIds>
-            <ns1:adGroupIds>333333</ns1:adGroupIds>
-            <ns1:adIds>444444</ns1:adIds>
-            <ns1:mediaIds>444444</ns1:mediaIds>
-            <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-            <ns1:statsType>IMAGE</ns1:statsType>
-            <ns1:paging>
-               <ns1:startIndex>1</ns1:startIndex>
-               <ns1:numberResults>20</ns1:numberResults>
-            </ns1:paging>
-         </ns1:selector>
-      </ns1:get>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>11111</accountId>
+        <mediaIds>22222</mediaIds>
+        <statsPeriod>DEFINITE_VALUE_TWOWEEK</statsPeriod>
+        <statsType>IMAGE</statsType>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
-
-##### Request Sample (Video Stats Information)
+##### Request Sample(Video Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <soapenv:Header>
-      <ns1:RequestHeader>
-         <ns1:license>1111-1111-1111-1111</ns1:license>
-         <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-         <ns1:accountId>1111-1111-1111-1111</ns1:accountId>
-         <ns1:onBehalfOfAccountId>2222-2222-2222-2222</ns1:onBehalfOfAccountId>
-         <ns1:onBehalfOfPassword>password</ns1:onBehalfOfPassword>
-      </ns1:RequestHeader>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:get>
-         <ns1:selector>
-            <ns1:accountId>111111</ns1:accountId>
-            <ns1:campaignIds>222222</ns1:campaignIds>
-            <ns1:adGroupIds>333333</ns1:adGroupIds>
-            <ns1:adIds>444444</ns1:adIds>
-            <ns1:mediaIds>444444</ns1:mediaIds>
-            <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-            <ns1:statsType>VIDEO</ns1:statsType>
-            <ns1:paging>
-               <ns1:startIndex>1</ns1:startIndex>
-               <ns1:numberResults>20</ns1:numberResults>
-            </ns1:paging>
-         </ns1:selector>
-      </ns1:get>
-   </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>11111</accountId>
+        <mediaIds>22222</mediaIds>
+        <statsPeriod>DEFINITE_VALUE_TWOWEEK</statsPeriod>
+        <statsType>VIDEO</statsType>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Parameter | Data Type | Description | 
+| Parameter | Data Type | Description |
 |---|---|---|
-| rval | [StatsPage](../data/StatsPage.md) | Contains the results (a list of all entities) for get method. | 
+| rval | [StatsPage](../data/Stats/StatsPage.md) | Contains the results (a list of all entities) for get method. |
 
-##### Response Sample (Campaign Stats Information)
+##### Response Sample(Campaign Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>StatsService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:totalNumEntries>1</ns1:totalNumEntries>
-            <ns1:Page.Type>StatsPage</ns1:Page.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:accountId>1000000001</ns1:accountId>
-               <ns1:campaignId>2222222</ns1:campaignId>
-               <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-               <ns1:statsType>CAMPAIGN</ns1:statsType>
-               <ns1:stats>
-                  <ns1:imps>10000</ns1:imps>
-                  <ns1:clickRate>95</ns1:clickRate>
-                  <ns1:totalClickCost>3000</ns1:totalClickCost>
-                  <ns1:clickCnt>5000</ns1:clickCnt>
-                  <ns1:avgClickCost>3000</ns1:avgClickCost>
-                  <ns1:totalConversions>30</ns1:totalConversions>
-                  <ns1:totalConversionRate>12</ns1:totalConversionRate>
-                  <ns1:cpa>3</ns1:cpa>
-                  <ns1:avgDeliverRank>3</ns1:avgDeliverRank>
-                  <ns1:totalVimps>300</ns1:totalVimps>
-                  <ns1:vImps>200</ns1:vImps>
-                  <ns1:inViewClickCnt>30</ns1:inViewClickCnt>
-                  <ns1:inViewRate>30</ns1:inViewRate>
-                  <ns1:inViewClickRate>40</ns1:inViewClickRate>
-               </ns1:stats>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>Stats</ns2:service>
+      <ns2:requestTime>1528957529817</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>StatsPage</Page.Type>
+        <ns2:period>
+          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
+          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+        </ns2:period>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:accountId>1111</ns2:accountId>
+          <ns2:campaignId>22222</ns2:campaignId>
+          <ns2:statsPeriod>DEFINITE_VALUE_TWOWEEK</ns2:statsPeriod>
+          <ns2:statsType>CAMPAIGN</ns2:statsType>
+          <ns2:stats>
+            <ns2:imps>4</ns2:imps>
+            <ns2:clickRate>100.0</ns2:clickRate>
+            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:clickCnt>4</ns2:clickCnt>
+            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:conversions>19</ns2:conversions>
+            <ns2:conversionRate>20.2</ns2:conversionRate>
+            <ns2:cpa>21.2</ns2:cpa>
+            <ns2:conversionValue>22</ns2:conversionValue>
+            <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:allConversions>24</ns2:allConversions>
+            <ns2:allConversionRate>25.0</ns2:allConversionRate>
+            <ns2:allCpa>26.6</ns2:allCpa>
+            <ns2:allConversionValue>27</ns2:allConversionValue>
+            <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
+            <ns2:totalVimps>2</ns2:totalVimps>
+            <ns2:vImps>2</ns2:vImps>
+            <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
+            <ns2:inViewRate>100.0</ns2:inViewRate>
+            <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
+            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
+            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
+            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
+            <ns2:paidVideoViews>4</ns2:paidVideoViews>
+            <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
+            <ns2:averageCpv>0.5</ns2:averageCpv>
+            <ns2:videoPlays>2</ns2:videoPlays>
+            <ns2:videoViews>2</ns2:videoViews>
+            <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
+            <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
+            <ns2:videoViewsTo75>2</ns2:videoViewsTo75>
+            <ns2:videoViewsTo95>2</ns2:videoViewsTo95>
+            <ns2:videoViewsTo100>2</ns2:videoViewsTo100>
+            <ns2:videoViewsTo3Sec>9</ns2:videoViewsTo3Sec>
+            <ns2:averageRateVideoViewed>100.0</ns2:averageRateVideoViewed>
+            <ns2:averageDurationVideoViewed>1.0</ns2:averageDurationVideoViewed>
+          </ns2:stats>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-##### Response Sample (Ad group Stats Information)
+##### Response Sample(Ad group Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>StatsService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:totalNumEntries>1</ns1:totalNumEntries>
-            <ns1:Page.Type>StatsPage</ns1:Page.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:accountId>1000000001</ns1:accountId>
-               <ns1:campaignId>2222222</ns1:campaignId>
-               <ns1:adGroupId>3333333</ns1:adGroupId>
-               <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-               <ns1:statsType>ADGROUP</ns1:statsType>
-               <ns1:stats>
-                  <ns1:imps>10000</ns1:imps>
-                  <ns1:clickRate>95</ns1:clickRate>
-                  <ns1:totalClickCost>3000</ns1:totalClickCost>
-                  <ns1:clickCnt>5000</ns1:clickCnt>
-                  <ns1:avgClickCost>3000</ns1:avgClickCost>
-                  <ns1:totalConversions>30</ns1:totalConversions>
-                  <ns1:totalConversionRate>12</ns1:totalConversionRate>
-                  <ns1:cpa>3</ns1:cpa>
-                  <ns1:avgDeliverRank>3</ns1:avgDeliverRank>
-                  <ns1:totalVimps>300</ns1:totalVimps>
-                  <ns1:vImps>200</ns1:vImps>
-                  <ns1:inViewClickCnt>30</ns1:inViewClickCnt>
-                  <ns1:inViewRate>30</ns1:inViewRate>
-                  <ns1:inViewClickRate>40</ns1:inViewClickRate>
-               </ns1:stats>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>Stats</ns2:service>
+      <ns2:requestTime>1528957529866</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>StatsPage</Page.Type>
+        <ns2:period>
+          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
+          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+        </ns2:period>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:accountId>1111</ns2:accountId>
+          <ns2:campaignId>22222</ns2:campaignId>
+          <ns2:adGroupId>33333</ns2:adGroupId>
+          <ns2:statsPeriod>DEFINITE_VALUE_TWOWEEK</ns2:statsPeriod>
+          <ns2:statsType>ADGROUP</ns2:statsType>
+          <ns2:stats>
+            <ns2:imps>4</ns2:imps>
+            <ns2:clickRate>100.0</ns2:clickRate>
+            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:clickCnt>4</ns2:clickCnt>
+            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:conversions>19</ns2:conversions>
+            <ns2:conversionRate>20.2</ns2:conversionRate>
+            <ns2:cpa>21.2</ns2:cpa>
+            <ns2:conversionValue>22</ns2:conversionValue>
+            <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:allConversions>24</ns2:allConversions>
+            <ns2:allConversionRate>25.0</ns2:allConversionRate>
+            <ns2:allCpa>26.6</ns2:allCpa>
+            <ns2:allConversionValue>27</ns2:allConversionValue>
+            <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
+            <ns2:totalVimps>2</ns2:totalVimps>
+            <ns2:vImps>2</ns2:vImps>
+            <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
+            <ns2:inViewRate>100.0</ns2:inViewRate>
+            <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
+            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
+            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
+            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
+            <ns2:paidVideoViews>4</ns2:paidVideoViews>
+            <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
+            <ns2:averageCpv>0.5</ns2:averageCpv>
+            <ns2:videoPlays>2</ns2:videoPlays>
+            <ns2:videoViews>2</ns2:videoViews>
+            <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
+            <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
+            <ns2:videoViewsTo75>2</ns2:videoViewsTo75>
+            <ns2:videoViewsTo95>2</ns2:videoViewsTo95>
+            <ns2:videoViewsTo100>2</ns2:videoViewsTo100>
+            <ns2:videoViewsTo3Sec>9</ns2:videoViewsTo3Sec>
+            <ns2:averageRateVideoViewed>100.0</ns2:averageRateVideoViewed>
+            <ns2:averageDurationVideoViewed>1.0</ns2:averageDurationVideoViewed>
+          </ns2:stats>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-##### Response Sample (Ad Stats Information)
+##### Response Sample(Ad Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>StatsService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:totalNumEntries>1</ns1:totalNumEntries>
-            <ns1:Page.Type>StatsPage</ns1:Page.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:accountId>1000000001</ns1:accountId>
-               <ns1:campaignId>2222222</ns1:campaignId>
-               <ns1:adGroupId>3333333</ns1:adGroupId>
-               <ns1:adId>4444444</ns1:adId>
-               <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-               <ns1:statsType>AD</ns1:statsType>
-               <ns1:stats>
-                  <ns1:imps>10000</ns1:imps>
-                  <ns1:clickRate>95</ns1:clickRate>
-                  <ns1:totalClickCost>3000</ns1:totalClickCost>
-                  <ns1:clickCnt>5000</ns1:clickCnt>
-                  <ns1:avgClickCost>3000</ns1:avgClickCost>
-                  <ns1:totalConversions>30</ns1:totalConversions>
-                  <ns1:totalConversionRate>12</ns1:totalConversionRate>
-                  <ns1:cpa>3</ns1:cpa>
-                  <ns1:avgDeliverRank>3</ns1:avgDeliverRank>
-                  <ns1:totalVimps>300</ns1:totalVimps>
-                  <ns1:vImps>200</ns1:vImps>
-                  <ns1:inViewClickCnt>30</ns1:inViewClickCnt>
-                  <ns1:inViewRate>30</ns1:inViewRate>
-                  <ns1:inViewClickRate>40</ns1:inViewClickRate>
-               </ns1:stats>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>Stats</ns2:service>
+      <ns2:requestTime>1528957529906</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>StatsPage</Page.Type>
+        <ns2:period>
+          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
+          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+        </ns2:period>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:accountId>1111</ns2:accountId>
+          <ns2:campaignId>22222</ns2:campaignId>
+          <ns2:adGroupId>33333</ns2:adGroupId>
+          <ns2:adId>44444</ns2:adId>
+          <ns2:statsPeriod>DEFINITE_VALUE_TWOWEEK</ns2:statsPeriod>
+          <ns2:statsType>AD</ns2:statsType>
+          <ns2:stats>
+            <ns2:imps>4</ns2:imps>
+            <ns2:clickRate>100.0</ns2:clickRate>
+            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:clickCnt>4</ns2:clickCnt>
+            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:conversions>19</ns2:conversions>
+            <ns2:conversionRate>20.2</ns2:conversionRate>
+            <ns2:cpa>21.2</ns2:cpa>
+            <ns2:conversionValue>22</ns2:conversionValue>
+            <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:allConversions>24</ns2:allConversions>
+            <ns2:allConversionRate>25.0</ns2:allConversionRate>
+            <ns2:allCpa>26.6</ns2:allCpa>
+            <ns2:allConversionValue>27</ns2:allConversionValue>
+            <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
+            <ns2:totalVimps>2</ns2:totalVimps>
+            <ns2:vImps>2</ns2:vImps>
+            <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
+            <ns2:inViewRate>100.0</ns2:inViewRate>
+            <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
+            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
+            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
+            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
+            <ns2:paidVideoViews>4</ns2:paidVideoViews>
+            <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
+            <ns2:averageCpv>0.5</ns2:averageCpv>
+            <ns2:videoPlays>2</ns2:videoPlays>
+            <ns2:videoViews>2</ns2:videoViews>
+            <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
+            <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
+            <ns2:videoViewsTo75>2</ns2:videoViewsTo75>
+            <ns2:videoViewsTo95>2</ns2:videoViewsTo95>
+            <ns2:videoViewsTo100>2</ns2:videoViewsTo100>
+            <ns2:videoViewsTo3Sec>9</ns2:videoViewsTo3Sec>
+            <ns2:averageRateVideoViewed>100.0</ns2:averageRateVideoViewed>
+            <ns2:averageDurationVideoViewed>1.0</ns2:averageDurationVideoViewed>
+          </ns2:stats>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-##### Response Sample (Image Stats Information)
+##### Response Sample(Image Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>StatsService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:totalNumEntries>1</ns1:totalNumEntries>
-            <ns1:Page.Type>StatsPage</ns1:Page.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:accountId>1000000001</ns1:accountId>
-               <ns1:mediaId>555555</ns1:mediaId>
-               <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-               <ns1:statsType>IMAGE</ns1:statsType>
-               <ns1:stats>
-                  <ns1:imps>10000</ns1:imps>
-                  <ns1:clickRate>95</ns1:clickRate>
-                  <ns1:totalClickCost>3000</ns1:totalClickCost>
-                  <ns1:clickCnt>5000</ns1:clickCnt>
-                  <ns1:avgClickCost>3000</ns1:avgClickCost>
-                  <ns1:totalConversions>30</ns1:totalConversions>
-                  <ns1:totalConversionRate>12</ns1:totalConversionRate>
-                  <ns1:cpa>3</ns1:cpa>
-                  <ns1:avgDeliverRank>3</ns1:avgDeliverRank>
-                  <ns1:totalVimps>300</ns1:totalVimps>
-                  <ns1:vImps>200</ns1:vImps>
-                  <ns1:inViewClickCnt>30</ns1:inViewClickCnt>
-                  <ns1:inViewRate>30</ns1:inViewRate>
-                  <ns1:inViewClickRate>40</ns1:inViewClickRate>
-               </ns1:stats>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>Stats</ns2:service>
+      <ns2:requestTime>1528957529944</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>StatsPage</Page.Type>
+        <ns2:period>
+          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
+          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+        </ns2:period>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:accountId>1111</ns2:accountId>
+          <ns2:mediaId>22222</ns2:mediaId>
+          <ns2:statsPeriod>DEFINITE_VALUE_TWOWEEK</ns2:statsPeriod>
+          <ns2:statsType>IMAGE</ns2:statsType>
+          <ns2:stats>
+            <ns2:imps>4</ns2:imps>
+            <ns2:clickRate>100.0</ns2:clickRate>
+            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:clickCnt>4</ns2:clickCnt>
+            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:conversions>19</ns2:conversions>
+            <ns2:conversionRate>20.2</ns2:conversionRate>
+            <ns2:cpa>21.2</ns2:cpa>
+            <ns2:conversionValue>22</ns2:conversionValue>
+            <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:allConversions>24</ns2:allConversions>
+            <ns2:allConversionRate>25.0</ns2:allConversionRate>
+            <ns2:allCpa>26.6</ns2:allCpa>
+            <ns2:allConversionValue>27</ns2:allConversionValue>
+            <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
+            <ns2:totalVimps>2</ns2:totalVimps>
+            <ns2:vImps>2</ns2:vImps>
+            <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
+            <ns2:inViewRate>100.0</ns2:inViewRate>
+            <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
+            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
+            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
+            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
+            <ns2:paidVideoViews>4</ns2:paidVideoViews>
+            <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
+            <ns2:averageCpv>0.5</ns2:averageCpv>
+            <ns2:videoPlays>2</ns2:videoPlays>
+            <ns2:videoViews>2</ns2:videoViews>
+            <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
+            <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
+            <ns2:videoViewsTo75>2</ns2:videoViewsTo75>
+            <ns2:videoViewsTo95>2</ns2:videoViewsTo95>
+            <ns2:videoViewsTo100>2</ns2:videoViewsTo100>
+            <ns2:videoViewsTo3Sec>9</ns2:videoViewsTo3Sec>
+            <ns2:averageRateVideoViewed>100.0</ns2:averageRateVideoViewed>
+            <ns2:averageDurationVideoViewed>1.0</ns2:averageDurationVideoViewed>
+          </ns2:stats>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
-##### Request Sample (Video Stats Information)
+##### Response Sample(Video Stats Information)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?> 
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>StatsService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getResponse>
-         <ns1:rval>
-            <ns1:totalNumEntries>1</ns1:totalNumEntries>
-            <ns1:Page.Type>StatsPage</ns1:Page.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:accountId>1000000001</ns1:accountId>
-               <ns1:mediaId>555555</ns1:mediaId>
-               <ns1:statsPeriod>REALTIME_TODAY</ns1:statsPeriod>
-               <ns1:statsType>VIDEO</ns1:statsType>
-               <ns1:stats>
-                  <ns1:imps>10000</ns1:imps>
-                  <ns1:clickRate>95</ns1:clickRate>
-                  <ns1:totalClickCost>3000</ns1:totalClickCost>
-                  <ns1:clickCnt>5000</ns1:clickCnt>
-                  <ns1:avgClickCost>3000</ns1:avgClickCost>
-                  <ns1:totalConversions>30</ns1:totalConversions>
-                  <ns1:totalConversionRate>12</ns1:totalConversionRate>
-                  <ns1:cpa>1000000000</ns1:cpa>
-                  <ns1:avgDeliverRank>3</ns1:avgDeliverRank>
-                  <ns1:totalVimps>1</ns1:totalVimps>
-                  <ns1:vImps>123456790</ns1:vImps>
-                  <ns1:inViewClickCnt>1</ns1:inViewClickCnt>
-                  <ns1:inViewRate>58.5</ns1:inViewRate>
-                  <ns1:inViewClickRate>5</ns1:inViewClickRate>
-                  <ns1:autoVideoPlays>0</ns1:autoVideoPlays>
-                  <ns1:clickVideoPlays>40000</ns1:clickVideoPlays>
-                  <ns1:videoViewedRate>500</ns1:videoViewedRate>
-                  <ns1:averageCpv>50000</ns1:averageCpv>
-                  <ns1:videoPlays>90000</ns1:videoPlays>
-                  <ns1:videoViewsTo25>100</ns1:videoViewsTo25>
-                  <ns1:videoViewsTo50>200</ns1:videoViewsTo50>
-                  <ns1:videoViewsTo75>300</ns1:videoViewsTo75>
-                  <ns1:videoViewsTo95>400</ns1:videoViewsTo95>
-                  <ns1:videoViewsTo100>500</ns1:videoViewsTo100>
-                  <ns1:averageRateVideoViewed>622</ns1:averageRateVideoViewed>
-                  <ns1:averageDurationVideoViewed>722</ns1:averageDurationVideoViewed>
-               </ns1:stats>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:getResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>Stats</ns2:service>
+      <ns2:requestTime>1528957529982</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>StatsPage</Page.Type>
+        <ns2:period>
+          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
+          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+        </ns2:period>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:accountId>1111</ns2:accountId>
+          <ns2:mediaId>22222</ns2:mediaId>
+          <ns2:statsPeriod>DEFINITE_VALUE_TWOWEEK</ns2:statsPeriod>
+          <ns2:statsType>VIDEO</ns2:statsType>
+          <ns2:stats>
+            <ns2:imps>4</ns2:imps>
+            <ns2:clickRate>100.0</ns2:clickRate>
+            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:clickCnt>4</ns2:clickCnt>
+            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:conversions>19</ns2:conversions>
+            <ns2:conversionRate>20.2</ns2:conversionRate>
+            <ns2:cpa>21.2</ns2:cpa>
+            <ns2:conversionValue>22</ns2:conversionValue>
+            <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:allConversions>24</ns2:allConversions>
+            <ns2:allConversionRate>25.0</ns2:allConversionRate>
+            <ns2:allCpa>26.6</ns2:allCpa>
+            <ns2:allConversionValue>27</ns2:allConversionValue>
+            <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
+            <ns2:totalVimps>2</ns2:totalVimps>
+            <ns2:vImps>2</ns2:vImps>
+            <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
+            <ns2:inViewRate>100.0</ns2:inViewRate>
+            <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
+            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
+            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
+            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
+            <ns2:paidVideoViews>4</ns2:paidVideoViews>
+            <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
+            <ns2:averageCpv>0.5</ns2:averageCpv>
+            <ns2:videoPlays>2</ns2:videoPlays>
+            <ns2:videoViews>2</ns2:videoViews>
+            <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
+            <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
+            <ns2:videoViewsTo75>2</ns2:videoViewsTo75>
+            <ns2:videoViewsTo95>2</ns2:videoViewsTo95>
+            <ns2:videoViewsTo100>2</ns2:videoViewsTo100>
+            <ns2:videoViewsTo3Sec>9</ns2:videoViewsTo3Sec>
+            <ns2:averageRateVideoViewed>100.0</ns2:averageRateVideoViewed>
+            <ns2:averageDurationVideoViewed>1.0</ns2:averageDurationVideoViewed>
+          </ns2:stats>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 

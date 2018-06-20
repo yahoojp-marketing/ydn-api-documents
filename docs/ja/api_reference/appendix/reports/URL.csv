@@ -9,14 +9,14 @@
 "DELIVER","広告掲載方式","Ad Distribution","deliverName","STRING",
 "DEVICE","デバイス","Device","device","STRING",
 "DELIVER_URL","配信先URL","Ad Delivery URL","adDeliveryURL","STRING",
-"CONVERSION_LABEL","コンバージョンラベル名","Conversion Name","conversionName","STRING","[AVG_CPC, CLICK, CLICK_RATE, CONVERSION_RATE_OLD, CONV_RATE, COST, COST_PER_CONV, CPA_OLD, IMPS]"
-"CONVERSION_CATEGORY","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","STRING","[AVG_CPC, CLICK, CLICK_RATE, CONVERSION_RATE_OLD, CONV_RATE, COST, COST_PER_CONV, CPA_OLD, IMPS]"
+"CONVERSION_LABEL","コンバージョンラベル名","Conversion Name","conversionName","STRING","[ALL_CONV_RATE, AVG_CPC, CLICK, CLICK_RATE, CONVERSION_RATE_OLD, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, CPA_OLD, IMPS]"
+"CONVERSION_CATEGORY","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","STRING","[ALL_CONV_RATE, AVG_CPC, CLICK, CLICK_RATE, CONVERSION_RATE_OLD, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, CPA_OLD, IMPS]"
 "CARRIER","キャリア","Carrier","carrier","STRING",
 "OS","OS","OS","os","STRING",
 "APPLI","ウェブ/アプリ","Web/App","appli","STRING",
 "IMPS","インプレッション数","Impressions","impressions","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
 "CLICK_RATE","クリック率","CTR","ctr","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"COST","コスト","Cost","cost","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"COST","コスト","Cost","cost","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
 "CLICK","クリック数","Clicks","clicks","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
 "AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
 "CONVERSION_OLD","コンバージョン数（旧）","Conversions (old)","totalConversionsOld","LONG",
@@ -45,3 +45,12 @@
 "PAID_VIDEO_VIEWS","課金が発生した動画再生数","Paid Video Views","paidVideoViews","LONG",
 "PAID_VIDEO_VIEW_RATE","課金が発生した動画再生率","Paid Video View Rate","paidVideoViewRate","DOUBLE",
 "VIDEO_VIEWS_TO_3_SEC","動画が3秒以上再生された回数","3-second Video Views","videoViewsTo3sec","LONG",
+"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","LONG",
+"VALUE_PER_CONV","価値/コンバージョン数","Value per Conv.","valuePerConv","DOUBLE",
+"CONV_VALUE_OLD","コンバージョンの価値（旧）","Conv. Value (old)","convValueOld","LONG",
+"VALUE_PER_CONV_OLD","価値/コンバージョン数（旧）","Value Per Conv. (old)","valuePerConvOld","DOUBLE",
+"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","LONG",
+"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
+"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","LONG",
+"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE",
