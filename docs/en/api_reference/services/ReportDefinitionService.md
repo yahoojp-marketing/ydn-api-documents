@@ -6,11 +6,11 @@ It provides operation to get available report fields for specific report type.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/ReportDefinitionService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201806/ReportDefinitionService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/ReportDefinitionService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V6
+http://im.yahooapis.jp/V201806/ReportDefinition
 
 #### Service Overview
 The following operations are provided:
@@ -23,1054 +23,1327 @@ The following operations are provided:
 - Up to 30 definitions for a scheduled report can be added as a template for regular and proxy authentications combined.
 - There is no upper limits to the number of report definitions for one-time report that is not saved as a template.<br>
 Example：<br>
-If you have already saved 20 report definitions as a report template for regular authentication, you can add a maximum of 10 definitions for proxy authentication.<br> 
+If you have already saved 20 report definitions as a report template for regular authentication, you can add a maximum of 10 definitions for proxy authentication.<br>
 　*If you wish to add more definitions though the upper saving limit is reached, delete some of the definitions you already saved.
- 
+
 [Note]
 - All of the report definitions created using the same API account ID can be confirmed regardless of authentication method.
 
 #### Operation
 Describes operations provided by ReportDefinitionService.
 
++ [getReportFields](#getreportfields)
++ [mutate(ADD)](#mutateadd)
++ [mutate(REMOVE)](#mutateremove)
+
+#### Object
+[ReportDefinition](../data/ReportDefinition)
+
 ## get
+
 ### Request
 Retrieves the report definition.
 
-| Parameter | Requirement | Value | Description | 
+| Parameter | Requirement | Value | Description |
 |---|---|---|---|
-| selector | required | [ReportDefinitionSelector](../data/ReportDefinitionSelector.md) | Report definition for the target of the operation. |
+| selector | required | [ReportDefinitionSelector](../data/ReportDefinition/ReportDefinitionSelector.md) | Report definition for the target of the operation. |
 
-##### Request Sample (Standard Authentification)
+##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:selector>
-                <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:reportIds>9000000001</ns1:reportIds>
-                <ns1:reportIds>9000000002</ns1:reportIds>               
-                <ns1:paging>
-                    <ns1:startIndex>1</ns1:startIndex>
-                    <ns1:numberResults>20</ns1:numberResults>
-                </ns1:paging>
-            </ns1:selector>
-        </ns1:get>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>100000001</accountId>
+        <reportIds>1111</reportIds>
+        <reportIds>1111</reportIds>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>10</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Field | Data Type | Deescription | 
+| Field | Data Type | Deescription |
 |---|---|---|
-| rval | [ReportDefinitionPage](../data/ReportDefinitionPage.md) | Entry of report definition. | 
+| rval | [ReportDefinitionPage](../data/ReportDefinition/ReportDefinitionPage.md) | Entry of report definition. |
 
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>ReportService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getResponse>
-            <ns1:rval>
-                <ns1:totalNumEntries>1</ns1:totalNumEntries>
-                <ns1:Page.Type>ReportDefinitionPage</ns1:Page.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:reportDefinition>
-                        <ns1:reportId>9000000001</ns1:reportId>
-                        <ns1:accountId>1000000001</ns1:accountId>
-                        <ns1:reportName>SandboxAccountReport_csv</ns1:reportName>
-                       <ns1:dateRangeType>THIS_MONTH</ns1:dateRangeType>
-                       <ns1:filters>
-                           <ns1:field>CAMPAIGN_ID</ns1:field>
-                           <ns1:operator>EQUALS</ns1:operator>
-                           <ns1:values>10001</ns1:values>
-                       </ns1:filters>
-                        <ns1:filters>
-                           <ns1:field>ADGROUP_ID</ns1:field>
-                           <ns1:operator>IN</ns1:operator>
-                           <ns1:values>20000</ns1:values>
-                           <ns1:values>20001</ns1:values>
-                       </ns1:filters>                      
-                        <ns1:sortFields>+DAY</ns1:sortFields>
-                        <ns1:fields>IO_ID</ns1:fields>
-                        <ns1:fields>IO_NAME</ns1:fields>
-                        <ns1:fields>CAMPAIGN_ID</ns1:fields>
-                        <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-                        <ns1:fields>ADGROUP_ID</ns1:fields>
-                        <ns1:fields>ADGROUP_NAME</ns1:fields>
-                        <ns1:format>CSV</ns1:format>
-                        <ns1:encode>UTF-8</ns1:encode>
-                        <ns1:zip>ON</ns1:zip>
-                        <ns1:lang>EN</ns1:lang>
-                        <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-                        <ns1:specifyDay>10</ns1:specifyDay>
-                        <ns1:addTemplate>YES</ns1:addTemplate>
-                    </ns1:reportDefinition>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:getResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>ReportDefinition</ns2:service>
+      <ns2:requestTime>1528278915084</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/ReportDefinition">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>ReportDefinitionPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportDefinition>
+            <ns2:reportId>1111</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report</ns2:reportName>
+            <ns2:dateRangeType>CUSTOM_DATE</ns2:dateRangeType>
+            <ns2:dateRange>
+              <ns2:startDate>20160101</ns2:startDate>
+              <ns2:endDate>20161231</ns2:endDate>
+            </ns2:dateRange>
+            <ns2:filters>
+              <ns2:field>TRACKING_URL</ns2:field>
+              <ns2:operator>IN</ns2:operator>
+              <ns2:values>http://yahoo.co.jp</ns2:values>
+              <ns2:values>http://marketing.yahoo.co.jp</ns2:values>
+              <ns2:values>http://promotionalads.yahoo.co.jp</ns2:values>
+            </ns2:filters>
+            <ns2:filters>
+              <ns2:field>IMPS</ns2:field>
+              <ns2:operator>GREATER_THAN</ns2:operator>
+              <ns2:values>0</ns2:values>
+            </ns2:filters>
+            <ns2:filters>
+              <ns2:field>CAMPAIGN_ID</ns2:field>
+              <ns2:operator>IN</ns2:operator>
+              <ns2:values>200000001</ns2:values>
+              <ns2:values>200000002</ns2:values>
+              <ns2:values>200000003</ns2:values>
+              <ns2:values>200000003</ns2:values>
+              <ns2:values>200000004</ns2:values>
+              <ns2:values>200000005</ns2:values>
+            </ns2:filters>
+            <ns2:sortFields>+ACCOUNT_ID</ns2:sortFields>
+            <ns2:fields>ACCOUNT_ID</ns2:fields>
+            <ns2:fields>ACCOUNT_NAME</ns2:fields>
+            <ns2:fields>CAMPAIGN_ID</ns2:fields>
+            <ns2:fields>CAMPAIGN_NAME</ns2:fields>
+            <ns2:fields>ADGROUP_ID</ns2:fields>
+            <ns2:fields>ADGROUP_NAME</ns2:fields>
+            <ns2:fields>AD_ID</ns2:fields>
+            <ns2:fields>AD_NAME</ns2:fields>
+            <ns2:fields>AD_TYPE</ns2:fields>
+            <ns2:fields>URL_ID</ns2:fields>
+            <ns2:fields>URL_NAME</ns2:fields>
+            <ns2:fields>PREF_ID</ns2:fields>
+            <ns2:fields>PREF_NAME</ns2:fields>
+            <ns2:fields>CITY_ID</ns2:fields>
+            <ns2:fields>CITY_NAME</ns2:fields>
+            <ns2:fields>WARD_ID</ns2:fields>
+            <ns2:fields>WARD_NAME</ns2:fields>
+            <ns2:fields>GENDER</ns2:fields>
+            <ns2:fields>AGE</ns2:fields>
+            <ns2:fields>MONTH</ns2:fields>
+            <ns2:fields>DAY</ns2:fields>
+            <ns2:format>CSV</ns2:format>
+            <ns2:encode>UTF-8</ns2:encode>
+            <ns2:zip>OFF</ns2:zip>
+            <ns2:lang>EN</ns2:lang>
+            <ns2:intervalType>SPECIFYDAY</ns2:intervalType>
+            <ns2:specifyDay>28</ns2:specifyDay>
+            <ns2:addTemplate>NO</ns2:addTemplate>
+          </ns2:reportDefinition>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## getReportFields
+
 ### Request
 
-| Parameter | Requirement | Value | Description | 
+| Parameter | Requirement | Value | Description |
 |---|---|---|---|
 | accountId | required | xsd:long | Account ID. |
-|reportCategory | ○ | enum [ReportCategory](../data/ReportCategory.md) | Report format. |
-|lang |  | enum [ReportLang](../data/ReportLang.md) | Output language.
-Japanese or English can be selected. | 
+|reportCategory | ○ | enum [ReportCategory](../data/ReportDefinition/ReportCategory.md) | Report format. |
+|lang |  | enum [ReportLang](../data/ReportDefinition/ReportLang.md) | Output language.
+Japanese or English can be selected. |
 
-##### Request Sample (Standard Authentification)
+##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getReportFields>
-            <ns1:reportType>AD</ns1:reportType>
-            <ns1:lang>EN</ns1:lang>
-        </ns1:getReportFields>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getReportFields xmlns="http://im.yahooapis.jp/V201806/ReportDefinition">
+      <reportCategory>AD</reportCategory>
+    </getReportFields>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Field | Data Type | Deescription | 
+| Field | Data Type | Deescription |
 |---|---|---|
-| rval | [ReportDefinitionFieldValue](../data/ReportDefinitionFieldValue.md) | Usable report entry to be acquired. | error | [Error](../data/Error.md) | An error. | 
+| rval | [ReportDefinitionFieldValue](../data/ReportDefinition/ReportDefinitionFieldValue.md) | Usable report entry to be acquired. | error | [Error](../data/ReportDefinition/Error.md) | An error. |
 
 ##### Response Sample
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>ReportDefinitionService</ns1:service>
-         <ns1:remainingQuota>-1</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.3515</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:getReportFieldsResponse>
-         <ns1:rval>
-            <ns1:operationSucceeded>true</ns1:operationSucceeded>
-            <ns1:field>
-               <ns1:fieldName>ACCOUNT_ID</ns1:fieldName>
-               <ns1:displayFieldName>Account ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>accountID</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>ACCOUNT_NAME</ns1:fieldName>
-               <ns1:displayFieldName>Account Name</ns1:displayFieldName>
-               <ns1:xmlAttributeName>accountName</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CAMPAIGN_ID</ns1:fieldName>
-               <ns1:displayFieldName>Campaign ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>campaignID</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CAMPAIGN_NAME</ns1:fieldName>
-               <ns1:displayFieldName>Campaign Name</ns1:displayFieldName>
-               <ns1:xmlAttributeName>campaignName</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>ADGROUP_ID</ns1:fieldName>
-               <ns1:displayFieldName>Ad Group ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>adgroupID</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>ADGROUP_NAME</ns1:fieldName>
-               <ns1:displayFieldName>Ad Group Name</ns1:displayFieldName>
-               <ns1:xmlAttributeName>adgroupName</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AD_ID</ns1:fieldName>
-               <ns1:displayFieldName>Ad ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>adID</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AD_NAME</ns1:fieldName>
-               <ns1:displayFieldName>Ad Name</ns1:displayFieldName>
-               <ns1:xmlAttributeName>adName</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AD_TYPE</ns1:fieldName>
-               <ns1:displayFieldName>Ad Type</ns1:displayFieldName>
-               <ns1:xmlAttributeName>adType</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>URL_ID</ns1:fieldName>
-               <ns1:displayFieldName>Destination URL ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>destinationURLID</ns1:xmlAttributeName>
-               <ns1:filterable>false</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>URL_NAME</ns1:fieldName>
-               <ns1:displayFieldName>Destination URL</ns1:displayFieldName>
-               <ns1:xmlAttributeName>destinationURL</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>PREF_ID</ns1:fieldName>
-               <ns1:displayFieldName>Prefecture ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>prefectureID</ns1:xmlAttributeName>
-               <ns1:filterable>false</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>PREF_NAME</ns1:fieldName>
-               <ns1:displayFieldName>Prefectures</ns1:displayFieldName>
-               <ns1:xmlAttributeName>prefecture</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CITY_ID</ns1:fieldName>
-               <ns1:displayFieldName>City ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>cityID</ns1:xmlAttributeName>
-               <ns1:filterable>false</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CITY_NAME</ns1:fieldName>
-               <ns1:displayFieldName>City</ns1:displayFieldName>
-               <ns1:xmlAttributeName>city</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>WARD_ID</ns1:fieldName>
-               <ns1:displayFieldName>Ward ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>wardID</ns1:xmlAttributeName>
-               <ns1:filterable>false</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>WARD_NAME</ns1:fieldName>
-               <ns1:displayFieldName>Ward</ns1:displayFieldName>
-               <ns1:xmlAttributeName>ward</ns1:xmlAttributeName>
-               <ns1:filterable>false</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>GENDER</ns1:fieldName>
-               <ns1:displayFieldName>Gender</ns1:displayFieldName>
-               <ns1:xmlAttributeName>gender</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AGE</ns1:fieldName>
-               <ns1:displayFieldName>Age</ns1:displayFieldName>
-               <ns1:xmlAttributeName>age</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>MONTH</ns1:fieldName>
-               <ns1:displayFieldName>Month</ns1:displayFieldName>
-               <ns1:xmlAttributeName>month</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>DAY</ns1:fieldName>
-               <ns1:displayFieldName>Daily</ns1:displayFieldName>
-               <ns1:xmlAttributeName>day</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>HOUR</ns1:fieldName>
-               <ns1:displayFieldName>Hourly</ns1:displayFieldName>
-               <ns1:xmlAttributeName>hourofday</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>DELIVER</ns1:fieldName>
-               <ns1:displayFieldName>Ad Distribution</ns1:displayFieldName>
-               <ns1:xmlAttributeName>deliverName</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>DEVICE</ns1:fieldName>
-               <ns1:displayFieldName>Device</ns1:displayFieldName>
-               <ns1:xmlAttributeName>device</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AD_STYLE</ns1:fieldName>
-               <ns1:displayFieldName>Ad Style (Image Type)</ns1:displayFieldName>
-               <ns1:xmlAttributeName>adStyle</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>MEDIA_ID</ns1:fieldName>
-               <ns1:displayFieldName>Image ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>imageID</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>MEDIA_NAME</ns1:fieldName>
-               <ns1:displayFieldName>Image Name</ns1:displayFieldName>
-               <ns1:xmlAttributeName>imageName</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>MEDIA_FILE_NAME</ns1:fieldName>
-               <ns1:displayFieldName>File Name</ns1:displayFieldName>
-               <ns1:xmlAttributeName>fileName</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>MEDIA_AD_FORMAT</ns1:fieldName>
-               <ns1:displayFieldName>Pixel Size</ns1:displayFieldName>
-               <ns1:xmlAttributeName>pixelSize</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AD_TITLE</ns1:fieldName>
-               <ns1:displayFieldName>Title</ns1:displayFieldName>
-               <ns1:xmlAttributeName>title</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>DESCRIPTION1</ns1:fieldName>
-               <ns1:displayFieldName>Description 1</ns1:displayFieldName>
-               <ns1:xmlAttributeName>description1</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>DESCRIPTION2</ns1:fieldName>
-               <ns1:displayFieldName>Description 2</ns1:displayFieldName>
-               <ns1:xmlAttributeName>description2</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>DISPLAY_URL</ns1:fieldName>
-               <ns1:displayFieldName>Display URL</ns1:displayFieldName>
-               <ns1:xmlAttributeName>displayURL</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>SEARCHKEYWORD_ID</ns1:fieldName>
-               <ns1:displayFieldName>Search Keyword ID</ns1:displayFieldName>
-               <ns1:xmlAttributeName>searchKeywordID</ns1:xmlAttributeName>
-               <ns1:filterable>false</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>SEARCHKEYWORD</ns1:fieldName>
-               <ns1:displayFieldName>Search Keyword</ns1:displayFieldName>
-               <ns1:xmlAttributeName>searchKeyword</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CONVERSION_LABEL</ns1:fieldName>
-               <ns1:displayFieldName>Conversion Name</ns1:displayFieldName>
-               <ns1:xmlAttributeName>conversionName</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CONVERSION_CATEGORY</ns1:fieldName>
-               <ns1:displayFieldName>Objective of Conversion Tracking</ns1:displayFieldName>
-               <ns1:xmlAttributeName>objectiveOfConversionTracking</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CARRIER</ns1:fieldName>
-               <ns1:displayFieldName>Carrier</ns1:displayFieldName>
-               <ns1:xmlAttributeName>carrier</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AD_LAYOUT</ns1:fieldName>
-               <ns1:displayFieldName>Layout</ns1:displayFieldName>
-               <ns1:xmlAttributeName>adLayout</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>IMAGE_OPTION</ns1:fieldName>
-               <ns1:displayFieldName>Dynamic Image Extensions</ns1:displayFieldName>
-               <ns1:xmlAttributeName>imageOption</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>OS</ns1:fieldName>
-               <ns1:displayFieldName>OS</ns1:displayFieldName>
-               <ns1:xmlAttributeName>os</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>APPLI</ns1:fieldName>
-               <ns1:displayFieldName>Web/App</ns1:displayFieldName>
-               <ns1:xmlAttributeName>appli</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>IMPS</ns1:fieldName>
-               <ns1:displayFieldName>Impressions</ns1:displayFieldName>
-               <ns1:xmlAttributeName>impressions</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CLICK_RATE</ns1:fieldName>
-               <ns1:displayFieldName>CTR</ns1:displayFieldName>
-               <ns1:xmlAttributeName>ctr</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>COST</ns1:fieldName>
-               <ns1:displayFieldName>Cost</ns1:displayFieldName>
-               <ns1:xmlAttributeName>cost</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CLICK</ns1:fieldName>
-               <ns1:displayFieldName>Clicks</ns1:displayFieldName>
-               <ns1:xmlAttributeName>clicks</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AVG_CPC</ns1:fieldName>
-               <ns1:displayFieldName>Avg. CPC</ns1:displayFieldName>
-               <ns1:xmlAttributeName>averageCpc</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CONVERSION</ns1:fieldName>
-               <ns1:displayFieldName>Total Conversions</ns1:displayFieldName>
-               <ns1:xmlAttributeName>totalConversions</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CONVERSION_RATE</ns1:fieldName>
-               <ns1:displayFieldName>Total Conversion Rate</ns1:displayFieldName>
-               <ns1:xmlAttributeName>totalConversionRate</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CPA</ns1:fieldName>
-               <ns1:displayFieldName>Cost / Total Conversions</ns1:displayFieldName>
-               <ns1:xmlAttributeName>costTotalConversions</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AVG_DELIVER_RANK</ns1:fieldName>
-               <ns1:displayFieldName>Avg. Position</ns1:displayFieldName>
-               <ns1:xmlAttributeName>averagePosition</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>REVENUE</ns1:fieldName>
-               <ns1:displayFieldName>Total Revenue</ns1:displayFieldName>
-               <ns1:xmlAttributeName>totalRevenue</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>REVENUE_CONVERSION</ns1:fieldName>
-               <ns1:displayFieldName>Rev. / Total Conversions</ns1:displayFieldName>
-               <ns1:xmlAttributeName>revenueTotalConversion</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>TOTAL_VIEWABLE_IMPS</ns1:fieldName>
-               <ns1:displayFieldName>Impressions on the measurement object</ns1:displayFieldName>
-               <ns1:xmlAttributeName>measurableImpressions</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>VIEWABLE_IMPS</ns1:fieldName>
-               <ns1:displayFieldName>Viewable Impressions</ns1:displayFieldName>
-               <ns1:xmlAttributeName>viewableImpressions</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>INVIEW_RATE</ns1:fieldName>
-               <ns1:displayFieldName>Viewable Impression Rate</ns1:displayFieldName>
-               <ns1:xmlAttributeName>viewableImpressionRate</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>INVIEW_CLICK</ns1:fieldName>
-               <ns1:displayFieldName>Viewable Clicks</ns1:displayFieldName>
-               <ns1:xmlAttributeName>viewableClicks</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>INVIEW_CLICK_RATE</ns1:fieldName>
-               <ns1:displayFieldName>Viewable CTR</ns1:displayFieldName>
-               <ns1:xmlAttributeName>viewableCtr</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AUTO_VIDEO_PLAYS</ns1:fieldName>
-               <ns1:displayFieldName>Auto Video Plays</ns1:displayFieldName>
-               <ns1:xmlAttributeName>autoVideoPlays</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>CLICK_VIDEO_PLAYS</ns1:fieldName>
-               <ns1:displayFieldName>Click Video Plays</ns1:displayFieldName>
-               <ns1:xmlAttributeName>clickVideoPlays</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>VIDEO_VIEWED_RATE</ns1:fieldName>
-               <ns1:displayFieldName>Video Viewed Rate</ns1:displayFieldName>
-               <ns1:xmlAttributeName>videoViewedRate</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AVG_CPV</ns1:fieldName>
-               <ns1:displayFieldName>Average CPV</ns1:displayFieldName>
-               <ns1:xmlAttributeName>avgCpv</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>VIDEO_PLAYS</ns1:fieldName>
-               <ns1:displayFieldName>Video Plays</ns1:displayFieldName>
-               <ns1:xmlAttributeName>videoPlays</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>VIDEO_VIEWS_TO_25</ns1:fieldName>
-               <ns1:displayFieldName>Video Views to 25%</ns1:displayFieldName>
-               <ns1:xmlAttributeName>videoViewsTo25</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>VIDEO_VIEWS_TO_50</ns1:fieldName>
-               <ns1:displayFieldName>Video Views to 50%</ns1:displayFieldName>
-               <ns1:xmlAttributeName>videoViewsTo50</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>VIDEO_VIEWS_TO_75</ns1:fieldName>
-               <ns1:displayFieldName>Video Views to 75%</ns1:displayFieldName>
-               <ns1:xmlAttributeName>videoViewsTo75</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>VIDEO_VIEWS_TO_95</ns1:fieldName>
-               <ns1:displayFieldName>Video Views to 95%</ns1:displayFieldName>
-               <ns1:xmlAttributeName>videoViewsTo95</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>VIDEO_VIEWS_TO_100</ns1:fieldName>
-               <ns1:displayFieldName>Video Views to 100%</ns1:displayFieldName>
-               <ns1:xmlAttributeName>videoViewsTo100</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AVG_PERCENT_VIDEO_VIEWED</ns1:fieldName>
-               <ns1:displayFieldName>Average % of Video Viewed</ns1:displayFieldName>
-               <ns1:xmlAttributeName>avgPercentVideoViewed</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-            <ns1:field>
-               <ns1:fieldName>AVG_DURATION_VIDEO_VIEWED</ns1:fieldName>
-               <ns1:displayFieldName>Average Duration of Video Viewed</ns1:displayFieldName>
-               <ns1:xmlAttributeName>avgDurationVideoViewed</ns1:xmlAttributeName>
-               <ns1:filterable>true</ns1:filterable>
-            </ns1:field>
-         </ns1:rval>
-      </ns1:getReportFieldsResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>ReportDefinition</ns2:service>
+      <ns2:requestTime>1528278915105</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getReportFieldsResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/ReportDefinition">
+      <ns2:rval>
+        <ns2:fields>
+          <ns2:fieldName>ACCOUNT_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>アカウントID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Account ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>accountID</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>ACCOUNT_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>アカウント名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Account Name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>accountName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CAMPAIGN_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>キャンペーンID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Campaign ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>campaignID</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CAMPAIGN_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>キャンペーン名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Campaign Name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>campaignName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>ADGROUP_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>広告グループID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ad Group ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>adgroupID</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>ADGROUP_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>広告グループ名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ad Group Name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>adgroupName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AD_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>広告ID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ad ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>adID</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AD_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>広告名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ad Name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>adName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AD_TYPE</ns2:fieldName>
+          <ns2:displayFieldNameJA>広告タイプ</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ad Type</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>adType</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>URL_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>リンク先URLID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Destination URL ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>destinationURLID</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>URL_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>リンク先URL</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Destination URL</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>destinationURL</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>PREF_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>都道府県ID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Prefecture ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>prefectureID</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>PREF_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>都道府県</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Prefectures</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>prefecture</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CITY_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>市区郡ID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>City ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>cityID</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CITY_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>市区郡</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>City</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>city</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>WARD_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>行政区ID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ward ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>wardID</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>WARD_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>行政区</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ward</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>ward</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>GENDER</ns2:fieldName>
+          <ns2:displayFieldNameJA>性別</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Gender</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>gender</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AGE</ns2:fieldName>
+          <ns2:displayFieldNameJA>年齢</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Age</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>age</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>MONTH</ns2:fieldName>
+          <ns2:displayFieldNameJA>月</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Month</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>month</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>DAY</ns2:fieldName>
+          <ns2:displayFieldNameJA>日</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Daily</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>day</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>HOUR</ns2:fieldName>
+          <ns2:displayFieldNameJA>時間</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Hourly</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>hourofday</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>DELIVER</ns2:fieldName>
+          <ns2:displayFieldNameJA>広告掲載方式</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ad Distribution</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>deliverName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>DEVICE</ns2:fieldName>
+          <ns2:displayFieldNameJA>デバイス</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Device</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>device</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AD_STYLE</ns2:fieldName>
+          <ns2:displayFieldNameJA>掲載フォーマット（画像タイプ）</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Ad Style (Image Type)</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>adStyle</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>MEDIA_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>メディアID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Media ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>mediaID</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>MEDIA_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>メディア名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Media Name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>mediaName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>MEDIA_FILE_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>ファイル名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>File Name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>fileName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>MEDIA_AD_FORMAT</ns2:fieldName>
+          <ns2:displayFieldNameJA>ピクセルサイズ</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Pixel Size</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>pixelSize</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AD_TITLE</ns2:fieldName>
+          <ns2:displayFieldNameJA>タイトル</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Title</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>title</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>DESCRIPTION1</ns2:fieldName>
+          <ns2:displayFieldNameJA>説明文1</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Description 1</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>description1</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>DESCRIPTION2</ns2:fieldName>
+          <ns2:displayFieldNameJA>説明文2</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Description 2</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>description2</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>DISPLAY_URL</ns2:fieldName>
+          <ns2:displayFieldNameJA>表示URL</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Display URL</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>displayURL</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>SEARCHKEYWORD_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>サーチキーワードID</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Search Keyword ID</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>searchKeywordID</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>SEARCHKEYWORD</ns2:fieldName>
+          <ns2:displayFieldNameJA>サーチキーワード</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Search Keyword</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>searchKeyword</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CONVERSION_LABEL</ns2:fieldName>
+          <ns2:displayFieldNameJA>コンバージョンラベル名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Conversion Name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>conversionName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>COST</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_CPC</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_RATE_OLD</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CPA_OLD</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_DELIVER_RANK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AUTO_VIDEO_PLAYS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CLICK_VIDEO_PLAYS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWED_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_CPV</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_PLAYS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_25</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_50</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_75</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_95</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_100</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_PERCENT_VIDEO_VIEWED</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_DURATION_VIDEO_VIEWED</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONV_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>COST_PER_CONV</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CONVERSION_CATEGORY</ns2:fieldName>
+          <ns2:displayFieldNameJA>コンバージョン測定の目的</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Objective of Conversion Tracking</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>objectiveOfConversionTracking</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>COST</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_CPC</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_RATE_OLD</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CPA_OLD</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_DELIVER_RANK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>TOTAL_VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIEWABLE_IMPS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>INVIEW_CLICK_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AUTO_VIDEO_PLAYS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CLICK_VIDEO_PLAYS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWED_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_CPV</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_PLAYS</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_25</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_50</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_75</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_95</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>VIDEO_VIEWS_TO_100</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_PERCENT_VIDEO_VIEWED</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AVG_DURATION_VIDEO_VIEWED</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONV_RATE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>COST_PER_CONV</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CARRIER</ns2:fieldName>
+          <ns2:displayFieldNameJA>キャリア</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Carrier</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>carrier</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AD_LAYOUT</ns2:fieldName>
+          <ns2:displayFieldNameJA>レイアウト</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Layout</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>adLayout</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>IMAGE_OPTION</ns2:fieldName>
+          <ns2:displayFieldNameJA>画像自動付与</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Dynamic Image Extensions</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>imageOption</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>OS</ns2:fieldName>
+          <ns2:displayFieldNameJA>OS</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>OS</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>os</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>APPLI</ns2:fieldName>
+          <ns2:displayFieldNameJA>ウェブ/アプリ</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Web/App</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>appli</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CAMPAIGN_TYPE</ns2:fieldName>
+          <ns2:displayFieldNameJA>キャンペーンタイプ</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Campaign Type</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>campaignType</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>APP_ID</ns2:fieldName>
+          <ns2:displayFieldNameJA>アプリID/パッケージ名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>App ID/Package name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>appID</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>APP_NAME</ns2:fieldName>
+          <ns2:displayFieldNameJA>アプリ名</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>App Name</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>appName</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>APP_OS</ns2:fieldName>
+          <ns2:displayFieldNameJA>アプリOS</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>App OS</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>appOS</ns2:xmlAttributeName>
+          <ns2:fieldType>STRING</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>IMPS</ns2:fieldName>
+          <ns2:displayFieldNameJA>インプレッション数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Impressions</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>impressions</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CLICK_RATE</ns2:fieldName>
+          <ns2:displayFieldNameJA>クリック率</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>CTR</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>ctr</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>COST</ns2:fieldName>
+          <ns2:displayFieldNameJA>コスト</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Cost</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>cost</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CLICK</ns2:fieldName>
+          <ns2:displayFieldNameJA>クリック数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Clicks</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>clicks</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AVG_CPC</ns2:fieldName>
+          <ns2:displayFieldNameJA>平均CPC</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Avg. CPC</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>averageCpc</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CONVERSION_OLD</ns2:fieldName>
+          <ns2:displayFieldNameJA>コンバージョン数（旧）</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Conversions (old)</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>totalConversionsOld</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CONVERSION_RATE_OLD</ns2:fieldName>
+          <ns2:displayFieldNameJA>コンバージョン率（旧）</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Conversion Rate (old)</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>totalConversionRateOld</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CPA_OLD</ns2:fieldName>
+          <ns2:displayFieldNameJA>コスト/コンバージョン数（旧）</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Cost per Conversions (old)</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>costTotalConversionsOld</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AVG_DELIVER_RANK</ns2:fieldName>
+          <ns2:displayFieldNameJA>平均掲載順位</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Avg. Position</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>averagePosition</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>REVENUE_OLD</ns2:fieldName>
+          <ns2:displayFieldNameJA>合計売上金額（旧）</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Revenue (old)</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>totalRevenueOld</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>REVENUE_CONVERSION_OLD</ns2:fieldName>
+          <ns2:displayFieldNameJA>売上/コンバージョン数（旧）</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Revenue per Conversions (old)</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>revenueTotalConversionOld</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>TOTAL_VIEWABLE_IMPS</ns2:fieldName>
+          <ns2:displayFieldNameJA>ビュー計測対象インプレッション数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Impressions on the measurement object</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>measurableImpressions</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>PREF_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>PREF_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>GENDER</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AGE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIEWABLE_IMPS</ns2:fieldName>
+          <ns2:displayFieldNameJA>ビューインプレッション数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Viewable Impressions</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>viewableImpressions</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>PREF_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>PREF_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>GENDER</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AGE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>INVIEW_RATE</ns2:fieldName>
+          <ns2:displayFieldNameJA>ビューインプレッション率</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Viewable Impression Rate</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>viewableImpressionRate</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>PREF_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>PREF_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>GENDER</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AGE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>INVIEW_CLICK</ns2:fieldName>
+          <ns2:displayFieldNameJA>ビュークリック数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Viewable Clicks</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>viewableClicks</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>PREF_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>PREF_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>GENDER</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AGE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>INVIEW_CLICK_RATE</ns2:fieldName>
+          <ns2:displayFieldNameJA>ビュークリック率</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Viewable CTR</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>viewableCtr</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>PREF_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>PREF_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CITY_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_ID</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>WARD_NAME</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>GENDER</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>AGE</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AUTO_VIDEO_PLAYS</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画の自動再生数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Auto Video Plays</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>autoVideoPlays</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CLICK_VIDEO_PLAYS</ns2:fieldName>
+          <ns2:displayFieldNameJA>クリックによる動画再生数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Click Video Plays</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>clickVideoPlays</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_VIEWED_RATE</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画の再生率</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Video Viewed Rate</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoViewedRate</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AVG_CPV</ns2:fieldName>
+          <ns2:displayFieldNameJA>平均CPV</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Average CPV</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>avgCpv</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_PLAYS</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画が再生開始された回数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Video Plays</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoPlays</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_VIEWS_TO_25</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画が25%まで再生された回数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Video Views to 25%</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoViewsTo25</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_VIEWS_TO_50</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画が50%まで再生された回数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Video Views to 50%</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoViewsTo50</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_VIEWS_TO_75</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画が75%まで再生された回数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Video Views to 75%</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoViewsTo75</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_VIEWS_TO_95</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画が95%まで再生された回数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Video Views to 95%</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoViewsTo95</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_VIEWS_TO_100</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画が100%まで再生された回数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Video Views to 100%</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoViewsTo100</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AVG_PERCENT_VIDEO_VIEWED</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画の平均再生率</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Average % of Video Viewed</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>avgPercentVideoViewed</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>AVG_DURATION_VIDEO_VIEWED</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画の平均再生時間（秒）</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Average Duration of Video Viewed</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>avgDurationVideoViewed</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_VIEWS</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画再生数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Video Views</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoViews</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>PAID_VIDEO_VIEWS</ns2:fieldName>
+          <ns2:displayFieldNameJA>課金が発生した動画再生数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Paid Video Views</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>paidVideoViews</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>PAID_VIDEO_VIEW_RATE</ns2:fieldName>
+          <ns2:displayFieldNameJA>課金が発生した動画再生率</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Paid Video View Rate</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>paidVideoViewRate</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>VIDEO_VIEWS_TO_3_SEC</ns2:fieldName>
+          <ns2:displayFieldNameJA>動画が3秒以上再生された回数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>3-second Video Views</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>videoViewsTo3sec</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CONVERSIONS</ns2:fieldName>
+          <ns2:displayFieldNameJA>コンバージョン数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Conversions</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>conversions</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>CONV_RATE</ns2:fieldName>
+          <ns2:displayFieldNameJA>コンバージョン率</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Conversion Rate</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>convRate</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>COST_PER_CONV</ns2:fieldName>
+          <ns2:displayFieldNameJA>コスト/コンバージョン数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Cost per Conversions</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>costPerConv</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+          <ns2:impossibleCombinationFields>CONVERSION_LABEL</ns2:impossibleCombinationFields>
+          <ns2:impossibleCombinationFields>CONVERSION_CATEGORY</ns2:impossibleCombinationFields>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>REVENUE</ns2:fieldName>
+          <ns2:displayFieldNameJA>合計売上金額</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Revenue</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>revenue</ns2:xmlAttributeName>
+          <ns2:fieldType>LONG</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+        <ns2:fields>
+          <ns2:fieldName>REVENUE_PER_CONV</ns2:fieldName>
+          <ns2:displayFieldNameJA>売上/コンバージョン数</ns2:displayFieldNameJA>
+          <ns2:displayFieldNameEN>Revenue per Conversions</ns2:displayFieldNameEN>
+          <ns2:xmlAttributeName>revenuePerConv</ns2:xmlAttributeName>
+          <ns2:fieldType>DOUBLE</ns2:fieldType>
+          <ns2:filterable>true</ns2:filterable>
+        </ns2:fields>
+      </ns2:rval>
+    </ns2:getReportFieldsResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(ADD)
+
 ### Request
 
-| Parameter | Requirement | Value | Description | 
+| Parameter | Requirement | Value | Description |
 |---|---|---|---|
-| operations | required | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | Displays operation target report definitions and operation content. | 
+| operations | required | [ReportDefinitionOperation](../data/ReportDefinition/ReportDefinitionOperation.md) | Displays operation target report definitions and operation content. |
 
 ##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-   <SOAP-ENV:Header>
-      <ns1:RequestHeader>
-         <ns1:license>1111-1111-1111-1111</ns1:license>
-         <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-         <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-      </ns1:RequestHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutate>
-         <ns1:operations>
-            <ns1:operator>ADD</ns1:operator>
-            <ns1:accountId>1000000001</ns1:accountId>
-            <ns1:operand>
-               <ns1:reportName>SandboxADReport_csv</ns1:reportName>
-               <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-               <ns1:dateRange>
-                  <ns1:startDate>20141103</ns1:startDate>
-                  <ns1:endDate>20141202</ns1:endDate>
-               </ns1:dateRange>
-               <ns1:filters>
-                  <ns1:field>CAMPAIGN_ID</ns1:field>
-                  <ns1:operator>IN</ns1:operator>
-                  <ns1:values>1000</ns1:values>
-                  <ns1:values>1001</ns1:values>
-                  <ns1:values>1002</ns1:values>
-               </ns1:filters>
-               <ns1:filters>
-                  <ns1:field>IMPS</ns1:field>
-                  <ns1:operator>GREATER_THAN</ns1:operator>
-                  <ns1:values>1500</ns1:values>
-              </ns1:filters>
-               <ns1:sortFields>+DAY</ns1:sortFields>
-               <ns1:sortFields>+IO_ID</ns1:sortFields>
-               <ns1:fields>IO_ID</ns1:fields>
-               <ns1:fields>IO_NAME</ns1:fields>
-               <ns1:fields>CAMPAIGN_ID</ns1:fields>
-               <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-               <ns1:fields>ADGROUP_ID</ns1:fields>
-               <ns1:fields>ADGROUP_NAME</ns1:fields>
-               <ns1:fields>AD_ID</ns1:fields>
-               <ns1:fields>AD_NAME</ns1:fields>
-               <ns1:fields>AD_TYPE</ns1:fields>
-               <ns1:fields>KEYWORD_ID</ns1:fields>
-               <ns1:fields>KEYWORD_NAME</ns1:fields>
-               <ns1:fields>URL_ID</ns1:fields>
-               <ns1:fields>URL_NAME</ns1:fields>
-               <ns1:fields>PREF_ID</ns1:fields>
-               <ns1:fields>PREF_NAME</ns1:fields>
-               <ns1:fields>LOCATION_ID</ns1:fields>
-               <ns1:fields>LOCATION_NAME</ns1:fields>
-               <ns1:fields>CITY_ID</ns1:fields>
-               <ns1:fields>CITY_NAME</ns1:fields>
-               <ns1:fields>WARD_ID</ns1:fields>
-               <ns1:fields>WARD_NAME</ns1:fields>
-               <ns1:fields>GENDER</ns1:fields>
-               <ns1:fields>AGE</ns1:fields>
-               <ns1:fields>MONTH</ns1:fields>
-               <ns1:fields>DAY</ns1:fields>
-               <ns1:fields>HOUR</ns1:fields>
-               <ns1:fields>DELIVER</ns1:fields>
-               <ns1:fields>AD_STYLE</ns1:fields>
-               <ns1:fields>MEDIA_ID</ns1:fields>
-               <ns1:fields>MEDIA_NAME</ns1:fields>
-               <ns1:fields>MEDIA_FILE_NAME</ns1:fields>
-               <ns1:fields>MEDIA_AD_FORMAT</ns1:fields>
-               <ns1:fields>AD_TITLE</ns1:fields>
-               <ns1:fields>DESCRIPTION1</ns1:fields>
-               <ns1:fields>DESCRIPTION2</ns1:fields>
-               <ns1:fields>DISPLAY_URL</ns1:fields>
-               <ns1:fields>SEARCHKEYWORD_ID</ns1:fields>
-               <ns1:fields>SEARCHKEYWORD</ns1:fields>
-               <ns1:fields>CONVERSION_LABEL</ns1:fields>
-               <ns1:fields>CONVERSION_CATEGORY</ns1:fields>
-               <ns1:fields>CARRIER</ns1:fields>
-               <ns1:fields>IMPS</ns1:fields>
-               <ns1:fields>CLICK_RATE</ns1:fields>
-               <ns1:fields>COST</ns1:fields>
-               <ns1:fields>CLICK</ns1:fields>
-               <ns1:fields>AVG_CPC</ns1:fields>
-               <ns1:fields>CONVERSION</ns1:fields>
-               <ns1:fields>CONVERSION_RATE</ns1:fields>
-               <ns1:fields>CPA</ns1:fields>
-               <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-               <ns1:fields>REVENUE</ns1:fields>
-               <ns1:fields>REVENUE_CONVERSION</ns1:fields>
-               <ns1:fields>TOTAL_VIEWABLE_IMPS</ns1:fields>
-               <ns1:fields>VIEWABLE_IMPS</ns1:fields>
-               <ns1:fields>INVIEW_RATE</ns1:fields>
-               <ns1:fields>INVIEW_CLICK</ns1:fields>
-               <ns1:fields>INVIEW_CLICK_RATE</ns1:fields>
-               <ns1:format>CSV</ns1:format>
-               <ns1:encode>UTF-8</ns1:encode>
-               <ns1:zip>ON</ns1:zip>
-               <ns1:lang>EN</ns1:lang>
-               <ns1:addTemplate>NO</ns1:addTemplate>
-            </ns1:operand>
-            <ns1:operand>
-               <ns1:reportName>SandboxADReport_xml</ns1:reportName>
-               <ns1:dateRangeType>CUSTOM_DATE</ns1:dateRangeType>
-               <ns1:dateRange>
-                  <ns1:startDate>20141103</ns1:startDate>
-                  <ns1:endDate>20141202</ns1:endDate>
-               </ns1:dateRange>
-               <ns1:sortFields>+DAY</ns1:sortFields>
-               <ns1:sortFields>+IO_ID</ns1:sortFields>
-               <ns1:fields>IO_ID</ns1:fields>
-               <ns1:fields>IO_NAME</ns1:fields>
-               <ns1:fields>CAMPAIGN_ID</ns1:fields>
-               <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-               <ns1:fields>ADGROUP_ID</ns1:fields>
-               <ns1:fields>ADGROUP_NAME</ns1:fields>
-               <ns1:fields>AD_ID</ns1:fields>
-               <ns1:fields>AD_NAME</ns1:fields>
-               <ns1:fields>AD_TYPE</ns1:fields>
-               <ns1:fields>KEYWORD_ID</ns1:fields>
-               <ns1:fields>KEYWORD_NAME</ns1:fields>
-               <ns1:fields>URL_ID</ns1:fields>
-               <ns1:fields>URL_NAME</ns1:fields>
-               <ns1:fields>PREF_ID</ns1:fields>
-               <ns1:fields>PREF_NAME</ns1:fields>
-               <ns1:fields>LOCATION_ID</ns1:fields>
-               <ns1:fields>LOCATION_NAME</ns1:fields>
-               <ns1:fields>CITY_ID</ns1:fields>
-               <ns1:fields>CITY_NAME</ns1:fields>
-               <ns1:fields>WARD_ID</ns1:fields>
-               <ns1:fields>WARD_NAME</ns1:fields>
-               <ns1:fields>GENDER</ns1:fields>
-               <ns1:fields>AGE</ns1:fields>
-               <ns1:fields>MONTH</ns1:fields>
-               <ns1:fields>DAY</ns1:fields>
-               <ns1:fields>HOUR</ns1:fields>
-               <ns1:fields>DELIVER</ns1:fields>
-               <ns1:fields>AD_STYLE</ns1:fields>
-               <ns1:fields>MEDIA_ID</ns1:fields>
-               <ns1:fields>MEDIA_NAME</ns1:fields>
-               <ns1:fields>MEDIA_FILE_NAME</ns1:fields>
-               <ns1:fields>MEDIA_AD_FORMAT</ns1:fields>
-               <ns1:fields>AD_TITLE</ns1:fields>
-               <ns1:fields>DESCRIPTION1</ns1:fields>
-               <ns1:fields>DESCRIPTION2</ns1:fields>
-               <ns1:fields>DISPLAY_URL</ns1:fields>
-               <ns1:fields>SEARCHKEYWORD_ID</ns1:fields>
-               <ns1:fields>SEARCHKEYWORD</ns1:fields>
-               <ns1:fields>CONVERSION_LABEL</ns1:fields>
-               <ns1:fields>CONVERSION_CATEGORY</ns1:fields>
-               <ns1:fields>CARRIER</ns1:fields>
-               <ns1:fields>IMPS</ns1:fields>
-               <ns1:fields>CLICK_RATE</ns1:fields>
-               <ns1:fields>COST</ns1:fields>
-               <ns1:fields>CLICK</ns1:fields>
-               <ns1:fields>AVG_CPC</ns1:fields>
-               <ns1:fields>CONVERSION</ns1:fields>
-               <ns1:fields>CONVERSION_RATE</ns1:fields>
-               <ns1:fields>CPA</ns1:fields>
-               <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-               <ns1:fields>REVENUE</ns1:fields>
-               <ns1:fields>REVENUE_CONVERSION</ns1:fields>
-               <ns1:fields>TOTAL_VIEWABLE_IMPS</ns1:fields>
-               <ns1:fields>VIEWABLE_IMPS</ns1:fields>
-               <ns1:fields>INVIEW_RATE</ns1:fields>
-               <ns1:fields>INVIEW_CLICK</ns1:fields>
-               <ns1:fields>INVIEW_CLICK_RATE</ns1:fields>
-               <ns1:format>CSV</ns1:format>
-               <ns1:encode>UTF-8</ns1:encode>
-               <ns1:zip>ON</ns1:zip>
-               <ns1:lang>EN</ns1:lang>
-               <ns1:addTemplate>YES</ns1:addTemplate>
-            </ns1:operand>
-         </ns1:operations>
-      </ns1:mutate>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/ReportDefinition">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>11111</accountId>
+        <operand>
+          <accountId>11111</accountId>
+          <reportName>Test Report </reportName>
+          <dateRangeType>LAST_7_DAYS</dateRangeType>
+          <filters>
+            <field>ACCOUNT_ID</field>
+            <operator>NOT_EQUALS</operator>
+            <values>100</values>
+          </filters>
+          <sortFields>+ACCOUNT_ID</sortFields>
+          <fields>ACCOUNT_ID</fields>
+          <fields>ACCOUNT_NAME</fields>
+          <fields>CAMPAIGN_ID</fields>
+          <fields>CAMPAIGN_NAME</fields>
+          <fields>ADGROUP_ID</fields>
+          <fields>ADGROUP_NAME</fields>
+          <fields>AD_ID</fields>
+          <fields>AD_NAME</fields>
+          <fields>AD_TYPE</fields>
+          <fields>URL_ID</fields>
+          <fields>URL_NAME</fields>
+          <fields>PREF_ID</fields>
+          <fields>PREF_NAME</fields>
+          <fields>CITY_ID</fields>
+          <fields>CITY_NAME</fields>
+          <fields>WARD_ID</fields>
+          <fields>WARD_NAME</fields>
+          <fields>GENDER</fields>
+          <fields>AGE</fields>
+          <fields>MONTH</fields>
+          <fields>DAY</fields>
+          <format>CSV</format>
+          <encode>UTF-8</encode>
+          <zip>OFF</zip>
+          <lang>JA</lang>
+          <intervalType>ONETIME</intervalType>
+          <addTemplate>NO</addTemplate>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [ReportDefinitionReturnValue](../data/ReportDefinitionReturnValue.md) | Container holding report definitions, including operation results. | | error | [Error](../data/Error.md) | An error. | 
+| rval | [ReportDefinitionReturnValue](../data/ReportDefinition/ReportDefinitionReturnValue.md) | Container holding report definitions, including operation results. | | error | [Error](../data/ReportDefinition/Error.md) | An error. |
 
 ##### Response Sample
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <SOAP-ENV:Header>
-      <ns1:ResponseHeader>
-         <ns1:service>ReportService</ns1:service>
-         <ns1:remainingQuota>100</ns1:remainingQuota>
-         <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-         <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-      </ns1:ResponseHeader>
-   </SOAP-ENV:Header>
-   <SOAP-ENV:Body>
-      <ns1:mutateResponse>
-         <ns1:rval>
-            <ns1:ListReturnValue.Type>ReportDefinitionReturnValue</ns1:ListReturnValue.Type>
-            <ns1:Operation.Type>ADD</ns1:Operation.Type>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:reportDefinition>
-                  <ns1:reportId>9000000001</ns1:reportId>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:reportName>SandboxAccountReport_csv</ns1:reportName>
-                  <ns1:dateRangeType>THIS_MONTH</ns1:dateRangeType>
-                  <ns1:dateRange>
-                     <ns1:startDate>20141103</ns1:startDate>
-                     <ns1:endDate>20141202</ns1:endDate>
-                  </ns1:dateRange>
-                  <ns1:filters>
-                     <ns1:field>CAMPAIGN_ID</ns1:field>
-                     <ns1:operator>IN</ns1:operator>
-                     <ns1:values>1000</ns1:values>
-                     <ns1:values>1001</ns1:values>
-                     <ns1:values>1002</ns1:values>
-                  </ns1:filters>
-                  <ns1:filters>
-                     <ns1:field>IMPS</ns1:field>
-                     <ns1:operator>GREATER_THAN</ns1:operator>
-                     <ns1:values>1500</ns1:values>
-                  </ns1:filters>
-                  <ns1:sortFields>+DAY</ns1:sortFields>
-                  <ns1:sortFields>+IO_ID</ns1:sortFields>
-                  <ns1:fields>IO_ID</ns1:fields>
-                  <ns1:fields>IO_NAME</ns1:fields>
-                  <ns1:fields>CAMPAIGN_ID</ns1:fields>
-                  <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-                  <ns1:fields>ADGROUP_ID</ns1:fields>
-                  <ns1:fields>ADGROUP_NAME</ns1:fields>
-                  <ns1:fields>AD_ID</ns1:fields>
-                  <ns1:fields>AD_NAME</ns1:fields>
-                  <ns1:fields>AD_TYPE</ns1:fields>
-                  <ns1:fields>KEYWORD_ID</ns1:fields>
-                  <ns1:fields>KEYWORD_NAME</ns1:fields>
-                  <ns1:fields>URL_ID</ns1:fields>
-                  <ns1:fields>URL_NAME</ns1:fields>
-                  <ns1:fields>PREF_ID</ns1:fields>
-                  <ns1:fields>PREF_NAME</ns1:fields>
-                  <ns1:fields>LOCATION_ID</ns1:fields>
-                  <ns1:fields>LOCATION_NAME</ns1:fields>
-                  <ns1:fields>CITY_ID</ns1:fields>
-                  <ns1:fields>CITY_NAME</ns1:fields>
-                  <ns1:fields>WARD_ID</ns1:fields>
-                  <ns1:fields>WARD_NAME</ns1:fields>
-                  <ns1:fields>GENDER</ns1:fields>
-                  <ns1:fields>AGE</ns1:fields>
-                  <ns1:fields>MONTH</ns1:fields>
-                  <ns1:fields>DAY</ns1:fields>
-                  <ns1:fields>HOUR</ns1:fields>
-                  <ns1:fields>DELIVER</ns1:fields>
-                  <ns1:fields>AD_STYLE</ns1:fields>
-                  <ns1:fields>MEDIA_ID</ns1:fields>
-                  <ns1:fields>MEDIA_NAME</ns1:fields>
-                  <ns1:fields>MEDIA_FILE_NAME</ns1:fields>
-                  <ns1:fields>MEDIA_AD_FORMAT</ns1:fields>
-                  <ns1:fields>AD_TITLE</ns1:fields>
-                  <ns1:fields>DESCRIPTION1</ns1:fields>
-                  <ns1:fields>DESCRIPTION2</ns1:fields>
-                  <ns1:fields>DISPLAY_URL</ns1:fields>
-                  <ns1:fields>SEARCHKEYWORD_ID</ns1:fields>
-                  <ns1:fields>SEARCHKEYWORD</ns1:fields>
-                  <ns1:fields>CONVERSION_LABEL</ns1:fields>
-                  <ns1:fields>CONVERSION_CATEGORY</ns1:fields>
-                  <ns1:fields>CARRIER</ns1:fields>
-                  <ns1:fields>IMPS</ns1:fields>
-                  <ns1:fields>CLICK_RATE</ns1:fields>
-                  <ns1:fields>COST</ns1:fields>
-                  <ns1:fields>CLICK</ns1:fields>
-                  <ns1:fields>AVG_CPC</ns1:fields>
-                  <ns1:fields>CONVERSION</ns1:fields>
-                  <ns1:fields>CONVERSION_RATE</ns1:fields>
-                  <ns1:fields>CPA</ns1:fields>
-                  <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-                  <ns1:fields>REVENUE</ns1:fields>
-                  <ns1:fields>REVENUE_CONVERSION</ns1:fields>
-                  <ns1:fields>TOTAL_VIEWABLE_IMPS</ns1:fields>
-                  <ns1:fields>VIEWABLE_IMPS</ns1:fields>
-                  <ns1:fields>INVIEW_RATE</ns1:fields>
-                  <ns1:fields>INVIEW_CLICK</ns1:fields>
-                  <ns1:fields>INVIEW_CLICK_RATE</ns1:fields>
-                  <ns1:format>CSV</ns1:format>
-                  <ns1:encode>UTF-8</ns1:encode>
-                  <ns1:zip>ON</ns1:zip>
-                  <ns1:lang>EN</ns1:lang>
-                  <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-                  <ns1:specifyDay>10</ns1:specifyDay>
-                  <ns1:addTemplate>NO</ns1:addTemplate>
-               </ns1:reportDefinition>
-            </ns1:values>
-            <ns1:values>
-               <ns1:operationSucceeded>true</ns1:operationSucceeded>
-               <ns1:reportDefinition>
-                  <ns1:reportId>9000000002</ns1:reportId>
-                  <ns1:accountId>1000000001</ns1:accountId>
-                  <ns1:reportName>SandboxAccountReport_xml</ns1:reportName>
-                  <ns1:dateRangeType>THIS_MONTH</ns1:dateRangeType>
-                  <ns1:sortFields>+DAY</ns1:sortFields>
-                  <ns1:sortFields>+IO_ID</ns1:sortFields>
-                  <ns1:fields>IO_ID</ns1:fields>
-                  <ns1:fields>IO_NAME</ns1:fields>
-                  <ns1:fields>CAMPAIGN_ID</ns1:fields>
-                  <ns1:fields>CAMPAIGN_NAME</ns1:fields>
-                  <ns1:fields>ADGROUP_ID</ns1:fields>
-                  <ns1:fields>ADGROUP_NAME</ns1:fields>
-                  <ns1:fields>AD_ID</ns1:fields>
-                  <ns1:fields>AD_NAME</ns1:fields>
-                  <ns1:fields>AD_TYPE</ns1:fields>
-                  <ns1:fields>KEYWORD_ID</ns1:fields>
-                  <ns1:fields>KEYWORD_NAME</ns1:fields>
-                  <ns1:fields>URL_ID</ns1:fields>
-                  <ns1:fields>URL_NAME</ns1:fields>
-                  <ns1:fields>PREF_ID</ns1:fields>
-                  <ns1:fields>PREF_NAME</ns1:fields>
-                  <ns1:fields>LOCATION_ID</ns1:fields>
-                  <ns1:fields>LOCATION_NAME</ns1:fields>
-                  <ns1:fields>CITY_ID</ns1:fields>
-                  <ns1:fields>CITY_NAME</ns1:fields>
-                  <ns1:fields>WARD_ID</ns1:fields>
-                  <ns1:fields>WARD_NAME</ns1:fields>
-                  <ns1:fields>GENDER</ns1:fields>
-                  <ns1:fields>AGE</ns1:fields>
-                  <ns1:fields>MONTH</ns1:fields>
-                  <ns1:fields>DAY</ns1:fields>
-                  <ns1:fields>HOUR</ns1:fields>
-                  <ns1:fields>DELIVER</ns1:fields>
-                  <ns1:fields>AD_STYLE</ns1:fields>
-                  <ns1:fields>MEDIA_ID</ns1:fields>
-                  <ns1:fields>MEDIA_NAME</ns1:fields>
-                  <ns1:fields>MEDIA_FILE_NAME</ns1:fields>
-                  <ns1:fields>MEDIA_AD_FORMAT</ns1:fields>
-                  <ns1:fields>AD_TITLE</ns1:fields>
-                  <ns1:fields>DESCRIPTION1</ns1:fields>
-                  <ns1:fields>DESCRIPTION2</ns1:fields>
-                  <ns1:fields>DISPLAY_URL</ns1:fields>
-                  <ns1:fields>SEARCHKEYWORD_ID</ns1:fields>
-                  <ns1:fields>SEARCHKEYWORD</ns1:fields>
-                  <ns1:fields>CONVERSION_LABEL</ns1:fields>
-                  <ns1:fields>CONVERSION_CATEGORY</ns1:fields>
-                  <ns1:fields>CARRIER</ns1:fields>
-                  <ns1:fields>IMPS</ns1:fields>
-                  <ns1:fields>CLICK_RATE</ns1:fields>
-                  <ns1:fields>COST</ns1:fields>
-                  <ns1:fields>CLICK</ns1:fields>
-                  <ns1:fields>AVG_CPC</ns1:fields>
-                  <ns1:fields>CONVERSION</ns1:fields>
-                  <ns1:fields>CONVERSION_RATE</ns1:fields>
-                  <ns1:fields>CPA</ns1:fields>
-                  <ns1:fields>AVG_DELIVER_RANK</ns1:fields>
-                  <ns1:fields>REVENUE</ns1:fields>
-                  <ns1:fields>REVENUE_CONVERSION</ns1:fields>
-                  <ns1:fields>TOTAL_VIEWABLE_IMPS</ns1:fields>
-                  <ns1:fields>VIEWABLE_IMPS</ns1:fields>
-                  <ns1:fields>INVIEW_RATE</ns1:fields>
-                  <ns1:fields>INVIEW_CLICK</ns1:fields>
-                  <ns1:fields>INVIEW_CLICK_RATE</ns1:fields>
-                  <ns1:format>XML</ns1:format>
-                  <ns1:encode>UTF-8</ns1:encode>
-                  <ns1:zip>ON</ns1:zip>
-                  <ns1:lang>EN</ns1:lang>
-                  <ns1:intervalType>SPECIFYDAY</ns1:intervalType>
-                  <ns1:specifyDay>10</ns1:specifyDay>
-                  <ns1:addTemplate>YES</ns1:addTemplate>
-               </ns1:reportDefinition>
-            </ns1:values>
-         </ns1:rval>
-      </ns1:mutateResponse>
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>ReportDefinition</ns2:service>
+      <ns2:requestTime>1528278915133</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/ReportDefinition">
+      <ns2:rval>
+        <ListReturnValue.Type>ReportDefinitionReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportDefinition>
+            <ns2:reportId>1111</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report</ns2:reportName>
+            <ns2:dateRangeType>CUSTOM_DATE</ns2:dateRangeType>
+            <ns2:dateRange>
+              <ns2:startDate>20160101</ns2:startDate>
+              <ns2:endDate>20161231</ns2:endDate>
+            </ns2:dateRange>
+            <ns2:filters>
+              <ns2:field>TRACKING_URL</ns2:field>
+              <ns2:operator>IN</ns2:operator>
+              <ns2:values>http://yahoo.co.jp</ns2:values>
+              <ns2:values>http://marketing.yahoo.co.jp</ns2:values>
+              <ns2:values>http://promotionalads.yahoo.co.jp</ns2:values>
+            </ns2:filters>
+            <ns2:filters>
+              <ns2:field>IMPS</ns2:field>
+              <ns2:operator>GREATER_THAN</ns2:operator>
+              <ns2:values>0</ns2:values>
+            </ns2:filters>
+            <ns2:filters>
+              <ns2:field>CAMPAIGN_ID</ns2:field>
+              <ns2:operator>IN</ns2:operator>
+              <ns2:values>200000001</ns2:values>
+              <ns2:values>200000002</ns2:values>
+              <ns2:values>200000003</ns2:values>
+              <ns2:values>200000003</ns2:values>
+              <ns2:values>200000004</ns2:values>
+              <ns2:values>200000005</ns2:values>
+            </ns2:filters>
+            <ns2:sortFields>+ACCOUNT_ID</ns2:sortFields>
+            <ns2:fields>ACCOUNT_ID</ns2:fields>
+            <ns2:fields>ACCOUNT_NAME</ns2:fields>
+            <ns2:fields>CAMPAIGN_ID</ns2:fields>
+            <ns2:fields>CAMPAIGN_NAME</ns2:fields>
+            <ns2:fields>ADGROUP_ID</ns2:fields>
+            <ns2:fields>ADGROUP_NAME</ns2:fields>
+            <ns2:fields>AD_ID</ns2:fields>
+            <ns2:fields>AD_NAME</ns2:fields>
+            <ns2:fields>AD_TYPE</ns2:fields>
+            <ns2:fields>URL_ID</ns2:fields>
+            <ns2:fields>URL_NAME</ns2:fields>
+            <ns2:fields>PREF_ID</ns2:fields>
+            <ns2:fields>PREF_NAME</ns2:fields>
+            <ns2:fields>CITY_ID</ns2:fields>
+            <ns2:fields>CITY_NAME</ns2:fields>
+            <ns2:fields>WARD_ID</ns2:fields>
+            <ns2:fields>WARD_NAME</ns2:fields>
+            <ns2:fields>GENDER</ns2:fields>
+            <ns2:fields>AGE</ns2:fields>
+            <ns2:fields>MONTH</ns2:fields>
+            <ns2:fields>DAY</ns2:fields>
+            <ns2:format>CSV</ns2:format>
+            <ns2:encode>UTF-8</ns2:encode>
+            <ns2:zip>OFF</ns2:zip>
+            <ns2:lang>EN</ns2:lang>
+            <ns2:intervalType>SPECIFYDAY</ns2:intervalType>
+            <ns2:specifyDay>28</ns2:specifyDay>
+            <ns2:addTemplate>NO</ns2:addTemplate>
+          </ns2:reportDefinition>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(REMOVE)
+
 ### Request
 Removes the report definition.
 
-| Parameter | Requirement | Value | Description | 
+| Parameter | Requirement | Value | Description |
 |---|---|---|---|
-| operations | required | [ReportDefinitionOperation](../data/ReportDefinitionOperation.md) | Report definition or operation elements of target of the operation. | 
+| operations | required | [ReportDefinitionOperation](../data/ReportDefinition/ReportDefinitionOperation.md) | Report definition or operation elements of target of the operation. |
 
-##### Request Sample (Standard Authentification)
+##### Request Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-                <ns1:operator>REMOVE</ns1:operator>
-                <ns1:accountId>1000000001</ns1:accountId>
-                <ns1:operand>
-                    <ns1:reportId>1000000001</ns1:reportId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:reportId>1000000002</ns1:reportId>
-                </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/ReportDefinition">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>11111</accountId>
+        <operand>
+          <reportId>22222</reportId>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### Response
-| Field | Data Type | Description | 
+| Field | Data Type | Description |
 |---|---|---|
-| rval | [ReportDefinitionReturnValue](../data/ReportDefinitionReturnValue.md) | Container of report definition including operation results. | 
+| rval | [ReportDefinitionReturnValue](../data/ReportDefinition/ReportDefinitionReturnValue.md) | Container of report definition including operation results. |
+
 ##### Response Sample
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>ReportDefinitionService</ns1:service>
-            <ns1:remainingQuota>4997</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>1</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-           <ns1:rval>
-             <ns1:ListReturnValue.Type>ReportDefinitionReturnValue</ns1:ListReturnValue.Type>
-             <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-             <ns1:values>
-                 <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                 <ns1:reportDefinition>
-                     <ns1:reportId>1000000001</ns1:reportId>
-               </ns1:reportDefinition>
-             </ns1:values>
-             <ns1:values>
-                 <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                 <ns1:reportDefinition>
-                     <ns1:reportId>1000000002</ns1:reportId>
-               </ns1:reportDefinition>
-             </ns1:values>
-           </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/ReportDefinition" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>ReportDefinition</ns2:service>
+      <ns2:requestTime>1528278915164</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/ReportDefinition">
+      <ns2:rval>
+        <ListReturnValue.Type>ReportDefinitionReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:reportDefinition>
+            <ns2:reportId>1111</ns2:reportId>
+            <ns2:reportName>Sample LANDING_PAGE_URL Report</ns2:reportName>
+            <ns2:dateRangeType>CUSTOM_DATE</ns2:dateRangeType>
+            <ns2:dateRange>
+              <ns2:startDate>20160101</ns2:startDate>
+              <ns2:endDate>20161231</ns2:endDate>
+            </ns2:dateRange>
+            <ns2:filters>
+              <ns2:field>TRACKING_URL</ns2:field>
+              <ns2:operator>IN</ns2:operator>
+              <ns2:values>http://yahoo.co.jp</ns2:values>
+              <ns2:values>http://marketing.yahoo.co.jp</ns2:values>
+              <ns2:values>http://promotionalads.yahoo.co.jp</ns2:values>
+            </ns2:filters>
+            <ns2:filters>
+              <ns2:field>IMPS</ns2:field>
+              <ns2:operator>GREATER_THAN</ns2:operator>
+              <ns2:values>0</ns2:values>
+            </ns2:filters>
+            <ns2:filters>
+              <ns2:field>CAMPAIGN_ID</ns2:field>
+              <ns2:operator>IN</ns2:operator>
+              <ns2:values>200000001</ns2:values>
+              <ns2:values>200000002</ns2:values>
+              <ns2:values>200000003</ns2:values>
+              <ns2:values>200000003</ns2:values>
+              <ns2:values>200000004</ns2:values>
+              <ns2:values>200000005</ns2:values>
+            </ns2:filters>
+            <ns2:sortFields>+ACCOUNT_ID</ns2:sortFields>
+            <ns2:fields>ACCOUNT_ID</ns2:fields>
+            <ns2:fields>ACCOUNT_NAME</ns2:fields>
+            <ns2:fields>CAMPAIGN_ID</ns2:fields>
+            <ns2:fields>CAMPAIGN_NAME</ns2:fields>
+            <ns2:fields>ADGROUP_ID</ns2:fields>
+            <ns2:fields>ADGROUP_NAME</ns2:fields>
+            <ns2:fields>AD_ID</ns2:fields>
+            <ns2:fields>AD_NAME</ns2:fields>
+            <ns2:fields>AD_TYPE</ns2:fields>
+            <ns2:fields>URL_ID</ns2:fields>
+            <ns2:fields>URL_NAME</ns2:fields>
+            <ns2:fields>PREF_ID</ns2:fields>
+            <ns2:fields>PREF_NAME</ns2:fields>
+            <ns2:fields>CITY_ID</ns2:fields>
+            <ns2:fields>CITY_NAME</ns2:fields>
+            <ns2:fields>WARD_ID</ns2:fields>
+            <ns2:fields>WARD_NAME</ns2:fields>
+            <ns2:fields>GENDER</ns2:fields>
+            <ns2:fields>AGE</ns2:fields>
+            <ns2:fields>MONTH</ns2:fields>
+            <ns2:fields>DAY</ns2:fields>
+            <ns2:format>CSV</ns2:format>
+            <ns2:encode>UTF-8</ns2:encode>
+            <ns2:zip>OFF</ns2:zip>
+            <ns2:lang>EN</ns2:lang>
+            <ns2:intervalType>SPECIFYDAY</ns2:intervalType>
+            <ns2:specifyDay>28</ns2:specifyDay>
+            <ns2:addTemplate>NO</ns2:addTemplate>
+          </ns2:reportDefinition>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

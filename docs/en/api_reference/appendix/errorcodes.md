@@ -111,6 +111,7 @@ Code           | Message                     | Description
 220123 | Unavailable conversion optimizer.  | Conversion optimization setting is not possible due to the non-eligible Ad distribution.
 220124 | Disable conversion optimizer.  | Target CPA cannot be set, due to the unusable conversion optimization.
 220143 | Invalid appId.  | Unavailable format of App ID has been set.
+220145 | Invalid conversion optimizer. | Conversion optimization setting is not possible using ADD operation. 
 
 ##### Service
 [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md)
@@ -141,11 +142,14 @@ Code           | Message                     | Description
 
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
+220123 | Unavailable conversion optimizer.  | Conversion optimization setting is not possible due to the non-eligible Ad distribution.
+220124 | Disable conversion optimizer.  | Target CPA cannot be set, due to the unusable conversion optimization.
 220125 | Unavailable the dynamicImageExtensions.  | Cannot set Dynamic Image Extensions, due to the non-eligible Ad distribution.
 220132 | Cannot set the carrier type. | Selected device is not available to select the carrier type.
 220138 | Unsupported Os Version. | The set OS version is invalid.
 220139 | Invalid Os Version. | The OS specified on Mobile App Campaign and the OS version set by targeting do not match.
 220140 | Invalid device type. | DeviceType must be SMARTPHONE or TABLET when Campaign type is APP.
+220146 | Invalid target cpa value. | Set values more than 1 in the Target CPA when Auto Bidding.
 220310 | Over limit to ad group under account. | Number of ad groups under an account exceeded the limit. 
 
 ##### Service

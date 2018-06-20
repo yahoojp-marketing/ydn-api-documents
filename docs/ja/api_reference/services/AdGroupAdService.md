@@ -3,1037 +3,1206 @@ AdGroupAdServiceは広告の操作を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupAdService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201806/AdGroupAdService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/AdGroupAdService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V6
+http://im.yahooapis.jp/V201806/AdGroupAd
 #### サービス概要
 広告の取得と更新を行います。
 #### 操作
 AdGroupAdServiceで提供される操作を説明します。
 
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(SET)](#mutateset)
++ [mutate(REMOVE)](#mutateremove)
+
+#### オブジェクト
+[AdGroupAd](../data/AdGroupAd)
+
 ## get
+
 ### リクエスト
 広告の情報を取得します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [AdGroupAdSelector](../data/AdGroupAdSelector.md) | getメソッドの検索条件（実行パラメータ）を保持します。 | 
+| selector | ○ | [AdGroupAdSelector](../data/AdGroupAd/AdGroupAdSelector.md) | getメソッドの検索条件（実行パラメータ）を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
-  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
-  xmlns:ns1="http://im.yahooapis.jp/V6"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:get>
-            <ns1:selector>
-                <ns1:accountId>111111111</ns1:accountId>
-                <ns1:campaignIds>2222222</ns1:campaignIds>
-                <ns1:adGroupIds>3333333</ns1:adGroupIds>
-                <ns1:adIds>5555555</ns1:adIds>
-                <ns1:adIds>7777777</ns1:adIds>
-                <ns1:adIds>8888888</ns1:adIds>
-                <ns1:adIds>9999999</ns1:adIds>
-                <ns1:userStatuses>PAUSED</ns1:userStatuses>
-                <ns1:approvalStatuses>REVIEW</ns1:approvalStatuses>
-                <ns1:paging>
-                  <ns1:startIndex>1</ns1:startIndex>
-                  <ns1:numberResults>20</ns1:numberResults>
-                </ns1:paging>
-            </ns1:selector>
-        </ns1:get>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>1234567890</accountId>
+        <campaignIds>10001</campaignIds>
+        <campaignIds>10002</campaignIds>
+        <campaignIds>10003</campaignIds>
+        <campaignIds>10004</campaignIds>
+        <campaignIds>10005</campaignIds>
+        <adGroupIds>20001</adGroupIds>
+        <adGroupIds>20002</adGroupIds>
+        <adGroupIds>20003</adGroupIds>
+        <adGroupIds>20004</adGroupIds>
+        <adGroupIds>20005</adGroupIds>
+        <adIds>20001</adIds>
+        <adIds>20002</adIds>
+        <adIds>20003</adIds>
+        <adIds>20004</adIds>
+        <adIds>20005</adIds>
+        <mediaIds>100000</mediaIds>
+        <mediaIds>100001</mediaIds>
+        <userStatuses>ACTIVE</userStatuses>
+        <userStatuses>PAUSED</userStatuses>
+        <approvalStatuses>APPROVED</approvalStatuses>
+        <approvalStatuses>APPROVED_WITH_REVIEW</approvalStatuses>
+        <approvalStatuses>POST_DISAPPROVED</approvalStatuses>
+        <approvalStatuses>PRE_DISAPPROVED</approvalStatuses>
+        <approvalStatuses>REVIEW</approvalStatuses>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>1000</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupAdPage](../data/AdGroupAdPage.md) | getメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupAdPage](../data/AdGroupAd/AdGroupAdPage.md) | getメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>AdGroupAdService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:getResponse>
-            <ns1:rval>
-                <ns1:totalNumEntries>1</ns1:totalNumEntries>
-                <ns1:Page.Type>AdGroupAdPage</ns1:Page.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>5555555</ns1:adId>
-                        <ns1:adName>PC広告名</ns1:adName >
-                        <ns1:adStyle>TEXT</ns1:adStyle >
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>120</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:TextAd">
-                            <ns1:type>TEXT_LONG_AD1</ns1:type>
-                            <ns1:url>http: //yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>PC広告タイトル</ns1:headline>
-                            <ns1:description>PC広告の説明文１</ns1:description>
-                            <ns1:description2>PC広告の説明文２</ns1:description2>
-                        </ns1:ad>
-                        <ns1:impressionBeaconUrls>http:// www.yahoo.co.jp/</ns1:impressionBeaconUrls>
-                    </ns1:adGroupAd>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:getResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupAd</ns2:service>
+      <ns2:requestTime>1528278904199</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/AdGroupAd">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>AdGroupAdPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>2000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TextAd">
+              <ns2:type>TEXT_LONG_AD1</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:description2>description2</ns2:description2>
+            </ns2:ad>
+            <ns2:impressionBeaconUrls>https://test.com/</ns2:impressionBeaconUrls>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PosAd">
+              <ns2:type>POS_AD</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:description>description</ns2:description>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveAd">
+              <ns2:type>RESPONSIVE_AD</ns2:type>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>2222</ns2:logoMediaId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:StaticFrameAd">
+              <ns2:type>STATIC_FRAME_AD</ns2:type>
+              <ns2:size>300X250</ns2:size>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:layout>SQUARE_BANNER_TOP</ns2:layout>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:colorSetId>1000000005</ns2:colorSetId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:None">
+              <ns2:type>NONE</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPVAdGroupAdBid">
+              <ns2:type>MANUAL_CPV</ns2:type>
+              <ns2:maxCpv>100000</ns2:maxCpv>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:VideoAd">
+              <ns2:type>VIDEO_AD</ns2:type>
+              <ns2:thumbnailMediaId>555555</ns2:thumbnailMediaId>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>99999</ns2:logoMediaId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(ADD)
+
 ### リクエスト
 広告を追加します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 | 
+| operations | ○ | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-              <ns1:operator>ADD</ns1:operator>
-                <ns1:accountId>111111111</ns1:accountId>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名１a</ns1:adName>                
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                        <ns1:maxCpc>100</ns1:maxCpc>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:TextAd">
-                        <ns1:type>TEXT_LONG_AD1</ns1:type>
-                        <ns1:url>http: //yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>yahoo.co.jp</ns1:displayUrl>
-                        <ns1:headline>タイトル（PC）</ns1:headline>
-                        <ns1:description>説明文１</ns1:description>
-                        <ns1:description2>説明文２</ns1:description2>
-                    </ns1:ad>
-                    <ns1:impressionBeaconUrls>http:// yahoo.co.jp</ns1:impressionBeaconUrls>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名１b</ns1:adName>                
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                        <ns1:maxCpc>100</ns1:maxCpc>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:MobileAd">
-                        <ns1:type>TEXT_SHORT_AD1</ns1:type>
-                        <ns1:url>http: //yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>yahoo.co.jp</ns1:displayUrl>
-                        <ns1:headline>たいとる（もば）</ns1:headline>
-                        <ns1:description>説明文１</ns1:description>
-                        <ns1:description2>説明文２</ns1:description2>
-                        <ns1:mobileCarriers>DOCOMO</ns1:mobileCarriers>
-                        <ns1:mobileCarriers>KDDI</ns1:mobileCarriers>
-                        <ns1:mobileCarriers>SOFTBANK</ns1:mobileCarriers>
-                    </ns1:ad>
-                    <ns1:impressionBeaconUrls>http:// yahoo.co.jp</ns1:impressionBeaconUrls>
-                    <ns1:impressionBeaconUrls>http:// yahoo2.co.jp</ns1:impressionBeaconUrls>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名1c</ns1:adName>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                        <ns1:maxCpc>100</ns1:maxCpc>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:ResponsiveAd">
-                        <ns1:type>RESPONSIVE_AD</ns1:type>
-                        <ns1:headline>タイトル</ns1:headline>
-                        <ns1:description>説明</ns1:description>
-                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                        <ns1:principal>主体者表記</ns1:principal>
-                        <ns1:logoMediaId>1111</ns1:logoMediaId>
-                    </ns1:ad>
-                     <ns1:impressionBeaconUrls></ns1:impressionBeaconUrls>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名1d</ns1:adName>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                        <ns1:maxCpc>100</ns1:maxCpc>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:StaticFrameAd">
-                        <ns1:type>STATIC_FRAME_AD</ns1:type>
-                        <ns1:size>300X250</ns1:size>
-                        <ns1:headline>タイトル</ns1:headline>
-                        <ns1:description>説明</ns1:description>
-                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                        <ns1:layout>SQUARE_BANNER_TOP</ns1:layout>
-                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                        <ns1:principal>主体者表記</ns1:principal>
-                        <ns1:logoMediaId>1111</ns1:logoMediaId>
-                        <ns1:colorSetId>123213</ns1:colorSetId>
-                    </ns1:ad>
-               </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名1e</ns1:adName>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
-                        <ns1:type>MANUAL_CPV</ns1:type>
-                        <ns1:maxCpv>100</ns1:maxCpv>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:VideoAd">
-                        <ns1:type>VIDEO_AD</ns1:type>
-                        <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
-                        <ns1:headline>タイトル</ns1:headline>
-                        <ns1:description>説明</ns1:description>
-                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                        <ns1:principal>主体者表記</ns1:principal>
-                        <ns1:logoMediaId>1111</ns1:logoMediaId>
-                    </ns1:ad>
-               </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupAd">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>100000</campaignId>
+          <adGroupId>2000</adGroupId>
+          <adName>TextAd</adName>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <type>MANUAL_CPC</type>
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TextAd">
+            <type>TEXT_LONG_AD1</type>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+            <headline>headline</headline>
+            <description>description</description>
+            <description2>description2</description2>
+          </ad>
+          <impressionBeaconUrls>https://test.com</impressionBeaconUrls>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>22222</campaignId>
+          <adGroupId>333333</adGroupId>
+          <adName>PosAd</adName>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <type>MANUAL_CPC</type>
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PosAd">
+            <type>POS_AD</type>
+            <url>http://test.co.jp</url>
+            <description>description</description>
+          </ad>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>44444</campaignId>
+          <adGroupId>44444</adGroupId>
+          <adName>ResponsiveAd</adName>
+          <mediaId>9999</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <type>MANUAL_CPC</type>
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponsiveAd">
+            <type>RESPONSIVE_AD</type>
+            <headline>headline</headline>
+            <description>description</description>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+            <buttonText>APPLY_NOW</buttonText>
+            <principal>principal</principal>
+            <logoMediaId>66666</logoMediaId>
+          </ad>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>3333</campaignId>
+          <adGroupId>222222</adGroupId>
+          <adName>StaticFrameAd</adName>
+          <mediaId>300000</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <type>MANUAL_CPC</type>
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="StaticFrameAd">
+            <type>STATIC_FRAME_AD</type>
+            <size>300X250</size>
+            <headline>headline</headline>
+            <description>description</description>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+            <layout>SQUARE_BANNER_TOP</layout>
+            <buttonText>APPLY_NOW</buttonText>
+            <principal>principal</principal>
+            <colorSetId>1000000005</colorSetId>
+          </ad>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>19999</campaignId>
+          <adGroupId>29999</adGroupId>
+          <adName>None</adName>
+          <mediaId>480003</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <type>MANUAL_CPC</type>
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="None">
+            <type>NONE</type>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+          </ad>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>88888</campaignId>
+          <adGroupId>7777</adGroupId>
+          <adName>VideoAd</adName>
+          <mediaId>88812</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPVAdGroupAdBid">
+            <type>MANUAL_CPV</type>
+            <maxCpv>10000</maxCpv>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="VideoAd">
+            <type>VIDEO_AD</type>
+            <thumbnailMediaId>44444</thumbnailMediaId>
+            <headline>headline</headline>
+            <description>description</description>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+            <buttonText>APPLY_NOW</buttonText>
+            <principal>principal</principal>
+            <logoMediaId>894651</logoMediaId>
+          </ad>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>AdGroupAdService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>AdGroupAdReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>ADD</ns1:Operation.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>5555555</ns1:adId>
-                        <ns1:adName>広告名１a</ns1:adName >
-                        <ns1:adStyle>TEXT</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:TextAd">
-                            <ns1:type>TEXT_LONG_AD1</ns1:type>
-                            <ns1:url>http: //yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>タイトル（PC）</ns1:headline>
-                            <ns1:description>説明文１</ns1:description>
-                            <ns1:description2>説明文２</ns1:description2>
-                        </ns1:ad>
-                        <ns1:impressionBeaconUrls>http: //yahoo.co.jp</ns1:impressionBeaconUrls>
-                    </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>7777777</ns1:adId>
-                        <ns1:adName>モバイル広告名</ns1:adName >
-                        <ns1:adStyle>TEXT</ns1:adStyle>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
-                        <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:MobileAd">
-                            <ns1:type>TEXT_SHORT_AD1</ns1:type>
-                            <ns1:url>http: //yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>たいとる（もば）</ns1:headline>
-                            <ns1:description>説明文１</ns1:description>
-                            <ns1:description2>説明文２</ns1:description2>
-                            <ns1:mobileCarriers>DOCOMO</ns1:mobileCarriers>
-                            <ns1:mobileCarriers>KDDI</ns1:mobileCarriers>
-                            <ns1:mobileCarriers>SOFTBANK</ns1:mobileCarriers>
-                        </ns1:ad>
-                        <ns1:impressionBeaconUrls>http:// yahoo.co.jp</ns1:impressionBeaconUrls>
-                        <ns1:impressionBeaconUrls>http:// yahoo2.co.jp</ns1:impressionBeaconUrls>
-                     </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>88888888</ns1:adId>
-                        <ns1:adName>広告名1c</ns1:adName>
-                        <ns1:adStyle>IMAGE</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:ResponsiveAd">
-                            <ns1:type>RESPONSIVE_AD</ns1:type>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>99999999</ns1:adId>
-                        <ns1:adName>広告名1d</ns1:adName >
-                        <ns1:adStyle>IMAGE</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:StaticFrameAd">
-                            <ns1:type>STATIC_FRAME_AD</ns1:type>
-                            <ns1:size>300X250</ns1:size>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:layout>SQUARE_BANNER_TOP</ns1:layout>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                            <ns1:colorSetId>123213</ns1:colorSetId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>12341234</ns1:adId>
-                        <ns1:adName>広告名1e</ns1:adName >
-                        <ns1:adStyle>VIDEO</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
-                            <ns1:type>MANUAL_CPV</ns1:type>
-                            <ns1:maxCpv>100</ns1:maxCpv>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:VideoAd">
-                            <ns1:type>VIDEO_AD</ns1:type>
-                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>false</ns1:operationSucceeded>
-                    <ns1:error>
-                        <ns1:code>2012</ns1:code>
-                        <ns1:message>This is Sample Error</ns1:message>
-                        <ns1:detail/>
-                    </ns1:error>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupAd</ns2:service>
+      <ns2:requestTime>1528278904852</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/AdGroupAd">
+      <ns2:rval>
+        <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>2000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TextAd">
+              <ns2:type>TEXT_LONG_AD1</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:description2>description2</ns2:description2>
+            </ns2:ad>
+            <ns2:impressionBeaconUrls>https://test.com/</ns2:impressionBeaconUrls>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PosAd">
+              <ns2:type>POS_AD</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:description>description</ns2:description>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveAd">
+              <ns2:type>RESPONSIVE_AD</ns2:type>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>2222</ns2:logoMediaId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:StaticFrameAd">
+              <ns2:type>STATIC_FRAME_AD</ns2:type>
+              <ns2:size>300X250</ns2:size>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:layout>SQUARE_BANNER_TOP</ns2:layout>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:colorSetId>1000000005</ns2:colorSetId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:None">
+              <ns2:type>NONE</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPVAdGroupAdBid">
+              <ns2:type>MANUAL_CPV</ns2:type>
+              <ns2:maxCpv>100000</ns2:maxCpv>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:VideoAd">
+              <ns2:type>VIDEO_AD</ns2:type>
+              <ns2:thumbnailMediaId>555555</ns2:thumbnailMediaId>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>99999</ns2:logoMediaId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(SET)
+
 ### リクエスト
 広告を変更します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 | 
+| operations | ○ | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-              <ns1:operator>SET</ns1:operator>
-                <ns1:accountId>111111111</ns1:accountId>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名１a</ns1:adName>                
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                        <ns1:maxCpc>100</ns1:maxCpc>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:TextAd">
-                        <ns1:type>TEXT_LONG_AD1</ns1:type>
-                        <ns1:url>http: //yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>yahoo.co.jp</ns1:displayUrl>
-                        <ns1:headline>タイトル（PC）</ns1:headline>
-                        <ns1:description>説明文１</ns1:description>
-                        <ns1:description2>説明文２</ns1:description2>
-                    </ns1:ad>
-                    <ns1:impressionBeaconUrls>http:// yahoo.co.jp</ns1:impressionBeaconUrls>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名１b</ns1:adName>                
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                        <ns1:maxCpc>100</ns1:maxCpc>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:MobileAd">
-                        <ns1:type>TEXT_SHORT_AD1</ns1:type>
-                        <ns1:url>http: //yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>yahoo.co.jp</ns1:displayUrl>
-                        <ns1:headline>たいとる（もば）</ns1:headline>
-                        <ns1:description>説明文１</ns1:description>
-                        <ns1:description2>説明文２</ns1:description2>
-                        <ns1:mobileCarriers>DOCOMO</ns1:mobileCarriers>
-                        <ns1:mobileCarriers>KDDI</ns1:mobileCarriers>
-                        <ns1:mobileCarriers>SOFTBANK</ns1:mobileCarriers>
-                    </ns1:ad>
-                    <ns1:impressionBeaconUrls>http:// yahoo.co.jp</ns1:impressionBeaconUrls>
-                    <ns1:impressionBeaconUrls>http:// yahoo2.co.jp</ns1:impressionBeaconUrls>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名1c</ns1:adName>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                        <ns1:maxCpc>100</ns1:maxCpc>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:ResponsiveAd">
-                        <ns1:type>RESPONSIVE_AD</ns1:type>
-                        <ns1:headline>タイトル</ns1:headline>
-                        <ns1:description>説明</ns1:description>
-                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                        <ns1:principal>主体者表記</ns1:principal>
-                        <ns1:logoMediaId>1111</ns1:logoMediaId>
-                    </ns1:ad>
-                     <ns1:isRemoveBeaconUrls>TRUE</ns1:isRemoveBeaconUrls>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名1d</ns1:adName>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                        <ns1:type>MANUAL_CPC</ns1:type>
-                        <ns1:maxCpc>100</ns1:maxCpc>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:StaticFrameAd">
-                        <ns1:type>STATIC_FRAME_AD</ns1:type>
-                        <ns1:size>300X250</ns1:size>
-                        <ns1:headline>タイトル</ns1:headline>
-                        <ns1:description>説明</ns1:description>
-                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                        <ns1:layout>SQUARE_BANNER_TOP</ns1:layout>
-                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                        <ns1:principal>主体者表記</ns1:principal>
-                        <ns1:logoMediaId>1111</ns1:logoMediaId>
-                        <ns1:colorSetId>123213</ns1:colorSetId>
-                    </ns1:ad>
-               </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adName>広告名1e</ns1:adName>
-                    <ns1:userStatus>ACTIVE</ns1:userStatus>
-                    <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
-                        <ns1:type>MANUAL_CPV</ns1:type>
-                        <ns1:maxCpv>100</ns1:maxCpv>
-                    </ns1:bid>
-                    <ns1:ad xsi:type="ns1:VideoAd">
-                        <ns1:type>VIDEO_AD</ns1:type>
-                        <ns1:thumbnailMediaId>1234567</ns1:thumbnailMediaId>
-                        <ns1:headline>タイトル</ns1:headline>
-                        <ns1:description>説明</ns1:description>
-                        <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                        <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                        <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                        <ns1:principal>主体者表記</ns1:principal>
-                        <ns1:logoMediaId>1111</ns1:logoMediaId>
-                    </ns1:ad>
-               </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupAd">
+      <operations>
+        <operator>SET</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>100000</campaignId>
+          <adGroupId>2000</adGroupId>
+          <adId>2222</adId>
+          <adName>TextAd</adName>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TextAd">
+            <type>TEXT_LONG_AD1</type>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+            <headline>headline</headline>
+            <description>description</description>
+            <description2>description2</description2>
+          </ad>
+          <impressionBeaconUrls>https://test.com</impressionBeaconUrls>
+          <isRemoveBeaconUrls>TRUE</isRemoveBeaconUrls>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>22222</campaignId>
+          <adGroupId>333333</adGroupId>
+          <adId>2223</adId>
+          <adName>PosAd</adName>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PosAd">
+            <type>POS_AD</type>
+            <url>http://test.co.jp</url>
+            <description>description</description>
+          </ad>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>44444</campaignId>
+          <adGroupId>44444</adGroupId>
+          <adId>2224</adId>
+          <adName>ResponsiveAd</adName>
+          <mediaId>9999</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponsiveAd">
+            <type>RESPONSIVE_AD</type>
+            <headline>headline</headline>
+            <description>description</description>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+            <buttonText>APPLY_NOW</buttonText>
+            <principal>principal</principal>
+            <logoMediaId>66666</logoMediaId>
+          </ad>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>3333</campaignId>
+          <adGroupId>222222</adGroupId>
+          <adId>2225</adId>
+          <adName>StaticFrameAd</adName>
+          <mediaId>300000</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="StaticFrameAd">
+            <type>STATIC_FRAME_AD</type>
+            <size>300X250</size>
+            <headline>headline</headline>
+            <description>description</description>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+            <layout>SQUARE_BANNER_TOP</layout>
+            <buttonText>APPLY_NOW</buttonText>
+            <principal>principal</principal>
+            <colorSetId>1000000005</colorSetId>
+          </ad>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>19999</campaignId>
+          <adGroupId>29999</adGroupId>
+          <adId>2226</adId>
+          <adName>None</adName>
+          <mediaId>480003</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="None">
+            <type>NONE</type>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+          </ad>
+        </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>88888</campaignId>
+          <adGroupId>7777</adGroupId>
+          <adId>2299</adId>
+          <adName>VideoAd</adName>
+          <mediaId>88812</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPVAdGroupAdBid">
+            <maxCpv>10000</maxCpv>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="VideoAd">
+            <type>VIDEO_AD</type>
+            <thumbnailMediaId>44444</thumbnailMediaId>
+            <headline>headline</headline>
+            <description>description</description>
+            <url>http://test.co.jp</url>
+            <displayUrl>test.co.jp</displayUrl>
+            <buttonText>APPLY_NOW</buttonText>
+            <principal>principal</principal>
+            <logoMediaId>894651</logoMediaId>
+          </ad>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>AdGroupAdService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>AdGroupAdReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>SET</ns1:Operation.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>5555555</ns1:adId>
-                        <ns1:adName>広告名１a</ns1:adName >
-                        <ns1:adStyle>TEXT</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:TextAd">
-                            <ns1:type>TEXT_LONG_AD1</ns1:type>
-                            <ns1:url>http: //yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>タイトル（PC）</ns1:headline>
-                            <ns1:description>説明文１</ns1:description>
-                            <ns1:description2>説明文２</ns1:description2>
-                        </ns1:ad>
-                        <ns1:impressionBeaconUrls>http: //yahoo.co.jp</ns1:impressionBeaconUrls>
-                    </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>7777777</ns1:adId>
-                        <ns1:adName>モバイル広告名</ns1:adName >
-                        <ns1:adStyle>TEXT</ns1:adStyle>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
-                        <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:MobileAd">
-                            <ns1:type>TEXT_SHORT_AD1</ns1:type>
-                            <ns1:url>http: //yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>たいとる（もば）</ns1:headline>
-                            <ns1:description>説明文１</ns1:description>
-                            <ns1:description2>説明文２</ns1:description2>
-                            <ns1:mobileCarriers>DOCOMO</ns1:mobileCarriers>
-                            <ns1:mobileCarriers>KDDI</ns1:mobileCarriers>
-                            <ns1:mobileCarriers>SOFTBANK</ns1:mobileCarriers>
-                        </ns1:ad>
-                        <ns1:impressionBeaconUrls>http:// yahoo.co.jp</ns1:impressionBeaconUrls>
-                        <ns1:impressionBeaconUrls>http:// yahoo2.co.jp</ns1:impressionBeaconUrls>
-                     </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>88888888</ns1:adId>
-                        <ns1:adName>広告名1c</ns1:adName>
-                        <ns1:adStyle>IMAGE</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:ResponsiveAd">
-                            <ns1:type>RESPONSIVE_AD</ns1:type>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>99999999</ns1:adId>
-                        <ns1:adName>広告名1d</ns1:adName >
-                        <ns1:adStyle>IMAGE</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:StaticFrameAd">
-                            <ns1:type>STATIC_FRAME_AD</ns1:type>
-                            <ns1:size>300X250</ns1:size>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:layout>SQUARE_BANNER_TOP</ns1:layout>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                            <ns1:colorSetId>123213</ns1:colorSetId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>12341234</ns1:adId>
-                        <ns1:adName>広告名1e</ns1:adName >
-                        <ns1:adStyle>VIDEO</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
-                            <ns1:type>MANUAL_CPV</ns1:type>
-                            <ns1:maxCpv>100</ns1:maxCpv>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:VideoAd">
-                            <ns1:type>VIDEO_AD</ns1:type>
-                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>false</ns1:operationSucceeded>
-                    <ns1:error>
-                        <ns1:code>2012</ns1:code>
-                        <ns1:message>This is Sample Error</ns1:message>
-                        <ns1:detail/>
-                    </ns1:error>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupAd</ns2:service>
+      <ns2:requestTime>1528278905026</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/AdGroupAd">
+      <ns2:rval>
+        <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>2000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TextAd">
+              <ns2:type>TEXT_LONG_AD1</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:description2>description2</ns2:description2>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PosAd">
+              <ns2:type>POS_AD</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:description>description</ns2:description>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveAd">
+              <ns2:type>RESPONSIVE_AD</ns2:type>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>2222</ns2:logoMediaId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:StaticFrameAd">
+              <ns2:type>STATIC_FRAME_AD</ns2:type>
+              <ns2:size>300X250</ns2:size>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:layout>SQUARE_BANNER_TOP</ns2:layout>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:colorSetId>1000000005</ns2:colorSetId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:None">
+              <ns2:type>NONE</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPVAdGroupAdBid">
+              <ns2:type>MANUAL_CPV</ns2:type>
+              <ns2:maxCpv>100000</ns2:maxCpv>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:VideoAd">
+              <ns2:type>VIDEO_AD</ns2:type>
+              <ns2:thumbnailMediaId>555555</ns2:thumbnailMediaId>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>99999</ns2:logoMediaId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(REMOVE)
+
 ### リクエスト
 広告を削除します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupAdOperation](../data/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 | 
+| operations | ○ | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) | mutateメソッドで操作対象の広告情報を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6">
-    <SOAP-ENV:Header>
-        <ns1:RequestHeader>
-            <ns1:license>1111-1111-1111-1111</ns1:license>
-            <ns1:apiAccountId>2222-2222-2222-2222</ns1:apiAccountId>
-            <ns1:apiAccountPassword>password</ns1:apiAccountPassword>
-        </ns1:RequestHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutate>
-            <ns1:operations>
-              <ns1:operator>REMOVE</ns1:operator>
-                <ns1:accountId>111111111</ns1:accountId>
-               <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adId>5555555</ns1:adId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adId>7777777</ns1:adId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adId>8888888</ns1:adId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adId>9999999</ns1:adId>
-                </ns1:operand>
-                <ns1:operand>
-                    <ns1:accountId>111111111</ns1:accountId>
-                    <ns1:campaignId>2222222</ns1:campaignId>
-                    <ns1:adGroupId>3333333</ns1:adGroupId>
-                    <ns1:adId>1231231</ns1:adId>
-                </ns1:operand>
-            </ns1:operations>
-        </ns1:mutate>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupAd">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <accountId>1234567890</accountId>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <adId>2000001</adId>
+        </operand>
+        <operand>
+          <accountId>1234567890</accountId>
+          <campaignId>20001</campaignId>
+          <adGroupId>30001</adGroupId>
+          <adId>3000001</adId>
+        </operand>
+        <operand>
+          <accountId>1234567890</accountId>
+          <campaignId>20001</campaignId>
+          <adGroupId>30001</adGroupId>
+          <adId>3000001</adId>
+        </operand>
+        <operand>
+          <accountId>1234567890</accountId>
+          <campaignId>20001</campaignId>
+          <adGroupId>30001</adGroupId>
+          <adId>3000001</adId>
+        </operand>
+        <operand>
+          <accountId>1234567890</accountId>
+          <campaignId>20001</campaignId>
+          <adGroupId>30001</adGroupId>
+          <adId>3000001</adId>
+        </operand>
+        <operand>
+          <accountId>1234567890</accountId>
+          <campaignId>20001</campaignId>
+          <adGroupId>30001</adGroupId>
+          <adId>3000001</adId>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope
- xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
- xmlns:ns1="http://im.yahooapis.jp/V6"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <SOAP-ENV:Header>
-        <ns1:ResponseHeader>
-            <ns1:service>AdGroupAdService</ns1:service>
-            <ns1:remainingQuota>100</ns1:remainingQuota>
-            <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-            <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-        </ns1:ResponseHeader>
-    </SOAP-ENV:Header>
-    <SOAP-ENV:Body>
-        <ns1:mutateResponse>
-            <ns1:rval>
-                <ns1:ListReturnValue.Type>AdGroupAdReturnValue</ns1:ListReturnValue.Type>
-                <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>5555555</ns1:adId>
-                        <ns1:adName>広告名１a</ns1:adName >
-                        <ns1:adStyle>TEXT</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:TextAd">
-                            <ns1:type>TEXT_LONG_AD1</ns1:type>
-                            <ns1:url>http: //yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>タイトル（PC）</ns1:headline>
-                            <ns1:description>説明文１</ns1:description>
-                            <ns1:description2>説明文２</ns1:description2>
-                        </ns1:ad>
-                        <ns1:impressionBeaconUrls>http: //yahoo.co.jp</ns1:impressionBeaconUrls>
-                    </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>7777777</ns1:adId>
-                        <ns1:adName>モバイル広告名</ns1:adName >
-                        <ns1:adStyle>TEXT</ns1:adStyle>
-                        <ns1:userStatus>ACTIVE</ns1:userStatus>
-                        <ns1:approvalStatus>APPROVED</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:MobileAd">
-                            <ns1:type>TEXT_SHORT_AD1</ns1:type>
-                            <ns1:url>http: //yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:headline>たいとる（もば）</ns1:headline>
-                            <ns1:description>説明文１</ns1:description>
-                            <ns1:description2>説明文２</ns1:description2>
-                            <ns1:mobileCarriers>DOCOMO</ns1:mobileCarriers>
-                            <ns1:mobileCarriers>KDDI</ns1:mobileCarriers>
-                            <ns1:mobileCarriers>SOFTBANK</ns1:mobileCarriers>
-                        </ns1:ad>
-                        <ns1:impressionBeaconUrls>http:// yahoo.co.jp</ns1:impressionBeaconUrls>
-                        <ns1:impressionBeaconUrls>http:// yahoo2.co.jp</ns1:impressionBeaconUrls>
-                     </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>88888888</ns1:adId>
-                        <ns1:adName>広告名1c</ns1:adName>
-                        <ns1:adStyle>IMAGE</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:ResponsiveAd">
-                            <ns1:type>RESPONSIVE_AD</ns1:type>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>99999999</ns1:adId>
-                        <ns1:adName>広告名1d</ns1:adName >
-                        <ns1:adStyle>IMAGE</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPCAdGroupAdBid">
-                            <ns1:type>MANUAL_CPC</ns1:type>
-                            <ns1:maxCpc>100</ns1:maxCpc>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:StaticFrameAd">
-                            <ns1:type>STATIC_FRAME_AD</ns1:type>
-                            <ns1:size>300X250</ns1:size>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:layout>SQUARE_BANNER_TOP</ns1:layout>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                            <ns1:colorSetId>123213</ns1:colorSetId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>true</ns1:operationSucceeded>
-                    <ns1:adGroupAd>
-                        <ns1:accountId>111111111</ns1:accountId>
-                        <ns1:campaignId>2222222</ns1:campaignId>
-                        <ns1:campaignName>サンプルキャンペーン</ns1:campaignName>
-                        <ns1:adGroupId>3333333</ns1:adGroupId>
-                        <ns1:adGroupName>サンプル広告グループ</ns1:adGroupName>
-                        <ns1:adId>1231231</ns1:adId>
-                        <ns1:adName>広告名1e</ns1:adName >
-                        <ns1:adStyle>VIDEO</ns1:adStyle>
-                        <ns1:userStatus>PAUSED</ns1:userStatus>
-                        <ns1:approvalStatus>REVIEW</ns1:approvalStatus>
-                        <ns1:bid xsi:type="ns1:ManualCPVAdGroupAdBid">
-                            <ns1:type>MANUAL_CPV</ns1:type>
-                            <ns1:maxCpv>100</ns1:maxCpv>
-                        </ns1:bid>
-                        <ns1:ad xsi:type="ns1:VideoAd">
-                            <ns1:type>VIDEO_AD</ns1:type>
-                            <ns1:thumbnailMediaId>123456</ns1:thumbnailMediaId>
-                            <ns1:headline>タイトル</ns1:headline>
-                            <ns1:description>説明</ns1:description>
-                            <ns1:url>http://www.yahoo.co.jp</ns1:url>
-                            <ns1:displayUrl>www.yahoo.co.jp</ns1:displayUrl>
-                            <ns1:buttonText>FOR_MORE_INFO</ns1:buttonText>
-                            <ns1:principal>主体者表記</ns1:principal>
-                            <ns1:logoMediaId>1111</ns1:logoMediaId>
-                        </ns1:ad>
-                   </ns1:adGroupAd>
-                </ns1:values>
-                <ns1:values>
-                    <ns1:operationSucceeded>false</ns1:operationSucceeded>
-                    <ns1:error>
-                        <ns1:code>2012</ns1:code>
-                        <ns1:message>This is Sample Error</ns1:message>
-                        <ns1:detail/>
-                    </ns1:error>
-                </ns1:values>
-            </ns1:rval>
-        </ns1:mutateResponse>
-    </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupAd</ns2:service>
+      <ns2:requestTime>1528278905168</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/AdGroupAd">
+      <ns2:rval>
+        <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>2000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:TextAd">
+              <ns2:type>TEXT_LONG_AD1</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:description2>description2</ns2:description2>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PosAd">
+              <ns2:type>POS_AD</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:description>description</ns2:description>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveAd">
+              <ns2:type>RESPONSIVE_AD</ns2:type>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>2222</ns2:logoMediaId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:StaticFrameAd">
+              <ns2:type>STATIC_FRAME_AD</ns2:type>
+              <ns2:size>300X250</ns2:size>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:layout>SQUARE_BANNER_TOP</ns2:layout>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:colorSetId>1000000005</ns2:colorSetId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:None">
+              <ns2:type>NONE</ns2:type>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>test ad name</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPVAdGroupAdBid">
+              <ns2:type>MANUAL_CPV</ns2:type>
+              <ns2:maxCpv>100000</ns2:maxCpv>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:VideoAd">
+              <ns2:type>VIDEO_AD</ns2:type>
+              <ns2:thumbnailMediaId>555555</ns2:thumbnailMediaId>
+              <ns2:headline>headline</ns2:headline>
+              <ns2:description>description</ns2:description>
+              <ns2:url>http://testtest.co.jp</ns2:url>
+              <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>99999</ns2:logoMediaId>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 

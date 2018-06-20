@@ -108,9 +108,10 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 220014 | Budget is lower than bidding price.  | 予算額が入札価格を下回っています。
 220121 | Frequency setting was made to the product that is not available.  | 指定された広告商品ではフリークエンシー設定できません。 
 220122 | Unavailable combination of frequency settings.  | フリークエンシー設定の組み合わせが不正です。 
-220123 | Unavailable conversion optimizer.  | インタレストマッチ・ターゲティング・モバイルターゲティング以外の広告商品の場合、<br>コンバージョンオプティマイザーの設定はできません。 
+220123 | Unavailable conversion optimizer.  | コンバージョンオプティマイザーの設定が出来ない商品です。
 220124 | Disable conversion optimizer.  | コンバージョンオプティマイザーの有効設定が不正です。 
 220143 | Invalid appId.  | アプリIDのフォーマットが不正です。 
+220145 | Invalid conversion optimizer. | コンバージョン最適化は登録時に設定できません。
 
 ##### Service
 [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md)
@@ -141,11 +142,14 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
 
 コード         | メッセージ                  | 説明                   
 -------------- | --------------------------- | ---------------------------
-220125 | Unavailable the dynamicImageExtensions.  | インタレストマッチ・ターゲティング以外の広告商品の場合、画像自動付与フラグの設定はできません。 
+220123 | Unavailable conversion optimizer.  | コンバージョンオプティマイザーの設定が出来ない商品です。 
+220124 | Disable conversion optimizer.  | コンバージョンオプティマイザーの有効設定が不正です。 
+220125 | Unavailable the dynamicImageExtensions.  | ターゲティング以外の広告商品の場合、画像自動付与フラグの設定はできません。 
 220132 | Cannot set the carrier type. | 選択したデバイスは、キャリアの選択ができません。
 220138 | Unsupported Os Version. | OSバージョンが不正です。
 220139 | Invalid Os Version. | アプリキャンペーンで指定したOSとターゲティングのOSバージョンが適合しません。
 220140 | Invalid device type. | キャンペーンタイプがAPPの場合、DeviceTypeはSMARTPHONE、またはTABLETでなければいけません。
+220146 | Invalid target cpa value. | 自動入札の時は、目標CPAを1以上に設定してください。
 220310 | Over limit to ad group under account. | アカウント配下の広告グループの件数が上限を超えています。
 
 ##### Service

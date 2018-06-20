@@ -3,1390 +3,1797 @@ AdGroupTargetServiceでは、広告グループにおけるターゲティング
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/Vx.x/AdGroupTargetService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/Vx.x/AdGroupTargetService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201806/AdGroupTargetService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/AdGroupTargetService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V6
+http://im.yahooapis.jp/V201806/AdGroupTarget
 #### サービス概要
 広告グループにおけるターゲティング設定情報の操作（取得、追加、更新、置き換え、削除）を行います。
 #### 操作
 AdGroupTargetServiceで提供される操作を説明します。
 
++ [get](#get)
++ [mutate(ADD)](#mutateadd)
++ [mutate(SET)](#mutateset)
++ [mutate(REMOVE)](#mutateremove)
++ [replace](#replace)
+
+
+#### オブジェクト
+[AdGroupTarget](../data/AdGroupTarget)
+
 ## get
+
 ### リクエスト
 広告グループにおけるターゲティングの設定情報を取得します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [AdGroupTargetSelector](../data/AdGroupTargetSelector.md) | getメソッドの検索条件（実行パラメータ）を保持します。 | 
+| selector | ○ | [AdGroupTargetSelector](../data/AdGroupTarget/AdGroupTargetSelector.md) | getメソッドの検索条件（実行パラメータ）を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v6="http://im.yahooapis.jp/V6">
-  <soapenv:Header>
-    <v6:RequestHeader>
-      <v6:license>1111-1111-1111-1111</v6:license>
-      <v6:apiAccountId>2222-2222-2222-2222</v6:apiAccountId>
-      <v6:apiAccountPassword>password</v6:apiAccountPassword>
-    </v6:RequestHeader>
-  </soapenv:Header>
-  <soapenv:Body>
-    <v6:get>
-      <v6:selector>
-        <v6:accountId>10</v6:accountId>
-        <v6:campaignIds>11100</v6:campaignIds>
-        <v6:campaignIds>200010</v6:campaignIds>
-        <v6:adGroupIds>9999</v6:adGroupIds>
-        <v6:targetTypes>AD_SCHEDULE_TARGET</v6:targetTypes>
-        <v6:targetTypes>GEO_TARGET</v6:targetTypes>
-        <v6:targetTypes>AGE_TARGET</v6:targetTypes>
-        <v6:targetTypes>GENDER_TARGET</v6:targetTypes>
-        <v6:targetTypes>INTEREST_CATEGORY</v6:targetTypes>
-        <v6:targetTypes>SITE_CATEGORY</v6:targetTypes>
-        <v6:targetTypes>SITE_RETARGETING</v6:targetTypes>
-        <v6:targetTypes>SEARCH_TARGET</v6:targetTypes>
-        <v6:targetTypes>PLACEMENT_TARGET</v6:targetTypes>
-        <v6:targetTypes>DEVICE_TARGET</v6:targetTypes>
-        <v6:targetTypes>CARRIER_TARGET</v6:targetTypes>
-        <v6:targetTypes>APP_TARGET</v6:targetTypes>
-        <v6:targetTypes>OS_TARGET</v6:targetTypes>
-        <v6:targetTypes>OS_VERSION_TARGET</v6:targetTypes>
-        <v6:paging>
-          <v6:startIndex>1</v6:startIndex>
-          <v6:numberResults>100</v6:numberResults>
-        </v6:paging>
-      </v6:selector>
-    </v6:get>
-  </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <get xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <selector>
+        <accountId>1234567890</accountId>
+        <campaignIds>10001</campaignIds>
+        <campaignIds>10002</campaignIds>
+        <campaignIds>10003</campaignIds>
+        <campaignIds>10004</campaignIds>
+        <campaignIds>10005</campaignIds>
+        <adGroupIds>20001</adGroupIds>
+        <adGroupIds>20002</adGroupIds>
+        <adGroupIds>20003</adGroupIds>
+        <adGroupIds>20004</adGroupIds>
+        <adGroupIds>20005</adGroupIds>
+        <targetTypes>AD_SCHEDULE_TARGET</targetTypes>
+        <targetTypes>AGE_TARGET</targetTypes>
+        <targetTypes>APP_TARGET</targetTypes>
+        <targetTypes>CARRIER_TARGET</targetTypes>
+        <targetTypes>GENDER_TARGET</targetTypes>
+        <targetTypes>INTEREST_CATEGORY</targetTypes>
+        <targetTypes>OS_TARGET</targetTypes>
+        <paging>
+          <ns2:startIndex>1</ns2:startIndex>
+          <ns2:numberResults>1000</ns2:numberResults>
+        </paging>
+      </selector>
+    </get>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupTargetPage](../data/AdGroupTargetPage.md) | getメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupTargetPage](../data/AdGroupTarget/AdGroupTargetPage.md) | getメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupTargetService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupTarget</ns2:service>
+      <ns2:requestTime>1528278908641</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:getResponse>
-      <ns1:rval>
-        <ns1:totalNumEntries>1</ns1:totalNumEntries>
-        <ns1:Page.Type>AdGroupTargetPage</ns1:Page.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AdScheduleTarget">
-              <ns1:type>AD_SCHEDULE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>10</ns1:startHour>
-              <ns1:endHour>20</ns1:endHour>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AdScheduleTarget">
-              <ns1:type>AD_SCHEDULE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:dayOfWeek>TUESDAY</ns1:dayOfWeek>
-              <ns1:startHour>10</ns1:startHour>
-              <ns1:endHour>20</ns1:endHour>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AdScheduleTarget">
-              <ns1:type>AD_SCHEDULE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:dayOfWeek>SUNDAY</ns1:dayOfWeek>
-              <ns1:startHour>2</ns1:startHour>
-              <ns1:endHour>22</ns1:endHour>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GeoTarget">
-              <ns1:type>GEO_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:geo>TC-CI-00000102</ns1:geo>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:InterestCategoryTarget">
-              <ns1:type>INTEREST_CATEGORY</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:category>TC-IC-20110160100</ns1:category>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:SiteCategoryTarget">
-              <ns1:type>SITE_CATEGORY</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:category>TC-SC-10110110100100</ns1:category>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GenderTarget">
-              <ns1:type>GENDER_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:gender>ST_MALE</ns1:gender>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GenderTarget">
-              <ns1:type>GENDER_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:gender>ST_UNKNOWN</ns1:gender>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AgeTarget">
-              <ns1:type>AGE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:age>GT_RANGE22_29</ns1:age>
-              <ns1:estimateFlg>PAUSED</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AgeTarget">
-              <ns1:type>AGE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:age>GT_RANGE30_39</ns1:age>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AgeTarget">
-              <ns1:type>AGE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:age>GT_UNKNOWN</ns1:age>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:PlacementTarget">
-              <ns1:type>PLACEMENT_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:urlListId>555555555</ns1:urlListId>
-              <ns1:urlListName>Sample</ns1:urlListName>
-              <ns1:urlListType>WHITE_LIST</ns1:urlListType>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:DeviceTarget">
-              <ns1:type>DEVICE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:device>WAP_MOBILE</ns1:device>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:CarrierTarget">
-              <ns1:type>CARRIER_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:carrier>SOFTBANK</ns1:carrier>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:DeviceAppTarget">
-              <ns1:type>APP_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:deviceApp>APP</ns1:deviceApp>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:DeviceOsTarget">
-              <ns1:type>OS_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:deviceOs>IOS</ns1:deviceOs>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:DeviceOsVersionTarget">
-              <ns1:type>OS_VERSION_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:deviceOsVersion>v4.5</ns1:deviceOsVersion>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:getResponse>
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/AdGroupTarget">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>AdGroupTargetPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:bidMultiplier>1.15</ns2:bidMultiplier>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AdScheduleTarget">
+              <ns2:type>AD_SCHEDULE_TARGET</ns2:type>
+              <ns2:targetId>aa111111</ns2:targetId>
+              <ns2:dayOfWeek>MONDAY</ns2:dayOfWeek>
+              <ns2:startHour>13</ns2:startHour>
+              <ns2:endHour>14</ns2:endHour>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:bidMultiplier>1.15</ns2:bidMultiplier>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTarget">
+              <ns2:type>GEO_TARGET</ns2:type>
+              <ns2:targetId>aa111111</ns2:targetId>
+              <ns2:geoNameJa>岩手県</ns2:geoNameJa>
+              <ns2:geoNameEn>iwate_pref</ns2:geoNameEn>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:bidMultiplier>1.15</ns2:bidMultiplier>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AgeTarget">
+              <ns2:type>AGE_TARGET</ns2:type>
+              <ns2:targetId>aa111112</ns2:targetId>
+              <ns2:age>GT_RANGE18_19</ns2:age>
+              <ns2:estimateFlg>ACTIVE</ns2:estimateFlg>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:bidMultiplier>1.15</ns2:bidMultiplier>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GenderTarget">
+              <ns2:type>GENDER_TARGET</ns2:type>
+              <ns2:targetId>aa111112</ns2:targetId>
+              <ns2:gender>ST_FEMALE</ns2:gender>
+              <ns2:estimateFlg>ACTIVE</ns2:estimateFlg>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:bidMultiplier>1.15</ns2:bidMultiplier>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:InterestCategoryTarget">
+              <ns2:type>INTEREST_CATEGORY</ns2:type>
+              <ns2:targetId>TC-IC-99999</ns2:targetId>
+              <ns2:categoryFullNameJa>消費財</ns2:categoryFullNameJa>
+              <ns2:categoryFullNameEn>Consumer Packaged Good</ns2:categoryFullNameEn>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:bidMultiplier>1.15</ns2:bidMultiplier>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SiteCategoryTarget">
+              <ns2:type>SITE_CATEGORY</ns2:type>
+              <ns2:targetId>TC-SC-999999</ns2:targetId>
+              <ns2:categoryFullNameJa>ニュース</ns2:categoryFullNameJa>
+              <ns2:categoryFullNameEn>News</ns2:categoryFullNameEn>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PlacementTarget">
+              <ns2:type>PLACEMENT_TARGET</ns2:type>
+              <ns2:targetId>12345678</ns2:targetId>
+              <ns2:placementUrlListName>c</ns2:placementUrlListName>
+              <ns2:deliverType>WHITE_LIST</ns2:deliverType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SearchTarget">
+              <ns2:type>SEARCH_TARGET</ns2:type>
+              <ns2:targetId>123456789</ns2:targetId>
+              <ns2:searchKeywordListName>News</ns2:searchKeywordListName>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SiteRetargetingTarget">
+              <ns2:type>SITE_RETARGETING</ns2:type>
+              <ns2:targetId>123456789</ns2:targetId>
+              <ns2:targetListName>Default List</ns2:targetListName>
+              <ns2:deliverType>INCLUDE</ns2:deliverType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:bidMultiplier>1.15</ns2:bidMultiplier>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DeviceTarget">
+              <ns2:type>DEVICE_TARGET</ns2:type>
+              <ns2:targetId>de01</ns2:targetId>
+              <ns2:deviceType>TABLET</ns2:deviceType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:bidMultiplier>1.15</ns2:bidMultiplier>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:CarrierTarget">
+              <ns2:type>CARRIER_TARGET</ns2:type>
+              <ns2:targetId>ca01</ns2:targetId>
+              <ns2:mobileCarrier>DOCOMO</ns2:mobileCarrier>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AppTarget">
+              <ns2:type>APP_TARGET</ns2:type>
+              <ns2:targetId>app01</ns2:targetId>
+              <ns2:appType>APP</ns2:appType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:OsTarget">
+              <ns2:type>OS_TARGET</ns2:type>
+              <ns2:targetId>os01</ns2:targetId>
+              <ns2:osType>ANDROID</ns2:osType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:OsVersionTarget">
+              <ns2:type>OS_VERSION_TARGET</ns2:type>
+              <ns2:targetId>ov01</ns2:targetId>
+              <ns2:osVersion>8.0</ns2:osVersion>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(ADD)
+
 ### リクエスト
 広告グループにおけるターゲティングの設定情報を追加します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupTargetMutateOperation](../data/AdGroupTargetMutateOperation.md) | mutate/replaceメソッドで操作対象となるターゲティング設定情報を保持します。 | 
+| operations | ○ | [AdGroupTargetMutateOperation](../data/AdGroupTarget/AdGroupTargetMutateOperation.md) | mutate/replaceメソッドで操作対象となるターゲティング設定情報を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                  xmlns:v6="http://im.yahooapis.jp/V6"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <soapenv:Header>
-    <v6:RequestHeader>
-      <v6:license>1111-1111-1111-1111</v6:license>
-      <v6:apiAccountId>2222-2222-2222-2222</v6:apiAccountId>
-      <v6:apiAccountPassword>password</v6:apiAccountPassword>
-    </v6:RequestHeader>
-  </soapenv:Header>
-  <soapenv:Body>
-    <v6:mutate>
-      <v6:operations>
-        <v6:operator>ADD</v6:operator>
-        <v6:accountId>10</v6:accountId>
-        <v6:operand>
-          <v6:campaignId>10</v6:campaignId>
-          <v6:adGroupId>10</v6:adGroupId>
-          <v6:target xsi:type="v6:AgeTarget">
-            <v6:type>AGE_TARGET</v6:type>
-            <v6:age>GT_RANGE12_14</v6:age>
-            <v6:estimateFlg>ACTIVE</v6:estimateFlg>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>10</v6:campaignId>
-          <v6:adGroupId>10</v6:adGroupId>
-          <v6:target xsi:type="v6:GenderTarget">
-            <v6:type>GENDER_TARGET</v6:type>
-            <v6:gender>ST_UNKNOWN</v6:gender>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:AdScheduleTarget">
-            <v6:type>AD_SCHEDULE_TARGET</v6:type>
-            <v6:dayOfWeek>SUNDAY</v6:dayOfWeek>
-            <v6:startHour>1</v6:startHour>
-            <v6:endHour>2</v6:endHour>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:AdScheduleTarget">
-            <v6:type>AD_SCHEDULE_TARGET</v6:type>
-            <v6:dayOfWeek>SUNDAY</v6:dayOfWeek>
-            <v6:startHour>3</v6:startHour>
-            <v6:endHour>4</v6:endHour>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:GeoTarget">
-            <v6:type>GEO_TARGET</v6:type>
-            <v6:targetId>TC-CI-00000102</v6:targetId>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:InterestCategoryTarget">
-            <v6:type>INTEREST_CATEGORY</v6:type>
-            <v6:targetId>TC-IC-40150150100</v6:targetId>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:SiteCategoryTarget">
-            <v6:type>SITE_CATEGORY</v6:type>
-            <v6:targetId>TC-SC-10110140100100</v6:targetId>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:SiteRetargetingTarget">
-            <v6:type>SITE_RETARGETING</v6:type>
-            <v6:targetId>1100000001</v6:targetId>
-            <v6:deliverType>INCLUDE</v6:deliverType>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:SearchTarget">
-            <v6:type>SEARCH_TARGET</v6:type>
-            <v6:targetId>4444444444</v6:targetId>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:GenderTarget">
-            <v6:type>GENDER_TARGET</v6:type>
-            <v6:gender>ST_MALE</v6:gender>
-            <v6:estimateFlg>PAUSED</v6:estimateFlg>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:GenderTarget">
-            <v6:type>GENDER_TARGET</v6:type>
-            <v6:gender>ST_UNKNOWN</v6:gender>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:AgeTarget">
-            <v6:type>AGE_TARGET</v6:type>
-            <v6:age>GT_RANGE22_29</v6:age>
-            <v6:estimateFlg>ACTIVE</v6:estimateFlg>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:AgeTarget">
-            <v6:type>AGE_TARGET</v6:type>
-            <v6:age>GT_UNKNOWN</v6:age>
-          </v6:target>
-        </v6:operand>
-        <v6:operand>
-          <v6:campaignId>2222222</v6:campaignId>
-          <v6:adGroupId>3333333</v6:adGroupId>
-          <v6:target xsi:type="v6:PlacementTarget">
-            <v6:type>PLACEMENT_TARGET</v6:type>
-            <v6:targetId>555555555</v6:targetId>
-            <v6:deliverType>WHITE_LIST</v6:deliverType>
-          </v6:target>
-        </v6:operand>
-      </v6:operations>
-    </v6:mutate>
-  </soapenv:Body>
-</soapenv:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget">
+      <operations>
+        <operator>ADD</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AdScheduleTarget">
+            <type>AD_SCHEDULE_TARGET</type>
+            <dayOfWeek>MONDAY</dayOfWeek>
+            <startHour>13</startHour>
+            <endHour>14</endHour>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTarget">
+            <type>GEO_TARGET</type>
+            <targetId>TC-CI-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
+            <type>AGE_TARGET</type>
+            <age>GT_RANGE12_14</age>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenderTarget">
+            <type>GENDER_TARGET</type>
+            <gender>ST_FEMALE</gender>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InterestCategoryTarget">
+            <type>INTEREST_CATEGORY</type>
+            <targetId>TC-IC-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteCategoryTarget">
+            <type>SITE_CATEGORY</type>
+            <targetId>TC-SC-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+            <type>PLACEMENT_TARGET</type>
+            <targetId>199999999</targetId>
+            <deliverType>WHITE_LIST</deliverType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SearchTarget">
+            <type>SEARCH_TARGET</type>
+            <targetId>299999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+            <type>SITE_RETARGETING</type>
+            <targetId>20000000</targetId>
+            <deliverType>INCLUDE</deliverType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DeviceTarget">
+            <type>DEVICE_TARGET</type>
+            <deviceType>SMARTPHONE</deviceType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CarrierTarget">
+            <type>CARRIER_TARGET</type>
+            <mobileCarrier>YMOBILE</mobileCarrier>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppTarget">
+            <type>APP_TARGET</type>
+            <appType>APP</appType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsVersionTarget">
+            <type>OS_VERSION_TARGET</type>
+            <osVersion>10.1</osVersion>
+          </target>
+        </operand>
+      </operations>
+    </mutate>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupTargetReturnValue](../data/AdGroupTargetReturnValue.md) | mutate/replaceメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) | mutate/replaceメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupTargetService</ns1:service>
-      <ns1:remainingQuota>100</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>10</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.0173</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupTarget</ns2:service>
+      <ns2:requestTime>1528278908716</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AdScheduleTarget">
-              <ns1:type>AD_SCHEDULE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:dayOfWeek>MONDAY</ns1:dayOfWeek>
-              <ns1:startHour>10</ns1:startHour>
-              <ns1:endHour>20</ns1:endHour>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GeoTarget">
-              <ns1:type>GEO_TARGET</ns1:type>
-              <ns1:targetId>TC-CI-00000102</ns1:targetId>
-              <ns1:geoNameJa>あああああ</ns1:geoNameJa>
-              <ns1:geoNameEn>aaaaaaaa</ns1:geoNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:InterestCategoryTarget">
-              <ns1:type>INTEREST_CATEGORY</ns1:type>
-              <ns1:targetId>TC-IC-20110160100</ns1:targetId>
-              <ns1:categoryFullNameJa>あああああ</ns1:categoryFullNameJa>
-              <ns1:categoryFullNameEn>aaaaaaaa</ns1:categoryFullNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:SiteCategoryTarget">
-              <ns1:type>SITE_CATEGORY</ns1:type>
-              <ns1:targetId>TC-SC-10110110100100</ns1:targetId>
-              <ns1:categoryFullNameJa>あああああ</ns1:categoryFullNameJa>
-              <ns1:categoryFullNameEn>aaaaaaaa</ns1:categoryFullNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GenderTarget">
-              <ns1:type>GENDER_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:gender>ST_MALE</ns1:gender>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AgeTarget">
-              <ns1:type>AGE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:age>GT_UNKNOWN</ns1:age>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:PlacementTarget">
-              <ns1:type>PLACEMENT_TARGET</ns1:type>
-              <ns1:targetId>555555555</ns1:targetId>
-              <ns1:placementUrlListName>Sample</ns1:placementUrlListName>
-              <ns1:deliverType>WHITE_LIST</ns1:deliverType>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:DeviceTarget">
-              <ns1:type>DEVICE_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:deviceType>WAP_MOBILE</ns1:deviceType>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:bidMultiplier>0.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:CarrierTarget">
-              <ns1:type>CARRIER_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:mobileCarrier>SOFTBANK</ns1:mobileCarrier>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:target xsi:type="ns1:AppTarget">
-              <ns1:type>APP_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:appType>APP</ns1:appType>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:target xsi:type="ns1:OsTarget">
-              <ns1:type>OS_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:osType>IOS</ns1:osType>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>111111111</ns1:accountId>
-            <ns1:campaignId>2222222</ns1:campaignId>
-            <ns1:adGroupId>3333333</ns1:adGroupId>
-            <ns1:target xsi:type="ns1:OsVersionTarget">
-              <ns1:type>OS_VERSION_TARGET</ns1:type>
-              <ns1:targetId>1111</ns1:targetId>
-              <ns1:osVersion>v4.5</ns1:osVersion>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <mutateResponse xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <rval>
+        <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
+        <Operation.Type>ADD</Operation.Type>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AdScheduleTarget">
+              <type>AD_SCHEDULE_TARGET</type>
+              <targetId>aa111111</targetId>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>13</startHour>
+              <endHour>14</endHour>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTarget">
+              <type>GEO_TARGET</type>
+              <targetId>aa111111</targetId>
+              <geoNameJa>岩手県</geoNameJa>
+              <geoNameEn>iwate_pref</geoNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
+              <type>AGE_TARGET</type>
+              <targetId>aa111112</targetId>
+              <age>GT_RANGE18_19</age>
+              <estimateFlg>ACTIVE</estimateFlg>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenderTarget">
+              <type>GENDER_TARGET</type>
+              <targetId>aa111112</targetId>
+              <gender>ST_FEMALE</gender>
+              <estimateFlg>ACTIVE</estimateFlg>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InterestCategoryTarget">
+              <type>INTEREST_CATEGORY</type>
+              <targetId>TC-IC-99999</targetId>
+              <categoryFullNameJa>消費財</categoryFullNameJa>
+              <categoryFullNameEn>Consumer Packaged Good</categoryFullNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteCategoryTarget">
+              <type>SITE_CATEGORY</type>
+              <targetId>TC-SC-999999</targetId>
+              <categoryFullNameJa>ニュース</categoryFullNameJa>
+              <categoryFullNameEn>News</categoryFullNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+              <type>PLACEMENT_TARGET</type>
+              <targetId>12345678</targetId>
+              <placementUrlListName>c</placementUrlListName>
+              <deliverType>WHITE_LIST</deliverType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SearchTarget">
+              <type>SEARCH_TARGET</type>
+              <targetId>123456789</targetId>
+              <searchKeywordListName>News</searchKeywordListName>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+              <type>SITE_RETARGETING</type>
+              <targetId>123456789</targetId>
+              <targetListName>Default List</targetListName>
+              <deliverType>INCLUDE</deliverType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DeviceTarget">
+              <type>DEVICE_TARGET</type>
+              <targetId>de01</targetId>
+              <deviceType>TABLET</deviceType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CarrierTarget">
+              <type>CARRIER_TARGET</type>
+              <targetId>ca01</targetId>
+              <mobileCarrier>DOCOMO</mobileCarrier>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppTarget">
+              <type>APP_TARGET</type>
+              <targetId>app01</targetId>
+              <appType>APP</appType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsTarget">
+              <type>OS_TARGET</type>
+              <targetId>os01</targetId>
+              <osType>ANDROID</osType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsVersionTarget">
+              <type>OS_VERSION_TARGET</type>
+              <targetId>ov01</targetId>
+              <osVersion>8.0</osVersion>
+            </target>
+          </adGroupTargetList>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(SET)
+
 ### リクエスト
 広告グループにおけるターゲティングの設定情報を更新します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupTargetMutateOperation](../data/AdGroupTargetMutateOperation.md) | mutate/replaceメソッドで操作対象となるターゲティング設定情報を保持します。 | 
+| operations | ○ | [AdGroupTargetMutateOperation](../data/AdGroupTarget/AdGroupTargetMutateOperation.md) | mutate/replaceメソッドで操作対象となるターゲティング設定情報を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V6">
-      <license>1111-1111-1111-1111</license>
-      <apiAccountId>2222-2222-2222-2222</apiAccountId>
-      <apiAccountPassword>password</apiAccountPassword>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutate xmlns:ns2="http://im.yahooapis.jp/V6">
-      <ns2:operations>
-        <ns2:operator>SET</ns2:operator>
-        <ns2:accountId>10000002</ns2:accountId>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AdScheduleTarget">
-            <ns2:type>AD_SCHEDULE_TARGET</ns2:type>
-            <ns2:targetId>as050102</ns2:targetId>
-            <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
-            <ns2:startHour>1</ns2:startHour>
-            <ns2:endHour>2</ns2:endHour>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AgeTarget">
-            <ns2:type>AGE_TARGET</ns2:type>
-            <ns2:targetId>ag0302</ns2:targetId>
-            <ns2:age>GT_RANGE12_14</ns2:age>
-            <ns2:estimateFlg>ACTIVE</ns2:estimateFlg>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GenderTarget">
-            <ns2:type>GENDER_TARGET</ns2:type>
-            <ns2:targetId>ge0202</ns2:targetId>
-            <ns2:gender>ST_FEMALE</ns2:gender>
-            <ns2:estimateFlg>ACTIVE</ns2:estimateFlg>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTarget">
-            <ns2:type>GEO_TARGET</ns2:type>
-            <ns2:targetId>TC-CI-00000102</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:InterestCategoryTarget">
-            <ns2:type>INTEREST_CATEGORY</ns2:type>
-            <ns2:targetId>TC-IC-40150150100</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SiteCategoryTarget">
-            <ns2:type>SITE_CATEGORY</ns2:type>
-            <ns2:targetId>TC-SC-10110140100100</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-      </ns2:operations>
-    </ns2:mutate>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget">
+      <operations>
+        <operator>SET</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AdScheduleTarget">
+            <type>AD_SCHEDULE_TARGET</type>
+            <targetId>as111111</targetId>
+            <dayOfWeek>MONDAY</dayOfWeek>
+            <startHour>13</startHour>
+            <endHour>14</endHour>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTarget">
+            <type>GEO_TARGET</type>
+            <targetId>TC-CI-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
+            <type>AGE_TARGET</type>
+            <targetId>ag9999</targetId>
+            <age>GT_RANGE12_14</age>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenderTarget">
+            <type>GENDER_TARGET</type>
+            <targetId>ge0202</targetId>
+            <gender>ST_FEMALE</gender>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InterestCategoryTarget">
+            <type>INTEREST_CATEGORY</type>
+            <targetId>TC-IC-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteCategoryTarget">
+            <type>SITE_CATEGORY</type>
+            <targetId>TC-SC-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+            <type>PLACEMENT_TARGET</type>
+            <targetId>199999999</targetId>
+            <deliverType>WHITE_LIST</deliverType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SearchTarget">
+            <type>SEARCH_TARGET</type>
+            <targetId>299999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+            <type>SITE_RETARGETING</type>
+            <targetId>20000000</targetId>
+            <deliverType>INCLUDE</deliverType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DeviceTarget">
+            <type>DEVICE_TARGET</type>
+            <targetId>de001</targetId>
+            <deviceType>SMARTPHONE</deviceType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CarrierTarget">
+            <type>CARRIER_TARGET</type>
+            <targetId>cr001</targetId>
+            <mobileCarrier>YMOBILE</mobileCarrier>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppTarget">
+            <type>APP_TARGET</type>
+            <targetId>ap001</targetId>
+            <appType>APP</appType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsTarget">
+            <type>OS_TARGET</type>
+            <targetId>os01</targetId>
+            <osType>ANDROID</osType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsVersionTarget">
+            <type>OS_VERSION_TARGET</type>
+            <targetId>ov001</targetId>
+            <osVersion>10.1</osVersion>
+          </target>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupTargetReturnValue](../data/AdGroupTargetReturnValue.md) | mutate/replaceメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) | mutate/replaceメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupTargetService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>4.8946</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupTarget</ns2:service>
+      <ns2:requestTime>1528278908783</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AdGroupTargetReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>SET</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AdScheduleTarget">
-              <ns1:type>AD_SCHEDULE_TARGET</ns1:type>
-              <ns1:targetId>as050102</ns1:targetId>
-              <ns1:dayOfWeek>FRIDAY</ns1:dayOfWeek>
-              <ns1:startHour>1</ns1:startHour>
-              <ns1:endHour>2</ns1:endHour>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AgeTarget">
-              <ns1:type>AGE_TARGET</ns1:type>
-              <ns1:targetId>ag0301</ns1:targetId>
-              <ns1:age>GT_RANGE12_14</ns1:age>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GenderTarget">
-              <ns1:type>GENDER_TARGET</ns1:type>
-              <ns1:targetId>ge0201</ns1:targetId>
-              <ns1:gender>ST_FEMALE</ns1:gender>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GeoTarget">
-              <ns1:type>GEO_TARGET</ns1:type>
-              <ns1:targetId>TC-CI-00000102</ns1:targetId>
-              <ns1:geoNameJa>岩手県</ns1:geoNameJa>
-              <ns1:geoNameEn>iwate_pref</ns1:geoNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:InterestCategoryTarget">
-              <ns1:type>INTEREST_CATEGORY</ns1:type>
-              <ns1:targetId>TC-IC-40150150100</ns1:targetId>
-              <ns1:categoryFullNameJa>消費財 &gt; 美容コスメ &gt; 化粧品 &gt; メイクアップ &gt; ネイル</ns1:categoryFullNameJa>
-              <ns1:categoryFullNameEn>Consumer Packaged Goods &gt; Beauty and Personal Care &gt; Cosmetics &gt; Makeup &gt; Nail</ns1:categoryFullNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:SiteCategoryTarget">
-              <ns1:type>SITE_CATEGORY</ns1:type>
-              <ns1:targetId>TC-SC-10110140100100</ns1:targetId>
-              <ns1:categoryFullNameJa>ニュース &gt; 政治</ns1:categoryFullNameJa>
-              <ns1:categoryFullNameEn>News &gt; Politics</ns1:categoryFullNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <mutateResponse xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <rval>
+        <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
+        <Operation.Type>SET</Operation.Type>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AdScheduleTarget">
+              <type>AD_SCHEDULE_TARGET</type>
+              <targetId>aa111111</targetId>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>13</startHour>
+              <endHour>14</endHour>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTarget">
+              <type>GEO_TARGET</type>
+              <targetId>aa111111</targetId>
+              <geoNameJa>岩手県</geoNameJa>
+              <geoNameEn>iwate_pref</geoNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
+              <type>AGE_TARGET</type>
+              <targetId>aa111112</targetId>
+              <age>GT_RANGE18_19</age>
+              <estimateFlg>ACTIVE</estimateFlg>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenderTarget">
+              <type>GENDER_TARGET</type>
+              <targetId>aa111112</targetId>
+              <gender>ST_FEMALE</gender>
+              <estimateFlg>ACTIVE</estimateFlg>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InterestCategoryTarget">
+              <type>INTEREST_CATEGORY</type>
+              <targetId>TC-IC-99999</targetId>
+              <categoryFullNameJa>消費財</categoryFullNameJa>
+              <categoryFullNameEn>Consumer Packaged Good</categoryFullNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteCategoryTarget">
+              <type>SITE_CATEGORY</type>
+              <targetId>TC-SC-999999</targetId>
+              <categoryFullNameJa>ニュース</categoryFullNameJa>
+              <categoryFullNameEn>News</categoryFullNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+              <type>PLACEMENT_TARGET</type>
+              <targetId>12345678</targetId>
+              <placementUrlListName>c</placementUrlListName>
+              <deliverType>WHITE_LIST</deliverType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SearchTarget">
+              <type>SEARCH_TARGET</type>
+              <targetId>123456789</targetId>
+              <searchKeywordListName>News</searchKeywordListName>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+              <type>SITE_RETARGETING</type>
+              <targetId>123456789</targetId>
+              <targetListName>Default List</targetListName>
+              <deliverType>INCLUDE</deliverType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DeviceTarget">
+              <type>DEVICE_TARGET</type>
+              <targetId>de01</targetId>
+              <deviceType>TABLET</deviceType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CarrierTarget">
+              <type>CARRIER_TARGET</type>
+              <targetId>ca01</targetId>
+              <mobileCarrier>DOCOMO</mobileCarrier>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppTarget">
+              <type>APP_TARGET</type>
+              <targetId>app01</targetId>
+              <appType>APP</appType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsTarget">
+              <type>OS_TARGET</type>
+              <targetId>os01</targetId>
+              <osType>ANDROID</osType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsVersionTarget">
+              <type>OS_VERSION_TARGET</type>
+              <targetId>ov01</targetId>
+              <osVersion>8.0</osVersion>
+            </target>
+          </adGroupTargetList>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## mutate(REMOVE)
+
 ### リクエスト
 広告グループにおけるターゲティングの設定情報を削除します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupTargetMutateOperation](../data/AdGroupTargetMutateOperation.md) | mutate/replaceメソッドで操作対象となるターゲティング設定情報を保持します。 | 
+| operations | ○ | [AdGroupTargetMutateOperation](../data/AdGroupTarget/AdGroupTargetMutateOperation.md) | mutate/replaceメソッドで操作対象となるターゲティング設定情報を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V6">
-      <license>1111-1111-1111-1111</license>
-      <apiAccountId>2222-2222-2222-2222</apiAccountId>
-      <apiAccountPassword>password</apiAccountPassword>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutate xmlns:ns2="http://im.yahooapis.jp/V6">
-      <ns2:operations>
-        <ns2:operator>REMOVE</ns2:operator>
-        <ns2:accountId>10000002</ns2:accountId>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>1.1</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AdScheduleTarget">
-            <ns2:type>AD_SCHEDULE_TARGET</ns2:type>
-            <ns2:targetId>as050102</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>1.1</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTarget">
-            <ns2:type>GEO_TARGET</ns2:type>
-            <ns2:targetId>TC-CI-00000102</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>1.1</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AgeTarget">
-            <ns2:type>AGE_TARGET</ns2:type>
-            <ns2:targetId>ag0302</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>1.1</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GenderTarget">
-            <ns2:type>GENDER_TARGET</ns2:type>
-            <ns2:targetId>ge0202</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>1.1</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:InterestCategoryTarget">
-            <ns2:type>INTEREST_CATEGORY</ns2:type>
-            <ns2:targetId>TC-IC-40150150100</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>1.1</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SiteCategoryTarget">
-            <ns2:type>SITE_CATEGORY</ns2:type>
-            <ns2:targetId>TC-SC-10110140100100</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PlacementTarget">
-            <ns2:type>PLACEMENT_TARGET</ns2:type>
-            <ns2:targetId>1000031424</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SearchTarget">
-            <ns2:type>SEARCH_TARGET</ns2:type>
-            <ns2:targetId>1000107465</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>10000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SiteRetargetingTarget">
-            <ns2:type>SITE_RETARGETING</ns2:type>
-            <ns2:targetId>1000261610</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-      </ns2:operations>
-    </ns2:mutate>
+    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget">
+      <operations>
+        <operator>REMOVE</operator>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AdScheduleTarget">
+            <type>AD_SCHEDULE_TARGET</type>
+            <targetId>as111111</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTarget">
+            <type>GEO_TARGET</type>
+            <targetId>TC-CI-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
+            <type>AGE_TARGET</type>
+            <targetId>ag9999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenderTarget">
+            <type>GENDER_TARGET</type>
+            <targetId>ge0202</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InterestCategoryTarget">
+            <type>INTEREST_CATEGORY</type>
+            <targetId>TC-IC-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteCategoryTarget">
+            <type>SITE_CATEGORY</type>
+            <targetId>TC-SC-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+            <type>PLACEMENT_TARGET</type>
+            <targetId>199999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SearchTarget">
+            <type>SEARCH_TARGET</type>
+            <targetId>299999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+            <type>SITE_RETARGETING</type>
+            <targetId>20000000</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DeviceTarget">
+            <type>DEVICE_TARGET</type>
+            <targetId>de001</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CarrierTarget">
+            <type>CARRIER_TARGET</type>
+            <targetId>cr001</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppTarget">
+            <type>APP_TARGET</type>
+            <targetId>ap001</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsTarget">
+            <type>OS_TARGET</type>
+            <targetId>os01</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsVersionTarget">
+            <type>OS_VERSION_TARGET</type>
+            <targetId>ov001</targetId>
+          </target>
+        </operand>
+      </operations>
+    </mutate>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupTargetReturnValue](../data/AdGroupTargetReturnValue.md) | mutate/replaceメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) | mutate/replaceメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupTargetService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>0.4675</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupTarget</ns2:service>
+      <ns2:requestTime>1528278908854</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:mutateResponse>
-      <ns1:rval>
-        <ns1:ListReturnValue.Type>AdGroupTargetReturnValue</ns1:ListReturnValue.Type>
-        <ns1:Operation.Type>REMOVE</ns1:Operation.Type>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>1.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AdScheduleTarget">
-              <ns1:type>AD_SCHEDULE_TARGET</ns1:type>
-              <ns1:targetId>as050102</ns1:targetId>
-              <ns1:dayOfWeek>FRIDAY</ns1:dayOfWeek>
-              <ns1:startHour>1</ns1:startHour>
-              <ns1:endHour>2</ns1:endHour>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>1.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GeoTarget">
-              <ns1:type>GEO_TARGET</ns1:type>
-              <ns1:targetId>TC-CI-00000102</ns1:targetId>
-              <ns1:geoNameJa>岩手県</ns1:geoNameJa>
-              <ns1:geoNameEn>iwate_pref</ns1:geoNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>1.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AgeTarget">
-              <ns1:type>AGE_TARGET</ns1:type>
-              <ns1:targetId>ag0302</ns1:targetId>
-              <ns1:age>GT_RANGE12_14</ns1:age>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>1.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GenderTarget">
-              <ns1:type>GENDER_TARGET</ns1:type>
-              <ns1:targetId>ge0202</ns1:targetId>
-              <ns1:gender>ST_FEMALE</ns1:gender>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>1.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:InterestCategoryTarget">
-              <ns1:type>INTEREST_CATEGORY</ns1:type>
-              <ns1:targetId>TC-IC-40150150100</ns1:targetId>
-              <ns1:categoryFullNameJa>消費財 &gt; 美容コスメ &gt; 化粧品 &gt; メイクアップ &gt; ネイル</ns1:categoryFullNameJa>
-              <ns1:categoryFullNameEn>Consumer Packaged Goods &gt; Beauty and Personal Care &gt; Cosmetics &gt; Makeup &gt; Nail</ns1:categoryFullNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>1.1</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:SiteCategoryTarget">
-              <ns1:type>SITE_CATEGORY</ns1:type>
-              <ns1:targetId>TC-SC-10110140100100</ns1:targetId>
-              <ns1:categoryFullNameJa>ニュース &gt; 政治</ns1:categoryFullNameJa>
-              <ns1:categoryFullNameEn>News &gt; Politics</ns1:categoryFullNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:target xsi:type="ns1:PlacementTarget">
-              <ns1:type>PLACEMENT_TARGET</ns1:type>
-              <ns1:targetId>1000031424</ns1:targetId>
-              <ns1:placementUrlListName>c a</ns1:placementUrlListName>
-              <ns1:deliverType>WHITE_LIST</ns1:deliverType>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:target xsi:type="ns1:SearchTarget">
-              <ns1:type>SEARCH_TARGET</ns1:type>
-              <ns1:targetId>1000107465</ns1:targetId>
-              <ns1:searchKeywordListName>ドラマ</ns1:searchKeywordListName>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:target xsi:type="ns1:SiteRetargetingTarget">
-              <ns1:type>SITE_RETARGETING</ns1:type>
-              <ns1:targetId>1000261610</ns1:targetId>
-              <ns1:targetListName>デフォルトリスト（ IP15OYD5W1 ）</ns1:targetListName>
-              <ns1:deliverType>INCLUDE</ns1:deliverType>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:mutateResponse>
+    <mutateResponse xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <rval>
+        <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
+        <Operation.Type>REMOVE</Operation.Type>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AdScheduleTarget">
+              <type>AD_SCHEDULE_TARGET</type>
+              <targetId>aa111111</targetId>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>13</startHour>
+              <endHour>14</endHour>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTarget">
+              <type>GEO_TARGET</type>
+              <targetId>aa111111</targetId>
+              <geoNameJa>岩手県</geoNameJa>
+              <geoNameEn>iwate_pref</geoNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
+              <type>AGE_TARGET</type>
+              <targetId>aa111112</targetId>
+              <age>GT_RANGE18_19</age>
+              <estimateFlg>ACTIVE</estimateFlg>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenderTarget">
+              <type>GENDER_TARGET</type>
+              <targetId>aa111112</targetId>
+              <gender>ST_FEMALE</gender>
+              <estimateFlg>ACTIVE</estimateFlg>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InterestCategoryTarget">
+              <type>INTEREST_CATEGORY</type>
+              <targetId>TC-IC-99999</targetId>
+              <categoryFullNameJa>消費財</categoryFullNameJa>
+              <categoryFullNameEn>Consumer Packaged Good</categoryFullNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteCategoryTarget">
+              <type>SITE_CATEGORY</type>
+              <targetId>TC-SC-999999</targetId>
+              <categoryFullNameJa>ニュース</categoryFullNameJa>
+              <categoryFullNameEn>News</categoryFullNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+              <type>PLACEMENT_TARGET</type>
+              <targetId>12345678</targetId>
+              <placementUrlListName>c</placementUrlListName>
+              <deliverType>WHITE_LIST</deliverType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SearchTarget">
+              <type>SEARCH_TARGET</type>
+              <targetId>123456789</targetId>
+              <searchKeywordListName>News</searchKeywordListName>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+              <type>SITE_RETARGETING</type>
+              <targetId>123456789</targetId>
+              <targetListName>Default List</targetListName>
+              <deliverType>INCLUDE</deliverType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DeviceTarget">
+              <type>DEVICE_TARGET</type>
+              <targetId>de01</targetId>
+              <deviceType>TABLET</deviceType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CarrierTarget">
+              <type>CARRIER_TARGET</type>
+              <targetId>ca01</targetId>
+              <mobileCarrier>DOCOMO</mobileCarrier>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppTarget">
+              <type>APP_TARGET</type>
+              <targetId>app01</targetId>
+              <appType>APP</appType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsTarget">
+              <type>OS_TARGET</type>
+              <targetId>os01</targetId>
+              <osType>ANDROID</osType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsVersionTarget">
+              <type>OS_VERSION_TARGET</type>
+              <targetId>ov01</targetId>
+              <osVersion>8.0</osVersion>
+            </target>
+          </adGroupTargetList>
+        </values>
+      </rval>
+    </mutateResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ## replace
+
 ### リクエスト
 広告グループにおけるターゲティングの設定情報を置換（削除して追加）します。
 
-| パラメータ | 必須 | データ型 | 説明 | 
+| パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [AdGroupTargetOperation](../data/AdGroupTargetOperation.md) | mutate/replaceメソッドで操作対象となるターゲティング設定情報を保持します。 | 
+| operations | ○ | [AdGroupTargetOperation](../data/AdGroupTarget/AdGroupTargetOperation.md) | mutate/replaceメソッドで操作対象となるターゲティング設定情報を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V6">
-      <license>1111-1111-1111-1111</license>
-      <apiAccountId>2222-2222-2222-2222</apiAccountId>
-      <apiAccountPassword>password</apiAccountPassword>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:replace xmlns:ns2="http://im.yahooapis.jp/V6">
-      <ns2:operations>
-        <ns2:accountId>10000002</ns2:accountId>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AdScheduleTarget">
-            <ns2:type>AD_SCHEDULE_TARGET</ns2:type>
-            <ns2:targetId>as050102</ns2:targetId>
-            <ns2:dayOfWeek>FRIDAY</ns2:dayOfWeek>
-            <ns2:startHour>1</ns2:startHour>
-            <ns2:endHour>2</ns2:endHour>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AgeTarget">
-            <ns2:type>AGE_TARGET</ns2:type>
-            <ns2:targetId>ag0302</ns2:targetId>
-            <ns2:age>GT_RANGE12_14</ns2:age>
-            <ns2:estimateFlg>ACTIVE</ns2:estimateFlg>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GenderTarget">
-            <ns2:type>GENDER_TARGET</ns2:type>
-            <ns2:targetId>ge0202</ns2:targetId>
-            <ns2:gender>ST_FEMALE</ns2:gender>
-            <ns2:estimateFlg>ACTIVE</ns2:estimateFlg>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:GeoTarget">
-            <ns2:type>GEO_TARGET</ns2:type>
-            <ns2:targetId>TC-CI-00000102</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:InterestCategoryTarget">
-            <ns2:type>INTEREST_CATEGORY</ns2:type>
-            <ns2:targetId>TC-IC-40150150100</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-        <ns2:operand>
-          <ns2:accountId>10000002</ns2:accountId>
-          <ns2:campaignId>20000002</ns2:campaignId>
-          <ns2:adGroupId>30000002</ns2:adGroupId>
-          <ns2:bidMultiplier>2.0</ns2:bidMultiplier>
-          <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SiteCategoryTarget">
-            <ns2:type>SITE_CATEGORY</ns2:type>
-            <ns2:targetId>TC-SC-10110140100100</ns2:targetId>
-          </ns2:target>
-        </ns2:operand>
-      </ns2:operations>
-    </ns2:replace>
+    <replace xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget">
+      <operations>
+        <accountId>1234567890</accountId>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AdScheduleTarget">
+            <type>AD_SCHEDULE_TARGET</type>
+            <dayOfWeek>MONDAY</dayOfWeek>
+            <startHour>13</startHour>
+            <endHour>14</endHour>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTarget">
+            <type>GEO_TARGET</type>
+            <targetId>TC-CI-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
+            <type>AGE_TARGET</type>
+            <age>GT_RANGE12_14</age>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenderTarget">
+            <type>GENDER_TARGET</type>
+            <gender>ST_FEMALE</gender>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InterestCategoryTarget">
+            <type>INTEREST_CATEGORY</type>
+            <targetId>TC-IC-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteCategoryTarget">
+            <type>SITE_CATEGORY</type>
+            <targetId>TC-SC-9999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+            <type>PLACEMENT_TARGET</type>
+            <targetId>199999999</targetId>
+            <deliverType>WHITE_LIST</deliverType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SearchTarget">
+            <type>SEARCH_TARGET</type>
+            <targetId>299999999</targetId>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+            <type>SITE_RETARGETING</type>
+            <targetId>20000000</targetId>
+            <deliverType>INCLUDE</deliverType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DeviceTarget">
+            <type>DEVICE_TARGET</type>
+            <deviceType>SMARTPHONE</deviceType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <bidMultiplier>1.1</bidMultiplier>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CarrierTarget">
+            <type>CARRIER_TARGET</type>
+            <mobileCarrier>YMOBILE</mobileCarrier>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppTarget">
+            <type>APP_TARGET</type>
+            <appType>APP</appType>
+          </target>
+        </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsVersionTarget">
+            <type>OS_VERSION_TARGET</type>
+            <osVersion>10.1</osVersion>
+          </target>
+        </operand>
+      </operations>
+    </replace>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 ### レスポンス
-| パラメータ | データ型 | 説明 | 
+| パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [AdGroupTargetReturnValue](../data/AdGroupTargetReturnValue.md) | mutate/replaceメソッドの実行結果（全Entityのリスト）を保持します。 | 
+| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) | mutate/replaceメソッドの実行結果（全Entityのリスト）を保持します。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ns1:ResponseHeader>
-      <ns1:service>AdGroupTargetService</ns1:service>
-      <ns1:remainingQuota>-1</ns1:remainingQuota>
-      <ns1:quotaUsedForThisRequest>-1</ns1:quotaUsedForThisRequest>
-      <ns1:timeTakenMillis>4.8946</ns1:timeTakenMillis>
-    </ns1:ResponseHeader>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <ns2:service>AdGroupTarget</ns2:service>
+      <ns2:requestTime>1528278908924</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns1:replaceResponse>
-      <ns1:rval>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AdScheduleTarget">
-              <ns1:type>AD_SCHEDULE_TARGET</ns1:type>
-              <ns1:targetId>as050102</ns1:targetId>
-              <ns1:dayOfWeek>FRIDAY</ns1:dayOfWeek>
-              <ns1:startHour>1</ns1:startHour>
-              <ns1:endHour>2</ns1:endHour>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:AgeTarget">
-              <ns1:type>AGE_TARGET</ns1:type>
-              <ns1:targetId>ag0301</ns1:targetId>
-              <ns1:age>GT_RANGE12_14</ns1:age>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GenderTarget">
-              <ns1:type>GENDER_TARGET</ns1:type>
-              <ns1:targetId>ge0201</ns1:targetId>
-              <ns1:gender>ST_FEMALE</ns1:gender>
-              <ns1:estimateFlg>ACTIVE</ns1:estimateFlg>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:GeoTarget">
-              <ns1:type>GEO_TARGET</ns1:type>
-              <ns1:targetId>TC-CI-00000102</ns1:targetId>
-              <ns1:geoNameJa>岩手県</ns1:geoNameJa>
-              <ns1:geoNameEn>iwate_pref</ns1:geoNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:InterestCategoryTarget">
-              <ns1:type>INTEREST_CATEGORY</ns1:type>
-              <ns1:targetId>TC-IC-40150150100</ns1:targetId>
-              <ns1:categoryFullNameJa>消費財 &gt; 美容コスメ &gt; 化粧品 &gt; メイクアップ &gt; ネイル</ns1:categoryFullNameJa>
-              <ns1:categoryFullNameEn>Consumer Packaged Goods &gt; Beauty and Personal Care &gt; Cosmetics &gt; Makeup &gt; Nail</ns1:categoryFullNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-        <ns1:values>
-          <ns1:operationSucceeded>true</ns1:operationSucceeded>
-          <ns1:adGroupTargetList>
-            <ns1:accountId>10000002</ns1:accountId>
-            <ns1:campaignId>20000002</ns1:campaignId>
-            <ns1:adGroupId>30000002</ns1:adGroupId>
-            <ns1:bidMultiplier>2</ns1:bidMultiplier>
-            <ns1:target xsi:type="ns1:SiteCategoryTarget">
-              <ns1:type>SITE_CATEGORY</ns1:type>
-              <ns1:targetId>TC-SC-10110140100100</ns1:targetId>
-              <ns1:categoryFullNameJa>ニュース &gt; 政治</ns1:categoryFullNameJa>
-              <ns1:categoryFullNameEn>News &gt; Politics</ns1:categoryFullNameEn>
-            </ns1:target>
-          </ns1:adGroupTargetList>
-        </ns1:values>
-      </ns1:rval>
-    </ns1:replaceResponse>
+    <replaceResponse xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+      <rval>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AdScheduleTarget">
+              <type>AD_SCHEDULE_TARGET</type>
+              <targetId>aa111111</targetId>
+              <dayOfWeek>MONDAY</dayOfWeek>
+              <startHour>13</startHour>
+              <endHour>14</endHour>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GeoTarget">
+              <type>GEO_TARGET</type>
+              <targetId>aa111111</targetId>
+              <geoNameJa>岩手県</geoNameJa>
+              <geoNameEn>iwate_pref</geoNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
+              <type>AGE_TARGET</type>
+              <targetId>aa111112</targetId>
+              <age>GT_RANGE18_19</age>
+              <estimateFlg>ACTIVE</estimateFlg>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenderTarget">
+              <type>GENDER_TARGET</type>
+              <targetId>aa111112</targetId>
+              <gender>ST_FEMALE</gender>
+              <estimateFlg>ACTIVE</estimateFlg>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InterestCategoryTarget">
+              <type>INTEREST_CATEGORY</type>
+              <targetId>TC-IC-99999</targetId>
+              <categoryFullNameJa>消費財</categoryFullNameJa>
+              <categoryFullNameEn>Consumer Packaged Good</categoryFullNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteCategoryTarget">
+              <type>SITE_CATEGORY</type>
+              <targetId>TC-SC-999999</targetId>
+              <categoryFullNameJa>ニュース</categoryFullNameJa>
+              <categoryFullNameEn>News</categoryFullNameEn>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+              <type>PLACEMENT_TARGET</type>
+              <targetId>12345678</targetId>
+              <placementUrlListName>c</placementUrlListName>
+              <deliverType>WHITE_LIST</deliverType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SearchTarget">
+              <type>SEARCH_TARGET</type>
+              <targetId>123456789</targetId>
+              <searchKeywordListName>News</searchKeywordListName>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+              <type>SITE_RETARGETING</type>
+              <targetId>123456789</targetId>
+              <targetListName>Default List</targetListName>
+              <deliverType>INCLUDE</deliverType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DeviceTarget">
+              <type>DEVICE_TARGET</type>
+              <targetId>de01</targetId>
+              <deviceType>TABLET</deviceType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <bidMultiplier>1.15</bidMultiplier>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CarrierTarget">
+              <type>CARRIER_TARGET</type>
+              <targetId>ca01</targetId>
+              <mobileCarrier>DOCOMO</mobileCarrier>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppTarget">
+              <type>APP_TARGET</type>
+              <targetId>app01</targetId>
+              <appType>APP</appType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsTarget">
+              <type>OS_TARGET</type>
+              <targetId>os01</targetId>
+              <osType>ANDROID</osType>
+            </target>
+          </adGroupTargetList>
+        </values>
+        <values>
+          <ns2:operationSucceeded>true</ns2:operationSucceeded>
+          <adGroupTargetList>
+            <accountId>1234567890</accountId>
+            <campaignId>10001</campaignId>
+            <adGroupId>20001</adGroupId>
+            <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OsVersionTarget">
+              <type>OS_VERSION_TARGET</type>
+              <targetId>ov01</targetId>
+              <osVersion>8.0</osVersion>
+            </target>
+          </adGroupTargetList>
+        </values>
+      </rval>
+    </replaceResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
