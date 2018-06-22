@@ -6,7 +6,7 @@ SearchKeywordIdeaServiceは、サーチターゲティング対象キーワー�
 | production  | https://location.im.yahooapis.jp/services/V201806/SearchKeywordIdeaService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/SearchKeywordIdeaService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/SearchKeywordIdea
 #### サービス概要
 サーチターゲティング対象キーワードを取得します。
 #### 操作

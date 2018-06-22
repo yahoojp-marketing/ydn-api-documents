@@ -8,7 +8,7 @@ ConversionTrackerServiceでは、コンバージョントラッカー情報の�
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/ConversionTrackerService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/ConversionTracker
 
 #### サービス概要
 コンバージョントラッカー情報の取得およびコンバージョントラッカー情報の追加・更新を行います。

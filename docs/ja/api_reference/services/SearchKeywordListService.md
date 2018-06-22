@@ -9,7 +9,7 @@ SearchKeywordListServiceは、サーチキーワードリストの取得およ�
 | production  | https://location.im.yahooapis.jp/services/V201806/SearchKeywordListService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/SearchKeywordListService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/SearchKeywordList
 #### サービス概要
 サーチキーワードリストを操作します。
 #### 操作

@@ -15,7 +15,7 @@ AccountAdProductServiceで提供される操作を説明します。
 + [get](#get)
 
 #### オブジェクト
-[AccountAdProduct](../data/AccountAdProduct/AccountAdProduct)
+[AccountAdProduct](../data/AccountAdProduct)
 
 ## get
 

@@ -25,7 +25,7 @@ Explains operations provided by DictionaryService.
 + [getMediaAdFormat](#getMediaAdFormat)
 
 #### Object
-[Dictionary](../data/Dictionary/Dictionary)
+[Dictionary](../data/Dictionary)
 
 ## getDisapprovalReason
 

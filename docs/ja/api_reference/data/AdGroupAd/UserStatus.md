@@ -1,7 +1,12 @@
 # UserStatus (enum)
 UserStatusは、ユーザーにより広告配信の有無を調整できる設定です。
+
 ### Service
-全サービス共通
++ [AdGroupAdService](../../services/AdGroupAdService.md)
+
+### Namespace
+[AdGroupAdService#Namespace](../../services/AdGroupAdService.md#namespace)
+
 
 | 値 | 説明 |
 |---|---|

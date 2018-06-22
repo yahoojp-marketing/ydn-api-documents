@@ -6,7 +6,7 @@ BulkServiceは、バルクシートを使用した一括アップロードおよ
 | production  | https://location.im.yahooapis.jp/services/V201806/BulkService?wsdl |
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/BulkService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/Bulk
 #### サービス概要
 バルクシートを使用した一括アップロードおよびダウンロードの機能を提供します。
 

@@ -9,7 +9,7 @@ ReportServiceでは、レポートの取得および作成・削除を行いま�
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/ReportService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/Report
 
 #### サービス概要
 以下の操作が実行可能です。
@@ -38,7 +38,7 @@ ReportServiceで提供される操作を説明します。
 + [getClosedDate](#getcloseddate)
 
 #### オブジェクト
-[Report](../data/Report/Report)
+[Report](../data/Report)
 
 ## get
 

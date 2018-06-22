@@ -32,7 +32,7 @@ The VideoSelector object is a container for storing added video information and 
  <tr>
   <td>approvalStatuses[0..4]</td>
   <td>enum<br>
-  <a href="./VideoApprovalStatus.md">VideoApprovalStatus</a></td>
+  <a href="./ApprovalStatus.md">ApprovalStatus</a></td>
   <td>Approval status of the video on Editorial Review.</td>
  </tr>
  <tr>

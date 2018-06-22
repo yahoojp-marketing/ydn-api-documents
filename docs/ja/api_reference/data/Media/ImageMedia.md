@@ -32,7 +32,7 @@ ImageMediaオブジェクトは、画像を格納するコンテナです。
   <td>mediaAdFormat</td>
   <td>xsd:string</td>
   <td>画像フォーマットの種類です。<br>
-  ※利用可能なフォーマットは　<a href="../services/DictionaryService.md">DictionaryService</a>（getMediaAdFormat）よりご確認ください。 
+  ※利用可能なフォーマットは　<a href="../../services/DictionaryService.md">DictionaryService</a>（getMediaAdFormat）よりご確認ください。
   </td>
   <td>yes</td>
   <td>Ignore</td>

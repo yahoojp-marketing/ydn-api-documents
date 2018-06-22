@@ -76,7 +76,7 @@ The AdGroupAd object is a container for storing ad information.
   <td>-</td>
   <td>Requirement<br>NotUpdatable</td>
   <td>Requirement<br>NotUpdatable</td>
- </tr>  
+ </tr>
  <tr>
   <td>adName</td>
   <td>xsd:string</td>
@@ -86,7 +86,7 @@ The AdGroupAd object is a container for storing ad information.
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
   <td>-</td>
- </tr>   
+ </tr>
  <tr>
   <td>adStyle</td>
   <td>enum <a href="AdStyle.md">AdStyle</a></td>
@@ -117,7 +117,7 @@ The AdGroupAd object is a container for storing ad information.
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
   <td>-</td>
- </tr>  
+ </tr>
   <tr>
   <td>approvalStatus</td>
   <td>enum <a href="ApprovalStatus.md">ApprovalStatus</a></td>
@@ -178,7 +178,7 @@ The AdGroupAd object is a container for storing ad information.
  </tr>
  <tr>
   <td>isRemoveBeaconUrls</td>
-  <td>enum <a href="isRemoveFlg.md">isRemoveFlg</a></td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</a></td>
   <td>Remove flag of impression beacon URL.<br>
   If set 'TRUE', the set value on the impression beacon URL is invalid,</td>
   <td>-</td>

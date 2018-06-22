@@ -8,7 +8,7 @@ CampaignServiceは、キャンペーンの操作を提供します。
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/CampaignService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/Campaign
 
 #### サービス概要
 キャンペーンの操作を提供します。
@@ -22,7 +22,7 @@ CampaignServiceで提供される操作を説明します。
 + [mutate(REMOVE)](#mutateremove)
 
 #### オブジェクト
-[Campaign](../data/Campaign/Campaign)
+[Campaign](../data/Campaign)
 
 ## get
 

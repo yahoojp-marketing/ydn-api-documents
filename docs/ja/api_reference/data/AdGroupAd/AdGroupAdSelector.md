@@ -11,7 +11,6 @@ AdGroupAdSelectorオブジェクトは、操作の対象とする広告および
 | accountId| xsd:long| アカウント情報です。 |
 | campaignIds[]| xsd:long| キャンペーンIDです。 |
 | adGroupIds[]| xsd:long| 広告グループIDです。 |
-| targetTypes| enum <a href="TargetType.md">TargetType</a>| ターゲットの種類です。 |
 | adIds[]| xsd:long| 広告IDです。 |
 | mediaIds[]| xsd:long| 画像IDです。 |
 | userStatus[]| enum <a href="UserStatus.md">UserStatus</a>| 配信の状況です。 |

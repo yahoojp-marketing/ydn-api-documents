@@ -6,7 +6,7 @@ PlacementUrlListServiceは、プレイスメントURLリストの作成・更新
 | production  | https://location.im.yahooapis.jp/services/V201806/PlacementUrlListService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/PlacementUrlListService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/PlacementUrlList
 #### サービス概要
 プレイスメントURLリストの作成・更新・削除・取得を行います。
 #### 操作

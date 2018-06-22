@@ -8,7 +8,7 @@ VideoServiceでは、動画入稿に関する機能を提供します。
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/VideoService?wsdl|
 
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/Video
 
 #### サービス概要
 動画入稿に関する情報の取得、および動画のアップロード、ダウンロード、変更、削除を行います。

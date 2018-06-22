@@ -6,7 +6,7 @@ MediaServiceでは、画像入稿に関する機能を提供します。
 | production  | https://location.im.yahooapis.jp/services/V201806/MediaService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/MediaService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/Media
 #### サービス概要
 画像入稿に関する情報の取得および追加・更新・削除を行います。
 
