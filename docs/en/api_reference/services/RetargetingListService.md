@@ -32,7 +32,7 @@ Explains the operatons provided by RetargetingListService.
 + [mutate(SET)](#mutateset)
 
 #### Object
-[PlacementUrlList](../data/PlacementUrlList)
+[RetargetingList](../data/RetargetingList)
 
 ## get
 
@@ -41,7 +41,7 @@ Retrieve target list information for site retargeting.
 
 | Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| selector | required | [RetargetingListSelector](../data/PlacementUrlList/RetargetingListSelector.md) | Retrieve target list information for site retargeting. |
+| selector | required | [RetargetingListSelector](../data/RetargetingList/RetargetingListSelector.md) | Retrieve target list information for site retargeting. |
 
 ##### Request Sample
 ```xml
@@ -77,7 +77,7 @@ Retrieve target list information for site retargeting.
 ### Response
 | Parameter | Data Type | Description |
 |---|---|---|
-| rval | [RetargetingListPage](../data/PlacementUrlList/RetargetingListPage.md) | Container holding the operation result. |
+| rval | [RetargetingListPage](../data/RetargetingList/RetargetingListPage.md) | Container holding the operation result. |
 
 ##### Response Sample
 ```xml
@@ -222,7 +222,7 @@ Create the target list for site retargeting.
 
 | Parameter | Requirement | Value | Description |
 |---|---|---|---|
-| operations | required | [RetargetingListOperation](../data/PlacementUrlList/RetargetingListOperation.md) | Creates the target list for site retargeting. |
+| operations | required | [RetargetingListOperation](../data/RetargetingList/RetargetingListOperation.md) | Creates the target list for site retargeting. |
 
 ##### Request Sample
 ```xml
@@ -340,7 +340,7 @@ Create the target list for site retargeting.
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [RetargetingListReturnValue](../data/PlacementUrlList/RetargetingListReturnValue.md) | Container holding the operation result. |
+| rval | [RetargetingListReturnValue](../data/RetargetingList/RetargetingListReturnValue.md) | Container holding the operation result. |
 
 ##### Response Sample
 ```xml
@@ -485,7 +485,7 @@ Create the target list for site retargeting.
 
 | Parameter | Requirement | Value | Description |
 |---|---|---|---|
-| operations | required | [RetargetingListOperation](../data/PlacementUrlList/RetargetingListOperation.md) | Updates target list for site retargeting. |
+| operations | required | [RetargetingListOperation](../data/RetargetingList/RetargetingListOperation.md) | Updates target list for site retargeting. |
 
 ##### Request Sample
 ```xml
@@ -601,7 +601,7 @@ Create the target list for site retargeting.
 ### Response
 | Field | Data Type | Description |
 |---|---|---|
-| rval | [RetargetingListReturnValue](../data/PlacementUrlList/RetargetingListReturnValue.md) | Container holding the operation result. |
+| rval | [RetargetingListReturnValue](../data/RetargetingList/RetargetingListReturnValue.md) | Container holding the operation result. |
 
 ##### Response Sample
 ```xml
@@ -746,7 +746,7 @@ Create the target list for site retargeting.
 
 | Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | required | [RetargetingListOperation](../data/PlacementUrlList/RetargetingListOperation.md)|Deletes target list for site retargeting. |
+| operations | required | [RetargetingListOperation](../data/RetargetingList/RetargetingListOperation.md)|Deletes target list for site retargeting. |
 
 ##### Request sample
 
@@ -789,7 +789,7 @@ Create the target list for site retargeting.
 ### Response
 | Parameter | Data Type | Description |
 |---|---|---|
-| rval | [RetargetingListReturnValue](../data/PlacementUrlList/RetargetingListReturnValue.md) | Container holding the operation result. |
+| rval | [RetargetingListReturnValue](../data/RetargetingList/RetargetingListReturnValue.md) | Container holding the operation result. |
 
 ##### Response Sample
 ```xml

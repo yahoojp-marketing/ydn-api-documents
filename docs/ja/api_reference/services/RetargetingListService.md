@@ -6,7 +6,7 @@ RetargetingListServiceでは、サイトリターゲティングのターゲッ�
 | production  | https://location.im.yahooapis.jp/services/V201806/RetargetingListService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/RetargetingListService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/RetargetingList
 #### サービス概要
 サイトリターゲティングターゲットリストの取得および作成・更新・削除を行います。<br>
 <br>
@@ -33,7 +33,7 @@ RetargetingListServiceで提供される操作を説明します。
 + [mutate(SET)](#mutateset)
 
 #### オブジェクト
-[PlacementUrlList](../data/PlacementUrlList)
+[RetargetingList](../data/RetargetingList)
 
 ## get
 
@@ -42,7 +42,7 @@ RetargetingListServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○ | [RetargetingListSelector](../data/PlacementUrlList/RetargetingListSelector.md) | サイトリターゲティングのターゲットリスト情報を取得します。 |
+| selector | ○ | [RetargetingListSelector](../data/RetargetingList/RetargetingListSelector.md) | サイトリターゲティングのターゲットリスト情報を取得します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -78,7 +78,7 @@ RetargetingListServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [RetargetingListPage](../data/PlacementUrlList/RetargetingListPage.md) | 操作結果を含むコンテナです。 |
+| rval | [RetargetingListPage](../data/RetargetingList/RetargetingListPage.md) | 操作結果を含むコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -223,7 +223,7 @@ RetargetingListServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [RetargetingListOperation](../data/PlacementUrlList/RetargetingListOperation.md) | サイトリターゲティングのターゲットリストを作成します。 |
+| operations | ○ | [RetargetingListOperation](../data/RetargetingList/RetargetingListOperation.md) | サイトリターゲティングのターゲットリストを作成します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -341,7 +341,7 @@ RetargetingListServiceで提供される操作を説明します。
 ### レスポンス
 | フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [RetargetingListReturnValue](../data/PlacementUrlList/RetargetingListReturnValue.md) | 操作結果を含むコンテナです。 |
+| rval | [RetargetingListReturnValue](../data/RetargetingList/RetargetingListReturnValue.md) | 操作結果を含むコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -486,7 +486,7 @@ RetargetingListServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | 値 | 説明 |
 |---|---|---|---|
-| operations | ○ | [RetargetingListOperation](../data/PlacementUrlList/RetargetingListOperation.md) | サイトリターゲティングのターゲットリストを更新します。 |
+| operations | ○ | [RetargetingListOperation](../data/RetargetingList/RetargetingListOperation.md) | サイトリターゲティングのターゲットリストを更新します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -602,7 +602,7 @@ RetargetingListServiceで提供される操作を説明します。
 ### レスポンス
 | フィールド | データ型 | 説明 |
 |---|---|---|
-| rval | [RetargetingListReturnValue](../data/PlacementUrlList/RetargetingListReturnValue.md) | 操作結果を含むレポートのコンテナです。 |
+| rval | [RetargetingListReturnValue](../data/RetargetingList/RetargetingListReturnValue.md) | 操作結果を含むレポートのコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml
@@ -747,7 +747,7 @@ RetargetingListServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| operations | ○ | [RetargetingListOperation](../data/PlacementUrlList/RetargetingListOperation.md)|サイトリターゲティングのターゲットリストを削除します。 |
+| operations | ○ | [RetargetingListOperation](../data/RetargetingList/RetargetingListOperation.md)|サイトリターゲティングのターゲットリストを削除します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
@@ -788,7 +788,7 @@ RetargetingListServiceで提供される操作を説明します。
 ### レスポンス
 | パラメータ | データ型 | 説明 |
 |---|---|---|
-| rval | [RetargetingListReturnValue](../data/PlacementUrlList/RetargetingListReturnValue.md) | 操作結果を含むコンテナです。 |
+| rval | [RetargetingListReturnValue](../data/RetargetingList/RetargetingListReturnValue.md) | 操作結果を含むコンテナです。 |
 
 ##### ＜レスポンスサンプル＞
 ```xml

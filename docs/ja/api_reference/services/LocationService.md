@@ -7,7 +7,7 @@ LocationServiceでは、アカウントのロケーション情報を取得し�
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/LocationService?wsdl|
 
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/Location
 
 #### サービス概要
 Webサービスをリクエストする際には、まずLocationServiceを利用し、アカウントのコロケーションを取得してください。<br>

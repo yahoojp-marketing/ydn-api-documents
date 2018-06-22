@@ -32,7 +32,7 @@ The ImageMedia object is a container for storing image.
   <td>mediaAdFormat</td>
   <td>xsd:string</td>
   <td>The type of image format.<br>
-  *Available format is referable on <a href="../services/DictionaryService.md">DictionaryService</a>(getMediaAdFormat).
+  *Available format is referable on <a href="../../services/DictionaryService.md">DictionaryService</a>(getMediaAdFormat).
   </td>
   <td>yes</td>
   <td>Ignore</td>

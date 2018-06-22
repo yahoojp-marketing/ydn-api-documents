@@ -6,7 +6,7 @@
 | production  | https://location.im.yahooapis.jp/services/V201806/PlacementUrlIdeaService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/PlacementUrlIdeaService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/PlacementUrlIdea
 #### サービス概要
 プレイスメントターゲティングで入稿時に設定するURL候補を取得します。<br>
 URLと共にPC、スマートフォン、タブレットでのリーチ数（Reaches）とADリクエスト数（AdRequests）が取得できます。

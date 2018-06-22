@@ -4,7 +4,7 @@ SearchKeywordIdeaオブジェクトは、サーチターゲティング対象キ
 + [SearchKeywordIdeaService](../../services/SearchKeywordIdeaService.md)
 
 ### Namespace
-[SearchKeywordIdeaService#Namespace](../../services/SearchKeywordIdea.md#namespace)
+[SearchKeywordIdeaService#Namespace](../../services/SearchKeywordIdeaService.md#namespace)
 
 <table>
  <tr>

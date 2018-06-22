@@ -80,7 +80,7 @@ Video object is a container for the information of videos.
  </tr>
  <tr>
   <td>approvalStatuses</td>
-  <td>enum<br><a href="./VideoApprovalStatus.md">VideoApprovalStatus</a></td>
+  <td>enum<br><a href="./ApprovalStatus.md">ApprovalStatus</a></td>
   <td>Approval status of the video on Editorial Review.</td>
   <td>yes</td>
   <td>-</td>

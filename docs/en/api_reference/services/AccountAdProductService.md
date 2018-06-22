@@ -15,7 +15,7 @@ Explains the control providing from AccountAdProductService.
 + [get](#get)
 
 #### Object
-[AccountAdProduct](../data/AccountAdProduct/AccountAdProduct)
+[AccountAdProduct](../data/AccountAdProduct)
 
 ## get
 

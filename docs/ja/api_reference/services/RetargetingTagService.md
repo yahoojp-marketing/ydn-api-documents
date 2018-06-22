@@ -8,7 +8,7 @@ RetargetingTagServiceでは、サイトリターゲティングのタグに関�
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/RetargetingTagService?wsdl|
 
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/RetargetingTag
 
 #### サービス概要
 サイトリターゲティングタグに関する情報の取得・作成を行います。
@@ -20,7 +20,7 @@ RetargetingTagServiceで提供される操作を説明します。
 + [mutate(ADD)](#mutateadd)
 
 #### オブジェクト
-[RetargetingTag](../data/RetargetingTag/RetargetingTag)
+[RetargetingTag](../data/RetargetingTag)
 
 ## get
 

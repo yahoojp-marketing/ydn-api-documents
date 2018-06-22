@@ -39,7 +39,7 @@ Describes operations provided by ReportService.
 + [getClosedDate](#getcloseddate)
 
 #### Object
-[Report](../data/Report/Report)
+[Report](../data/Report)
 
 ## get
 

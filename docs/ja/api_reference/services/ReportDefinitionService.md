@@ -9,7 +9,7 @@ ReportDefinitionServiceでは、レポート出力項目の取得およびレポ
 | production  | https://location.im.yahooapis.jp/services/V201806/ReportDefinitionService?wsdl|
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/ReportDefinitionService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/ReportDefinition
 #### サービス概要
 以下の操作が実行可能です。
 - レポート定義の取得

@@ -7,7 +7,7 @@ StatsServiceは、キャンペーン、広告グループ、広告、画像、�
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/StatsService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/Stats
 
 #### サービス概要
 キャンペーン、広告グループ、広告、画像、動画の単位で統計情報の取得を行います。

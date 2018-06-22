@@ -6,11 +6,11 @@ MediaValuesオブジェクトは、処理結果を含む画像に関する情報
 ### Namespace
 [MediaService#Namespace](../../services/MediaService.md#namespace)
 
-| フィールド | データ型 | 説明 | 
+| フィールド | データ型 | 説明 |
 |---|---|---|
 | ReturnValue(inherited)|||
 | operationSucceeded| xsd: boolean| 処理結果です。 |
-| error| <a href="Error.md">Error</a>[]| エラーの内容です。 |
+| error| <a href="../Common/Error.md">Error</a>[]| エラーの内容です。 |
 | MediaValues|||
 | media| <a href="./MediaRecord.md">MediaRecord</a>| 画像に関する情報です。 |
 

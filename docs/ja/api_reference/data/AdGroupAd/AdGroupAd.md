@@ -178,7 +178,7 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
  </tr>
  <tr>
   <td>isRemoveBeaconUrls</td>
-  <td>enum <a href="isRemoveFlg.md">isRemoveFlg</a></td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</a></td>
   <td>インプレッションビーコンURL<br>削除フラグです。<br>
   設定値が「TRUE」の場合、設定されている<br>インプレッションビーコンURLの<br>値が無効になります。</td>
   <td>-</td>

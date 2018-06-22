@@ -8,7 +8,7 @@ DictionaryServiceは、審査否認理由、地域情報、インタレストカ
 | sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/DictionaryService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201806/
+http://im.yahooapis.jp/V201806/Dictionary
 
 #### サービス概要
 各種情報の一覧を取得します。
@@ -25,7 +25,7 @@ DictionaryServiceで提供される操作を説明します。
 + [getMediaAdFormat](#getMediaAdFormat)
 
 #### オブジェクト
-[Dictionary](../data/Dictionary/Dictionary)
+[Dictionary](../data/Dictionary)
 
 ## getDisapprovalReason
 

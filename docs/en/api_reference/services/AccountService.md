@@ -15,7 +15,7 @@ Describes operations provided by AccountService.
 + [get](#get)
 + [mutate(SET)](#mutateset)
 
-#### オブジェクト
+#### Object
 [Account](../data/Account)
 
 ## get
