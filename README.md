@@ -52,8 +52,8 @@
 <tr>
  <th>API version</th>
  <th>Release</th>
- <th>Support close</th>
- <th>System close</th>
+ <th>Deprecation date</th>
+ <th>End of Life date</th>
  <th>Release Note</th>
 </tr>
 <tr>
