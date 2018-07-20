@@ -191,7 +191,6 @@ RetargetingListServiceで提供される操作を説明します。
             <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimilarityTargetList">
               <ns2:targetListType>SIMILARITY</ns2:targetListType>
               <ns2:targetListId>9999</ns2:targetListId>
-              <ns2:similarityLevel>MID</ns2:similarityLevel>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -319,7 +318,6 @@ RetargetingListServiceで提供される操作を説明します。
           <targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimilarityTargetList">
             <targetListType>SIMILARITY</targetListType>
             <targetListId>9999</targetListId>
-            <similarityLevel>MID</similarityLevel>
           </targetList>
         </operand>
         <operand>
@@ -455,7 +453,6 @@ RetargetingListServiceで提供される操作を説明します。
             <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimilarityTargetList">
               <ns2:targetListType>SIMILARITY</ns2:targetListType>
               <ns2:targetListId>9999</ns2:targetListId>
-              <ns2:similarityLevel>MID</ns2:similarityLevel>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -582,7 +579,6 @@ RetargetingListServiceで提供される操作を説明します。
           <targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimilarityTargetList">
             <targetListType>SIMILARITY</targetListType>
             <targetListId>9999</targetListId>
-            <similarityLevel>MID</similarityLevel>
           </targetList>
         </operand>
         <operand>
@@ -716,7 +712,6 @@ RetargetingListServiceで提供される操作を説明します。
             <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimilarityTargetList">
               <ns2:targetListType>SIMILARITY</ns2:targetListType>
               <ns2:targetListId>9999</ns2:targetListId>
-              <ns2:similarityLevel>MID</ns2:similarityLevel>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -902,7 +897,6 @@ RetargetingListServiceで提供される操作を説明します。
             <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimilarityTargetList">
               <ns2:targetListType>SIMILARITY</ns2:targetListType>
               <ns2:targetListId>9999</ns2:targetListId>
-              <ns2:similarityLevel>MID</ns2:similarityLevel>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
