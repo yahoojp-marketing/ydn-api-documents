@@ -7,3 +7,5 @@
 SOAPエラーコード です。
 #### [トラッキングパラメータ](/docs/ja/api_reference/appendix/tracking.md)
 トラッキングパラメータの説明です。
+#### [イベント種別](/docs/ja/api_reference/appendix/eventtypes.md)
+イベント種別です。

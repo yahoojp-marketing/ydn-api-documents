@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201806/RetargetingList"
-        xmlns:tns="http://im.yahooapis.jp/V201806/RetargetingList"
+        targetNamespace="http://im.yahooapis.jp/V201809/RetargetingList"
+        xmlns:tns="http://im.yahooapis.jp/V201809/RetargetingList"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201806"
+            targetNamespace="http://im.yahooapis.jp/V201809"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201806">
+            xmlns:tns="http://im.yahooapis.jp/V201809">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201806/RetargetingList"
+            targetNamespace="http://im.yahooapis.jp/V201809/RetargetingList"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201806"
-            xmlns:tns="http://im.yahooapis.jp/V201806/RetargetingList">
-      <xsd:import namespace="http://im.yahooapis.jp/V201806"/>
+            xmlns:adv="http://im.yahooapis.jp/V201809"
+            xmlns:tns="http://im.yahooapis.jp/V201809/RetargetingList">
+      <xsd:import namespace="http://im.yahooapis.jp/V201809"/>
       <annotation>
         <appinfo>
-          <version>201806</version>
+          <version>201809</version>
         </appinfo>
       </annotation>
       <complexType name="RetargetingListSelector">
@@ -160,9 +160,17 @@
           <extension base="tns:RetargetingTargetList">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="targetListId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="targetListSize" type="tns:TargetListSize"/>
+              <element maxOccurs="10" minOccurs="0" name="targetListSizeReaches" type="tns:TargetListSizeReaches"/>
             </sequence>
           </extension>
         </complexContent>
+      </complexType>
+      <complexType name="TargetListSizeReaches">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="targetListSize" type="tns:TargetListSize"/>
+          <element maxOccurs="1" minOccurs="0" name="reach" type="xsd:long"/>
+        </sequence>
       </complexType>
       <complexType name="CustomAudienceTargetList">
         <complexContent>
@@ -174,6 +182,20 @@
           </extension>
         </complexContent>
       </complexType>
+      <simpleType name="TargetListSize">
+        <restriction base="xsd:string">
+          <enumeration value="RATE_1"/>
+          <enumeration value="RATE_2"/>
+          <enumeration value="RATE_3"/>
+          <enumeration value="RATE_4"/>
+          <enumeration value="RATE_5"/>
+          <enumeration value="RATE_6"/>
+          <enumeration value="RATE_7"/>
+          <enumeration value="RATE_8"/>
+          <enumeration value="RATE_9"/>
+          <enumeration value="RATE_10"/>
+        </restriction>
+      </simpleType>
       <simpleType name="DeliveryStatus">
         <restriction base="xsd:string">
           <enumeration value="ACTIVE"/>
@@ -200,6 +222,7 @@
           <enumeration value="PAGE_TYPE"/>
           <enumeration value="ITEM_ID"/>
           <enumeration value="ITEM_CATEGORY_ID"/>
+          <enumeration value="EVENT_TYPE"/>
         </restriction>
       </simpleType>
       <simpleType name="CompareOperator">
@@ -371,7 +394,7 @@
   </wsdl:binding>
   <wsdl:service name="RetargetingListServiceService">
     <wsdl:port binding="tns:RetargetingListServiceSoapBinding" name="RetargetingListService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201806/RetargetingListService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201809/RetargetingListService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

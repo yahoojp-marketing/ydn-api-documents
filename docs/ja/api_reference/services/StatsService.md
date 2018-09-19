@@ -3,11 +3,11 @@ StatsServiceは、キャンペーン、広告グループ、広告、画像、�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201806/StatsService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/StatsService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201809/StatsService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/StatsService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201806/Stats
+http://im.yahooapis.jp/V201809/Stats
 
 #### サービス概要
 キャンペーン、広告グループ、広告、画像、動画の単位で統計情報の取得を行います。
@@ -33,14 +33,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -59,14 +59,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -86,14 +86,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -114,14 +114,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
@@ -140,18 +140,22 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
-        <statsPeriod>DEFINITE_VALUE_TWOWEEK</statsPeriod>
+        <statsPeriod>CUSTOM_DATE</statsPeriod>
+        <statsPeriodCustomDate>
+          <statsStartDate>20180101</statsStartDate>
+          <statsEndDate>20190101</statsEndDate>
+        </statsPeriodCustomDate>
         <statsType>VIDEO</statsType>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
@@ -172,20 +176,24 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1528957529597</ns2:requestTime>
+      <ns2:requestTime>1536568329607</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
         <ns2:period>
-          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
-          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+          <ns2:periodStartDate>
+            <ns2:periodDate>20180216</ns2:periodDate>
+          </ns2:periodStartDate>
+          <ns2:periodEndDate>
+            <ns2:periodDate>20180301</ns2:periodDate>
+          </ns2:periodEndDate>
         </ns2:period>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -242,20 +250,24 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1528957529635</ns2:requestTime>
+      <ns2:requestTime>1536568329648</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
         <ns2:period>
-          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
-          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+          <ns2:periodStartDate>
+            <ns2:periodDate>20180216</ns2:periodDate>
+          </ns2:periodStartDate>
+          <ns2:periodEndDate>
+            <ns2:periodDate>20180301</ns2:periodDate>
+          </ns2:periodEndDate>
         </ns2:period>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -313,20 +325,24 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1528957529667</ns2:requestTime>
+      <ns2:requestTime>1536568329689</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
         <ns2:period>
-          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
-          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+          <ns2:periodStartDate>
+            <ns2:periodDate>20180216</ns2:periodDate>
+          </ns2:periodStartDate>
+          <ns2:periodEndDate>
+            <ns2:periodDate>20180301</ns2:periodDate>
+          </ns2:periodEndDate>
         </ns2:period>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -385,20 +401,24 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1528957529716</ns2:requestTime>
+      <ns2:requestTime>1536568329741</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
         <ns2:period>
-          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
-          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+          <ns2:periodStartDate>
+            <ns2:periodDate>20180216</ns2:periodDate>
+          </ns2:periodStartDate>
+          <ns2:periodEndDate>
+            <ns2:periodDate>20180301</ns2:periodDate>
+          </ns2:periodEndDate>
         </ns2:period>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -455,26 +475,36 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Stats" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1528957529759</ns2:requestTime>
+      <ns2:requestTime>1536568329783</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
         <ns2:period>
-          <ns2:periodStartDate>20180301000000</ns2:periodStartDate>
-          <ns2:periodEndDate>20180301010000</ns2:periodEndDate>
+          <ns2:periodStartDate>
+            <ns2:periodDate>20180101</ns2:periodDate>
+            <ns2:periodTime>000000</ns2:periodTime>
+          </ns2:periodStartDate>
+          <ns2:periodEndDate>
+            <ns2:periodDate>20190101</ns2:periodDate>
+            <ns2:periodTime>000000</ns2:periodTime>
+          </ns2:periodEndDate>
         </ns2:period>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:accountId>1111</ns2:accountId>
           <ns2:mediaId>22222</ns2:mediaId>
-          <ns2:statsPeriod>DEFINITE_VALUE_TWOWEEK</ns2:statsPeriod>
+          <ns2:statsPeriod>CUSTOM_DATE</ns2:statsPeriod>
+          <ns2:statsPeriodCustomDate>
+            <ns2:statsStartDate>20180101</ns2:statsStartDate>
+            <ns2:statsEndDate>20190101</ns2:statsEndDate>
+          </ns2:statsPeriodCustomDate>
           <ns2:statsType>VIDEO</ns2:statsType>
           <ns2:stats>
             <ns2:imps>4</ns2:imps>

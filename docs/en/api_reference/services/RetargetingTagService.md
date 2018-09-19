@@ -3,10 +3,10 @@ RetargetingTagService retrieves the site retargeting tag information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201806/RetargetingTagService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/RetargetingTagService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201809/RetargetingTagService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/RetargetingTagService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201806/RetargetingTag
+http://im.yahooapis.jp/V201809/RetargetingTag
 #### Service Overview
 Use this service to retrieve the site retargeting tag information.
 #### Operation
@@ -31,14 +31,14 @@ Retrieves the site retargeting tag information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingTag" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingTag" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/RetargetingTag">
+    <get xmlns="http://im.yahooapis.jp/V201809/RetargetingTag">
       <selector>
         <accountId>1111</accountId>
       </selector>
@@ -56,14 +56,14 @@ Retrieves the site retargeting tag information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingTag" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingTag" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>RetargetingTag</ns2:service>
-      <ns2:requestTime>1528278916455</ns2:requestTime>
+      <ns2:requestTime>1536568328645</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/RetargetingTag">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/RetargetingTag">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -94,14 +94,14 @@ Create an tag for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingTag" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingTag" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/RetargetingTag">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/RetargetingTag">
       <operations>
         <operator>ADD</operator>
         <accountId>1234</accountId>
@@ -120,14 +120,14 @@ Create an tag for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingTag" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingTag" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>RetargetingTag</ns2:service>
-      <ns2:requestTime>1528278916475</ns2:requestTime>
+      <ns2:requestTime>1536568328660</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/RetargetingTag">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/RetargetingTag">
       <ns2:rval>
         <ListReturnValue.Type>RetargetingTagReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>

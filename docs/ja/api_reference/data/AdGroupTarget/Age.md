@@ -8,7 +8,7 @@ Ageは、年代を表します。
 
 | 値 | データ型 | 説明 |
 |---|---|---|
-| GT_RANGE12_14| string| 12歳から14歳です。 |
+| GT_RANGE13_14| string| 13歳から14歳です。 |
 | GT_RANGE15_17| string| 15歳から17歳です。 |
 | GT_RANGE18_19| string| 18歳から19歳です。 |
 | GT_RANGE20_21| string| 20歳から21歳です。 |

@@ -1,5 +1,6 @@
 # Period
 Periodオブジェクトは、統計情報の更新日を保持します。
+
 ### Service
 + [StatsService](../../services/StatsService.md)
 
@@ -18,7 +19,7 @@ Periodオブジェクトは、統計情報の更新日を保持します。
  </tr>
  <tr>
   <td>periodStartDate</td>
-  <td>String</td>
+  <td><a href="./PeriodDatetime.md">PeriodDatetime</a></td>
   <td>統計情報更新開始日時</td>
   <td>yes</td>
   <td>-</td>
@@ -27,7 +28,7 @@ Periodオブジェクトは、統計情報の更新日を保持します。
  </tr>
  <tr>
   <td>periodEndDate</td>
-  <td>String</td>
+  <td><a href="./PeriodDatetime.md">PeriodDatetime</a></td>
   <td>統計情報更新終了日時</td>
   <td>yes</td>
   <td>-</td>

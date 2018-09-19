@@ -3,10 +3,10 @@ RetargetingListService retrives, add, update, and delete the target list for sit
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201806/RetargetingListService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/RetargetingListService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201809/RetargetingListService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/RetargetingListService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201806/RetargetingList
+http://im.yahooapis.jp/V201809/RetargetingList
 #### Service Overview
 Use this service to retrieve , add, update, and delete the target list for site retargeting.<br>
 <br>
@@ -47,14 +47,14 @@ Retrieve target list information for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <get xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <selector>
         <accountId>1111</accountId>
         <targetListIds>100000001</targetListIds>
@@ -83,14 +83,14 @@ Retrieve target list information for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>RetargetingList</ns2:service>
-      <ns2:requestTime>1528278916080</ns2:requestTime>
+      <ns2:requestTime>1536568328364</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/RetargetingList">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/RetargetingList">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <ns2:values>
@@ -190,6 +190,47 @@ Retrieve target list information for site retargeting.
             <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimilarityTargetList">
               <ns2:targetListType>SIMILARITY</ns2:targetListType>
               <ns2:targetListId>9999</ns2:targetListId>
+              <ns2:targetListSize>RATE_6</ns2:targetListSize>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_1</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_2</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_3</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_4</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_5</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_6</ns2:targetListSize>
+                <ns2:reach>6600</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_7</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_8</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_9</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_10</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -227,14 +268,14 @@ Create the target list for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/RetargetingList">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/RetargetingList">
       <operations>
         <operator>ADD</operator>
         <accountId>1234</accountId>
@@ -317,6 +358,7 @@ Create the target list for site retargeting.
           <targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimilarityTargetList">
             <targetListType>SIMILARITY</targetListType>
             <targetListId>9999</targetListId>
+            <targetListSize>RATE_6</targetListSize>
           </targetList>
         </operand>
         <operand>
@@ -327,6 +369,25 @@ Create the target list for site retargeting.
             <targetListType>CUSTOM_AUDIENCE</targetListType>
             <reachPeriod>9999</reachPeriod>
             <customAudienceId>ZZZZ</customAudienceId>
+          </targetList>
+        </operand>
+        <operand>
+          <targetListName>AppEventTargetList</targetListName>
+          <description>App Event Target List</description>
+          <deliveryStatus>ACTIVE</deliveryStatus>
+          <targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleTargetList">
+            <targetListType>RULE</targetListType>
+            <retargetingTagId>ES8KY92KGT</retargetingTagId>
+            <isPreset>FALSE</isPreset>
+            <isOpen>TRUE</isOpen>
+            <reachPeriod>1</reachPeriod>
+            <rules>
+              <ruleConditions>
+                <type>EVENT_TYPE</type>
+                <compareOperator>EQUAL</compareOperator>
+                <value>app_install</value>
+              </ruleConditions>
+            </rules>
           </targetList>
         </operand>
       </operations>
@@ -344,14 +405,14 @@ Create the target list for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>RetargetingList</ns2:service>
-      <ns2:requestTime>1528278916121</ns2:requestTime>
+      <ns2:requestTime>1536568328411</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/RetargetingList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/RetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>RetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -452,6 +513,47 @@ Create the target list for site retargeting.
             <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimilarityTargetList">
               <ns2:targetListType>SIMILARITY</ns2:targetListType>
               <ns2:targetListId>9999</ns2:targetListId>
+              <ns2:targetListSize>RATE_6</ns2:targetListSize>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_1</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_2</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_3</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_4</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_5</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_6</ns2:targetListSize>
+                <ns2:reach>6600</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_7</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_8</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_9</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_10</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -467,6 +569,29 @@ Create the target list for site retargeting.
               <ns2:targetListType>CUSTOM_AUDIENCE</ns2:targetListType>
               <ns2:reachPeriod>9999</ns2:reachPeriod>
               <ns2:customAudienceId>ZZZZ</ns2:customAudienceId>
+            </ns2:targetList>
+          </ns2:retargetingList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:retargetingList>
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:targetListId>42222</ns2:targetListId>
+            <ns2:targetListName>AppEventTargetList</ns2:targetListName>
+            <ns2:description>App Event Target List</ns2:description>
+            <ns2:deliveryStatus>ACTIVE</ns2:deliveryStatus>
+            <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleTargetList">
+              <ns2:targetListType>RULE</ns2:targetListType>
+              <ns2:retargetingTagId>ES8KY92KGT</ns2:retargetingTagId>
+              <ns2:isPreset>FALSE</ns2:isPreset>
+              <ns2:reachPeriod>1</ns2:reachPeriod>
+              <ns2:rules>
+                <ns2:ruleConditions>
+                  <ns2:type>EVENT_TYPE</ns2:type>
+                  <ns2:compareOperator>EQUAL</ns2:compareOperator>
+                  <ns2:value>app_install</ns2:value>
+                </ns2:ruleConditions>
+              </ns2:rules>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -488,14 +613,14 @@ Create the target list for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/RetargetingList">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/RetargetingList">
       <operations>
         <operator>SET</operator>
         <accountId>0</accountId>
@@ -578,6 +703,7 @@ Create the target list for site retargeting.
           <targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SimilarityTargetList">
             <targetListType>SIMILARITY</targetListType>
             <targetListId>9999</targetListId>
+            <targetListSize>RATE_6</targetListSize>
           </targetList>
         </operand>
         <operand>
@@ -586,6 +712,24 @@ Create the target list for site retargeting.
           <description>Custom Audience Target List</description>
           <targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CustomAudienceTargetList">
             <targetListType>CUSTOM_AUDIENCE</targetListType>
+          </targetList>
+        </operand>
+        <operand>
+          <targetListId>42222</targetListId>
+          <targetListName>AppEventTargetList</targetListName>
+          <description>App Event Target List</description>
+          <targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleTargetList">
+            <targetListType>RULE</targetListType>
+            <isPreset>FALSE</isPreset>
+            <isOpen>TRUE</isOpen>
+            <reachPeriod>1</reachPeriod>
+            <rules>
+              <ruleConditions>
+                <type>EVENT_TYPE</type>
+                <compareOperator>EQUAL</compareOperator>
+                <value>app_launch</value>
+              </ruleConditions>
+            </rules>
           </targetList>
         </operand>
       </operations>
@@ -603,14 +747,14 @@ Create the target list for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>RetargetingList</ns2:service>
-      <ns2:requestTime>1528278916270</ns2:requestTime>
+      <ns2:requestTime>1536568328454</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/RetargetingList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/RetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>RetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -711,6 +855,47 @@ Create the target list for site retargeting.
             <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimilarityTargetList">
               <ns2:targetListType>SIMILARITY</ns2:targetListType>
               <ns2:targetListId>9999</ns2:targetListId>
+              <ns2:targetListSize>RATE_6</ns2:targetListSize>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_1</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_2</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_3</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_4</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_5</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_6</ns2:targetListSize>
+                <ns2:reach>6600</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_7</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_8</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_9</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_10</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -726,6 +911,29 @@ Create the target list for site retargeting.
               <ns2:targetListType>CUSTOM_AUDIENCE</ns2:targetListType>
               <ns2:reachPeriod>9999</ns2:reachPeriod>
               <ns2:customAudienceId>ZZZZ</ns2:customAudienceId>
+            </ns2:targetList>
+          </ns2:retargetingList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:retargetingList>
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:targetListId>42222</ns2:targetListId>
+            <ns2:targetListName>AppEventTargetList</ns2:targetListName>
+            <ns2:description>App Event Target List</ns2:description>
+            <ns2:deliveryStatus>ACTIVE</ns2:deliveryStatus>
+            <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleTargetList">
+              <ns2:targetListType>RULE</ns2:targetListType>
+              <ns2:retargetingTagId>ES8KY92KGT</ns2:retargetingTagId>
+              <ns2:isPreset>FALSE</ns2:isPreset>
+              <ns2:reachPeriod>1</ns2:reachPeriod>
+              <ns2:rules>
+                <ns2:ruleConditions>
+                  <ns2:type>EVENT_TYPE</ns2:type>
+                  <ns2:compareOperator>EQUAL</ns2:compareOperator>
+                  <ns2:value>app_launch</ns2:value>
+                </ns2:ruleConditions>
+              </ns2:rules>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -749,14 +957,14 @@ Create the target list for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/RetargetingList">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/RetargetingList">
       <operations>
         <operator>REMOVE</operator>
         <accountId>0</accountId>
@@ -790,14 +998,14 @@ Create the target list for site retargeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/RetargetingList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>RetargetingList</ns2:service>
-      <ns2:requestTime>1528278916302</ns2:requestTime>
+      <ns2:requestTime>1536568328497</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/RetargetingList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/RetargetingList">
       <ns2:rval>
         <ListReturnValue.Type>RetargetingListReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -898,6 +1106,47 @@ Create the target list for site retargeting.
             <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SimilarityTargetList">
               <ns2:targetListType>SIMILARITY</ns2:targetListType>
               <ns2:targetListId>9999</ns2:targetListId>
+              <ns2:targetListSize>RATE_6</ns2:targetListSize>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_1</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_2</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_3</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_4</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_5</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_6</ns2:targetListSize>
+                <ns2:reach>6600</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_7</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_8</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_9</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
+              <ns2:targetListSizeReaches>
+                <ns2:targetListSize>RATE_10</ns2:targetListSize>
+                <ns2:reach>0</ns2:reach>
+              </ns2:targetListSizeReaches>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>
@@ -913,6 +1162,29 @@ Create the target list for site retargeting.
               <ns2:targetListType>CUSTOM_AUDIENCE</ns2:targetListType>
               <ns2:reachPeriod>9999</ns2:reachPeriod>
               <ns2:customAudienceId>ZZZZ</ns2:customAudienceId>
+            </ns2:targetList>
+          </ns2:retargetingList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:retargetingList>
+            <ns2:accountId>1111</ns2:accountId>
+            <ns2:targetListId>42222</ns2:targetListId>
+            <ns2:targetListName>AppEventTargetList</ns2:targetListName>
+            <ns2:description>App Event Target List</ns2:description>
+            <ns2:deliveryStatus>ACTIVE</ns2:deliveryStatus>
+            <ns2:targetList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleTargetList">
+              <ns2:targetListType>RULE</ns2:targetListType>
+              <ns2:retargetingTagId>ES8KY92KGT</ns2:retargetingTagId>
+              <ns2:isPreset>FALSE</ns2:isPreset>
+              <ns2:reachPeriod>1</ns2:reachPeriod>
+              <ns2:rules>
+                <ns2:ruleConditions>
+                  <ns2:type>EVENT_TYPE</ns2:type>
+                  <ns2:compareOperator>EQUAL</ns2:compareOperator>
+                  <ns2:value>app_launch</ns2:value>
+                </ns2:ruleConditions>
+              </ns2:rules>
             </ns2:targetList>
           </ns2:retargetingList>
         </ns2:values>

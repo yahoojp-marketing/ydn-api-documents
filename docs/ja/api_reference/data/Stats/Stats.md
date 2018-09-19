@@ -7,7 +7,6 @@ Statsオブジェクトは、統計情報を保持します。
 ### Namespace
 [StatsService#Namespace](../../services/StatsService.md#namespace)
  
-
 <table>
  <tr>
   <th>Field</th>
@@ -106,6 +105,7 @@ Statsオブジェクトは、統計情報を保持します。
   <td>yes</td>
  </tr>
  <tr>
+ <tr>
   <td>avgDeliverRank</td>
   <td>xsd:double</td>
   <td>平均掲載順位（配信された時のeCPM順位の平均）です。</td>
@@ -195,7 +195,7 @@ Statsオブジェクトは、統計情報を保持します。
   <td>動画25％再生数です。※動画広告のみ。</td>
   <td>yes</td>
  </tr>
-<tr>
+ <tr>
   <td>videoViewsTo50</td>
   <td>xsd:long</td>
   <td>動画50％再生数です。※動画広告のみ。</td>
@@ -207,31 +207,31 @@ Statsオブジェクトは、統計情報を保持します。
   <td>動画75％再生数です。※動画広告のみ。</td>
   <td>yes</td>
  </tr>
-<tr>
+ <tr>
   <td>videoViewsTo95</td>
   <td>xsd:long</td>
   <td>動画95％再生数です。※動画広告のみ。</td>
   <td>yes</td>
  </tr>
-<tr>
+ <tr>
   <td>videoViewsTo100</td>
   <td>xsd:long</td>
   <td>動画100％再生数です。※動画広告のみ。</td>
   <td>yes</td>
  </tr>
-<tr>
+ <tr>
   <td>videoViewsTo3Sec</td>
   <td>xsd:long</td>
   <td>動画が3秒以上再生された回数です。※動画広告のみ。</td>
   <td>yes</td>
  </tr> 
-<tr>
+ <tr>
   <td>averageRateVideoViewed</td>
   <td>xsd:double</td>
   <td>動画の平均再生率（動画が全体の長さの何％まで再生されたかの平均値）です。※動画広告のみ。</td>
   <td>yes</td>
  </tr>
-<tr>
+ <tr>
   <td>averageDurationVideoViewed</td>
   <td>xsd:double</td>
   <td>動画の平均再生時間です。※動画広告のみ。</td>

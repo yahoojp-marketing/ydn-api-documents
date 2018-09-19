@@ -19,27 +19,32 @@ ConversionTrackerPageオブジェクトは、getメソッドの実行結果（�
  <tr>
   <td>totalConversions</td>
   <td>xsd:long</td>
-  <td>コンバージョン数の合計です。<br>※デバイスをまたいだコンバージョンの値を加味します。</td>
+  <td>コンバージョン数の合計。<br>※デバイスをまたいだコンバージョンの値を加味。</td>
  </tr>
  <tr>
   <td>totalConversionValue</td>
   <td>xsd:string</td>
-  <td>コンバージョンの価値の合計です。<br>※デバイスをまたいだコンバージョンの値を加味します。</td>
+  <td>コンバージョンの価値の合計。<br>※デバイスをまたいだコンバージョンの値を加味。</td>
  </tr>
  <tr>
   <td>totalAllConversions</td>
   <td>xsd:long</td>
-  <td>自動入札の対象コンバージョン数＋対象外コンバージョン数の合計です。</td>
+  <td>自動入札の対象コンバージョン数＋対象外コンバージョン数の合計。</td>
  </tr>
  <tr>
   <td>totalAllConversionValue</td>
   <td>xsd:string</td>
-  <td>自動入札の対象コンバージョンの価値＋対象外コンバージョンの価値の合計です。</td>
+  <td>自動入札の対象コンバージョンの価値＋対象外コンバージョンの価値の合計。</td>
+ </tr>
+ <tr>
+  <td>period</td>
+  <td><a href="./Period.md">Period</a></td>
+  <td>統計情報更新日。</td>
  </tr>
  <tr>
   <td>values[0...1000]</td>
   <td><a href="./ConversionTrackerValues.md">ConversionTrackerValues</a></td>
-  <td>getメソッドの実行結果です。</td>
+  <td>getメソッドの実行結果。</td>
  </tr>
 </table>
 

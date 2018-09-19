@@ -3,10 +3,10 @@ PlacementUrlListServiceは、プレイスメントURLリストの作成・更新
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201806/PlacementUrlListService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/PlacementUrlListService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V201809/PlacementUrlListService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/PlacementUrlListService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201806/PlacementUrlList
+http://im.yahooapis.jp/V201809/PlacementUrlList
 #### サービス概要
 プレイスメントURLリストの作成・更新・削除・取得を行います。
 #### 操作
@@ -32,14 +32,14 @@ PlacementUrlListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <get xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <selector>
         <accountId>111111</accountId>
         <urlListIds>222222</urlListIds>
@@ -62,14 +62,14 @@ PlacementUrlListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>PlacementUrlList</ns2:service>
-      <ns2:requestTime>1528278913907</ns2:requestTime>
+      <ns2:requestTime>1536568326170</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/PlacementUrlList">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/PlacementUrlList">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -105,14 +105,14 @@ PlacementUrlListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList">
       <operations>
         <operator>ADD</operator>
         <accountId>1111</accountId>
@@ -140,14 +140,14 @@ PlacementUrlListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>PlacementUrlList</ns2:service>
-      <ns2:requestTime>1528278913947</ns2:requestTime>
+      <ns2:requestTime>1536568326193</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/PlacementUrlList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/PlacementUrlList">
       <ns2:rval>
         <ListReturnValue.Type>PlacementUrlListReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -184,14 +184,14 @@ PlacementUrlListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList">
       <operations>
         <operator>SET</operator>
         <accountId>11111</accountId>
@@ -220,14 +220,14 @@ PlacementUrlListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>PlacementUrlList</ns2:service>
-      <ns2:requestTime>1528278913998</ns2:requestTime>
+      <ns2:requestTime>1536568326220</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/PlacementUrlList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/PlacementUrlList">
       <ns2:rval>
         <ListReturnValue.Type>PlacementUrlListReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -264,14 +264,14 @@ PlacementUrlListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList">
       <operations>
         <operator>REMOVE</operator>
         <accountId>111111</accountId>
@@ -294,14 +294,14 @@ PlacementUrlListServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/PlacementUrlList" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>PlacementUrlList</ns2:service>
-      <ns2:requestTime>1528278914035</ns2:requestTime>
+      <ns2:requestTime>1536568326244</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/PlacementUrlList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/PlacementUrlList">
       <ns2:rval>
         <ListReturnValue.Type>PlacementUrlListReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

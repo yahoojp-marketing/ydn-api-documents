@@ -3,10 +3,10 @@ The service let you perform targeting settings operations (get, add, set, replac
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201806/AdGroupTargetService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/AdGroupTargetService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201809/AdGroupTargetService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/AdGroupTargetService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201806/AdGroupTarget
+http://im.yahooapis.jp/V201809/AdGroupTarget
 #### Service Overview
 Performs target settings related operations (get, add, set, replace and remove) for ad group.
 #### Operation
@@ -35,14 +35,14 @@ Gets target settings related for ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <get xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -81,14 +81,14 @@ Gets target settings related for ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1528278908991</ns2:requestTime>
+      <ns2:requestTime>1536568321076</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/AdGroupTarget">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroupTarget">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupTargetPage</Page.Type>
@@ -310,14 +310,14 @@ Adds targeting information for an ad group
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -347,7 +347,7 @@ Adds targeting information for an ad group
           <bidMultiplier>1.1</bidMultiplier>
           <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
             <type>AGE_TARGET</type>
-            <age>GT_RANGE12_14</age>
+            <age>GT_RANGE13_14</age>
           </target>
         </operand>
         <operand>
@@ -452,14 +452,14 @@ Adds targeting information for an ad group
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1528278909048</ns2:requestTime>
+      <ns2:requestTime>1536568321133</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutateResponse xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <mutateResponse xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <rval>
         <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -681,14 +681,14 @@ Updates targeting information for an ad group
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -720,7 +720,7 @@ Updates targeting information for an ad group
           <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
             <type>AGE_TARGET</type>
             <targetId>ag9999</targetId>
-            <age>GT_RANGE12_14</age>
+            <age>GT_RANGE13_14</age>
           </target>
         </operand>
         <operand>
@@ -839,14 +839,14 @@ Updates targeting information for an ad group
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1528278909104</ns2:requestTime>
+      <ns2:requestTime>1536568321187</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutateResponse xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <mutateResponse xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <rval>
         <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1068,14 +1068,14 @@ Removes targeting information for an ad group
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget">
+    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -1214,14 +1214,14 @@ Removes targeting information for an ad group
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1528278909162</ns2:requestTime>
+      <ns2:requestTime>1536568321243</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutateResponse xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <mutateResponse xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <rval>
         <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -1443,14 +1443,14 @@ Replaces (deletes and adds) targeting information for an ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <replace xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget">
+    <replace xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget">
       <operations>
         <accountId>1234567890</accountId>
         <operand>
@@ -1479,7 +1479,7 @@ Replaces (deletes and adds) targeting information for an ad group.
           <bidMultiplier>1.1</bidMultiplier>
           <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AgeTarget">
             <type>AGE_TARGET</type>
-            <age>GT_RANGE12_14</age>
+            <age>GT_RANGE13_14</age>
           </target>
         </operand>
         <operand>
@@ -1584,14 +1584,14 @@ Replaces (deletes and adds) targeting information for an ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1528278909225</ns2:requestTime>
+      <ns2:requestTime>1536568321307</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <replaceResponse xmlns="http://im.yahooapis.jp/V201806/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <replaceResponse xmlns="http://im.yahooapis.jp/V201809/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <rval>
         <values>
           <ns2:operationSucceeded>true</ns2:operationSucceeded>

@@ -1,5 +1,6 @@
 # Period
 Period object contains the update date of stats information.
+
 ### Service
 + [StatsService](../../services/StatsService.md)
 
@@ -18,7 +19,7 @@ Period object contains the update date of stats information.
  </tr>
  <tr>
   <td>periodStartDate</td>
-  <td>String</td>
+  <td><a href="./PeriodDatetime.md">PeriodDatetime</a></td>
   <td>Update start date of stats information</td>
   <td>yes</td>
   <td>-</td>
@@ -27,7 +28,7 @@ Period object contains the update date of stats information.
  </tr>
  <tr>
   <td>periodEndDate</td>
-  <td>String</td>
+  <td><a href="./PeriodDatetime.md">PeriodDatetime</a></td>
   <td>Update end date of stats information</td>
   <td>yes</td>
   <td>-</td>
