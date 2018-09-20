@@ -71,8 +71,19 @@ StatsSelector object is a container that includes the search conditions (executi
  <tr>
   <td>statsPeriod</td>
   <td>enum<br>
-  <a href="./StatsPeriod.md">StatsPeriod</a></td>
+  <td><a href="./StatsPeriod.md">StatsPeriod</a></td>
   <td>Aggregation period of statistics.<br>Default is "REALTIME_MONTH".</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>statsPeriodCustomDate</td>
+  <td>enum<br>
+  <td><a href="./StatsPeriodCustomDate.md">StatsPeriodCustomDate</a></td>
+  <td>Aggregation period of statistics. Can be specified by year, month and day.<br>&lowast; Specification is required when StatsPeriod is "CUSTOM_DATE".</td>
   <td>yes</td>
   <td>Optional</td>
   <td>-</td>
@@ -82,7 +93,7 @@ StatsSelector object is a container that includes the search conditions (executi
  <tr>
   <td>statsType</td>
   <td>enum<br>
-  <a href="./StatsType.md">StatsType</a></td>
+  <td><a href="./StatsType.md">StatsType</a></td>
   <td>Type of statistics.<br>Default is "CAMPAIGN".</td>
   <td>yes</td>
   <td>Optional</td>

@@ -17,69 +17,77 @@ ConversionTrackerSelectorオブジェクトは、getメソッドの検索条件�
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>アカウントIDです。</td>
+  <td>アカウントID。</td>
   <td>Requirement</td>
  </tr>
  <tr>
   <td>conversionTrackerIds[0..1000]</td>
   <td>xsd:long[]</td>
-  <td>コンバージョントラッカーのIDです。</td>
+  <td>コンバージョントラッカーのID。</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>conversionTrackerTypes[0..2]</td>
   <td>enum <a href="./ConversionTrackerType.md">ConversionTrackerType</a></td>
-  <td>コンバージョン種別です。</td>
+  <td>コンバージョン種別。</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>statuses[0..2]</td>
   <td>enum <a href="./ConversionTrackerStatus.md">ConversionTrackerStatus</a></td>
-  <td>コンバージョントラッカーのステータスです。</td>
+  <td>コンバージョントラッカーのステータス。</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>categories[0..7]</td>
   <td>enum <a href="./ConversionTrackerCategory.md">ConversionTrackerCategory</a></td>
-  <td>トラッキング対象となるコンバージョンのカテゴリーです。</td>
+  <td>トラッキング対象となるコンバージョンのカテゴリー。</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>appIds[0..1000]</td>
   <td>xsd:string</td>
-  <td>アプリIDです。</td>
+  <td>アプリID。</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>countingType</td>
   <td>enum <a href="./ConversionCountingType.md">ConversionCountingType</a></td>
-  <td>計測方法です。</td>
+  <td>計測方法。</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>excludeFromBidding</td>
   <td>enum <a href="./ExcludeFromBidding.md">ExcludeFromBidding</a></td>
-  <td>自動入札から除外するかどうかのフラグです。</td>
+  <td>自動入札から除外するかどうかのフラグ。</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>appPlatform</td>
   <td>enum <a href="./AppConversionPlatform.md">AppConversionPlatform</a></td>
-  <td>アプリコンバージョンの対象プラットフォームです。</td>
+  <td>アプリコンバージョンの対象プラットフォーム。</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>statsPeriod</td>
   <td>enum <a href="./StatsPeriod.md">StatsPeriod</a></td>
-  <td>統計情報の集計期間です。<br>
+  <td>統計情報の集計期間。<br>
   ※指定なし：REALTIME_TODAY
   </td>
   <td>Optional</td>
  </tr>
+  <tr>
+  <td>statsPeriodCustomDate</td>
+  <td>enum <a href="./StatsPeriodCustomDate.md">StatsPeriodCustomDate</a></td>
+  <td>統計情報の集計期間。年月日で指定可能。<br>
+  ※StatsPeriodが「CUSTOM_DATE」の時は入力が必須。
+   </td>
+  <td>Optional</td>
+ </tr>
  <tr>
   <td>paging</td>
   <td><a href="../Common/Paging.md">Paging</a></td>
-  <td>データの取得範囲です。</td>
+  <td>データの取得範囲。</td>
   <td>Optional</td>
 </table>
 

@@ -1,10 +1,12 @@
 # Appendix
-Report Type, Value Limits,and SOAP Error Codes are shown here.  
+Report Type, Value Limits,and SOAP Error Codes are shown here.
 ### [Report Fields](/docs/en/api_reference/appendix/reports.md)
-Reference for supported report types.  
+Reference for supported report types.
 ### [Value Constraints](/docs/en/api_reference/appendix/constraints.md)
-Reference for parameter values and constraints.  
+Reference for parameter values and constraints.
 ### [SOAP Error Codes](/docs/en/api_reference/appendix/errorcodes.md)
-Reference for error codes.  
+Reference for error codes.
 ### [Tracking Parameters](/docs/en/api_reference/appendix/tracking.md)
 Reference for tracking parameters.
+### [Event Types](/docs/en/api_reference/appendix/eventtypes.md)
+Reference for event types.

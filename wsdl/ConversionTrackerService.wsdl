@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201806/ConversionTracker"
-        xmlns:tns="http://im.yahooapis.jp/V201806/ConversionTracker"
+        targetNamespace="http://im.yahooapis.jp/V201809/ConversionTracker"
+        xmlns:tns="http://im.yahooapis.jp/V201809/ConversionTracker"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201806"
+            targetNamespace="http://im.yahooapis.jp/V201809"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201806">
+            xmlns:tns="http://im.yahooapis.jp/V201809">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201806/ConversionTracker"
+            targetNamespace="http://im.yahooapis.jp/V201809/ConversionTracker"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201806"
-            xmlns:tns="http://im.yahooapis.jp/V201806/ConversionTracker">
-      <xsd:import namespace="http://im.yahooapis.jp/V201806"/>
+            xmlns:adv="http://im.yahooapis.jp/V201809"
+            xmlns:tns="http://im.yahooapis.jp/V201809/ConversionTracker">
+      <xsd:import namespace="http://im.yahooapis.jp/V201809"/>
       <annotation>
         <appinfo>
-          <version>201806</version>
+          <version>201809</version>
         </appinfo>
       </annotation>
       <complexType name="ConversionTrackerSelector">
@@ -88,6 +88,7 @@
           <element maxOccurs="1" minOccurs="0" name="excludeFromBidding" type="tns:ExcludeFromBidding"/>
           <element maxOccurs="1" minOccurs="0" name="appPlatform" type="tns:AppConversionPlatform"/>
           <element maxOccurs="1" minOccurs="0" name="statsPeriod" type="tns:StatsPeriod"/>
+          <element maxOccurs="1" minOccurs="0" name="statsPeriodCustomDate" type="tns:StatsPeriodCustomDate"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
@@ -164,6 +165,8 @@
           <enumeration value="DEFINITE_VALUE_LASTMONTH"/>
           <enumeration value="REALTIME_TODAY"/>
           <enumeration value="REALTIME_MONTH"/>
+          <enumeration value="DEFINITE_VALUE_LAST13MONTH"/>
+          <enumeration value="CUSTOM_DATE"/>
         </restriction>
       </simpleType>
       <simpleType name="ConversionTrackerType">
@@ -209,10 +212,23 @@
               <element maxOccurs="1" minOccurs="0" name="totalAllConversions" type="xsd:long"/>
               <element maxOccurs="1" minOccurs="0" name="totalConversionValue" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="totalAllConversionValue" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="period" type="tns:Period"/>
               <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ConversionTrackerValues"/>
             </sequence>
           </extension>
         </complexContent>
+      </complexType>
+      <complexType name="Period">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="periodStartDate" type="tns:PeriodDatetime"/>
+          <element maxOccurs="1" minOccurs="0" name="periodEndDate" type="tns:PeriodDatetime"/>
+        </sequence>
+      </complexType>
+      <complexType name="PeriodDatetime">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="periodDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="periodTime" type="xsd:string"/>
+        </sequence>
       </complexType>
       <complexType name="ConversionTrackerValues">
         <complexContent>
@@ -252,6 +268,12 @@
             </sequence>
           </extension>
         </complexContent>
+      </complexType>
+      <complexType name="StatsPeriodCustomDate">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="statsStartDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="statsEndDate" type="xsd:string"/>
+        </sequence>
       </complexType>
       <element name="get">
         <complexType>
@@ -354,7 +376,7 @@
   </wsdl:binding>
   <wsdl:service name="ConversionTrackerService">
     <wsdl:port binding="tns:ConversionTrackerServiceSoapBinding" name="ConversionTrackerService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201806/ConversionTrackerService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201809/ConversionTrackerService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

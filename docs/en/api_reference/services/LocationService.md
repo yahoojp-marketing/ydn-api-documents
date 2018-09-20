@@ -3,10 +3,10 @@ LocationService retrieves account location information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201806/LocationService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201806/LocationService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201809/LocationService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/LocationService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201806/Location
+http://im.yahooapis.jp/V201809/Location
 #### Service Overview
 When requesting a Web service, first use LocationService, then acquire an account co-location. <br>
 Next, use the URL prefix from the acquired co-location to create a local URL, and request the Web service. <br>
@@ -42,14 +42,14 @@ In this case, it must be acquired again.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201806/Location" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Location" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201806/Location">
+    <get xmlns="http://im.yahooapis.jp/V201809/Location">
       <accountId>1234567890</accountId>
     </get>
   </SOAP-ENV:Body>
@@ -67,14 +67,14 @@ Response Field
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201806/Location" xmlns:ns2="http://im.yahooapis.jp/V201806">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Location" xmlns:ns2="http://im.yahooapis.jp/V201809">
       <ns2:service>Location</ns2:service>
-      <ns2:requestTime>1528278912485</ns2:requestTime>
+      <ns2:requestTime>1536568325136</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Location">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Location">
       <ns2:rval>
         <operationSucceeded>true</operationSucceeded>
         <ns2:value>https://im.yahooapis.jp/test</ns2:value>

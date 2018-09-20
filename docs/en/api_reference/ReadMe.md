@@ -8,7 +8,7 @@ Web Services supported in YDN API
 This chapter explains data objects (entities) which are newly added or changed in YDN API.
 
 ### [Appendix](/docs/en/api_reference/appendix)
-Province Code, Report Fields, Value Constraints, SOAP faults,and Editorial Reason Text are shown here.
+Province Code, Report Fields, Value Constraints, SOAP faults, Editorial Reason Text and Event Types are shown here.
 
 
 

@@ -79,6 +79,16 @@ StatsSelectorオブジェクトは、getメソッドの検索条件（実行パ�
   <td>-</td>
   <td>-</td>
  </tr>
+  <tr>
+  <td>statsPeriodCustomDate</td>
+  <td><a href="./StatsPeriodCustomDate.md">StatsPeriodCustomDate</a></td>
+  <td>統計情報の集計期間です。年月日で指定可能です。<br>StatsPeriodが「CUSTOM_DATE」の時は入力が必須です。</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
  <tr>
   <td>statsType</td>
   <td>enum<br>

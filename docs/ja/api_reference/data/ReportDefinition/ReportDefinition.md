@@ -17,7 +17,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>reportId</td>
   <td>xsd:long</td>
-  <td>レポートIDです。</td>
+  <td>レポートIDです。</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Requirement<br>(Not updatable)</td>
@@ -25,7 +25,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>アカウントIDです。</td>
+  <td>アカウントIDです。</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -33,7 +33,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
  <tr>
   <td>reportName</td>
   <td>xsd:string</td>
-  <td>レポート名です。</td>
+  <td>レポート名です。</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Ignore</td>
@@ -125,7 +125,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>enum<br><a href="./ReportIntervalType.md">ReportIntervalType</a></td>
   <td>定期レポート作成のタイミングです。</td>
   <td>yes</td>
-  <td>Optional</td>
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -141,7 +141,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>enum<br><a href="./ReportAddTemplate.md">ReportAddTemplate</a></td>
   <td>テンプレートフラグです。</td>
   <td>yes</td>
-  <td>Optional</td>
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
 </table>

@@ -1,5 +1,6 @@
 # ReportDefinition
 The ReportDefinition object serves report definitions.
+
 ### Service
 + [ReportDefinitionService](../../services/ReportDefinitionService.md)
 
@@ -126,7 +127,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportIntervalType.md">ReportIntervalType</a></td>
   <td>Selects a timing (interval type) to create a report.</td>
   <td>yes</td>
-  <td>Optional</td>
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
  <tr>
@@ -142,7 +143,7 @@ The ReportDefinition object serves report definitions.
   <td>enum<br><a href="./ReportAddTemplate.md">ReportAddTemplate</a></td>
   <td>Set the definition for a template flag.</td>
   <td>yes</td>
-  <td>Optional</td>
+  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
 </table>
