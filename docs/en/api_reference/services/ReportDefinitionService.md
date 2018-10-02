@@ -20,11 +20,7 @@ The following operations are provided:
 - Get report fields' information
 
 [Maximum number of report definitions to be saved]
-- Up to 30 definitions for a scheduled report can be added as a template for regular and proxy authentications combined.
 - There is no upper limits to the number of report definitions for one-time report that is not saved as a template.<br>
-Example：<br>
-If you have already saved 20 report definitions as a report template for regular authentication, you can add a maximum of 10 definitions for proxy authentication.<br>
-　*If you wish to add more definitions though the upper saving limit is reached, delete some of the definitions you already saved.
 
 [Note]
 - All of the report definitions created using the same API account ID can be confirmed regardless of authentication method.
