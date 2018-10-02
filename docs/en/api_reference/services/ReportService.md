@@ -19,9 +19,7 @@ The following operations are provided:
 - Get the date of report completion
 
 [Maximum number of report download job]
-- Up to 30 report download jobs can be added for regular and proxy authentications combined.<br>
-Example：<br>
-If you have already saved 20 report download jobs for regular authentication, you can add a maximum of 10 jobs for proxy authentication.<br>
+- Up to 60 report download jobs can be added for each regular or proxy authentications combined.<br>
 *If you wish to add more jobs though the upper saving limit is reached, delete some of the download jobs you already saved.<br>
 
 [Notes]<br>
