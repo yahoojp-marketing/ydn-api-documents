@@ -1,12 +1,21 @@
 # Report Fields
 The table below describes available report fields of YDN API.<br>
 Click any report type to see more details of available report fields.<br>
+Ad reporting feature will create a report for each entity unit such as account, campaign, etc., or for each destination URL, by combination of selected report fields.<br>
 
-* [Account report, Campaign report, Ad group report, Ad report, Destination URL report](./reports/AD.csv)
+* [Ad reports (Account report, Campaign report, Ad group report, Destination URL report)](./reports/AD.csv)
 * [Interest category report](./reports/INTEREST_CATEGORY.csv)
 * [Site category report](./reports/SITE_CATEGORY.csv)
 * [Ad Delivery URL report](./reports/URL.csv)
 * [Frequency report](./reports/FREQUENCY.csv)
+
+
+### Behavior Types
+Value           | Description
+-------------------- | ------------------------ 
+Attribute | Setting item of ad
+Segment | Segment of actual distribution performance
+Metric | Actual distribution performance of ad
 
 
 ### Response Details
@@ -115,7 +124,7 @@ PC | PC
 300x500 | 300x500
 300x1050 | 300x1050
 120x60 | 120x60
-320x100 |　320x100
+320x100 | 320x100
 57x57 | 57x57
 512x512 | 512x512
 480x320 | 480x320
@@ -123,6 +132,9 @@ PC | PC
 1200x628 | 1200x628
 180x180 | 180x180
 300x300 | 300x300
+400x200 | 400x200
+640x360 | 640x360
+600x600 | 600x600
 
 <a name="carrier"></a>
 ##### CARRIER Response
