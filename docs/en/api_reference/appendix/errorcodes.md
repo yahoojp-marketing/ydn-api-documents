@@ -5,18 +5,33 @@ For details, please refer to [Error](/docs/en/api_reference/data/Common/Error.md
 
 ##### Response Sample
 ```xml
-<SOAP-ENV:Envelopexmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-   <SOAP-ENV:Body>         
-      <SOAP-ENV:Fault>             
-         <faultcode>faultCode</faultcode>             
-         <faultstring>faultString</faultstring>             
-         <faultactor></faultactor>             
-         <detail>                 
-            <requestKey>detail/requestKey</requestKey>                 
-            <requestValue>detail/requestValue</requestValue>             
-         </detail>         
-      </SOAP-ENV:Fault>     
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:ns1="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ns1:ResponseHeader>
+      <ns2:service>Account</ns2:service>
+      <ns2:timeTakenSeconds>0.1234</ns2:timeTakenSeconds>
+      <ns2:requestTime>1234567890</ns2:requestTime>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns3:mutateResponse xmlns:ns2="http://im.yahooapis.jp/V201812" xmlns:ns3="http://im.yahooapis.jp/V201812/Account">
+      <ns3:rval>
+        <ns2:ListReturnValue.Type>AccountReturnValue</ns2:ListReturnValue.Type>
+        <ns2:Operation.Type>SET</ns2:Operation.Type>
+        <ns3:values>
+          <ns2:operationSucceeded>false</ns2:operationSucceeded>
+          <ns2:error>
+            <ns2:code>V0001</ns2:code>
+            <ns2:message>Invalid value.</ns2:message>
+            <ns2:detail>
+              <ns2:requestKey>accountName</ns2:requestKey>
+              <ns2:requestValue>xxxxxxxx</ns2:requestValue>
+            </ns2:detail>
+          </ns2:error>
+        </ns3:values>
+      </ns3:rval>
+    </ns3:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 ### Error Code
@@ -119,6 +134,8 @@ Code           | Message                     | Description
 220322 | Invalid tracking parameter. | Invalid string (such as invalid Tracking Parameter, etc.) was found.
 220323 | Tracking parameter is not available for this type of ad distribution. | There is a Tracking Parameter which is not available for the ad product.
 220324 | Entered tracking parameter cannot be used. | There is a Tracking Parameter which is not available for the YDN-unaligned tracking tool, or a discontinued Tracking Parameter.
+220325 | Invalid relation of video and thumbnail format. | Invalid relation of video and thumbnail format.
+220326 | Not allowed to set video beacon url. | Not allowed to set video beacon url.
 
 ### Report Process-related Errors
 ##### Service

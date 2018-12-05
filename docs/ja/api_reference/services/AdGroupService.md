@@ -3,10 +3,10 @@ AdGroupServiceは広告グループの操作を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201809/AdGroupService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/AdGroupService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201812/AdGroupService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/AdGroupService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201809/AdGroup
+http://im.yahooapis.jp/V201812/AdGroup
 #### サービス概要
 広告グループの情報取得と更新を行います。
 #### 操作
@@ -33,14 +33,14 @@ AdGroupServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -74,14 +74,14 @@ AdGroupServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>AdGroup</ns2:service>
       <ns2:requestTime>1536568319190</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroup">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroup">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupPage</Page.Type>
@@ -172,14 +172,14 @@ AdGroupServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroup">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroup">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -248,14 +248,14 @@ AdGroupServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>AdGroup</ns2:service>
       <ns2:requestTime>1536568319256</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroup">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroup">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -346,14 +346,14 @@ AdGroupServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroup">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroup">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -392,14 +392,14 @@ AdGroupServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>AdGroup</ns2:service>
       <ns2:requestTime>1536568319305</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroup">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroup">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -490,14 +490,14 @@ AdGroupServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroup">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroup">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -521,14 +521,14 @@ AdGroupServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>AdGroup</ns2:service>
       <ns2:requestTime>1536568319356</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroup">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroup">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

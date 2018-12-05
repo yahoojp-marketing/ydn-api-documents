@@ -19,12 +19,12 @@ ConversionTrackerPageオブジェクトは、getメソッドの実行結果（�
  <tr>
   <td>totalConversions</td>
   <td>xsd:long</td>
-  <td>コンバージョン数の合計。<br>※デバイスをまたいだコンバージョンの値を加味。</td>
+  <td>コンバージョン数の合計。<br>※動画視聴およびデバイスをまたいだコンバージョンの値を加味。</td>
  </tr>
  <tr>
   <td>totalConversionValue</td>
   <td>xsd:string</td>
-  <td>コンバージョンの価値の合計。<br>※デバイスをまたいだコンバージョンの値を加味。</td>
+  <td>コンバージョンの価値の合計。<br>※動画視聴およびデバイスをまたいだコンバージョンの値を加味。</td>
  </tr>
  <tr>
   <td>totalAllConversions</td>

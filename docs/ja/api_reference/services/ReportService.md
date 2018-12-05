@@ -5,11 +5,11 @@ ReportServiceでは、レポートの取得および作成・削除を行いま�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201809/ReportService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/ReportService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201812/ReportService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/ReportService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201809/Report
+http://im.yahooapis.jp/V201812/Report
 
 #### サービス概要
 以下の操作が実行可能です。
@@ -51,14 +51,14 @@ ReportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Report" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/Report" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>12345</accountId>
         <reportIds>1</reportIds>
@@ -86,14 +86,14 @@ ReportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Report" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Report</ns2:service>
       <ns2:requestTime>1536568327660</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Report">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Report">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>ReportPage</Page.Type>
@@ -105,7 +105,7 @@ ReportServiceで提供される操作を説明します。
             <ns2:reportId>1</ns2:reportId>
             <ns2:reportName>sample Report</ns2:reportName>
             <ns2:status>COMPLETED</ns2:status>
-            <ns2:reportDownloadUrl>https://colo01.im.yahooapis.jp/ReportService/V201809/XXXXXXXX</ns2:reportDownloadUrl>
+            <ns2:reportDownloadUrl>https://colo01.im.yahooapis.jp/ReportService/V201812/XXXXXXXX</ns2:reportDownloadUrl>
           </ns2:reportRecord>
         </ns2:values>
       </ns2:rval>
@@ -145,14 +145,14 @@ ReportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Report" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/Report">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/Report">
       <operations>
         <operator>REMOVE</operator>
         <accountId>11111</accountId>
@@ -175,14 +175,14 @@ ReportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Report" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Report</ns2:service>
       <ns2:requestTime>1536568327691</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Report">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Report">
       <ns2:rval>
         <ListReturnValue.Type>ReportReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -194,7 +194,7 @@ ReportServiceで提供される操作を説明します。
             <ns2:reportId>1</ns2:reportId>
             <ns2:reportName>sample Report</ns2:reportName>
             <ns2:status>COMPLETED</ns2:status>
-            <ns2:reportDownloadUrl>https://colo01.im.yahooapis.jp/ReportService/V201809/XXXXXXXX</ns2:reportDownloadUrl>
+            <ns2:reportDownloadUrl>https://colo01.im.yahooapis.jp/ReportService/V201812/XXXXXXXX</ns2:reportDownloadUrl>
           </ns2:reportRecord>
         </ns2:values>
       </ns2:rval>
@@ -216,14 +216,14 @@ ReportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Report" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getClosedDate xmlns="http://im.yahooapis.jp/V201809/Report">
+    <getClosedDate xmlns="http://im.yahooapis.jp/V201812/Report">
       <selector>
         <accountId>12345</accountId>
       </selector>
@@ -241,14 +241,14 @@ ReportServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Report" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Report" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Report</ns2:service>
       <ns2:requestTime>1536568327711</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getClosedDateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Report">
+    <ns2:getClosedDateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Report">
       <ns2:rval>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>

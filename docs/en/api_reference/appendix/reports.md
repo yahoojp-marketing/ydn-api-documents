@@ -1,12 +1,21 @@
 # Report Fields
 The table below describes available report fields of YDN API.<br>
 Click any report type to see more details of available report fields.<br>
+Ad reporting feature will create a report for each entity unit such as account, campaign, etc., or for each destination URL, by combination of selected report fields.<br>
 
-* [Account report, Campaign report, Ad group report, Ad report, Destination URL report](./reports/AD.csv)
+* [Ad reports (Account report, Campaign report, Ad group report, Destination URL report)](./reports/AD.csv)
 * [Interest category report](./reports/INTEREST_CATEGORY.csv)
 * [Site category report](./reports/SITE_CATEGORY.csv)
 * [Ad Delivery URL report](./reports/URL.csv)
 * [Frequency report](./reports/FREQUENCY.csv)
+
+
+### Behavior Types
+Value           | Description
+-------------------- | ------------------------ 
+Attribute | Setting item of ad
+Segment | Segment of actual distribution performance
+Metric | Actual distribution performance of ad
 
 
 ### Response Details
@@ -39,7 +48,7 @@ FEMALE_ADV | 女性（拡張） | Female (adv.)
  Display Name (Japanese)  | Display Name (English) 
  ------------------------ | ---------------------- 
 ～5歳 | Age / Under 6
-6歳～11歳 | Age / 6-11
+6歳～12歳 | Age / 6-12
 13歳～14歳 | Age / 13-14
 15歳～17歳 | Age / 15-17
 18歳～19歳 | Age / 18-19
@@ -52,7 +61,7 @@ FEMALE_ADV | 女性（拡張） | Female (adv.)
 70歳～ | Age / Over 70
 不明 | Unknown
 ～5歳（拡張） | Age / Under 6 (adv.)
-6歳～11歳（拡張） | Age / 6-11 (adv.)
+6歳～12歳（拡張） | Age / 6-12 (adv.)
 13歳～14歳（拡張） | Age / 13-14 (adv.)
 15歳～17歳（拡張） | Age / 15-17 (adv.)
 18歳～19歳（拡張） | Age / 18-19 (adv.)
@@ -115,7 +124,7 @@ PC | PC
 300x500 | 300x500
 300x1050 | 300x1050
 120x60 | 120x60
-320x100 |　320x100
+320x100 | 320x100
 57x57 | 57x57
 512x512 | 512x512
 480x320 | 480x320
@@ -123,6 +132,9 @@ PC | PC
 1200x628 | 1200x628
 180x180 | 180x180
 300x300 | 300x300
+400x200 | 400x200
+640x360 | 640x360
+600x600 | 600x600
 
 <a name="carrier"></a>
 ##### CARRIER Response

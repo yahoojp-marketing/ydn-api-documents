@@ -12,8 +12,8 @@ ConversionTrackerPage object contains the results (a list of all entities) for g
 
 | Field | Type | Description |
 |---|---|---|
-| totalConversions | xsd:long | Total number of Conversions<br>&lowast;Contains conversions made across devices |
-| totalConversionValue | xsd:string | Total values of Conversions<br>&lowast;Contains conversions made across devices |
+| totalConversions | xsd:long | Total number of Conversions<br>&lowast;Contains cross-device conversions (including video view)|
+| totalConversionValue | xsd:string | Total values of Conversions<br>&lowast;Contains cross-device conversions (including video view) |
 | totalAllConversions | xsd:long | Conversion count of Auto bidding + Negative conversion count |
 | totalAllConversionValue | xsd:string | Conversion value of Auto bidding + Negative conversion value |
 | period | <a href="./Period.md">Period</a> | Update date of statistics |

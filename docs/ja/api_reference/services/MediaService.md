@@ -3,16 +3,16 @@ MediaServiceでは、画像入稿に関する機能を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201809/MediaService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/MediaService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V201812/MediaService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/MediaService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201809/Media
+http://im.yahooapis.jp/V201812/Media
 #### サービス概要
 画像入稿に関する情報の取得および追加・更新・削除を行います。
 
 【注意事項】<br>
 画像のダウンロードは、getメソッドおよびmutateメソッドで取得したURLから実施します。<br>
-URLの有効期限は60分間です。
+URLの有効期限は15分です。
 
 #### 操作
 MediaServiceで提供される操作を説明します。
@@ -38,14 +38,14 @@ MediaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
@@ -74,14 +74,14 @@ MediaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Media</ns2:service>
       <ns2:requestTime>1536568325513</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Media">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Media">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>MediaPage</Page.Type>
@@ -105,7 +105,7 @@ MediaServiceで提供される操作を説明します。
               <ns2:fileSize>115851</ns2:fileSize>
               <ns2:width>640</ns2:width>
               <ns2:height>360</ns2:height>
-              <ns2:downloadUrl>https://colo01.im.yahooapis.jp/media/V201809/download/W06g4Vlh1faqsvO8Sb4r_nWyjTKvYc0mD2gya6jJGxfbjJ1AmmqxJ.IUg7gQxBhnhvQ4cLX06QknWqZu3y9f7oXGiOa6vQHk3oZdMH0wVfNmxxavB_qrNhQNk3B2Qc96lRZ4DE1zccgf3lqMPFgjsZMFcb.38LSCARxIZu.vTZEGdt5ftDstcDfShmeepuBpNV1gysGLDlfn._rddlReV5LkAfUqF5niaW5b8KL_IytTCm8lwK9DpRjZi94FnYIWApN6URkWffsLG.TuRtWBQlMdVXNeTIcwFC7iZPR8PXgX9blkj_oDo22gUNeWoomlxrWjSFqenpXDe5W7dXtjRQXt5I6t1mATiNUt2VuMu3TNCM_ewMy_B1zBZ3am0RQ-</ns2:downloadUrl>
+              <ns2:downloadUrl>https://colo01.im.yahooapis.jp/media/V201812/download/W06g4Vlh1faqsvO8Sb4r_nWyjTKvYc0mD2gya6jJGxfbjJ1AmmqxJ.IUg7gQxBhnhvQ4cLX06QknWqZu3y9f7oXGiOa6vQHk3oZdMH0wVfNmxxavB_qrNhQNk3B2Qc96lRZ4DE1zccgf3lqMPFgjsZMFcb.38LSCARxIZu.vTZEGdt5ftDstcDfShmeepuBpNV1gysGLDlfn._rddlReV5LkAfUqF5niaW5b8KL_IytTCm8lwK9DpRjZi94FnYIWApN6URkWffsLG.TuRtWBQlMdVXNeTIcwFC7iZPR8PXgX9blkj_oDo22gUNeWoomlxrWjSFqenpXDe5W7dXtjRQXt5I6t1mATiNUt2VuMu3TNCM_ewMy_B1zBZ3am0RQ-</ns2:downloadUrl>
             </ns2:media>
           </ns2:mediaRecord>
         </ns2:values>
@@ -128,14 +128,14 @@ MediaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/Media">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/Media">
       <operations>
         <operator>ADD</operator>
         <accountId>11111</accountId>
@@ -166,14 +166,14 @@ MediaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Media</ns2:service>
       <ns2:requestTime>1536568325547</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Media">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Media">
       <ns2:rval>
         <ListReturnValue.Type>MediaReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -197,7 +197,7 @@ MediaServiceで提供される操作を説明します。
               <ns2:fileSize>115851</ns2:fileSize>
               <ns2:width>640</ns2:width>
               <ns2:height>360</ns2:height>
-              <ns2:downloadUrl>https://colo01.im.yahooapis.jp/media/V201809/download/W06g4Vlh1faqsvO8Sb4r_nWyjTKvYc0mD2gya6jJGxfbjJ1AmmqxJ.IUg7gQxBhnhvQ4cLX06QknWqZu3y9f7oXGiOa6vQHk3oZdMH0wVfNmxxavB_qrNhQNk3B2Qc96lRZ4DE1zccgf3lqMPFgjsZMFcb.38LSCARxIZu.vTZEGdt5ftDstcDfShmeepuBpNV1gysGLDlfn._rddlReV5LkAfUqF5niaW5b8KL_IytTCm8lwK9DpRjZi94FnYIWApN6URkWffsLG.TuRtWBQlMdVXNeTIcwFC7iZPR8PXgX9blkj_oDo22gUNeWoomlxrWjSFqenpXDe5W7dXtjRQXt5I6t1mATiNUt2VuMu3TNCM_ewMy_B1zBZ3am0RQ-</ns2:downloadUrl>
+              <ns2:downloadUrl>https://colo01.im.yahooapis.jp/media/V201812/download/W06g4Vlh1faqsvO8Sb4r_nWyjTKvYc0mD2gya6jJGxfbjJ1AmmqxJ.IUg7gQxBhnhvQ4cLX06QknWqZu3y9f7oXGiOa6vQHk3oZdMH0wVfNmxxavB_qrNhQNk3B2Qc96lRZ4DE1zccgf3lqMPFgjsZMFcb.38LSCARxIZu.vTZEGdt5ftDstcDfShmeepuBpNV1gysGLDlfn._rddlReV5LkAfUqF5niaW5b8KL_IytTCm8lwK9DpRjZi94FnYIWApN6URkWffsLG.TuRtWBQlMdVXNeTIcwFC7iZPR8PXgX9blkj_oDo22gUNeWoomlxrWjSFqenpXDe5W7dXtjRQXt5I6t1mATiNUt2VuMu3TNCM_ewMy_B1zBZ3am0RQ-</ns2:downloadUrl>
             </ns2:media>
           </ns2:mediaRecord>
         </ns2:values>
@@ -220,14 +220,14 @@ MediaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/Media">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/Media">
       <operations>
         <operator>SET</operator>
         <accountId>11111</accountId>
@@ -252,14 +252,14 @@ MediaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Media</ns2:service>
       <ns2:requestTime>1536568325581</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Media">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Media">
       <ns2:rval>
         <ListReturnValue.Type>MediaReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -283,7 +283,7 @@ MediaServiceで提供される操作を説明します。
               <ns2:fileSize>115851</ns2:fileSize>
               <ns2:width>640</ns2:width>
               <ns2:height>360</ns2:height>
-              <ns2:downloadUrl>https://colo01.im.yahooapis.jp/media/V201809/download/W06g4Vlh1faqsvO8Sb4r_nWyjTKvYc0mD2gya6jJGxfbjJ1AmmqxJ.IUg7gQxBhnhvQ4cLX06QknWqZu3y9f7oXGiOa6vQHk3oZdMH0wVfNmxxavB_qrNhQNk3B2Qc96lRZ4DE1zccgf3lqMPFgjsZMFcb.38LSCARxIZu.vTZEGdt5ftDstcDfShmeepuBpNV1gysGLDlfn._rddlReV5LkAfUqF5niaW5b8KL_IytTCm8lwK9DpRjZi94FnYIWApN6URkWffsLG.TuRtWBQlMdVXNeTIcwFC7iZPR8PXgX9blkj_oDo22gUNeWoomlxrWjSFqenpXDe5W7dXtjRQXt5I6t1mATiNUt2VuMu3TNCM_ewMy_B1zBZ3am0RQ-</ns2:downloadUrl>
+              <ns2:downloadUrl>https://colo01.im.yahooapis.jp/media/V201812/download/W06g4Vlh1faqsvO8Sb4r_nWyjTKvYc0mD2gya6jJGxfbjJ1AmmqxJ.IUg7gQxBhnhvQ4cLX06QknWqZu3y9f7oXGiOa6vQHk3oZdMH0wVfNmxxavB_qrNhQNk3B2Qc96lRZ4DE1zccgf3lqMPFgjsZMFcb.38LSCARxIZu.vTZEGdt5ftDstcDfShmeepuBpNV1gysGLDlfn._rddlReV5LkAfUqF5niaW5b8KL_IytTCm8lwK9DpRjZi94FnYIWApN6URkWffsLG.TuRtWBQlMdVXNeTIcwFC7iZPR8PXgX9blkj_oDo22gUNeWoomlxrWjSFqenpXDe5W7dXtjRQXt5I6t1mATiNUt2VuMu3TNCM_ewMy_B1zBZ3am0RQ-</ns2:downloadUrl>
             </ns2:media>
           </ns2:mediaRecord>
         </ns2:values>
@@ -306,14 +306,14 @@ MediaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/Media">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/Media">
       <operations>
         <operator>REMOVE</operator>
         <accountId>11111</accountId>
@@ -335,14 +335,14 @@ MediaServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Media" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Media" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Media</ns2:service>
       <ns2:requestTime>1536568325616</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Media">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Media">
       <ns2:rval>
         <ListReturnValue.Type>MediaReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -366,7 +366,7 @@ MediaServiceで提供される操作を説明します。
               <ns2:fileSize>115851</ns2:fileSize>
               <ns2:width>640</ns2:width>
               <ns2:height>360</ns2:height>
-              <ns2:downloadUrl>https://colo01.im.yahooapis.jp/media/V201809/download/W06g4Vlh1faqsvO8Sb4r_nWyjTKvYc0mD2gya6jJGxfbjJ1AmmqxJ.IUg7gQxBhnhvQ4cLX06QknWqZu3y9f7oXGiOa6vQHk3oZdMH0wVfNmxxavB_qrNhQNk3B2Qc96lRZ4DE1zccgf3lqMPFgjsZMFcb.38LSCARxIZu.vTZEGdt5ftDstcDfShmeepuBpNV1gysGLDlfn._rddlReV5LkAfUqF5niaW5b8KL_IytTCm8lwK9DpRjZi94FnYIWApN6URkWffsLG.TuRtWBQlMdVXNeTIcwFC7iZPR8PXgX9blkj_oDo22gUNeWoomlxrWjSFqenpXDe5W7dXtjRQXt5I6t1mATiNUt2VuMu3TNCM_ewMy_B1zBZ3am0RQ-</ns2:downloadUrl>
+              <ns2:downloadUrl>https://colo01.im.yahooapis.jp/media/V201812/download/W06g4Vlh1faqsvO8Sb4r_nWyjTKvYc0mD2gya6jJGxfbjJ1AmmqxJ.IUg7gQxBhnhvQ4cLX06QknWqZu3y9f7oXGiOa6vQHk3oZdMH0wVfNmxxavB_qrNhQNk3B2Qc96lRZ4DE1zccgf3lqMPFgjsZMFcb.38LSCARxIZu.vTZEGdt5ftDstcDfShmeepuBpNV1gysGLDlfn._rddlReV5LkAfUqF5niaW5b8KL_IytTCm8lwK9DpRjZi94FnYIWApN6URkWffsLG.TuRtWBQlMdVXNeTIcwFC7iZPR8PXgX9blkj_oDo22gUNeWoomlxrWjSFqenpXDe5W7dXtjRQXt5I6t1mATiNUt2VuMu3TNCM_ewMy_B1zBZ3am0RQ-</ns2:downloadUrl>
             </ns2:media>
           </ns2:mediaRecord>
         </ns2:values>

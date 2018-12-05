@@ -1,5 +1,5 @@
-# Value Limits
-The following are value limits for the number of each type.  
+# Value Constraints
+The following are the lists of value constraints. 
 
 ### Maximum elements/responses per request
 <table>
@@ -14,7 +14,7 @@ The following are value limits for the number of each type.
   <td>AccountAdProductService</td>
   <td>get</td>
   <td>-</td>
-  <td>500</td>
+  <td>all</td>
   <td>-</td>
  </tr>
  <tr>
@@ -22,7 +22,7 @@ The following are value limits for the number of each type.
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -35,23 +35,23 @@ The following are value limits for the number of each type.
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
-  <td>200</td>
+  <td>2000</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
-  <td>200</td>
+  <td>2000</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>mutate(REMOVE)</td>
-  <td>200</td>
+  <td>2000</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -60,7 +60,7 @@ The following are value limits for the number of each type.
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -84,7 +84,7 @@ The following are value limits for the number of each type.
   <td rowspan="5">AdGroupTargetService</td>
   <td>get</td>
   <td>-</td>
-  <td>1000</td>
+  <td>500</td>
   <td>yes</td>
  </tr>
  <tr>
@@ -112,11 +112,17 @@ The following are value limits for the number of each type.
   <td>-</td>
  </tr>
  <tr>
-  <td>AuditLogService</td>
-  <td>get</td>
+  <td rowspan="2">AuditLogService</td>
+  <td>getDownload</td>
+  <td>-</td>
+  <td>1</td>
+  <td>yes</td>
+ </tr>
+  <tr>
+  <td>getDownloadStatus</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>BalanceService</td>
@@ -148,14 +154,14 @@ The following are value limits for the number of each type.
   <td>getBulkUploadStatus</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td rowspan="4">CampaignService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -178,19 +184,19 @@ The following are value limits for the number of each type.
  <tr>
   <td rowspan="3">ConversionTrackerService</td>
   <td>get</td>
-  <td>500</td>
+  <td>-</td>
   <td>1000</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
-  <td>20</td>
+  <td>500</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
-  <td>20</td>
+  <td>500</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -249,7 +255,7 @@ The following are value limits for the number of each type.
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
@@ -274,20 +280,20 @@ The following are value limits for the number of each type.
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td rowspan="4">PlacementUrlListService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
   <td>100</td>
-  <td>100</td>
-  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -302,11 +308,11 @@ The following are value limits for the number of each type.
   <td>-</td>
  </tr>
  <tr>
-  <td rowspan="5">ReportDefinitionService</td>
+  <td rowspan="4">ReportDefinitionService</td>
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>getReportFields</td>
@@ -316,19 +322,13 @@ The following are value limits for the number of each type.
  </tr>
  <tr>
   <td>mutate(ADD)</td>
-  <td>1</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>mutate(SET)</td>
-  <td>1</td>
+  <td>30</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>mutate(REMOVE)</td>
-  <td>1</td>
+  <td>30</td>
   <td>-</td>
   <td>-</td>
  </tr>
@@ -361,7 +361,7 @@ The following are value limits for the number of each type.
   <td rowspan="4">RetargetingListService</td>
   <td>get</td>
   <td>-</td>
-  <td>200</td>
+  <td>1000</td>
   <td>yes</td>
  </tr>
  <tr>
@@ -383,17 +383,23 @@ The following are value limits for the number of each type.
   <td>-</td>
  </tr>
  <tr>
-  <td>RetargetingTagService</td>
+  <td rowspan="2">RetargetingTagService</td>
   <td>get</td>
   <td>-</td>
-  <td>all</td>
+  <td>1</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>mutate(ADD)</td>
+  <td>1</td>
+  <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td>SearchKeywordIdeaService</td>
   <td>get</td>
   <td>-</td>
-  <td>all</td>
+  <td>1</td>
   <td>-</td>
  </tr>
  <tr>
@@ -401,13 +407,13 @@ The following are value limits for the number of each type.
   <td>get</td>
   <td>-</td>
   <td>500</td>
-  <td>-</td>
+  <td>yes</td>
  </tr>
  <tr>
   <td>mutate(ADD)</td>
   <td>100</td>
-  <td>100</td>
-  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
  </tr>
  <tr>
   <td>mutate(SET)</td>
@@ -424,8 +430,34 @@ The following are value limits for the number of each type.
  <tr>
   <td>StatsService</td>
   <td>get</td>
-  <td>200</td>
+  <td>-</td>
   <td>500</td>
+  <td>yes</td>
+ </tr>
+  <tr>
+  <td rowspan="4">VideoService</td>
+  <td>get</td>
+  <td>-</td>
+  <td>500</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>getUploadUrl</td>
+  <td>-</td>
+  <td>100</td>
   <td>-</td>
  </tr>
+ <tr>
+  <td>mutate(SET)</td>
+  <td>100</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td>mutate(REMOVE)</td>
+  <td>100</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
 </table>

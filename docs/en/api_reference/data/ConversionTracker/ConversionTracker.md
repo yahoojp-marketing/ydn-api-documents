@@ -60,7 +60,7 @@ ConversionTracker object shows ConversionTracker information such as ConversionT
  <tr>
   <td>conversions</td>
   <td>xsd:long</td>
-  <td> Number of Conversions<br>&lowast;Contains conversions that were made across devices</td>
+  <td> Number of Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -68,7 +68,7 @@ ConversionTracker object shows ConversionTracker information such as ConversionT
  <tr>
   <td>conversionValue</td>
   <td>xsd:long</td>
-  <td> Values of Conversions<br>&lowast;Contains conversions that were made across devices</td>
+  <td> Values of Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -105,6 +105,14 @@ ConversionTracker object shows ConversionTracker information such as ConversionT
   <td>Optional<br>&lowast;Default value: 30</td>
   <td>Optional</td>
  </tr>
+ <tr>
+  <td>measurementPeriodView</td>
+  <td>xsd:int</td>
+  <td>Counting period (Video view) <br>&lowast;within the range of 1 to 30</td>
+  <td>yes</td>
+  <td>Optional<br>&lowast;Default value: 1</td>
+  <td>Optional</td>
+ </tr>
   <tr>
   <td>excludeFromBidding</td>
   <td>enum <a href="./ExcludeFromBidding.md">ExcludeFromBidding</a></td>
@@ -116,7 +124,7 @@ ConversionTracker object shows ConversionTracker information such as ConversionT
  <tr>
   <td>allConversions</td>
   <td>xsd:long</td>
-  <td> Conversion count of Auto bidding + Negative conversion count.</td>
+  <td> Conversion count of Auto bidding + Negative conversion count.<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -124,7 +132,15 @@ ConversionTracker object shows ConversionTracker information such as ConversionT
  <tr>
   <td>allConversionValue</td>
   <td>xsd:string</td>
-  <td> Conversion value of Auto bidding + Negative conversion value.</td>
+  <td> Conversion value of Auto bidding + Negative conversion value.<br>&lowast;Contains cross-device conversions (including video view)</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>crossDeviceConversions</td>
+  <td>xsd:long</td>
+  <td> Conversion count that were made across devices. </td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>

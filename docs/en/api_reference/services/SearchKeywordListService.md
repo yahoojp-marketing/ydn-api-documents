@@ -6,10 +6,10 @@ It can set up to 100 lists per account.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201809/SearchKeywordListService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/SearchKeywordListService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201812/SearchKeywordListService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/SearchKeywordListService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201809/SearchKeywordList
+http://im.yahooapis.jp/V201812/SearchKeywordList
 #### Service Overview
 Use this service for operation of search keyword list.
 #### Operation
@@ -36,14 +36,14 @@ Retrieces the search keyeord list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>11111</accountId>
         <searchKeywordListIds>22222</searchKeywordListIds>
@@ -66,14 +66,14 @@ Retrieces the search keyeord list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>SearchKeywordList</ns2:service>
       <ns2:requestTime>1536568329170</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/SearchKeywordList">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/SearchKeywordList">
       <ns2:rval>
         <totalNumEntries>4</totalNumEntries>
         <ns2:values>
@@ -110,14 +110,14 @@ Add the search keyword list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList">
       <operations>
         <operator>ADD</operator>
         <accountId>1234</accountId>
@@ -146,14 +146,14 @@ Add the search keyword list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>SearchKeywordList</ns2:service>
       <ns2:requestTime>1536568329193</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/SearchKeywordList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/SearchKeywordList">
       <ns2:rval>
         <ListReturnValue.Type>SearchKeywordListReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -191,14 +191,14 @@ Set the search keyword list to be updated.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList">
       <operations>
         <operator>SET</operator>
         <accountId>11111</accountId>
@@ -228,14 +228,14 @@ Set the search keyword list to be updated.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>SearchKeywordList</ns2:service>
       <ns2:requestTime>1536568329216</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/SearchKeywordList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/SearchKeywordList">
       <ns2:rval>
         <ListReturnValue.Type>SearchKeywordListReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -273,14 +273,14 @@ Removes the search keyword list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList">
       <operations>
         <operator>REMOVE</operator>
         <accountId>111111</accountId>
@@ -303,14 +303,14 @@ Removes the search keyword list.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordList" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>SearchKeywordList</ns2:service>
       <ns2:requestTime>1536568329239</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/SearchKeywordList">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/SearchKeywordList">
       <ns2:rval>
         <ListReturnValue.Type>SearchKeywordListReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

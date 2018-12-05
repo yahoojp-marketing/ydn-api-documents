@@ -3,11 +3,11 @@ StatsServiceは、キャンペーン、広告グループ、広告、画像、�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201809/StatsService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/StatsService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201812/StatsService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/StatsService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201809/Stats
+http://im.yahooapis.jp/V201812/Stats
 
 #### サービス概要
 キャンペーン、広告グループ、広告、画像、動画の単位で統計情報の取得を行います。
@@ -33,14 +33,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -59,14 +59,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -86,14 +86,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -114,14 +114,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
@@ -140,14 +140,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
@@ -176,14 +176,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1536568329607</ns2:requestTime>
+      <ns2:requestTime>1543382768440</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -212,24 +212,26 @@ StatsServiceで提供される操作を説明します。
             <ns2:cpa>21.2</ns2:cpa>
             <ns2:conversionValue>22</ns2:conversionValue>
             <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:conversionsViaAdClick>100</ns2:conversionsViaAdClick>
+            <ns2:conversionRateViaAdClick>100.1</ns2:conversionRateViaAdClick>
+            <ns2:cpaViaAdClick>101</ns2:cpaViaAdClick>
+            <ns2:conversionValueViaAdClick>102</ns2:conversionValueViaAdClick>
+            <ns2:valuePerConversionsViaAdClick>103</ns2:valuePerConversionsViaAdClick>
             <ns2:allConversions>24</ns2:allConversions>
             <ns2:allConversionRate>25.0</ns2:allConversionRate>
             <ns2:allCpa>26.6</ns2:allCpa>
             <ns2:allConversionValue>27</ns2:allConversionValue>
             <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:crossDeviceConversions>104</ns2:crossDeviceConversions>
             <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
             <ns2:totalVimps>2</ns2:totalVimps>
             <ns2:vImps>2</ns2:vImps>
             <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
             <ns2:inViewRate>100.0</ns2:inViewRate>
             <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
-            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
-            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
-            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
             <ns2:paidVideoViews>4</ns2:paidVideoViews>
             <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
             <ns2:averageCpv>0.5</ns2:averageCpv>
-            <ns2:videoPlays>2</ns2:videoPlays>
             <ns2:videoViews>2</ns2:videoViews>
             <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
             <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
@@ -250,14 +252,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1536568329648</ns2:requestTime>
+      <ns2:requestTime>1543382768534</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -287,24 +289,26 @@ StatsServiceで提供される操作を説明します。
             <ns2:cpa>21.2</ns2:cpa>
             <ns2:conversionValue>22</ns2:conversionValue>
             <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:conversionsViaAdClick>100</ns2:conversionsViaAdClick>
+            <ns2:conversionRateViaAdClick>100.1</ns2:conversionRateViaAdClick>
+            <ns2:cpaViaAdClick>101</ns2:cpaViaAdClick>
+            <ns2:conversionValueViaAdClick>102</ns2:conversionValueViaAdClick>
+            <ns2:valuePerConversionsViaAdClick>103</ns2:valuePerConversionsViaAdClick>
             <ns2:allConversions>24</ns2:allConversions>
             <ns2:allConversionRate>25.0</ns2:allConversionRate>
             <ns2:allCpa>26.6</ns2:allCpa>
             <ns2:allConversionValue>27</ns2:allConversionValue>
             <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:crossDeviceConversions>104</ns2:crossDeviceConversions>
             <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
             <ns2:totalVimps>2</ns2:totalVimps>
             <ns2:vImps>2</ns2:vImps>
             <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
             <ns2:inViewRate>100.0</ns2:inViewRate>
             <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
-            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
-            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
-            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
             <ns2:paidVideoViews>4</ns2:paidVideoViews>
             <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
             <ns2:averageCpv>0.5</ns2:averageCpv>
-            <ns2:videoPlays>2</ns2:videoPlays>
             <ns2:videoViews>2</ns2:videoViews>
             <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
             <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
@@ -325,14 +329,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1536568329689</ns2:requestTime>
+      <ns2:requestTime>1543382768618</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -363,24 +367,26 @@ StatsServiceで提供される操作を説明します。
             <ns2:cpa>21.2</ns2:cpa>
             <ns2:conversionValue>22</ns2:conversionValue>
             <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:conversionsViaAdClick>100</ns2:conversionsViaAdClick>
+            <ns2:conversionRateViaAdClick>100.1</ns2:conversionRateViaAdClick>
+            <ns2:cpaViaAdClick>101</ns2:cpaViaAdClick>
+            <ns2:conversionValueViaAdClick>102</ns2:conversionValueViaAdClick>
+            <ns2:valuePerConversionsViaAdClick>103</ns2:valuePerConversionsViaAdClick>
             <ns2:allConversions>24</ns2:allConversions>
             <ns2:allConversionRate>25.0</ns2:allConversionRate>
             <ns2:allCpa>26.6</ns2:allCpa>
             <ns2:allConversionValue>27</ns2:allConversionValue>
             <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:crossDeviceConversions>104</ns2:crossDeviceConversions>
             <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
             <ns2:totalVimps>2</ns2:totalVimps>
             <ns2:vImps>2</ns2:vImps>
             <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
             <ns2:inViewRate>100.0</ns2:inViewRate>
             <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
-            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
-            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
-            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
             <ns2:paidVideoViews>4</ns2:paidVideoViews>
             <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
             <ns2:averageCpv>0.5</ns2:averageCpv>
-            <ns2:videoPlays>2</ns2:videoPlays>
             <ns2:videoViews>2</ns2:videoViews>
             <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
             <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
@@ -401,14 +407,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1536568329741</ns2:requestTime>
+      <ns2:requestTime>1543382768717</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -437,24 +443,26 @@ StatsServiceで提供される操作を説明します。
             <ns2:cpa>21.2</ns2:cpa>
             <ns2:conversionValue>22</ns2:conversionValue>
             <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:conversionsViaAdClick>100</ns2:conversionsViaAdClick>
+            <ns2:conversionRateViaAdClick>100.1</ns2:conversionRateViaAdClick>
+            <ns2:cpaViaAdClick>101</ns2:cpaViaAdClick>
+            <ns2:conversionValueViaAdClick>102</ns2:conversionValueViaAdClick>
+            <ns2:valuePerConversionsViaAdClick>103</ns2:valuePerConversionsViaAdClick>
             <ns2:allConversions>24</ns2:allConversions>
             <ns2:allConversionRate>25.0</ns2:allConversionRate>
             <ns2:allCpa>26.6</ns2:allCpa>
             <ns2:allConversionValue>27</ns2:allConversionValue>
             <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:crossDeviceConversions>104</ns2:crossDeviceConversions>
             <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
             <ns2:totalVimps>2</ns2:totalVimps>
             <ns2:vImps>2</ns2:vImps>
             <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
             <ns2:inViewRate>100.0</ns2:inViewRate>
             <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
-            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
-            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
-            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
             <ns2:paidVideoViews>4</ns2:paidVideoViews>
             <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
             <ns2:averageCpv>0.5</ns2:averageCpv>
-            <ns2:videoPlays>2</ns2:videoPlays>
             <ns2:videoViews>2</ns2:videoViews>
             <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
             <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
@@ -475,14 +483,14 @@ StatsServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/Stats" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Stats" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1536568329783</ns2:requestTime>
+      <ns2:requestTime>1543382768797</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -517,24 +525,26 @@ StatsServiceで提供される操作を説明します。
             <ns2:cpa>21.2</ns2:cpa>
             <ns2:conversionValue>22</ns2:conversionValue>
             <ns2:valuePerConversions>23.3</ns2:valuePerConversions>
+            <ns2:conversionsViaAdClick>100</ns2:conversionsViaAdClick>
+            <ns2:conversionRateViaAdClick>100.1</ns2:conversionRateViaAdClick>
+            <ns2:cpaViaAdClick>101</ns2:cpaViaAdClick>
+            <ns2:conversionValueViaAdClick>102</ns2:conversionValueViaAdClick>
+            <ns2:valuePerConversionsViaAdClick>103</ns2:valuePerConversionsViaAdClick>
             <ns2:allConversions>24</ns2:allConversions>
             <ns2:allConversionRate>25.0</ns2:allConversionRate>
             <ns2:allCpa>26.6</ns2:allCpa>
             <ns2:allConversionValue>27</ns2:allConversionValue>
             <ns2:valuePerAllConversions>28</ns2:valuePerAllConversions>
+            <ns2:crossDeviceConversions>104</ns2:crossDeviceConversions>
             <ns2:avgDeliverRank>0.5</ns2:avgDeliverRank>
             <ns2:totalVimps>2</ns2:totalVimps>
             <ns2:vImps>2</ns2:vImps>
             <ns2:inViewClickCnt>2</ns2:inViewClickCnt>
             <ns2:inViewRate>100.0</ns2:inViewRate>
             <ns2:inViewClickRate>100.0</ns2:inViewClickRate>
-            <ns2:autoVideoPlays>2</ns2:autoVideoPlays>
-            <ns2:clickVideoPlays>2</ns2:clickVideoPlays>
-            <ns2:videoViewedRate>0.4</ns2:videoViewedRate>
             <ns2:paidVideoViews>4</ns2:paidVideoViews>
             <ns2:paidVideoViewRate>0.4</ns2:paidVideoViewRate>
             <ns2:averageCpv>0.5</ns2:averageCpv>
-            <ns2:videoPlays>2</ns2:videoPlays>
             <ns2:videoViews>2</ns2:videoViews>
             <ns2:videoViewsTo25>2</ns2:videoViewsTo25>
             <ns2:videoViewsTo50>2</ns2:videoViewsTo50>
