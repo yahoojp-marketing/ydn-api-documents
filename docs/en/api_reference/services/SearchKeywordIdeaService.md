@@ -5,10 +5,10 @@ It can designate up to 100 keywords per request.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201809/SearchKeywordIdeaService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/SearchKeywordIdeaService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201812/SearchKeywordIdeaService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/SearchKeywordIdeaService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201809/SearchKeywordIdea
+http://im.yahooapis.jp/V201812/SearchKeywordIdea
 #### Service Overview
 Retrieves the keyword for search targeting.
 #### Operation
@@ -32,19 +32,22 @@ Retrieves the keyword for seach targeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordIdea" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordIdea" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/SearchKeywordIdea" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/SearchKeywordIdea" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <keywordIds>1111</keywordIds>
         <keywordIds>2222</keywordIds>
         <searchKeywordRecency>WITHIN_30DAYS</searchKeywordRecency>
         <searchKeywordFrequency>TWICE_OR_MORE</searchKeywordFrequency>
+        <sortField>DESKTOP_SEARCH_VOLUME</sortField>
+        <sortType>DESC</sortType>
+        <matchType>EXACT</matchType>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
           <ns2:numberResults>10</ns2:numberResults>
@@ -64,14 +67,14 @@ Retrieves the keyword for seach targeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/SearchKeywordIdea" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/SearchKeywordIdea" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>SearchKeywordIdea</ns2:service>
-      <ns2:requestTime>1536568328785</ns2:requestTime>
+      <ns2:requestTime>1543385240342</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/SearchKeywordIdea">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/SearchKeywordIdea">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -82,6 +85,7 @@ Retrieves the keyword for seach targeting.
             <ns2:desktopSearchVolume>200</ns2:desktopSearchVolume>
             <ns2:smartPhoneSearchVolume>3000</ns2:smartPhoneSearchVolume>
             <ns2:tabletSearchVolume>0</ns2:tabletSearchVolume>
+            <ns2:releaseDate>20190101</ns2:releaseDate>
           </ns2:searchKeywordIdea>
         </ns2:values>
       </ns2:rval>

@@ -1,68 +1,85 @@
 # リリースノート
 ## リリースバージョン　　
-V201809（WSDLバージョン V201809）
+V201812（WSDLバージョン V201812）
 
 ## 本リリースの主な内容
 ※対象データオブジェクトとEnumerationは、データオブジェクト（Enumeration）集をご確認ください。 
 
-### 1. サイトリターゲティングの機能追加
+### 1. 動画視聴コンバージョンの測定対応
 
-Yahoo!ディスプレイアドネットワーク（YDN）のサイトリターゲティング（RetargetingListService）に、以下の機能を追加しました。
+Yahoo!ディスプレイアドネットワーク（YDN）の動画広告において、動画を10秒以上視聴したユーザーが、視聴後に広告クリック以外の方法でコンバージョンに至った件数の測定に対応しました。これに伴い、以下の点を変更しました。
 
-#### ■ターゲットリスト（類似）にターゲットリストのサイズを追加
+#### ■パフォーマンスデータおよびレポートにおけるコンバージョン関連指標の仕様変更
+ * 既存のコンバージョン関連の指標におけるコンバージョン定義の拡大<br>
+　変更前：<br>
+　広告のクリック経由でサイトを訪問したユーザーによるコンバージョンをカウント対象とする<br>
+　変更後：<br>
+　広告のクリック経由でサイトを訪問したユーザー、および、動画広告の動画を10秒以上視聴した後に広告のクリック以外の経路でサイトを訪問したユーザーによるコンバージョンをカウント対象とする<br>
+　※10秒未満の動画の場合は、視聴を完了した時点で10秒視聴と同義とします。<br>
+ * 新指標の追加<br>
+　-広告のクリック経由で発生したコンバージョンのみをカウント対象とする指標<br>
+　-デバイスをまたいだコンバージョン数を確認する指標<br>
 
-ターゲットリスト（類似）に、基のターゲットリストとの類似度を示す「ターゲットリストのサイズ」を追加しました。基のターゲットリストとの類似度を10段階で指定することで、リーチする範囲を調整できます。
+#### ■視聴ビーコンURL項目を追加
 
-#### ■アプリのイベント情報をもとにしたターゲティング機能を追加
+AdGroupAdServiceに、動画コンバージョンを測定する視聴ビーコンURL関連の項目を追加しました。  
+また、AuditLogService、BulkServiceのダウンロードファイルにも追加しました。  
+※ダウンロードファイルへの追加は、提供中の全バージョンが対象です。
 
-ターゲットリストの条件種別に、アプリのイベント情報（インストール、商品の購入などのアプリ内動作）を設定する「イベント種別」を追加しました。
-これにより、アプリ上のユーザーによる行動をもとにしたターゲティングが可能になります。
+#### ■コンバージョンタグの設定項目の追加
+ConversionTrackerServiceに、動画の視聴からコンバージョンが発生するまでの測定期間を設定する項目「measurementPeriodView」を追加しました。測定期間は1日～30日間の範囲で設定できます。  
+また、AuditLogServiceのダウンロードファイルにも同項目を追加しました。  
+※ダウンロードファイルへの追加は、提供中の全バージョンが対象です。
 
 ##### 対象ウェブサービス  
- * [RetargetingListService](./api_reference/services/RetargetingListService.md)
-
-
-### 2. パフォーマンスデータの取得可能期間を変更
-
-以下の期間を指定したパフォーマンスデータ（統計情報）の取得が可能になりました。
-
-* 13カ月前の月初から昨日まで
-* 任意の日付
-
-##### 対象ウェブサービス  
- * [StatsService](./api_reference/services/StatsService.md)
+ * [AdGroupAdService](./api_reference/services/AdGroupAdService.md)
+ * [AuditLogService](./api_reference/services/AuditLogService.md)
+ * [BulkService](./api_reference/services/BulkService.md)
  * [ConversionTrackerService](./api_reference/services/ConversionTrackerService.md)
-
-### 3. タブレット版Yahoo! JAPANアプリ（iOS）への動画広告配信に対応
-
-動画広告の配信先に、タブレット版Yahoo! JAPANアプリ（iOS）が追加されました。これに伴い、動画広告の入稿で、配信先デバイスに「タブレット」が選択可能になりました。  
-※APIインターフェース上の変更はありません。
+ * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
+ * [ReportService](./api_reference/services/ReportService.md)
+ * [StatsService](./api_reference/services/StatsService.md)
 
 
-### 4. 年齢ターゲティングの対象年齢の範囲を変更
+### 2. 動画広告にアスペクト比1:1の動画フォーマットを追加
 
-YDNの年齢ターゲティングの範囲を一部変更し、従来の「12歳～14歳」を「13歳～14歳」に変更しました。詳細は「Serviceの変更による各Versionへの影響」でご確認ください。
+動画広告にアスペクト比1：1（ピクセルサイズ　600×600）の新フォーマットを追加しました。なお、APIインターフェース上の変更はありません。  
+※提供中の全バージョンが対象です。
+
 ##### 対象ウェブサービス  
- * [AdGroupTargetService](./api_reference/services/AdGroupTargetService.md)
  * [ReportService](./api_reference/services/ReportService.md)
 
 
-### 5. システムの保守、改善の実施
-システムの保守、改善として以下を実施しました。
-「Serviceの変更による各Versionへの影響」の項目も、あわせてご確認ください。
+### 3. サーチターゲティングの機能変更
 
- * 一部のエラーコードについて構成を見直し、整理しました。
-詳細は「[エラーコードの再編について](./api_reference/appendix/error_codes_structure.md)」をご確認ください。
+リクエストにおいて、以下を変更しました。
+ * keywordsとkeywordIdsの指定が必須ではなくなり、両方同時指定のみ不可に変更
+ * keywordsの上限数を100から200に変更
+ * スペースの半角・全角の区別を廃止
+ * 以下の項目を追加  
+　　- sortField（ソート項目）  
+　　- sortType（ソート方法）  
+　　- matchType（検索方法）  
 
- * ReportDefinitionServiceにおけるレポートの作成で、定期レポートの定義が作成不可になりました。V201806以前のバージョンで作成した値の参照は可能です。
-
- * StatsServiceとConversionTrackerServiceにおいて、パフォーマンスデータの取得期間の日時表示を変更しました。
+また、レスポンスに「releaseDate」（キーワード追加日）を追加しました。
 
 ##### 対象ウェブサービス  
- * 全サービス（エラーコードに関する変更）
+ * [SearchKeywordIdeaService](./api_reference/services/SearchKeywordIdeaService.md)
+
+
+### 4. システムの保守、改善の実施
+
+システムの保守、改善として以下を実施しました。 「Serviceの変更による各Versionへの影響」の項目も、あわせてご確認ください。
+
+ * ReportDefinitionServiceおよびReportServiceから、古いレポート項目を削除
+ * 仕様書のレポートフィールド集に「動作区分/Behavior Type」列を追加  
+各レポートフィールドの動作を表す「動作区分/Behavior Type」列を追加しました。  
+※提供中の全バージョンが対象です。
+
+##### 対象ウェブサービス  
  * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
- * [StatsService](/docs/ja/api_reference/services/StatsService.md)
- * [ConversionTrackerService](/docs/ja/api_reference/services/ConversionTrackerService.md)
+ * [ReportService](./api_reference/services/ReportService.md)
+ * [StatsService](./api_reference/services/StatsService.md)
 
 
 ## Serviceの変更による各Versionへの主な影響
@@ -70,103 +87,255 @@ YDNの年齢ターゲティングの範囲を一部変更し、従来の「12歳
 <tbody>
 <tr>
 <th>Service</th>
-<th>V201806以前</th>
-<th>V201809</th>
+<th>V201809以前</th>
+<th>V201812</th>
 </tr>
 <tr>
-<td>RetargetingListService</td>
+<td>ConversionTrackerService</td>
 <td>
-・ターゲティングリスト（類似）で、ターゲットリストのサイズの取得および設定が不可<br><br>
-・ターゲティングリスト（条件）で、イベント種別の取得および設定が不可<br>
+・以下の指標で、広告クリックのコンバージョンを測定<br>
+　- convRate<br>
+　- convValue<br>
+　- costPerConv<br>
+　- valuePerConv<br>
+　- allConv<br>
+　- allConvRate<br>
+　- allConvValue<br>
+　- costPerAllConv<br>
+　- valuePerAllConv<br>
 </td>
 <td>
-・ターゲティングリスト（類似）で、 ターゲットリストのサイズ（10段階）の取得、設定が可能<br>
-・ターゲティングリスト（条件）で、イベント種別の取得、設定が可能<br>
-・SimilarityTargetListに以下の項目を追加<br>
-　- targetListSize<br>
-　- targetListSizeReaches<br>
-・RuleTypeにEVENT_TYPE項目を追加<br>
-・以下のオブジェクトを追加<br>
-　- TargetListSize<br>
-　- TargetListSizeReaches<br>
+・以下の指標で、広告クリックおよび10秒以上の動画視聴のコンバージョンを測定<br>
+　- convRate<br>
+　- convValue<br>
+　- costPerConv<br>
+　- valuePerConv<br>
+　- allConv<br>
+　- allConvRate<br>
+　- allConvValue<br>
+　- costPerAllConv<br>
+　- valuePerAllConv<br>
+
+・以下の指標を新たに追加<br>
+　- conversionsViaAdClick<br>
+　- conversionRateViaAdClick<br>
+　- convValueViaAdClick<br>
+　- costPerConvViaAdClick<br>
+　- valuePerConvViaAdClick<br>
+　- crossDeviceConversions<br>
+・動画の視聴からコンバージョンが発生するまでの測定期間を設定する項目「measurementPeriodView」を追加<br>
 </td>
 </tr>
 <tr>
 <td>StatsService</td>
 <td>
-・パフォーマンスデータ  の取得期間に、過去13カ月間と任意の日付の指定は不可<br>
-・パフォーマンスデータの集計完了日時を以下の形式で表示<br>
-YYYYMMDDHHmmss<br>
+・以下の指標で、広告クリックのコンバージョンを測定<br>
+　- convRate<br>
+　- convValue<br>
+　- costPerConv<br>
+　- valuePerConv<br>
+　- allConv<br>
+　- allConvRate<br>
+　- allConvValue<br>
+　- costPerAllConv<br>
+　- valuePerAllConv<br>
+・以下のレポート項目を表示<br>
+　- videoViewedRate<br>
+　- videoPlays<br>
+　- autoVideoPlays<br>
+　- clickVideoPlays<br>
 </td>
 <td>
-・パフォーマンスデータの取得期間に、過去13カ月間と任意の日付を指定可能<br>
-・パフォーマンスデータの集計開始日時と集計完了日時を、以下の形式で表示<br>
-　YYYYMMDD<br>
-　HHmmss<br>
-・StatsPeriodに以下の項目を追加<br>
-　- DEFINITE_VALUE_LAST13MONTH<br>
-　- CUSTOM_DATE<br>
-・StatsSelectorにstatsPeriodCustomDate項目を追加<br>
-・以下のオブジェクトを追加<br>
-　- PeriodDatetime<br>
-　- StatsPeriodCustomDate<br>
+・以下の指標で、広告クリックおよび10秒以上の動画視聴のコンバージョンを測定<br>
+　- convRate<br>
+　- convValue<br>
+　- costPerConv<br>
+　- valuePerConv<br>
+　- allConv<br>
+　- allConvRate<br>
+　- allConvValue<br>
+　- costPerAllConv<br>
+　- valuePerAllConv<br>
+・以下の指標を新たに追加<br>
+　- conversionsViaAdClick<br>
+　- conversionRateViaAdClick<br>
+　- convValueViaAdClick<br>
+　- costPerConvViaAdClick<br>
+　- valuePerConvViaAdClick<br>
+　- crossDeviceConversions<br>
+・以下のレポート項目を削除<br>
+　- videoViewedRate<br>
+　- videoPlays<br>
+　- autoVideoPlays<br>
+　- clickVideoPlays<br>
 </td>
 </tr>
 <tr>
-<td>ConversionTrackerService</td>
-<td>・パフォーマンスデータ の取得期間に、過去13カ月間と任意の日付の指定は不可<br>
+<td>AdGroupAdService</td>
+<td>・動画視聴コンバージョン用ビーコンURLを登録できない<br>
 </td>
 <td>
-・パフォーマンスデータの取得期間に、過去13カ月間と任意の日付を指定可能<br>
-・パフォーマンスデータの集計開始日時と集計完了日時を、以下の形式で表示<br>
-　YYYYMMDD<br>
-　HHmmss<br>
-・ConversionTrackerSelectorにstatsPeriodCustomDateを追加<br>
-・ConversionTrackerPageにperiodを追加<br>
-・StatsPeriodに以下の項目を追加<br>
-　- DEFINITE_VALUE_LAST13MONTH<br>
-　- CUSTOM_DATE<br>
-・以下のオブジェクトを追加<br>
-　- Period<br>
-　- PeriodDatetime<br>
-　- StatsPeriodCustomDate<br>
-</td>
-</tr>
-<tr>
-<td>ReportService</td>
-<td>・年齢ターゲティングのレポートの年齢表示は6歳〜11歳、12歳〜14歳だが、2018年9月以降は6歳～12歳、13歳～14歳単位の結果も含まれる<br></td>
-<td>・年齢ターゲティングのレポートの年齢表示を6歳～12歳、13歳～14歳に変更<br>
-・2018年9月以前の配信で6歳～11歳、12歳～14歳単位の集計結果が含まれる時は、6歳～12歳、13歳～14歳にまとめて表示される<br>
-</td>
-</tr>
-<tr>
-<td>AdGroupTargetService</td>
-<td>・年齢ターゲティングで12歳～14歳（GT_RANGE12_14）を設定した場合、実際の配信対象は13歳～14歳になる<br>
-・13歳～14歳（GT_RANGE13_14）は設定不可
-<br></td>
-<td>・年齢ターゲティングで13～14歳（GT_RANGE13_14）が設定可能<br>
-・12歳～14歳（GT_RANGE12_14）は設定不可<br>
-・AgeにGT_RANGE13_14を追加<br>
+・動画視聴コンバージョン用ビーコンURLを登録できる<br>
+・動画視聴コンバージョン用ビーコン関連の以下項目を追加<br>
+　- videoStartBeaconUrls<br>
+　- isRemoveVideoStartBeaconUrls<br>
+　- video3SecBeaconUrls<br>
+　- isRemoveVideo3SecBeaconUrls<br>
+　- videoPaidBeaconUrls<br>
+　- isRemoveVideoPaidBeaconUrls<br>
+　- videoCompleteBeaconUrls<br>
+　- isRemoveVideoCompleteBeaconUrls<br>
 </td>
 </tr>
 <tr>
 <td>ReportDefinitionService</td>
 <td>
-以下の定期レポート項目の利用は非推奨<br>
-　・intervalType<br>
-　・addTemplate<br>
+・以下のレポート項目を表示<br>
+　- totalConversionsOld<br>
+　- totalConversionRateOld<br>
+　- convValueOld<br>
+　- costTotalConversionsOld<br>
+　- valuePerConvOld<br>
+　- totalRevenueOld<br>
+　- revenueTotalConversionOld<br>
+　- revenue<br>
+　- revenuePerConv<br>
+　- videoViewedRate<br>
+　- videoPlays<br>
+　- autoVideoPlays<br>
+　- clickVideoPlays<br>
 </td>
 <td>
-以下の定期レポート項目を入力してもignoreされる。参照のみ可能<br>
-　・intervalType<br>
-　・addTemplate<br>
+・以下の指標で、広告クリックおよび10秒以上の動画視聴のコンバージョンを測定<br>
+　- convRate<br>
+　- convValue<br>
+　- costPerConv<br>
+　- valuePerConv<br>
+　- allConv<br>
+　- allConvRate<br>
+　- allConvValue<br>
+　- costPerAllConv<br>
+　- valuePerAllConv<br>
+・以下の指標を新たに追加<br>
+　- conversionsViaAdClick<br>
+　- conversionRateViaAdClick<br>
+　- convValueViaAdClick<br>
+　- costPerConvViaAdClick<br>
+　- valuePerConvViaAdClick<br>
+　- crossDeviceConversions<br>
+・以下のレポート項目を削除<br>
+　- totalConversionsOld<br>
+　- totalConversionRateOld<br>
+　- convValueOld<br>
+　- costTotalConversionsOld<br>
+　- valuePerConvOld<br>
+　- totalRevenueOld<br>
+　- revenueTotalConversionOld<br>
+　- revenue<br>
+　- revenuePerConv<br>
+　- videoViewedRate<br>
+　- videoPlays<br>
+　- autoVideoPlays<br>
+　- clickVideoPlays<br>
+</td>
+</tr>
+<tr>
+<td>ReportService</td>
+<td>
+・以下のレポート項目を表示<br>
+　- totalConversionsOld<br>
+　- totalConversionRateOld<br>
+　- convValueOld<br>
+　- costTotalConversionsOld<br>
+　- valuePerConvOld<br>
+　- totalRevenueOld<br>
+　- revenueTotalConversionOld<br>
+　- revenue<br>
+　- revenuePerConv<br>
+　- videoViewedRate<br>
+　- videoPlays<br>
+　- autoVideoPlays<br>
+　- clickVideoPlays<br>
+</td>
+<td>
+・以下の指標で、広告クリックおよび10秒以上の動画視聴のコンバージョンを測定<br>
+　- convRate<br>
+　- convValue<br>
+　- costPerConv<br>
+　- valuePerConv<br>
+　- allConv<br>
+　- allConvRate<br>
+　- allConvValue<br>
+　- costPerAllConv<br>
+　- valuePerAllConv<br>
+・以下の指標を新たに追加<br>
+　- conversionsViaAdClick<br>
+　- conversionRateViaAdClick<br>
+　- convValueViaAdClick<br>
+　- costPerConvViaAdClick<br>
+　- valuePerConvViaAdClick<br>
+　- crossDeviceConversions<br>
+・以下のレポート項目を削除<br>
+　- totalConversionsOld<br>
+　- totalConversionRateOld<br>
+　- convValueOld<br>
+　- costTotalConversionsOld<br>
+　- valuePerConvOld<br>
+　- totalRevenueOld<br>
+　- revenueTotalConversionOld<br>
+　- revenue<br>
+　- revenuePerConv<br>
+　- videoViewedRate<br>
+　- videoPlays<br>
+　- autoVideoPlays<br>
+　- clickVideoPlays<br>
+</td>
+</tr>
+<tr>
+<td>SearchKeywordIdeaService</td>
+<td>
+・リクエストで、keywordsとkeywordIdsの指定が必須<br>
+</td>
+<td>
+・リクエストでkeywordsとkeywordIdsの指定が必須ではなくなる。また、以下の項目の指定が可能。<br>
+　-searchMatchType<br>
+　-sortField<br>
+　-sortKey<br>
+・レスポンスで、releaseDate項目を追加<br>
+</td>
+</tr>
+<tr>
+<td>AuditLogService</td>
+<td>
+　
+</td>
+<td>
+・動画視聴コンバージョン用ビーコン関連の以下項目を追加<br>
+　- videoStartBeaconUrls<br>
+　- video3SecBeaconUrls<br>
+　- videoPaidBeaconUrls<br>
+　- videoCompleteBeaconUrls<br>
+</td>
+</tr>
+<tr>
+<td>BulkService</td>
+<td>
+　
+</td>
+<td>
+・動画視聴コンバージョン用ビーコン関連の以下項目を追加<br>
+　- videoStartBeaconUrls<br>
+　- video3SecBeaconUrls<br>
+　- videoPaidBeaconUrls<br>
+　- videoCompleteBeaconUrls<br>
 </td>
 </tr>
 </tbody>
 </table>
 
 
-## YDN API Ver.6.1.0の提供終了について
-以下の日程でYDN API Ver.6.1.0のサポートおよびシステムの提供を終了いたします。
-* サポート終了日：2018年10月19日（金）
-* システム終了日：2019年1月18日（金）
+## YDN API V201806の提供終了について
+以下の日程でYDN API V201806のサポートおよびシステムの提供を終了いたします。
+* サポート終了日：2019年1月15日（火）
+* システム終了日：2019年4月15日（月）
+

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201809/SearchKeywordIdea"
-        xmlns:tns="http://im.yahooapis.jp/V201809/SearchKeywordIdea"
+        targetNamespace="http://im.yahooapis.jp/V201812/SearchKeywordIdea"
+        xmlns:tns="http://im.yahooapis.jp/V201812/SearchKeywordIdea"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201809"
+            targetNamespace="http://im.yahooapis.jp/V201812"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201809">
+            xmlns:tns="http://im.yahooapis.jp/V201812">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201809/SearchKeywordIdea"
+            targetNamespace="http://im.yahooapis.jp/V201812/SearchKeywordIdea"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201809"
-            xmlns:tns="http://im.yahooapis.jp/V201809/SearchKeywordIdea">
-      <xsd:import namespace="http://im.yahooapis.jp/V201809"/>
+            xmlns:adv="http://im.yahooapis.jp/V201812"
+            xmlns:tns="http://im.yahooapis.jp/V201812/SearchKeywordIdea">
+      <xsd:import namespace="http://im.yahooapis.jp/V201812"/>
       <annotation>
         <appinfo>
-          <version>201809</version>
+          <version>201812</version>
         </appinfo>
       </annotation>
       <complexType name="SearchKeywordIdeaSelector">
@@ -82,6 +82,9 @@
           <element maxOccurs="unbounded" minOccurs="0" name="keywordIds" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="searchKeywordRecency" type="tns:KeywordRecency"/>
           <element maxOccurs="1" minOccurs="0" name="searchKeywordFrequency" type="tns:KeywordFrequency"/>
+          <element maxOccurs="1" minOccurs="0" name="sortField" type="tns:SortField"/>
+          <element maxOccurs="1" minOccurs="0" name="sortType" type="tns:SortType"/>
+          <element maxOccurs="1" minOccurs="0" name="matchType" type="tns:MatchType"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
@@ -110,6 +113,7 @@
           <element maxOccurs="1" minOccurs="0" name="desktopSearchVolume" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="smartPhoneSearchVolume" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="tabletSearchVolume" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="releaseDate" type="xsd:string"/>
         </sequence>
       </complexType>
       <simpleType name="KeywordRecency">
@@ -126,6 +130,28 @@
           <enumeration value="ONCE_OR_MORE"/>
           <enumeration value="TWICE_OR_MORE"/>
           <enumeration value="THREE_TIMES_OR_MORE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="SortField">
+        <restriction base="xsd:string">
+          <enumeration value="KEYWORD"/>
+          <enumeration value="KEYWORD_ID"/>
+          <enumeration value="DESKTOP_SEARCH_VOLUME"/>
+          <enumeration value="SMART_PHONE_SEARCH_VOLUME"/>
+          <enumeration value="TABLET_SEARCH_VOLUME"/>
+          <enumeration value="RELEASE_DATE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="SortType">
+        <restriction base="xsd:string">
+          <enumeration value="ASC"/>
+          <enumeration value="DESC"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="MatchType">
+        <restriction base="xsd:string">
+          <enumeration value="EXACT"/>
+          <enumeration value="BROAD"/>
         </restriction>
       </simpleType>
       <element name="get">
@@ -189,7 +215,7 @@
   </wsdl:binding>
   <wsdl:service name="SearchKeywordIdeaService">
     <wsdl:port binding="tns:SearchKeywordIdeaServiceSoapBinding" name="SearchKeywordIdeaService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201809/SearchKeywordIdeaService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201812/SearchKeywordIdeaService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

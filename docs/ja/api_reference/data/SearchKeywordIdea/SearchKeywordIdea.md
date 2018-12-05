@@ -20,7 +20,7 @@ SearchKeywordIdeaオブジェクトは、サーチターゲティング対象キ
  <tr>
   <td>searchKeywordId</td>
   <td>xsd:long</td>
-  <td>サーチキーワードIDです。</td>
+  <td>サーチキーワードID</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -30,7 +30,7 @@ SearchKeywordIdeaオブジェクトは、サーチターゲティング対象キ
  <tr>
   <td>searchKeyword</td>
   <td>xsd:string</td>
-  <td>サーチキーワードです。</td>
+  <td>サーチキーワード</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -40,7 +40,7 @@ SearchKeywordIdeaオブジェクトは、サーチターゲティング対象キ
  <tr>
   <td>desktopSearchVolume</td>
   <td>xsd:long</td>
-  <td>PCでのリーチ数です。<br>※100件未満の場合は<br>0が取得されます。 </td>
+  <td>PCでのリーチ数<br>※1000件未満の場合は<br>0が取得されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -50,7 +50,7 @@ SearchKeywordIdeaオブジェクトは、サーチターゲティング対象キ
  <tr>
   <td>smartPhoneSearchVolume</td>
   <td>xsd:long</td>
-  <td>スマートフォンでのリーチ数です。<br>※100件未満の場合は<br>0が取得されます。 </td>
+  <td>スマートフォンでのリーチ数<br>※1000件未満の場合は<br>0が取得されます。</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>
@@ -60,7 +60,17 @@ SearchKeywordIdeaオブジェクトは、サーチターゲティング対象キ
  <tr>
   <td>tabletSearchVolume</td>
   <td>xsd:long</td>
-  <td>タブレットでのリーチ数です。<br>※100件未満の場合は<br>0が取得されます。 </td>
+  <td>タブレットでのリーチ数<br>※1000件未満の場合は<br>0が取得されます。</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+  <tr>
+  <td>releaseDate</td>
+  <td>xsd:string	</td>
+  <td>KW追加日<br>(yyyy㎜dd)</td>
   <td>yes</td>
   <td>-</td>
   <td>-</td>

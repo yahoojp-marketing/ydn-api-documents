@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201809/Stats"
-        xmlns:tns="http://im.yahooapis.jp/V201809/Stats"
+        targetNamespace="http://im.yahooapis.jp/V201812/Stats"
+        xmlns:tns="http://im.yahooapis.jp/V201812/Stats"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201809"
+            targetNamespace="http://im.yahooapis.jp/V201812"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201809">
+            xmlns:tns="http://im.yahooapis.jp/V201812">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201809/Stats"
+            targetNamespace="http://im.yahooapis.jp/V201812/Stats"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201809"
-            xmlns:tns="http://im.yahooapis.jp/V201809/Stats">
-      <xsd:import namespace="http://im.yahooapis.jp/V201809"/>
+            xmlns:adv="http://im.yahooapis.jp/V201812"
+            xmlns:tns="http://im.yahooapis.jp/V201812/Stats">
+      <xsd:import namespace="http://im.yahooapis.jp/V201812"/>
       <annotation>
         <appinfo>
-          <version>201809</version>
+          <version>201812</version>
         </appinfo>
       </annotation>
       <complexType name="StatsSelector">
@@ -135,29 +135,31 @@
           <element maxOccurs="1" minOccurs="0" name="totalClickCost" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="clickCnt" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="avgClickCost" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="conversions" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="conversions" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="conversionRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="cpa" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="conversionValue" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="valuePerConversions" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="conversionsViaAdClick" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="conversionRateViaAdClick" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="cpaViaAdClick" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="conversionValueViaAdClick" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="valuePerConversionsViaAdClick" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="allConversions" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="allConversionRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="allCpa" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="allConversionValue" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="valuePerAllConversions" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="crossDeviceConversions" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="avgDeliverRank" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="totalVimps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="vImps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="inViewClickCnt" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="inViewRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="inViewClickRate" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="autoVideoPlays" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="clickVideoPlays" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="videoViewedRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="paidVideoViews" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="paidVideoViewRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="averageCpv" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="videoPlays" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViews" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViewsTo25" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="videoViewsTo50" type="xsd:long"/>
@@ -260,7 +262,7 @@
   </wsdl:binding>
   <wsdl:service name="StatsService">
     <wsdl:port binding="tns:StatsServiceSoapBinding" name="StatsService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201809/StatsService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201812/StatsService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

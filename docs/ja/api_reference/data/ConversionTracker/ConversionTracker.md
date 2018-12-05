@@ -59,7 +59,7 @@ ConversionTrackerオブジェクトは、コンバージョン測定タグやタ
  <tr>
   <td>conversions</td>
   <td>xsd:long</td>
-  <td>コンバージョン数です。<br>※デバイスをまたいだコンバージョンの値を加味します。</td>
+  <td>コンバージョン数です。<br>※動画視聴およびデバイスをまたいだコンバージョンの値を加味します。</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -67,11 +67,28 @@ ConversionTrackerオブジェクトは、コンバージョン測定タグやタ
  <tr>
   <td>conversionValue</td>
   <td>xsd:long</td>
-  <td>コンバージョンの価値です。<br>※デバイスをまたいだコンバージョンの値を加味します。</td>
+  <td>コンバージョンの価値です。<br>※動画視聴およびデバイスをまたいだコンバージョンの値を加味します。</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
+ <tr>
+  <td>conversionsViaAdClick</td>
+  <td>xsd:long</td>
+  <td>コンバージョン数(クリック後)</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>conversionValueViaAdClick</td>
+  <td>xsd:string</td>
+  <td>コンバージョン値(クリック後)</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+
 <tr>
   <td>userRevenueValue</td>
   <td>xsd:long</td>
@@ -105,6 +122,14 @@ ConversionTrackerオブジェクトは、コンバージョン測定タグやタ
   <td>Optional</td>
  </tr>
  <tr>
+  <td>measurementPeriodView</td>
+  <td>xsd:int</td>
+  <td>測定期間（動画視聴）<br>※1-30の範囲で指定可能</td>
+  <td>yes</td>
+  <td>Optional<br>※Default値：1</td>
+  <td>Optional</td>
+ </tr>
+ <tr>
   <td>excludeFromBidding</td>
   <td>enum <a href="./ExcludeFromBidding.md">ExcludeFromBidding</a></td>
   <td>自動入札設定で使用するかを表します。<br>※「コンバージョン列に含める/含めない」の設定です。</td>
@@ -115,7 +140,7 @@ ConversionTrackerオブジェクトは、コンバージョン測定タグやタ
  <tr>
   <td>allConversions</td>
   <td>xsd:long</td>
-  <td>自動入札の対象コンバージョン数+ 対象外コンバージョン数です。</td>
+  <td>自動入札の対象コンバージョン数+ 対象外コンバージョン数です。<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -123,7 +148,15 @@ ConversionTrackerオブジェクトは、コンバージョン測定タグやタ
  <tr>
   <td>allConversionValue</td>
   <td>xsd:string</td>
-  <td>自動入札の対象コンバージョンの価値 + 対象外コンバージョンの価値です。</td>
+  <td>自動入札の対象コンバージョンの価値 + 対象外コンバージョンの価値です。<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>crossDeviceConversions</td>
+  <td>xsd:long</td>
+  <td>デバイスをまたいだコンバージョン数</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>

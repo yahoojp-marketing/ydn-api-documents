@@ -102,6 +102,78 @@ VideoAdオブジェクトは、動画広告の情報を表します。<br>
   <td>Optional</td>
   <td>Ignore</td>
  </tr>
+ <tr>
+  <td>videoStartBeaconUrls[0..2]</td>
+  <td>xsd:string</td>
+  <td>再生開始ビーコンURL<br>※set時はすべて上書きされる<br>※httpsのURLのみ設定可能</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>isRemoveVideoStartBeaconUrls</td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</td>
+  <td>再生開始ビーコンURL<br>削除<br>videoStartBeaconUrlが設定されている場合も、こちらが優先される</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+<tr>
+  <td>video3SecBeaconUrls[0..2]</td>
+  <td>xsd:string</td>
+  <td>3秒視聴ビーコンURL<br>※set時はすべて上書きされる<br>※httpsのURLのみ設定可能</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>isRemoveVideo3SecBeaconUrls</td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</td>
+  <td>3秒視聴ビーコンURL<br>削除<br>video3SecBeaconUrlが設定されている場合も、こちらが優先される</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>videoPaidBeaconUrls[0..2]</td>
+  <td>xsd:string</td>
+  <td>課金視聴ビーコンURL<br>※set時はすべて上書きされる<br>※httpsのURLのみ設定可能</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>isRemoveVideoPaidBeaconUrls</td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</td>
+  <td>課金視聴ビーコンURL<br>削除<br>videoPaidBeaconUrlが設定されている場合も、こちらが優先される</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>videoCompleteBeaconUrls[0..2]</td>
+  <td>xsd:string</td>
+  <td>再生完了ビーコンURL<br>※set時はすべて上書きされる<br>※httpsのURLのみ設定可能</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>isRemoveVideoCompleteBeaconUrls</td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</td>
+  <td>再生完了ビーコンURL<br>削除<br>videoCompleteBeaconUrlが設定されている場合も、こちらが優先される</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
 </table>
 
 

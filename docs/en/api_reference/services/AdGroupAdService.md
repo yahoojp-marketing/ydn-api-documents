@@ -4,11 +4,11 @@ Use this service to get, add, update or delete ad information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201809/AdGroupAdService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/AdGroupAdService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201812/AdGroupAdService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/AdGroupAdService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201809/AdGroupAd
+http://im.yahooapis.jp/V201812/AdGroupAd
 
 #### Service Overview
 Retrieves and updates ads.
@@ -37,14 +37,14 @@ Retrieves ad information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -90,14 +90,14 @@ Retrieves ad information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1536568318152</ns2:requestTime>
+      <ns2:requestTime>1543384312953</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroupAd">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroupAd">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupAdPage</Page.Type>
@@ -262,6 +262,14 @@ Retrieves ad information.
               <ns2:buttonText>APPLY_NOW</ns2:buttonText>
               <ns2:principal>principal</ns2:principal>
               <ns2:logoMediaId>99999</ns2:logoMediaId>
+              <ns2:videoStartBeaconUrls>http://testtest.videoStartBeaconUrls.co.jp</ns2:videoStartBeaconUrls>
+              <ns2:videoStartBeaconUrls>http://testtest.videoStartBeaconUrls2.co.jp</ns2:videoStartBeaconUrls>
+              <ns2:video3SecBeaconUrls>http://testtest.video3SecBeaconUrls.co.jp</ns2:video3SecBeaconUrls>
+              <ns2:video3SecBeaconUrls>http://testtest.video3SecBeaconUrls2.co.jp</ns2:video3SecBeaconUrls>
+              <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls.co.jp</ns2:videoPaidBeaconUrls>
+              <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls2.co.jp</ns2:videoPaidBeaconUrls>
+              <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls.co.jp</ns2:videoCompleteBeaconUrls>
+              <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</ns2:videoCompleteBeaconUrls>
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>
@@ -284,14 +292,14 @@ Adds an ad.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroupAd">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -415,6 +423,14 @@ Adds an ad.
             <buttonText>APPLY_NOW</buttonText>
             <principal>principal</principal>
             <logoMediaId>894651</logoMediaId>
+            <videoStartBeaconUrls>http://testtest.videoStartBeaconUrls.co.jp</videoStartBeaconUrls>
+            <videoStartBeaconUrls>http://testtest.videoStartBeaconUrls2.co.jp</videoStartBeaconUrls>
+            <video3SecBeaconUrls>http://testtest.video3SecBeaconUrls.co.jp</video3SecBeaconUrls>
+            <video3SecBeaconUrls>http://testtest.video3SecBeaconUrls2.co.jp</video3SecBeaconUrls>
+            <videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls.co.jp</videoPaidBeaconUrls>
+            <videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls2.co.jp</videoPaidBeaconUrls>
+            <videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls.co.jp</videoCompleteBeaconUrls>
+            <videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</videoCompleteBeaconUrls>
           </ad>
         </operand>
       </operations>
@@ -432,14 +448,14 @@ Adds an ad.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1536568318259</ns2:requestTime>
+      <ns2:requestTime>1543384313080</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -604,6 +620,14 @@ Adds an ad.
               <ns2:buttonText>APPLY_NOW</ns2:buttonText>
               <ns2:principal>principal</ns2:principal>
               <ns2:logoMediaId>99999</ns2:logoMediaId>
+              <ns2:videoStartBeaconUrls>http://testtest.videoStartBeaconUrls.co.jp</ns2:videoStartBeaconUrls>
+              <ns2:videoStartBeaconUrls>http://testtest.videoStartBeaconUrls2.co.jp</ns2:videoStartBeaconUrls>
+              <ns2:video3SecBeaconUrls>http://testtest.video3SecBeaconUrls.co.jp</ns2:video3SecBeaconUrls>
+              <ns2:video3SecBeaconUrls>http://testtest.video3SecBeaconUrls2.co.jp</ns2:video3SecBeaconUrls>
+              <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls.co.jp</ns2:videoPaidBeaconUrls>
+              <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls2.co.jp</ns2:videoPaidBeaconUrls>
+              <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls.co.jp</ns2:videoCompleteBeaconUrls>
+              <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</ns2:videoCompleteBeaconUrls>
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>
@@ -626,14 +650,14 @@ Updates an ad.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroupAd">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -758,6 +782,14 @@ Updates an ad.
             <buttonText>APPLY_NOW</buttonText>
             <principal>principal</principal>
             <logoMediaId>894651</logoMediaId>
+            <videoStartBeaconUrls>http://testtest.videoStartBeaconUrls.co.jp</videoStartBeaconUrls>
+            <videoStartBeaconUrls>http://testtest.videoStartBeaconUrls2.co.jp</videoStartBeaconUrls>
+            <video3SecBeaconUrls>http://testtest.video3SecBeaconUrls.co.jp</video3SecBeaconUrls>
+            <video3SecBeaconUrls>http://testtest.video3SecBeaconUrls2.co.jp</video3SecBeaconUrls>
+            <videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls.co.jp</videoPaidBeaconUrls>
+            <videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls2.co.jp</videoPaidBeaconUrls>
+            <videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls.co.jp</videoCompleteBeaconUrls>
+            <videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</videoCompleteBeaconUrls>
           </ad>
         </operand>
       </operations>
@@ -775,14 +807,14 @@ Updates an ad.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1536568318359</ns2:requestTime>
+      <ns2:requestTime>1543384313182</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -946,6 +978,14 @@ Updates an ad.
               <ns2:buttonText>APPLY_NOW</ns2:buttonText>
               <ns2:principal>principal</ns2:principal>
               <ns2:logoMediaId>99999</ns2:logoMediaId>
+              <ns2:videoStartBeaconUrls>http://testtest.videoStartBeaconUrls.co.jp</ns2:videoStartBeaconUrls>
+              <ns2:videoStartBeaconUrls>http://testtest.videoStartBeaconUrls2.co.jp</ns2:videoStartBeaconUrls>
+              <ns2:video3SecBeaconUrls>http://testtest.video3SecBeaconUrls.co.jp</ns2:video3SecBeaconUrls>
+              <ns2:video3SecBeaconUrls>http://testtest.video3SecBeaconUrls2.co.jp</ns2:video3SecBeaconUrls>
+              <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls.co.jp</ns2:videoPaidBeaconUrls>
+              <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls2.co.jp</ns2:videoPaidBeaconUrls>
+              <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls.co.jp</ns2:videoCompleteBeaconUrls>
+              <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</ns2:videoCompleteBeaconUrls>
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>
@@ -968,14 +1008,14 @@ Removes an ad.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroupAd">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -1030,14 +1070,14 @@ Removes an ad.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1536568318458</ns2:requestTime>
+      <ns2:requestTime>1543384313275</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -1201,6 +1241,14 @@ Removes an ad.
               <ns2:buttonText>APPLY_NOW</ns2:buttonText>
               <ns2:principal>principal</ns2:principal>
               <ns2:logoMediaId>99999</ns2:logoMediaId>
+              <ns2:videoStartBeaconUrls>http://testtest.videoStartBeaconUrls.co.jp</ns2:videoStartBeaconUrls>
+              <ns2:videoStartBeaconUrls>http://testtest.videoStartBeaconUrls2.co.jp</ns2:videoStartBeaconUrls>
+              <ns2:video3SecBeaconUrls>http://testtest.video3SecBeaconUrls.co.jp</ns2:video3SecBeaconUrls>
+              <ns2:video3SecBeaconUrls>http://testtest.video3SecBeaconUrls2.co.jp</ns2:video3SecBeaconUrls>
+              <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls.co.jp</ns2:videoPaidBeaconUrls>
+              <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls2.co.jp</ns2:videoPaidBeaconUrls>
+              <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls.co.jp</ns2:videoCompleteBeaconUrls>
+              <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</ns2:videoCompleteBeaconUrls>
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>

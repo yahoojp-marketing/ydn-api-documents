@@ -47,61 +47,99 @@ Stats object contains the stats information.
  <tr>
   <td>conversions</td>
   <td>xsd:string</td>
-  <td>Conversions</td>
+  <td>Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>conversionRate</td>
   <td>xsd:double</td>
-  <td>Conversion Rate</td>
+  <td>Conversion Rate<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>cpa</td>
   <td>xsd:string</td>
-  <td>Conversion cost per acquisition<br>&lowast;Contains conversions made across devices.</td>
+  <td>Conversion cost per acquisition<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>conversionValue</td>
   <td>xsd:string</td>
-  <td>Conversion value</td>
+  <td>Conversion value<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>valuePerConversions</td>
   <td>xsd:string</td>
-  <td>Value per Conversions</td>
+  <td>Value per Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
+  <td>yes</td>
+ </tr>
+
+ <tr>
+  <td>conversionsViaAdClick</td>
+  <td>xsd:long</td>
+  <td>Conversions(after click)</td>
   <td>yes</td>
  </tr>
  <tr>
+  <td>conversionRateViaAdClick</td>
+  <td>xsd:double</td>
+  <td>Conversion rate(after click)</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>cpaViaAdClick</td>
+  <td>xsd:string</td>
+  <td>Conversion cost per acquisition(after click)</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>conversionValueViaAdClick</td>
+  <td>xsd:string</td>
+  <td>Conversion value(after click)</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>valuePerConversionsViaAdClick</td>
+  <td>xsd:string</td>
+  <td>Value per Conversions(after click)</td>
+  <td>yes</td>
+ </tr>
+
+ <tr>
   <td>allConversions</td>
   <td>xsd:long</td>
-  <td>All Conversions</td>
+  <td>All Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>allConversionRate</td>
   <td>xsd:double</td>
-  <td>All Conversions rate</td>
+  <td>All Conversions rate<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>allCpa</td>
   <td>xsd:string</td>
-  <td>Cost per All Conversions</td>
+  <td>Cost per All Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>allConversionValue</td>
   <td>xsd:string</td>
-  <td>All Conversions value</td>
+  <td>All Conversions value<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>valuePerAllConversions</td>
   <td>xsd:string</td>
   <td>Value per All Conversions</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>crossDeviceConversions</td>
+  <td>xsd:long</td>
+  <td>Conversion count that were made across devices</td>
   <td>yes</td>
  </tr>
  <tr>
@@ -141,24 +179,6 @@ Stats object contains the stats information.
   <td>yes</td>
  </tr>
  <tr>
-  <td>autoVideoPlays</td>
-  <td>xsd:long</td>
-  <td>Number of times the video played automatically<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>clickVideoPlays</td>
-  <td>xsd:long</td>
-  <td>Number of times the video played by user's click<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>videoViewedRate</td>
-  <td>xsd:double</td>
-  <td>The rate of video plays (Number of video plays/Impressions)<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
- <tr>
   <td>paidVideoViews</td>
   <td>xsd:long</td>
   <td>Number of paid video views<br>&lowast;For Video Ads only</td>
@@ -174,12 +194,6 @@ Stats object contains the stats information.
   <td>averageCpv</td>
   <td>xsd:double</td>
   <td>Average CPV<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>videoPlays</td>
-  <td>xsd:long</td>
-  <td>Number of the video plays<br>&lowast;For Video Ads only</td>
   <td>yes</td>
  </tr>
  <tr>

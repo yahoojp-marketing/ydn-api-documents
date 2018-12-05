@@ -110,6 +110,78 @@ VideoAd object displays Video Ads information.
   <td>Optional</td>
   <td>Ignore</td>
  </tr>
+ <tr>
+  <td>videoStartBeaconUrls[0..2]</td>
+  <td>xsd:string</td>
+  <td>Viewing beacon URL (start)<br>&lowast;SET:Replace all urls.<br>&lowast;Available url only for "https".</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>isRemoveVideoStartBeaconUrls</td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</td>
+  <td>Remove Viewing beacon URL (start)<br>&lowast;Even if "videoStartBeaconUrl" is set, given priority to setting of "isRemoveVideoStartBeaconUrls".</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+<tr>
+  <td>video3SecBeaconUrls[0..2]</td>
+  <td>xsd:string</td>
+  <td>Viewing beacon URL (3 seconds)<br>&lowast;SET:Replace all urls.<br>&lowast;Available url only for "https".</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>isRemoveVideo3SecBeaconUrls</td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</td>
+  <td>Remove Viewing beacon URL (3 seconds)<br>&lowast;Even if "video3SecBeaconUrl" is set, given priority to setting of "isRemoveVideo3SecBeaconUrls".</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>videoPaidBeaconUrls[0..2]</td>
+  <td>xsd:string</td>
+  <td>Viewing Beacon URL (paid)	<br>&lowast;SET:Replace all urls.<br>&lowast;Available url only for "https".</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>isRemoveVideoPaidBeaconUrls</td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</td>
+  <td>Remove Viewing Beacon URL (paid)<br>&lowast;Even if "videoPaidBeaconUrl" is set, given priority to setting of "isRemoveVideoPaidBeaconUrls".</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>videoCompleteBeaconUrls[0..2]</td>
+  <td>xsd:string</td>
+  <td>Viewing beacon URL (complete)	<br>&lowast;SET:Overwrite all urls.<br>&lowast;Available url only for "https".</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>isRemoveVideoCompleteBeaconUrls</td>
+  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</td>
+  <td>Remove Viewing beacon URL (complete)<br>&lowast;Even if "videoCompleteBeaconUrl" is set, given priority to setting of "isRemoveVideoCompleteBeaconUrls".</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
 </table>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

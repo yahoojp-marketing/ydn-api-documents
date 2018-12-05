@@ -17,224 +17,237 @@ Statsオブジェクトは、統計情報を保持します。
  <tr>
   <td>imps</td>
   <td>xsd:long</td>
-  <td>インプレッション数です。</td>
+  <td>インプレッション数</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>clickRate</td>
   <td>xsd:double</td>
-  <td>クリック率です。</td>
+  <td>クリック率</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>totalClickCost</td>
   <td>xsd:double</td>
-  <td>トータルコスト（クリックされた金額の合計）です。</td>
+  <td>トータルコスト（クリックされた金額の合計）</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>clickCnt</td>
   <td>xsd:long</td>
-  <td>クリック数です。</td>
+  <td>クリック数</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>avgClickCost</td>
   <td>xsd:double</td>
-  <td>平均クリックコスト（クリックされた金額の平均）です。</td>
+  <td>平均クリックコスト（クリックされた金額の平均）</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>conversions</td>
   <td>xsd:string</td>
-  <td>コンバージョン数です。</td>
+  <td>コンバージョン数<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>conversionRate</td>
   <td>xsd:double</td>
-  <td>コンバージョン率です。</td>
+  <td>コンバージョン率<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>cpa</td>
   <td>xsd:string</td>
-  <td>コンバージョン単価です。<br>※デバイスをまたいだコンバージョンの値をを加味します。</td>
+  <td>コンバージョン単価<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>conversionValue</td>
   <td>xsd:string</td>
-  <td>コンバージョンの価値です。</td>
+  <td>コンバージョンの価値<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>valuePerConversions</td>
   <td>xsd:string</td>
-  <td>価値/コンバージョン数です。</td>
+  <td>価値/コンバージョン数<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>conversionsViaAdClick</td>
+  <td>xsd:long</td>
+  <td>コンバージョン数（クリック後）</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>conversionRateViaAdClick</td>
+  <td>xsd:double</td>
+  <td>コンバージョン率（クリック後）</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>cpaViaAdClick</td>
+  <td>xsd:string</td>
+  <td>CPA（クリック後）</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>conversionValueViaAdClick</td>
+  <td>xsd:string</td>
+  <td>コンバージョンの価値（クリック後）</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>valuePerConversionsViaAdClick</td>
+  <td>xsd:string</td>
+  <td>価値/コンバージョン数（クリック後）</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>allConversions</td>
   <td>xsd:long</td>
-  <td>すべてのコンバージョン数です。</td>
+  <td>すべてのコンバージョン数<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td> allConversionRate</td>
   <td>xsd:double</td>
-  <td>すべてのコンバージョン率です。</td>
+  <td>すべてのコンバージョン率<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>allCpa</td>
   <td>xsd:string</td>
-  <td>コスト/すべてのコンバージョン数です。</td>
+  <td>コスト/すべてのコンバージョン数<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>allConversionValue</td>
   <td>xsd:string</td>
-  <td>すべてのコンバージョンの価値です。</td>
+  <td>すべてのコンバージョンの価値<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>valuePerAllConversions</td>
   <td>xsd:string</td>
-  <td>価値/すべてのコンバージョン数です。</td>
+  <td>価値/すべてのコンバージョン数<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+ <tr>
+  <td>crossDeviceConversions</td>
+  <td>xsd:long</td>
+  <td>デバイスをまたいだコンバージョン数</td>
   <td>yes</td>
  </tr>
  <tr>
  <tr>
   <td>avgDeliverRank</td>
   <td>xsd:double</td>
-  <td>平均掲載順位（配信された時のeCPM順位の平均）です。</td>
+  <td>平均掲載順位（配信された時のeCPM順位の平均）</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>totalVimps</td>
   <td>xsd:long</td>
-  <td>ビュー計測対象インプレッション数です。</td>
+  <td>ビュー計測対象インプレッション数</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>vimps</td>
   <td>xsd:long</td>
-  <td>ビューインプレッション数です。</td>
+  <td>ビューインプレッション数</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>inViewClickCnt</td>
   <td>xsd:long</td>
-  <td>ビュークリック数です。</td>
+  <td>ビュークリック数</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>inViewRate</td>
   <td>xsd:double</td>
-  <td>ビューインプレッション率です。</td>
+  <td>ビューインプレッション率</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>inViewClickRate</td>
   <td>xsd:double</td>
-  <td>ビュークリック率です。</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>autoVideoPlays</td>
-  <td>xsd:long</td>
-  <td>動画自動再生数です。※動画広告のみ。</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>clickVideoPlays</td>
-  <td>xsd:long</td>
-  <td>動画クリック再生数です。※動画広告のみ。</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>videoViewedRate</td>
-  <td>xsd:double</td>
-  <td>動画再生率(動画再生数/インプレッション数)です。※動画広告のみ。</td>
+  <td>ビュークリック率</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>paidVideoViews</td>
   <td>xsd:long</td>
-  <td>課金が発生した動画再生数です。※動画広告のみ。</td>
+  <td>課金が発生した動画再生数※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>paidVideoViewRate</td>
   <td>xsd:double</td>
-  <td>課金が発生した動画再生率です。※動画広告のみ。</td>
+  <td>課金が発生した動画再生率※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>averageCpv</td>
   <td>xsd:double</td>
-  <td>平均CPVです。※動画広告のみ。</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>videoPlays</td>
-  <td>xsd:long</td>
-  <td>動画が再生開始された回数です。※動画広告のみ。</td>
+  <td>平均CPV※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>videoViews</td>
   <td>xsd:long</td>
-  <td>動画再生数です。※動画広告のみ。</td>
+  <td>動画再生数※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>videoViewsTo25</td>
   <td>xsd:long</td>
-  <td>動画25％再生数です。※動画広告のみ。</td>
+  <td>動画25％再生数※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>videoViewsTo50</td>
   <td>xsd:long</td>
-  <td>動画50％再生数です。※動画広告のみ。</td>
+  <td>動画50％再生数※動画広告のみ。</td>
   <td>yes</td>
  </tr>
 <tr>
   <td>videoViewsTo75</td>
   <td>xsd:long</td>
-  <td>動画75％再生数です。※動画広告のみ。</td>
+  <td>動画75％再生数※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>videoViewsTo95</td>
   <td>xsd:long</td>
-  <td>動画95％再生数です。※動画広告のみ。</td>
+  <td>動画95％再生数※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>videoViewsTo100</td>
   <td>xsd:long</td>
-  <td>動画100％再生数です。※動画広告のみ。</td>
+  <td>動画100％再生数※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>videoViewsTo3Sec</td>
   <td>xsd:long</td>
-  <td>動画が3秒以上再生された回数です。※動画広告のみ。</td>
+  <td>動画が3秒以上再生された回数※動画広告のみ。</td>
   <td>yes</td>
  </tr> 
  <tr>
   <td>averageRateVideoViewed</td>
   <td>xsd:double</td>
-  <td>動画の平均再生率（動画が全体の長さの何％まで再生されたかの平均値）です。※動画広告のみ。</td>
+  <td>動画の平均再生率（動画が全体の長さの何％まで再生されたかの平均値）※動画広告のみ。</td>
   <td>yes</td>
  </tr>
  <tr>
   <td>averageDurationVideoViewed</td>
   <td>xsd:double</td>
-  <td>動画の平均再生時間です。※動画広告のみ。</td>
+  <td>動画の平均再生時間※動画広告のみ。</td>
   <td>yes</td>
  </tr>
 </table>

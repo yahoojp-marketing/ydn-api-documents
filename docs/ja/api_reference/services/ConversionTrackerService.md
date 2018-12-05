@@ -4,11 +4,11 @@ ConversionTrackerServiceでは、コンバージョントラッカー情報の�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201809/ConversionTrackerService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201809/ConversionTrackerService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201812/ConversionTrackerService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/ConversionTrackerService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201809/ConversionTracker
+http://im.yahooapis.jp/V201812/ConversionTracker
 
 #### サービス概要
 コンバージョントラッカー情報の取得およびコンバージョントラッカー情報の追加・更新を行います。
@@ -38,14 +38,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>1111</accountId>
         <conversionTrackerIds>222</conversionTrackerIds>
@@ -70,7 +70,7 @@ ConversionTrackerServiceで提供される操作を説明します。
         <appIds>ddddd</appIds>
         <appIds>eeeee</appIds>
         <appPlatform>ANDROID_MARKET</appPlatform>
-        <statsPeriod>DEFINITE_VALUE_DAY</statsPeriod>
+        <statsPeriod>DEFINITE_VALUE_YESTERDAY</statsPeriod>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
           <ns2:numberResults>10</ns2:numberResults>
@@ -84,14 +84,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <get xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <selector>
         <accountId>1111</accountId>
         <conversionTrackerIds>222</conversionTrackerIds>
@@ -142,20 +142,23 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1536568323597</ns2:requestTime>
+      <ns2:requestTime>1543381373474</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/ConversionTracker">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/ConversionTracker">
       <ns2:rval>
         <totalNumEntries>3</totalNumEntries>
         <ns2:totalConversions>20</ns2:totalConversions>
-        <ns2:totalAllConversions>60</ns2:totalAllConversions>
         <ns2:totalConversionValue>20</ns2:totalConversionValue>
+        <ns2:totalConversionsViaAdClick>200</ns2:totalConversionsViaAdClick>
+        <ns2:totalConversionValueViaAdClick>300</ns2:totalConversionValueViaAdClick>
+        <ns2:totalAllConversions>60</ns2:totalAllConversions>
         <ns2:totalAllConversionValue>80</ns2:totalAllConversionValue>
+        <ns2:totalCrossDeviceConversions>400</ns2:totalCrossDeviceConversions>
         <ns2:period>
           <ns2:periodStartDate>
             <ns2:periodDate>20180101</ns2:periodDate>
@@ -178,10 +181,14 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>APP_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>7</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>1</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
             <ns2:conversions>0</ns2:conversions>
-            <ns2:allConversions>20</ns2:allConversions>
             <ns2:conversionValue>0</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>200</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>300</ns2:conversionValueViaAdClick>
+            <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>400</ns2:crossDeviceConversions>
             <ns2:mostRecentConversionDate>20180101</ns2:mostRecentConversionDate>
             <ns2:appId>abc_1234</ns2:appId>
             <ns2:appPlatform>ANDROID_MARKET</ns2:appPlatform>
@@ -200,10 +207,14 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>APP_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>90</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>1</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
             <ns2:conversions>20</ns2:conversions>
-            <ns2:allConversions>20</ns2:allConversions>
             <ns2:conversionValue>20</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
+            <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:appId>abc_1234</ns2:appId>
             <ns2:appPlatform>ITUNES</ns2:appPlatform>
             <ns2:appConversionType>FIRST_OPEN</ns2:appConversionType>
@@ -221,8 +232,14 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>WEB_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>30</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>1</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
+            <ns2:conversions>0</ns2:conversions>
+            <ns2:conversionValue>0</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
             <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:snippet>
               <ns2:type>JS</ns2:type>
               <ns2:tag>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
@@ -252,20 +269,23 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1536568323710</ns2:requestTime>
+      <ns2:requestTime>1543381373745</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/ConversionTracker">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/ConversionTracker">
       <ns2:rval>
         <totalNumEntries>3</totalNumEntries>
         <ns2:totalConversions>20</ns2:totalConversions>
-        <ns2:totalAllConversions>60</ns2:totalAllConversions>
         <ns2:totalConversionValue>20</ns2:totalConversionValue>
+        <ns2:totalConversionsViaAdClick>100</ns2:totalConversionsViaAdClick>
+        <ns2:totalConversionValueViaAdClick>200</ns2:totalConversionValueViaAdClick>
+        <ns2:totalAllConversions>60</ns2:totalAllConversions>
         <ns2:totalAllConversionValue>80</ns2:totalAllConversionValue>
+        <ns2:totalCrossDeviceConversions>300</ns2:totalCrossDeviceConversions>
         <ns2:period>
           <ns2:periodStartDate>
             <ns2:periodDate>20180101</ns2:periodDate>
@@ -288,15 +308,23 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>APP_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>7</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>2</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
             <ns2:conversions>0</ns2:conversions>
-            <ns2:allConversions>20</ns2:allConversions>
             <ns2:conversionValue>0</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>100</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>200</ns2:conversionValueViaAdClick>
+            <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>300</ns2:crossDeviceConversions>
             <ns2:mostRecentConversionDate>20180101</ns2:mostRecentConversionDate>
             <ns2:appId>abc_1234</ns2:appId>
             <ns2:appPlatform>ANDROID_MARKET</ns2:appPlatform>
             <ns2:appConversionType>FIRST_OPEN</ns2:appConversionType>
           </ns2:conversionTracker>
+          <ns2:statsPeriodCustomDate>
+            <ns2:statsStartDate>20180401</ns2:statsStartDate>
+            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+          </ns2:statsPeriodCustomDate>
         </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -310,14 +338,22 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>APP_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>90</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>2</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
             <ns2:conversions>20</ns2:conversions>
-            <ns2:allConversions>20</ns2:allConversions>
             <ns2:conversionValue>20</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
+            <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>300</ns2:crossDeviceConversions>
             <ns2:appId>abc_1234</ns2:appId>
             <ns2:appPlatform>ITUNES</ns2:appPlatform>
             <ns2:appConversionType>FIRST_OPEN</ns2:appConversionType>
           </ns2:conversionTracker>
+          <ns2:statsPeriodCustomDate>
+            <ns2:statsStartDate>20180401</ns2:statsStartDate>
+            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+          </ns2:statsPeriodCustomDate>
         </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -331,8 +367,12 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>WEB_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>30</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>2</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
             <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>300</ns2:crossDeviceConversions>
             <ns2:snippet>
               <ns2:type>JS</ns2:type>
               <ns2:tag>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
@@ -352,6 +392,10 @@ ConversionTrackerServiceで提供される操作を説明します。
 &amp;amp;lt;/noscript&amp;amp;gt;</ns2:tag>
             </ns2:snippet>
           </ns2:conversionTracker>
+          <ns2:statsPeriodCustomDate>
+            <ns2:statsStartDate>20180401</ns2:statsStartDate>
+            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+          </ns2:statsPeriodCustomDate>
         </ns2:values>
       </ns2:rval>
     </ns2:getResponse>
@@ -374,14 +418,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/ConversionTracker">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/ConversionTracker">
       <operations>
         <operator>ADD</operator>
         <accountId>0</accountId>
@@ -393,6 +437,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
           <countingType>MANY_PER_CLICK</countingType>
           <measurementPeriod>30</measurementPeriod>
+          <measurementPeriodView>10</measurementPeriodView>
           <excludeFromBidding>FALSE</excludeFromBidding>
         </operand>
         <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
@@ -403,6 +448,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
           <countingType>ONE_PER_CLICK</countingType>
           <measurementPeriod>30</measurementPeriod>
+          <measurementPeriodView>10</measurementPeriodView>
           <excludeFromBidding>FALSE</excludeFromBidding>
           <appId>abc_1234</appId>
           <appPlatform>ANDROID_MARKET</appPlatform>
@@ -425,14 +471,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1536568323639</ns2:requestTime>
+      <ns2:requestTime>1543381373571</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/ConversionTracker">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/ConversionTracker">
       <ns2:rval>
         <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -448,10 +494,14 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>APP_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>7</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>10</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
             <ns2:conversions>0</ns2:conversions>
-            <ns2:allConversions>20</ns2:allConversions>
             <ns2:conversionValue>0</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
+            <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:mostRecentConversionDate>20180101</ns2:mostRecentConversionDate>
             <ns2:appId>abc_1234</ns2:appId>
             <ns2:appPlatform>ANDROID_MARKET</ns2:appPlatform>
@@ -470,10 +520,14 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>APP_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>90</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>10</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
             <ns2:conversions>20</ns2:conversions>
-            <ns2:allConversions>20</ns2:allConversions>
             <ns2:conversionValue>20</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
+            <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:appId>abc_1234</ns2:appId>
             <ns2:appPlatform>ITUNES</ns2:appPlatform>
             <ns2:appConversionType>FIRST_OPEN</ns2:appConversionType>
@@ -491,8 +545,14 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>WEB_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>30</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>10</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
+            <ns2:conversions>20</ns2:conversions>
+            <ns2:conversionValue>20</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
             <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:snippet>
               <ns2:type>JS</ns2:type>
               <ns2:tag>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
@@ -534,14 +594,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201809/ConversionTracker">
+    <mutate xmlns="http://im.yahooapis.jp/V201812/ConversionTracker">
       <operations>
         <operator>SET</operator>
         <accountId>0</accountId>
@@ -554,6 +614,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           <conversionTrackerType>WEB_CONVERSION</conversionTrackerType>
           <countingType>MANY_PER_CLICK</countingType>
           <measurementPeriod>30</measurementPeriod>
+          <measurementPeriodView>2</measurementPeriodView>
           <excludeFromBidding>FALSE</excludeFromBidding>
         </operand>
         <operand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AppConversion">
@@ -565,6 +626,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           <conversionTrackerType>APP_CONVERSION</conversionTrackerType>
           <countingType>ONE_PER_CLICK</countingType>
           <measurementPeriod>30</measurementPeriod>
+          <measurementPeriodView>2</measurementPeriodView>
           <excludeFromBidding>FALSE</excludeFromBidding>
         </operand>
       </operations>
@@ -584,14 +646,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201809/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201809">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201812">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1536568323677</ns2:requestTime>
+      <ns2:requestTime>1543381373668</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201809" xmlns:ns2="http://im.yahooapis.jp/V201809/ConversionTracker">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/ConversionTracker">
       <ns2:rval>
         <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -607,10 +669,14 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>APP_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>7</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>2</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
             <ns2:conversions>0</ns2:conversions>
-            <ns2:allConversions>20</ns2:allConversions>
             <ns2:conversionValue>0</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
+            <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:mostRecentConversionDate>20180101</ns2:mostRecentConversionDate>
             <ns2:appId>abc_1234</ns2:appId>
             <ns2:appPlatform>ANDROID_MARKET</ns2:appPlatform>
@@ -629,10 +695,14 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:conversionTrackerType>APP_CONVERSION</ns2:conversionTrackerType>
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>90</ns2:measurementPeriod>
+            <ns2:measurementPeriodView>2</ns2:measurementPeriodView>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
             <ns2:conversions>20</ns2:conversions>
-            <ns2:allConversions>20</ns2:allConversions>
             <ns2:conversionValue>20</ns2:conversionValue>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
+            <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:appId>abc_1234</ns2:appId>
             <ns2:appPlatform>ITUNES</ns2:appPlatform>
             <ns2:appConversionType>FIRST_OPEN</ns2:appConversionType>
@@ -651,7 +721,10 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:countingType>ONE_PER_CLICK</ns2:countingType>
             <ns2:measurementPeriod>30</ns2:measurementPeriod>
             <ns2:excludeFromBidding>TRUE</ns2:excludeFromBidding>
+            <ns2:conversionsViaAdClick>0</ns2:conversionsViaAdClick>
+            <ns2:conversionValueViaAdClick>0</ns2:conversionValueViaAdClick>
             <ns2:allConversions>20</ns2:allConversions>
+            <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:snippet>
               <ns2:type>JS</ns2:type>
               <ns2:tag>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;

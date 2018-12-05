@@ -1,22 +1,37 @@
 # SOAPエラーコード
 ### エラー処理概要
 SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレスポンスコードとSOAPのレスポンスを返します。<br> SOAPリクエストの処理中にエラーが発生した場合、YDN API はエラーコードが含まれるメッセージを返します。<br>
-詳しくは[Error](/docs/ja/api_reference/data/common/Error.md), [ErrorDetail](/docs/ja/api_reference/data/common/ErrorDetail.md)を確認してください。  
+詳しくは[Error](/docs/ja/api_reference/data/Common/Error.md), [ErrorDetail](/docs/ja/api_reference/data/Common/ErrorDetail.md)を確認してください。
    
 ##### ＜レスポンスサンプル＞
 ```xml
-<SOAP-ENV:Envelopexmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-   <SOAP-ENV:Body>         
-      <SOAP-ENV:Fault>             
-         <faultcode>faultCode</faultcode>             
-         <faultstring>faultString</faultstring>             
-         <faultactor></faultactor>             
-         <detail>                 
-            <requestKey>detail/requestKey</requestKey>                 
-            <requestValue>detail/requestValue</requestValue>             
-         </detail>         
-      </SOAP-ENV:Fault>     
-   </SOAP-ENV:Body> 
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:ns1="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ns1:ResponseHeader>
+      <ns2:service>Account</ns2:service>
+      <ns2:timeTakenSeconds>0.1234</ns2:timeTakenSeconds>
+      <ns2:requestTime>1234567890</ns2:requestTime>
+    </ns1:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns3:mutateResponse xmlns:ns2="http://im.yahooapis.jp/V201812" xmlns:ns3="http://im.yahooapis.jp/V201812/Account">
+      <ns3:rval>
+        <ns2:ListReturnValue.Type>AccountReturnValue</ns2:ListReturnValue.Type>
+        <ns2:Operation.Type>SET</ns2:Operation.Type>
+        <ns3:values>
+          <ns2:operationSucceeded>false</ns2:operationSucceeded>
+          <ns2:error>
+            <ns2:code>V0001</ns2:code>
+            <ns2:message>Invalid value.</ns2:message>
+            <ns2:detail>
+              <ns2:requestKey>accountName</ns2:requestKey>
+              <ns2:requestValue>xxxxxxxx</ns2:requestValue>
+            </ns2:detail>
+          </ns2:error>
+        </ns3:values>
+      </ns3:rval>
+    </ns3:mutateResponse>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 ### エラーコード
@@ -119,6 +134,8 @@ LT001 | Over limit. | 登録できる上限値を超過しています。
 220322 | Invalid tracking parameter. | 無効な文字列（無効なトラッキングパラメータなど）が存在します。
 220323 | Tracking parameter  is not available for this type of ad distribution. | 指定された広告掲載方式に対し、トラッキングパラメータは対応していません。
 220324 | Entered tracking parameter cannot be used. | 入力されたトラッキングパラメータは利用できません。
+220325 | Invalid relation of video and thumbnail format. | 動画とサムネイルのフォーマットが異なります。
+220326 | Not allowed to set video beacon url. | 動画視聴用のbeacon urlを設定する権限がありません。
 
 ### レポート処理に関連するエラー
 ##### Service
