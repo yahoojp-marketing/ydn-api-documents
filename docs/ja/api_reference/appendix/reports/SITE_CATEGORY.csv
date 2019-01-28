@@ -1,55 +1,55 @@
-"動作区分/Behavior Type","フィールド名/Field Name","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","組合せ不可フィールド/Not Compatible Fields"
-"Attribute","ACCOUNT_ID","アカウントID","Account ID","accountID","LONG",
-"Attribute","ACCOUNT_NAME","アカウント名","Account Name","accountName","STRING",
-"Attribute","CAMPAIGN_ID","キャンペーンID","Campaign ID","campaignID","LONG",
-"Attribute","CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING",
-"Attribute","ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG",
-"Attribute","ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING",
-"Segment","MONTH","月","Month","month","STRING",
-"Segment","DAY","日","Daily","day","STRING",
-"Attribute","DELIVER","広告掲載方式","Ad Distribution","deliverName","STRING",
-"Segment","DEVICE","デバイス","Device","device","STRING",
-"Attribute","SITE_CATEGORY","サイトカテゴリー名","Site Category","siteCategory","STRING",
-"Segment","CONVERSION_LABEL","コンバージョンラベル名","Conversion Name","conversionName","STRING","[ALL_CONV_RATE, AVG_CPC, AVG_CPV, AVG_DELIVER_RANK, AVG_DURATION_VIDEO_VIEWED, AVG_PERCENT_VIDEO_VIEWED, CLICK, CLICK_RATE, CONVERSION_RATE_VIA_AD_CLICK, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, COST_PER_CONV_VIA_AD_CLICK, IMPS, PAID_VIDEO_VIEWS, PAID_VIDEO_VIEW_RATE, VIDEO_VIEWS, VIDEO_VIEWS_TO_100, VIDEO_VIEWS_TO_25, VIDEO_VIEWS_TO_3_SEC, VIDEO_VIEWS_TO_50, VIDEO_VIEWS_TO_75, VIDEO_VIEWS_TO_95]"
-"Segment","CONVERSION_CATEGORY","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","STRING","[ALL_CONV_RATE, AVG_CPC, AVG_CPV, AVG_DELIVER_RANK, AVG_DURATION_VIDEO_VIEWED, AVG_PERCENT_VIDEO_VIEWED, CLICK, CLICK_RATE, CONVERSION_RATE_VIA_AD_CLICK, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, COST_PER_CONV_VIA_AD_CLICK, IMPS, PAID_VIDEO_VIEWS, PAID_VIDEO_VIEW_RATE, VIDEO_VIEWS, VIDEO_VIEWS_TO_100, VIDEO_VIEWS_TO_25, VIDEO_VIEWS_TO_3_SEC, VIDEO_VIEWS_TO_50, VIDEO_VIEWS_TO_75, VIDEO_VIEWS_TO_95]"
-"Segment","CARRIER","キャリア","Carrier","carrier","STRING",
-"Segment","OS","OS","OS","os","STRING",
-"Segment","APPLI","ウェブ/アプリ","Web/App","appli","STRING",
-"Attribute","CAMPAIGN_TYPE","キャンペーンタイプ","Campaign Type","campaignType","STRING",
-"Attribute","APP_ID","アプリID/パッケージ名","App ID/Package name","appID","STRING",
-"Attribute","APP_NAME","アプリ名","App Name","appName","STRING",
-"Attribute","APP_OS","アプリOS","App OS","appOS","STRING",
-"Metric","IMPS","インプレッション数","Impressions","impressions","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","CLICK_RATE","クリック率","CTR","ctr","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","COST","コスト","Cost","cost","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","CLICK","クリック数","Clicks","clicks","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","AVG_CPV","平均CPV","Average CPV","avgCpv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","VIDEO_VIEWS_TO_25","動画が25%まで再生された回数","Video Views to 25%","videoViewsTo25","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","VIDEO_VIEWS_TO_50","動画が50%まで再生された回数","Video Views to 50%","videoViewsTo50","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","VIDEO_VIEWS_TO_75","動画が75%まで再生された回数","Video Views to 75%","videoViewsTo75","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","VIDEO_VIEWS_TO_95","動画が95%まで再生された回数","Video Views to 95%","videoViewsTo95","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","VIDEO_VIEWS_TO_100","動画が100%まで再生された回数","Video Views to 100%","videoViewsTo100","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","AVG_PERCENT_VIDEO_VIEWED","動画の平均再生率","Average % of Video Viewed","avgPercentVideoViewed","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","AVG_DURATION_VIDEO_VIEWED","動画の平均再生時間（秒）","Average Duration of Video Viewed","avgDurationVideoViewed","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","VIDEO_VIEWS","動画再生数","Video Views","videoViews","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","PAID_VIDEO_VIEWS","課金が発生した動画再生数","Paid Video Views","paidVideoViews","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","PAID_VIDEO_VIEW_RATE","課金が発生した動画再生率","Paid Video View Rate","paidVideoViewRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","VIDEO_VIEWS_TO_3_SEC","動画が3秒以上再生された回数","3-second Video Views","videoViewsTo3sec","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","CONVERSIONS","コンバージョン数","Conversions","conversions","LONG",
-"Metric","CONV_RATE","コンバージョン率","Conversion Rate","convRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","COST_PER_CONV","コスト/コンバージョン数","Cost per Conversions","costPerConv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","LONG",
-"Metric","VALUE_PER_CONV","価値/コンバージョン数","Value per Conv.","valuePerConv","DOUBLE",
-"Metric","ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","LONG",
-"Metric","ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","LONG",
-"Metric","VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE",
-"Metric","CONVERSIONS_VIA_AD_CLICK","コンバージョン数（広告のクリック経由）","Conversions via ad click","conversionsViaAdClick","LONG",
-"Metric","CONVERSION_RATE_VIA_AD_CLICK","コンバージョン率（広告のクリック経由）","Conversion Rate via ad click","conversionRateViaAdClick","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","COST_PER_CONV_VIA_AD_CLICK","コスト/コンバージョン数（広告のクリック経由）","Cost Per Conv. via ad click","costPerConvViaAdClick","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]"
-"Metric","CONV_VALUE_VIA_AD_CLICK","コンバージョンの価値（広告のクリック経由）","Conv. Value via ad click","convValueViaAdClick","LONG",
-"Metric","VALUE_PER_CONV_VIA_AD_CLICK","価値/コンバージョン数（広告のクリック経由）","Value Per Conv. via ad click","valuePerConvViaAdClick","DOUBLE",
-"Metric","CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","LONG",
+"フィールド名/Field Name","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","組合せ不可フィールド/Not Compatible Fields","動作区分/Behavior Type"
+"ACCOUNT_ID","アカウントID","Account ID","accountID","LONG",,"Attribute"
+"ACCOUNT_NAME","アカウント名","Account Name","accountName","STRING",,"Attribute"
+"CAMPAIGN_ID","キャンペーンID","Campaign ID","campaignID","LONG",,"Attribute"
+"CAMPAIGN_NAME","キャンペーン名","Campaign Name","campaignName","STRING",,"Attribute"
+"ADGROUP_ID","広告グループID","Ad Group ID","adgroupID","LONG",,"Attribute"
+"ADGROUP_NAME","広告グループ名","Ad Group Name","adgroupName","STRING",,"Attribute"
+"MONTH","月","Month","month","STRING",,"Segment"
+"DAY","日","Daily","day","STRING",,"Segment"
+"DELIVER","広告掲載方式","Ad Distribution","deliverName","STRING",,"Attribute"
+"DEVICE","デバイス","Device","device","STRING",,"Segment"
+"SITE_CATEGORY","サイトカテゴリー名","Site Category","siteCategory","STRING",,"Attribute"
+"CONVERSION_LABEL","コンバージョンラベル名","Conversion Name","conversionName","STRING","[ALL_CONV_RATE, AVG_CPC, AVG_CPV, AVG_DELIVER_RANK, AVG_DURATION_VIDEO_VIEWED, AVG_PERCENT_VIDEO_VIEWED, CLICK, CLICK_RATE, CONVERSION_RATE_VIA_AD_CLICK, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, COST_PER_CONV_VIA_AD_CLICK, IMPS, PAID_VIDEO_VIEWS, PAID_VIDEO_VIEW_RATE, VIDEO_VIEWS, VIDEO_VIEWS_TO_100, VIDEO_VIEWS_TO_25, VIDEO_VIEWS_TO_3_SEC, VIDEO_VIEWS_TO_50, VIDEO_VIEWS_TO_75, VIDEO_VIEWS_TO_95]","Segment"
+"CONVERSION_CATEGORY","コンバージョン測定の目的","Objective of Conversion Tracking","objectiveOfConversionTracking","STRING","[ALL_CONV_RATE, AVG_CPC, AVG_CPV, AVG_DELIVER_RANK, AVG_DURATION_VIDEO_VIEWED, AVG_PERCENT_VIDEO_VIEWED, CLICK, CLICK_RATE, CONVERSION_RATE_VIA_AD_CLICK, CONV_RATE, COST, COST_PER_ALL_CONV, COST_PER_CONV, COST_PER_CONV_VIA_AD_CLICK, IMPS, PAID_VIDEO_VIEWS, PAID_VIDEO_VIEW_RATE, VIDEO_VIEWS, VIDEO_VIEWS_TO_100, VIDEO_VIEWS_TO_25, VIDEO_VIEWS_TO_3_SEC, VIDEO_VIEWS_TO_50, VIDEO_VIEWS_TO_75, VIDEO_VIEWS_TO_95]","Segment"
+"CARRIER","キャリア","Carrier","carrier","STRING",,"Segment"
+"OS","OS","OS","os","STRING",,"Segment"
+"APPLI","ウェブ/アプリ","Web/App","appli","STRING",,"Segment"
+"CAMPAIGN_TYPE","キャンペーンタイプ","Campaign Type","campaignType","STRING",,"Attribute"
+"APP_ID","アプリID/パッケージ名","App ID/Package name","appID","STRING",,"Attribute"
+"APP_NAME","アプリ名","App Name","appName","STRING",,"Attribute"
+"APP_OS","アプリOS","App OS","appOS","STRING",,"Attribute"
+"IMPS","インプレッション数","Impressions","impressions","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"CLICK_RATE","クリック率","CTR","ctr","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"COST","コスト","Cost","cost","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"CLICK","クリック数","Clicks","clicks","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"AVG_CPC","平均CPC","Avg. CPC","averageCpc","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"AVG_DELIVER_RANK","平均掲載順位","Avg. Position","averagePosition","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"AVG_CPV","平均CPV","Average CPV","avgCpv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"VIDEO_VIEWS_TO_25","動画が25%まで再生された回数","Video Views to 25%","videoViewsTo25","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"VIDEO_VIEWS_TO_50","動画が50%まで再生された回数","Video Views to 50%","videoViewsTo50","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"VIDEO_VIEWS_TO_75","動画が75%まで再生された回数","Video Views to 75%","videoViewsTo75","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"VIDEO_VIEWS_TO_95","動画が95%まで再生された回数","Video Views to 95%","videoViewsTo95","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"VIDEO_VIEWS_TO_100","動画が100%まで再生された回数","Video Views to 100%","videoViewsTo100","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"AVG_PERCENT_VIDEO_VIEWED","動画の平均再生率","Average % of Video Viewed","avgPercentVideoViewed","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"AVG_DURATION_VIDEO_VIEWED","動画の平均再生時間（秒）","Average Duration of Video Viewed","avgDurationVideoViewed","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"VIDEO_VIEWS","動画再生数","Video Views","videoViews","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"PAID_VIDEO_VIEWS","課金が発生した動画再生数","Paid Video Views","paidVideoViews","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"PAID_VIDEO_VIEW_RATE","課金が発生した動画再生率","Paid Video View Rate","paidVideoViewRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"VIDEO_VIEWS_TO_3_SEC","動画が3秒以上再生された回数","3-second Video Views","videoViewsTo3sec","LONG","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"CONVERSIONS","コンバージョン数","Conversions","conversions","LONG",,"Metric"
+"CONV_RATE","コンバージョン率","Conversion Rate","convRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"COST_PER_CONV","コスト/コンバージョン数","Cost per Conversions","costPerConv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"CONV_VALUE","コンバージョンの価値","Conv. Value","convValue","LONG",,"Metric"
+"VALUE_PER_CONV","価値/コンバージョン数","Value per Conv.","valuePerConv","DOUBLE",,"Metric"
+"ALL_CONV","すべてのコンバージョン数","All Conv.","allConv","LONG",,"Metric"
+"ALL_CONV_RATE","すべてのコンバージョン率","All Conv. Rate","allConvRate","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"COST_PER_ALL_CONV","コスト/すべてのコンバージョン数","Cost Per All Conv.","costPerAllConv","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"ALL_CONV_VALUE","すべてのコンバージョンの価値","All Conv. Value","allConvValue","LONG",,"Metric"
+"VALUE_PER_ALL_CONV","価値/すべてのコンバージョン数","Value Per All Conv.","valuePerAllConv","DOUBLE",,"Metric"
+"CONVERSIONS_VIA_AD_CLICK","コンバージョン数（広告のクリック経由）","Conversions via ad click","conversionsViaAdClick","LONG",,"Metric"
+"CONVERSION_RATE_VIA_AD_CLICK","コンバージョン率（広告のクリック経由）","Conversion Rate via ad click","conversionRateViaAdClick","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"COST_PER_CONV_VIA_AD_CLICK","コスト/コンバージョン数（広告のクリック経由）","Cost Per Conv. via ad click","costPerConvViaAdClick","DOUBLE","[CONVERSION_CATEGORY, CONVERSION_LABEL]","Metric"
+"CONV_VALUE_VIA_AD_CLICK","コンバージョンの価値（広告のクリック経由）","Conv. Value via ad click","convValueViaAdClick","LONG",,"Metric"
+"VALUE_PER_CONV_VIA_AD_CLICK","価値/コンバージョン数（広告のクリック経由）","Value Per Conv. via ad click","valuePerConvViaAdClick","DOUBLE",,"Metric"
+"CROSS_DEVICE_CONVERSIONS","デバイスをまたいだコンバージョン数","Conversions across devices","crossDeviceConversions","LONG",,"Metric"
