@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+        targetNamespace="http://im.yahooapis.jp/V201812/FeedData"
+        xmlns:tns="http://im.yahooapis.jp/V201812/FeedData"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://im.yahooapis.jp/V201812"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://im.yahooapis.jp/V201812">
+      <complexType name="SoapHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SoapResponseHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenSeconds" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="Paging">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://im.yahooapis.jp/V201812/FeedData"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:adv="http://im.yahooapis.jp/V201812"
+            xmlns:tns="http://im.yahooapis.jp/V201812/FeedData">
+      <xsd:import namespace="http://im.yahooapis.jp/V201812"/>
+      <annotation>
+        <appinfo>
+          <version>201812</version>
+        </appinfo>
+      </annotation>
+      <complexType name="UploadUrlValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="itemListUploadType" type="tns:ItemListUploadType"/>
+          <element maxOccurs="1" minOccurs="0" name="feedHolderId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="uploadUrl" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="FeedDataSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="feedHolderIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="itemListUploadIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="uploadStatuses" type="tns:FileUploadStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:FileUploadDateRange"/>
+          <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
+        </sequence>
+      </complexType>
+      <complexType name="FeedDataPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:FeedDataValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="FileUploadDateRange">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="FeedDataRecord">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="feedHolderId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="itemListUploadId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="itemListUploadType" type="tns:ItemListUploadType"/>
+          <element maxOccurs="1" minOccurs="0" name="itemListUploadStatus" type="tns:FileUploadStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="uploadDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="errorCount" type="long"/>
+          <element maxOccurs="1" minOccurs="0" name="errorListDownloadUrl" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="FeedDataValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="feedData" type="tns:FeedDataRecord"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <simpleType name="FileUploadStatus">
+        <restriction base="xsd:string">
+          <enumeration value="UPLOADED"/>
+          <enumeration value="COMPLETED"/>
+          <enumeration value="FILE_FORMAT_ERROR"/>
+          <enumeration value="SYSTEM_ERROR"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="ItemListUploadType">
+        <restriction base="xsd:string">
+          <enumeration value="UPDATE_PART"/>
+          <enumeration value="UPDATE_ALL"/>
+        </restriction>
+      </simpleType>
+      <element name="getUploadUrl">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+            <element maxOccurs="1" minOccurs="1" name="itemListUploadType" type="tns:ItemListUploadType"/>
+            <element maxOccurs="1" minOccurs="1" name="feedHolderId" type="xsd:long"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadUrlResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:UploadUrlValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadStatus">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:FeedDataSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadStatusResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:FeedDataPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
+      <element name="ApiExceptionFault" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="RequestHeader">
+    <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
+  </wsdl:message>
+  <wsdl:message name="ResponseHeader">
+    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadUrlRequest">
+    <wsdl:part element="tns:getUploadUrl" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadUrlResponse">
+    <wsdl:part element="tns:getUploadUrlResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadStatusRequest">
+    <wsdl:part element="tns:getUploadStatus" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadStatusResponse">
+    <wsdl:part element="tns:getUploadStatusResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ApiException">
+    <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
+  </wsdl:message>
+  <wsdl:portType name="FeedDataServiceInterface">
+    <wsdl:operation name="getUploadUrl">
+      <wsdl:input message="tns:getUploadUrlRequest" name="getUploadUrlRequest"/>
+      <wsdl:output message="tns:getUploadUrlResponse" name="getUploadUrlResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUploadStatus">
+      <wsdl:input message="tns:getUploadStatusRequest" name="getUploadStatusRequest"/>
+      <wsdl:output message="tns:getUploadStatusResponse" name="getUploadStatusResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FeedDataServiceSoapBinding" type="tns:FeedDataServiceInterface">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUploadUrl">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getUploadUrlRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUploadUrlResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUploadStatus">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getUploadStatusRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUploadStatusResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FeedDataServiceService">
+    <wsdl:port binding="tns:FeedDataServiceSoapBinding" name="FeedDataService">
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201812/FeedDataService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
