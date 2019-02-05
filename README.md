@@ -41,14 +41,6 @@
  <td>2019年4月15日</td>
  <td><a href="../../blob/201806/docs/ja/releasenotes.md">V201806リリースノート</a></td>
 </tr>
-<tr>
- <td>V6.1</td>
- <td>2017年12月21日</td>
- <td>2018年10月19日</td>
- <td>2019年1月18日</td>
- <td><a href="../../blob/6.1/docs/ja/releasenotes.md">V6.1リリースノート</a></td>
-</td>
-</tr>
 </tbody>
 </table>
 
@@ -82,14 +74,6 @@
  <td>2019/1/15</td>
  <td>2019/4/15</td>
  <td><a href="../../blob/201806/docs/en/releasenotes.md">V201806 Release Note</a></td>
-</tr>
-<tr>
- <td>V6.1</td>
- <td>2017/12/21</td>
- <td>2018/10/19</td>
- <td>2019/1/18</td>
- <td><a href="../../blob/6.1/docs/en/releasenotes.md">V6.1 Release Note</a></td>
-</td>
 </tr>
 </tbody>
 </table>
