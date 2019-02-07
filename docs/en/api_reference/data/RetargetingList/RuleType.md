@@ -10,7 +10,7 @@ RuleType display the type of the rule.
 | Value | Data Type | Description | 
 |---|---|---|
 | URL| string| List setting using the URL. |
-| LABEL| string| List setting using the label. |
+| LABEL| string| List setting using the Custom label. |
 | REFERER_URL| string| List setting using the Referer URL. |
 | PAGE_TYPE | xsd:string| List setting using the page type. |
 | ITEM_ID | xsd:string| List setting using the Item ID. |

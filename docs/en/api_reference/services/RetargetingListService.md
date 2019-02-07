@@ -15,7 +15,7 @@ Target List can distribute and group the users' browsing history to specified co
 This can narrow down and deliver more appropriate ads to each user's interest.<br>
 It has three types of lists: <br>
 ・Default list: Automatically made from the creation of site retargeting tag<br>
-・Target list: Made from specified conditions (URL or label)<br>
+・Target list: Made from specified conditions (URL or Custom label)<br>
 ・Combination list: Made by both Default list and Target list<br>
 <br>
 [Notes]<br>
