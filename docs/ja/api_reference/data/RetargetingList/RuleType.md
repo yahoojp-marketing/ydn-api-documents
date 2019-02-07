@@ -10,7 +10,7 @@ RuleTypeは、ルールタイプのリストの種類を表示します。
 | 値 | データ型 | 説明 | 
 |---|---|---|
 | URL | xsd:string | URLを利用したリスト設定 |
-| LABEL | xsd:string| ラベルを利用したリスト設定 |
+| LABEL | xsd:string| カスタムラベルを利用したリスト設定 |
 | REFERER_URL | xsd:string| リファラURLを利用したリスト設定 |
 | PAGE_TYPE | xsd:string| ページ種別を利用したリスト設定 |
 | ITEM_ID | xsd:string| アイテムIDを利用したリスト設定 |
