@@ -29,17 +29,17 @@ The AgeTarget object is a container for storing age targeting settings.
   <td>Required</td>
   <td>Ignore</td>
   <td>Ignore</td>
-  <td>Optional</td>
+  <td>Required</td>
  </tr>
  <tr>
   <td>estimateFlg</td>
   <td>enum <a href="./EstimateFlg.md">EstimateFlg</a></td>
   <td>Advance flag for estimated target.</td>
   <td>yes</td>
-  <td>Optional</td>
+  <td>Required</td>
   <td>Ignore</td>
   <td>Ignore</td>
-  <td>Optional</td>
+  <td>Required</td>
  </tr>
  </table>
 

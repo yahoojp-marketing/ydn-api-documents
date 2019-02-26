@@ -29,17 +29,17 @@ GenderTargetオブジェクトは、性別ターゲティングの設定を保�
   <td>Requirement</td>
   <td>Ignore</td>
   <td>Ignore</td>
-  <td>Optional</td>
+  <td>Requirement</td>
  </tr>
  <tr>
   <td>estimateFlg</td>
   <td>enum <a href="./EstimateFlg.md">EstimateFlg </a></td>
   <td>推定配信フラグです。</td>
   <td>yes</td>
-  <td>Optional</td>
+  <td>Requirement</td>
   <td>Ignore</td>
   <td>Ignore</td>
-  <td>Optional</td>
+  <td>Requirement</td>
  </tr>
  </table>
 
