@@ -3,10 +3,10 @@ AccountServiceは、アカウントの操作を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/AccountService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/AccountService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V201903/AccountService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/AccountService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201812/Account
+http://im.yahooapis.jp/V201903/Account
 #### サービス概要
 管理するアカウント情報の取得と更新を行います。
 #### 操作
@@ -31,14 +31,14 @@ AccountServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <get xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <selector>
         <accountIds>1111</accountIds>
         <accountIds>2222</accountIds>
@@ -69,14 +69,14 @@ AccountServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Account</ns2:service>
-      <ns2:requestTime>1536568315912</ns2:requestTime>
+      <ns2:requestTime>1551686139422</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Account">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Account">
       <ns2:rval>
         <totalNumEntries>2</totalNumEntries>
         <ns2:values>
@@ -87,6 +87,7 @@ AccountServiceで提供される操作を説明します。
             <ns2:accountType>PREPAY</ns2:accountType>
             <ns2:accountStatus>SERVING</ns2:accountStatus>
             <ns2:deliveryStatus>ACTIVE</ns2:deliveryStatus>
+            <ns2:autoTaggingEnabled>FALSE</ns2:autoTaggingEnabled>
           </ns2:account>
         </ns2:values>
         <ns2:values>
@@ -103,6 +104,7 @@ AccountServiceで提供される操作を説明します。
               <ns2:startDate>20120529</ns2:startDate>
               <ns2:endDate>20371231</ns2:endDate>
             </ns2:budget>
+            <ns2:autoTaggingEnabled>FALSE</ns2:autoTaggingEnabled>
           </ns2:account>
         </ns2:values>
       </ns2:rval>
@@ -118,26 +120,27 @@ AccountServiceで提供される操作を説明します。
 
 | パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
-| selector | ○<br>（通常認証では省略可）|[AccountOperation](../data/Account/AccountOperation.md)|アカウントの情報を取得します。<br>※selector下のaccountIdsも通常認証では省略できます。代行認証では必須です。 |
+| operations | ○ |[AccountOperation](../data/Account/AccountOperation.md)| mutateメソッドで操作対象となるアカウントの情報を保持します。 |
 
 ##### ＜リクエストサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201812/Account">
+    <mutate xmlns="http://im.yahooapis.jp/V201903/Account">
       <operations>
         <operator>SET</operator>
         <operand>
           <accountId>1111</accountId>
           <accountName>SampleAccount_UpdatedOn</accountName>
           <deliveryStatus>ACTIVE</deliveryStatus>
+          <autoTaggingEnabled>TRUE</autoTaggingEnabled>
         </operand>
       </operations>
     </mutate>
@@ -154,14 +157,14 @@ AccountServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Account</ns2:service>
-      <ns2:requestTime>1536568316008</ns2:requestTime>
+      <ns2:requestTime>1551686139439</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Account">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Account">
       <ns2:rval>
         <ListReturnValue.Type>AccountReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -179,6 +182,7 @@ AccountServiceで提供される操作を説明します。
               <ns2:startDate>20120529</ns2:startDate>
               <ns2:endDate>20371231</ns2:endDate>
             </ns2:budget>
+            <ns2:autoTaggingEnabled>TRUE</ns2:autoTaggingEnabled>
           </ns2:account>
         </ns2:values>
       </ns2:rval>

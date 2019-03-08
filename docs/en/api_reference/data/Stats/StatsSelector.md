@@ -31,7 +31,7 @@ StatsSelector object is a container that includes the search conditions (executi
  <tr>
   <td>campaignIds[0...500]</td>
   <td>xsd:long</td>
-  <td>Campaign ID.</td>
+  <td>Campaign ID.<br>Available only when "CAMPAIGN" or "ADGROUP" or "AD" or "TARGET" is specified for statsType.</td>
   <td>yes</td>
   <td>Optional</td>
   <td>-</td>
@@ -41,7 +41,7 @@ StatsSelector object is a container that includes the search conditions (executi
  <tr>
   <td>adGroupIds[0..500]</td>
   <td>xsd:long</td>
-  <td>Ad group ID. <br>Available only when "ADGROUP" or "AD" is specified for statsType.</td>
+  <td>Ad group ID. <br>Available only when "ADGROUP" or "AD" or "TARGET" is specified for statsType.</td>
   <td>yes</td>
   <td>Optional</td>
   <td>-</td>
@@ -69,9 +69,18 @@ StatsSelector object is a container that includes the search conditions (executi
   <td>-</td>
  </tr>
  <tr>
+  <td>targetTypes[0..1]</td>
+  <td>enum<br><a href="./TargetType.md">TargetType</a></td>
+  <td>Target Type.<br>Specification is required when statsType is "TARGET".</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
   <td>statsPeriod</td>
-  <td>enum<br>
-  <td><a href="./StatsPeriod.md">StatsPeriod</a></td>
+  <td>enum<br><a href="./StatsPeriod.md">StatsPeriod</a></td>
   <td>Aggregation period of statistics.<br>Default is "REALTIME_MONTH".</td>
   <td>yes</td>
   <td>Optional</td>
@@ -81,8 +90,7 @@ StatsSelector object is a container that includes the search conditions (executi
  </tr>
  <tr>
   <td>statsPeriodCustomDate</td>
-  <td>enum<br>
-  <td><a href="./StatsPeriodCustomDate.md">StatsPeriodCustomDate</a></td>
+  <td>enum<br><a href="./StatsPeriodCustomDate.md">StatsPeriodCustomDate</a></td>
   <td>Aggregation period of statistics. Can be specified by year, month and day.<br>&lowast; Specification is required when StatsPeriod is "CUSTOM_DATE".</td>
   <td>yes</td>
   <td>Optional</td>
@@ -92,8 +100,7 @@ StatsSelector object is a container that includes the search conditions (executi
  </tr>
  <tr>
   <td>statsType</td>
-  <td>enum<br>
-  <td><a href="./StatsType.md">StatsType</a></td>
+  <td>enum<br><a href="./StatsType.md">StatsType</a></td>
   <td>Type of statistics.<br>Default is "CAMPAIGN".</td>
   <td>yes</td>
   <td>Optional</td>

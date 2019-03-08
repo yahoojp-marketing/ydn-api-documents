@@ -5,12 +5,12 @@ For details, please refer to [Error](/docs/en/api_reference/data/Error.md) and/o
 
 ### Sample Error Response
 
-There are 3 types of SOAP error response, SAPFault, Full error and Part error. See the following description about each response.
+Following 3 types of error are possibly responded: SOAPFault, Full error and Part error.
 
 #### SOAPFault
 
-SOAPFault response returns for WSDL violation, SOAP syntax violation, system error and authentication error.<br>
-The returned SOAPFault is in the any of following forms depending on the service.
+SOAPFault is caused by WSDL violation, SOAP syntax violation, server system error or authentication error.<br>
+The form is one of these responses below by each service.
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
@@ -45,10 +45,10 @@ The returned SOAPFault is in the any of following forms depending on the service
 
 #### Full Error
 
-Full Error is returned for the fail of entire request caused by request constraints, etc. It is different from SOAPFault.<br>
-Part Error is returned for the request fail caused by constraints in each ‘<operand>’ of SOAP request.
+Although it is not SOAPFault, Full Error is caused by failing a entire request due to request constraints.<br>
+Note that Part Error is respond when the request fails due to constraints within each `<operand>`.
 
-The following response is an example of Full Error in the case of invalid ‘numberResults’ value of `Paging` in [AccountService](/docs/ja/api_reference/services/AccountService.md).
+The following response is an example of Full Error in the case of the invalid value of `numberResults` of `Paging` in [AccountService](/docs/ja/api_reference/services/AccountService.md).
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
@@ -76,11 +76,11 @@ The following response is an example of Full Error in the case of invalid ‘num
 
 #### Part Error
 
-Part Error is returned in the error case caused by constraints of each element in ‘<operand>’.<br>
-Part Error is returned for each ‘<operand>’, whether an error occurred or not.<br>
-The error response may contain both of ‘true’ and ‘false’ on ‘<values>’ of ‘<operationSucceeded>’ when you send a single SOAP request which includes multiple operation requests with multiple ‘<operand>’.
+Part Error is caused by constraints within each `<operand>`.<br>
+Unlike Full Error, Part Error responses whether an error occurred for each `<operand>` or not.<br>
+The response possibly contains `<operationSucceeded>` with mixed `true` and `false` value when you send a single SOAP request which includes multiple `<operand>`.
 
-The following response is an example of Part Error in the case of specifying a ‘reportId’ which does not exist in [ReportService](/docs/ja/api_reference/services/ReportService.md).
+The following response is an example of Part Error in the case of the non-existent `reportId` in [ReportService](/docs/ja/api_reference/services/ReportService.md).
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
@@ -160,8 +160,11 @@ LT001 | Over limit. | The upper limit value that can be registered is exceeded.
 [AdGroupAdService](/docs/en/api_reference/services/AdGroupAdService.md),<br>
 [AdGroupService](/docs/en/api_reference/services/AdGroupService.md),<br>
 [MediaService](/docs/en/api_reference/services/MediaService.md),<br>
-[VideoService](/docs/en/api_reference/services/VideoService.md)
-
+[VideoService](/docs/en/api_reference/services/VideoService.md),<br>
+[CampaignLabelService](/docs/en/api_reference/services/CampaignLabelService.md),<br>
+[AdGroupLabelService](/docs/en/api_reference/services/AdGroupLabelService.md),<br>
+[AdGroupAdLabelService](/docs/en/api_reference/services/AdGroupAdLabelService.md),<br>
+[LabelService](/docs/en/api_reference/services/LabelService.md)
 
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
@@ -210,6 +213,7 @@ Code           | Message                     | Description
 220301 | Over limit to delivered ad. | Number of ads set to be distributed exceeded the limit. 
 220302 | Over limit to ad under account. | Number of ads under an account exceeded the limit. 
 220310 | Over limit to ad group under account. | Number of ad groups under an account exceeded the limit. 
+220311 | Over limit to label under account. | Number of labels under an account exceeded the limit. 
 220322 | Invalid tracking parameter. | Invalid string (such as invalid Tracking Parameter, etc.) was found.
 220323 | Tracking parameter is not available for this type of ad distribution. | There is a Tracking Parameter which is not available for the ad product.
 220324 | Entered tracking parameter cannot be used. | There is a Tracking Parameter which is not available for the YDN-unaligned tracking tool, or a discontinued Tracking Parameter.

@@ -14,6 +14,7 @@ StatsTypeは、統計情報の種別を表します。
 | AD | xsd:string | 広告の統計情報です。 |
 | IMAGE | xsd:string | 画像の統計情報です。※Ver.5.4以前は「MEDIA」　|
 | VIDEO | xsd:string | 動画の統計情報です。 |
+| TARGET | xsd:string | ターゲティングの統計情報です。 |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">
 <img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" />

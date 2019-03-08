@@ -43,9 +43,9 @@ The AdGroupAd object is a container for storing ad information.
   <td>Campaign name.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adGroupId</td>
@@ -63,9 +63,9 @@ The AdGroupAd object is a container for storing ad information.
   <td>Ad group name.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adId</td>
@@ -73,7 +73,7 @@ The AdGroupAd object is a container for storing ad information.
   <td>Ad ID. </td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Requirement<br>NotUpdatable</td>
   <td>Requirement<br>NotUpdatable</td>
  </tr>
@@ -85,7 +85,7 @@ The AdGroupAd object is a container for storing ad information.
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adStyle</td>
@@ -94,9 +94,9 @@ The AdGroupAd object is a container for storing ad information.
   *Default value : TEXT </td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>mediaId</td>
@@ -106,7 +106,7 @@ The AdGroupAd object is a container for storing ad information.
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>userStatus</td>
@@ -116,7 +116,7 @@ The AdGroupAd object is a container for storing ad information.
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>approvalStatus</td>
@@ -124,9 +124,9 @@ The AdGroupAd object is a container for storing ad information.
   <td>Editorial review status.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>disapprovalReasonCodes</td>
@@ -134,9 +134,9 @@ The AdGroupAd object is a container for storing ad information.
   <td>Reject reason on editorial review.</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bid</td>
@@ -147,7 +147,7 @@ The AdGroupAd object is a container for storing ad information.
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>ad</td>
@@ -158,13 +158,14 @@ The AdGroupAd object is a container for storing ad information.
   inherited <a href="ResponsiveAd.md">ResponsiveAd</a><br>
   inherited <a href="StaticFrameAd.md">StaticFrameAd</a><br>
   inherited <a href="VideoAd.md">VideoAd</a><br>
+  inherited <a href="DynamicAd.md">DynamicAd</a><br>
   inherited <a href="None.md">None</a></td>
   <td>Container including ad.</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>impressionBeaconUrls[0..2]</td>
@@ -174,18 +175,28 @@ The AdGroupAd object is a container for storing ad information.
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>isRemoveBeaconUrls</td>
   <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</a></td>
   <td>Remove flag of impression beacon URL.<br>
-  If set 'TRUE', the set value on the impression beacon URL is invalid,</td>
+  If set 'TRUE', the set value on the impression beacon URL is invalid.</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
+ </tr>
+<tr>
+  <td>labels[0..1000]</td>
+  <td><a href="./Label.md">Label</a></td>
+  <td>Label</td>
+  <td>yes</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

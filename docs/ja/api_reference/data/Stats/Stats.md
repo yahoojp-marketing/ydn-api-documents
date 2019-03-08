@@ -46,7 +46,7 @@ Statsオブジェクトは、統計情報を保持します。
  </tr>
  <tr>
   <td>conversions</td>
-  <td>xsd:string</td>
+  <td>xsd:long</td>
   <td>コンバージョン数<br>※動画視聴およびデバイスをまたいだコンバージョンを加味。</td>
   <td>yes</td>
  </tr>
@@ -248,6 +248,24 @@ Statsオブジェクトは、統計情報を保持します。
   <td>averageDurationVideoViewed</td>
   <td>xsd:double</td>
   <td>動画の平均再生時間※動画広告のみ。</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>convValuePerCost</td>
+  <td>xsd:double</td>
+  <td>コンバージョンの価値/コスト</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>allConvValuePerCost</td>
+  <td>xsd:double</td>
+  <td>すべてのコンバージョンの価値/コスト</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>convValueViaAdClickPerCost</td>
+  <td>xsd:double</td>
+  <td>コンバージョンの価値（広告のクリック経由）/コスト</td>
   <td>yes</td>
  </tr>
 </table>

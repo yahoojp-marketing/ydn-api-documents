@@ -40,14 +40,14 @@ Reterieve the list of reponse from recommendation with EditorialReason.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getDisapprovalReason xmlns="http://im.yahooapis.jp/V201812/Dictionary">
+    <getDisapprovalReason xmlns="http://im.yahooapis.jp/V201903/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -65,14 +65,14 @@ Reterieve the list of reponse from recommendation with EditorialReason.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1536568324517</ns2:requestTime>
+      <ns2:requestTime>1551686141751</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getDisapprovalReasonResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Dictionary">
+    <ns2:getDisapprovalReasonResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -105,14 +105,14 @@ Retrieves the information list of geo targeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getGeographicLocation xmlns="http://im.yahooapis.jp/V201812/Dictionary">
+    <getGeographicLocation xmlns="http://im.yahooapis.jp/V201903/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -130,14 +130,14 @@ Retrieves the information list of geo targeting.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1536568324550</ns2:requestTime>
+      <ns2:requestTime>1551686141771</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getGeographicLocationResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Dictionary">
+    <ns2:getGeographicLocationResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -176,14 +176,14 @@ Retrieves the list of interest category.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getInterestCategory xmlns="http://im.yahooapis.jp/V201812/Dictionary">
+    <getInterestCategory xmlns="http://im.yahooapis.jp/V201903/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -201,14 +201,14 @@ Retrieves the list of interest category.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1536568324624</ns2:requestTime>
+      <ns2:requestTime>1551686141783</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getInterestCategoryResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Dictionary">
+    <ns2:getInterestCategoryResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -245,14 +245,14 @@ Retrieves the list of site category.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getSiteCategory xmlns="http://im.yahooapis.jp/V201812/Dictionary">
+    <getSiteCategory xmlns="http://im.yahooapis.jp/V201903/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -270,14 +270,14 @@ Retrieves the list of site category.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1536568324657</ns2:requestTime>
+      <ns2:requestTime>1551686141803</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getSiteCategoryResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Dictionary">
+    <ns2:getSiteCategoryResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -314,14 +314,14 @@ Retrieves the list of color set.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getColorSet xmlns="http://im.yahooapis.jp/V201812/Dictionary">
+    <getColorSet xmlns="http://im.yahooapis.jp/V201903/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -339,14 +339,14 @@ Retrieves the list of color set.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1536568324534</ns2:requestTime>
+      <ns2:requestTime>1551686141760</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getColorSetResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Dictionary">
+    <ns2:getColorSetResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -378,14 +378,14 @@ Retrieves the version of OS.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getOsVersion xmlns="http://im.yahooapis.jp/V201812/Dictionary">
+    <getOsVersion xmlns="http://im.yahooapis.jp/V201903/Dictionary">
       <selector>
         <osType>ANDROID</osType>
       </selector>
@@ -403,14 +403,14 @@ Retrieves the version of OS.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1536568324641</ns2:requestTime>
+      <ns2:requestTime>1551686141793</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getOsVersionResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Dictionary">
+    <ns2:getOsVersionResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -440,14 +440,14 @@ Queries acceptable format (MediaAdFormat) of ad creatives.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getMediaAdFormat xmlns="http://im.yahooapis.jp/V201812/Dictionary"/>
+    <getMediaAdFormat xmlns="http://im.yahooapis.jp/V201903/Dictionary"/>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -461,14 +461,14 @@ Queries acceptable format (MediaAdFormat) of ad creatives.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1536568324495</ns2:requestTime>
+      <ns2:requestTime>1551686141742</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getMediaAdFormatResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Dictionary">
+    <ns2:getMediaAdFormatResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>

@@ -46,7 +46,7 @@ Stats object contains the stats information.
  </tr>
  <tr>
   <td>conversions</td>
-  <td>xsd:string</td>
+  <td>xsd:long</td>
   <td>Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
   <td>yes</td>
  </tr>
@@ -248,6 +248,23 @@ Stats object contains the stats information.
   <td>averageDurationVideoViewed</td>
   <td>xsd:double</td>
   <td>Average Duration of Video Viewed<br>&lowast;For Video Ads only</td>
+  <td>yes</td>
+ <tr>
+  <td>convValuePerCost</td>
+  <td>xsd:double</td>
+  <td>Conversions value/cost</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>allConvValuePerCost</td>
+  <td>xsd:double</td>
+  <td>All conversions value/cost</td>
+  <td>yes</td>
+ </tr>
+ <tr>
+  <td>convValueViaAdClickPerCost</td>
+  <td>xsd:double</td>
+  <td>Conversions value(via ad clicks)/cost</td>
   <td>yes</td>
  </tr>
 </table>

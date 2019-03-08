@@ -12,8 +12,9 @@ StatsType displays the stats information type.
 | CAMPAIGN | xsd:string | Campaign stats information. |
 | ADGROUP | xsd:string | Ad group stats information. |
 | AD | xsd:string | Ad stats information. |
-| IMAGE | xsd:string | Image stats information. It was 'MEDIA' on Ver.5.4 or before.　|
+| IMAGE | xsd:string | Image stats information. 'MEDIA' on Ver.5.4 or before.　|
 | VIDEO | xsd:string | Video stats information. |
+| TARGET | xsd:string | Targeting stats information. |
 
  
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">

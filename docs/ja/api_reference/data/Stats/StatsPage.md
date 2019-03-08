@@ -48,7 +48,16 @@ StatsPageオブジェクトは、getメソッドの実行結果（全Entityの�
  </tr>
  <tr>
   <td>values</td>
-  <td><a href="./StatsValues.md">StatsValues</a></td>
+  <td><a href="./StatsValues.md">StatsValues</a> <br>inherited　
+  <a href="./CampaignStatsValues.md">CampaignStatsValues</a>
+  <br>inherited　
+  <a href="./AdGroupStatsValues.md">AdGroupStatsValues</a><br>inherited<br>
+  <a href="./AdStatsValues.md">AdStatsValues</a> 
+  <br>inherited　
+  <a href="./ImageStatsValues.md">ImageStatsValues</a><br>inherited　
+  <a href="./VideoStatsValues.md">VideoStatsValues</a><br>inherited　
+  <a href="./TargetStatsValues.md">TargetStatsValues</a></td>
+  
   <td>getメソッドの実行結果です。</td>
   <td>yes</td>
   <td>-</td>

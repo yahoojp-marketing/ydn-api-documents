@@ -17,31 +17,49 @@ The CampaignSelector object is a container for storing a set of criteria (parame
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>Account ID</td>
+  <td>Search Condition: Account ID</td>
   <td>Required</td>
  </tr>
  <tr>
   <td>campaignIds[0..200]</td>
   <td>xsd:long</td>
-  <td>Campaign ID</td>
+  <td>Search Condition: Campaign ID</td>
+  <td>Optional</td>
+ </tr>
+  <tr>
+  <td>labelIds[0..1000]</td>
+  <td>xsd:long</td>
+  <td>Search Condition: Label ID</td>
+  <td>Optional</td>
+ </tr>
+  <tr>
+  <td>containsLabelIdFlg</td>
+  <td>xsd:boolean</td>
+  <td>Flag of contains label ID</td>
+  <td>Optional</td>
+ </tr>
+   <tr>
+  <td>feedHolderIds[0..10]</td>
+  <td>xsd:long</td>
+  <td>Search Condition: Feed holder ID</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>userStatus[0..2]</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>Delivery status of user settings</td>
+  <td>Search Condition: Delivery status of user settings</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>paging</td>
   <td><a href="../Common/Paging.md">Paging</a></td>
-  <td>Data acquisition range</td>
+  <td>Search Condition: Data acquisition range</td>
   <td>Optional</td>
  </tr>
  <tr>
   <td>campaignType</td>
   <td>enum <a href="./CampaignType.md">CampaignType</a></td>
-  <td>Campaign type</td>
+  <td>Search Condition: Campaign type</td>
   <td>Optional</td>
  </tr>
 </table>

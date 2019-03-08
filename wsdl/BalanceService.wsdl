@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201812/Balance"
-        xmlns:tns="http://im.yahooapis.jp/V201812/Balance"
+        targetNamespace="http://im.yahooapis.jp/V201903/Balance"
+        xmlns:tns="http://im.yahooapis.jp/V201903/Balance"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201812"
+            targetNamespace="http://im.yahooapis.jp/V201903"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201812">
+            xmlns:tns="http://im.yahooapis.jp/V201903">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201812/Balance"
+            targetNamespace="http://im.yahooapis.jp/V201903/Balance"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201812"
-            xmlns:tns="http://im.yahooapis.jp/V201812/Balance">
-      <xsd:import namespace="http://im.yahooapis.jp/V201812"/>
+            xmlns:adv="http://im.yahooapis.jp/V201903"
+            xmlns:tns="http://im.yahooapis.jp/V201903/Balance">
+      <xsd:import namespace="http://im.yahooapis.jp/V201903"/>
       <annotation>
         <appinfo>
-          <version>201812</version>
+          <version>201903</version>
         </appinfo>
       </annotation>
       <complexType name="BalanceSelector">
@@ -164,9 +164,9 @@
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="BalanceServiceService">
+  <wsdl:service name="BalanceService">
     <wsdl:port binding="tns:BalanceServiceSoapBinding" name="BalanceService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201812/BalanceService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201903/BalanceService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

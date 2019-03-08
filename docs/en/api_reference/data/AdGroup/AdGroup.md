@@ -73,8 +73,8 @@ The Ad Group object is a container for storing ad group information.
  <tr>
   <td>bid</td>
   <td>AdGroupBid<br>
-  inherited　<a href="./ManualCPCAdGroupBid.md">ManualCPCAdGroupBid</a><br>
-  inherited　<a href="./ManualCPVAdGroupBid.md">ManualCPVAdGroupBid</a>
+  inherited <a href="./ManualCPCAdGroupBid.md">ManualCPCAdGroupBid</a><br>
+  inherited <a href="./ManualCPVAdGroupBid.md">ManualCPVAdGroupBid</a>
   </td>
   <td>Bid amount.</td>
   <td>yes</td>
@@ -84,13 +84,13 @@ The Ad Group object is a container for storing ad group information.
  </tr>
    <td>conversionOptimizer</td>
   <td>AdGroupConversionOptimizer<br>
-inherited　<a href="./NoneAdGroupConversionOptimizer.md">NoneAdGroupConversionOptimizer</a><br>
-inherited　<a href="./ManualAdGroupConversionOptimizer.md">ManualAdGroupConversionOptimizer</a><br>
-inherited　<a href="./AutoAdGroupConversionOptimizer.md">AutoAdGroupConversionOptimizer</a>
+inherited <a href="./NoneAdGroupConversionOptimizer.md">NoneAdGroupConversionOptimizer</a><br>
+inherited <a href="./ManualAdGroupConversionOptimizer.md">ManualAdGroupConversionOptimizer</a><br>
+inherited <a href="./AutoAdGroupConversionOptimizer.md">AutoAdGroupConversionOptimizer</a>
   </td>
-  <td>conversion optimize</td>
+  <td>Conversion optimize.</td>
   <td>yes</td>
-  <td>Optional<br>Default : NoneAdGroupConversionOptimizer</td>
+  <td>Optional<br>Default: NoneAdGroupConversionOptimizer</td>
   <td>Optional<br>Updatable</td>
   <td>Ignore</td>
  </tr>
@@ -149,7 +149,15 @@ inherited　<a href="./AutoAdGroupConversionOptimizer.md">AutoAdGroupConversionO
   <td>Optional<br>Updatable</td>
   <td>Ignore</td>
  </tr>
+ <tr>
+  <td>labels[0..1000]</td>
+  <td>enum<br><a href="./Label.md">Label</a></td>
+  <td>Label.</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
 </table>
-
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
