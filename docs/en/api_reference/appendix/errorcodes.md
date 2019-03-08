@@ -3,22 +3,106 @@
 When a SOAP request is successful, YDN API sends back the "HTTP 200 OK" response code, along with a SOAP response. <br>If an error occurs while a SOAP request is being processed, YDN API sends back a message with an error code. <br>
 For details, please refer to [Error](/docs/en/api_reference/data/Error.md) and/or [ErrorDetail](/docs/en/api_reference/data/ErrorDetail.md).<br>
 
-##### Response Sample
+### Sample Error Response
+
+There are 3 types of SOAP error response, SAPFault, Full error and Part error. See the following description about each response.
+
+#### SOAPFault
+
+SOAPFault response returns for WSDL violation, SOAP syntax violation, system error and authentication error.<br>
+`<faultcode>` describes an error code, and `<faultstring>` describes an error message.<br>
+Detail error are described in `<detail>` in some cases.
+
+The following response is an example of SOAPFault in the case of login failure on [AccountService](/docs/ja/api_reference/services/AccountService.md).
+
 ```xml
-<SOAP-ENV:Envelopexmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-   <SOAP-ENV:Body>         
-      <SOAP-ENV:Fault>             
-         <faultcode>faultCode</faultcode>             
-         <faultstring>faultString</faultstring>             
-         <faultactor></faultactor>             
-         <detail>                 
-            <requestKey>detail/requestKey</requestKey>                 
-            <requestValue>detail/requestValue</requestValue>             
-         </detail>         
-      </SOAP-ENV:Fault>     
-   </SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <SOAP-ENV:Fault>
+      <faultcode>110006</faultcode>
+      <faultstring>Can not login for apiAccountId.</faultstring>
+      <faultactor/>
+      <detail>
+        <requestKey>apiAccountId</requestKey>
+        <requestValue>xxxx-xxxx-xxxx-xxxx</requestValue>
+      </detail>
+    </SOAP-ENV:Fault>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
+SOAPFault response form depends on API versions. The form above is in case of V201806 version.
+
+#### Full Error
+
+Full Error is returned for the fail of entire request caused by request constraints, etc. It is different from SOAPFault.<br>
+Part Error is returned for the request fail caused by constraints in each ‘<operand>’ of SOAP request.
+
+The following response is an example of Full Error in the case of invalid ‘numberResults’ value of `Paging` in [AccountService](/docs/ja/api_reference/services/AccountService.md).
+
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Account" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns2:ResponseHeader>
+      <ns1:service>AccountService</ns1:service>
+      <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
+      <ns1:requestTime>1234567890</ns1:requestTime>
+    </ns2:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getResponse>
+      <ns2:error>
+        <ns1:code>120003</ns1:code>
+        <ns1:message>Invalid number format.</ns1:message>
+        <ns1:detail>
+          <ns1:requestKey>numberResults</ns1:requestKey>
+          <ns1:requestValue>1000000</ns1:requestValue>
+        </ns1:detail>
+      </ns2:error>
+    </ns2:getResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+#### Part Error
+
+Part Error is returned in the error case caused by constraints of each element in ‘<operand>’.<br>
+Part Error is returned for each ‘<operand>’, whether an error occurred or not.<br>
+The error response may contain both of ‘true’ and ‘false’ as value of ‘<operationSucceeded>’, since '<value>' returns for each '<operand>' when you send a single SOAP request which includes multiple ‘<operand>’.
+
+The following response is an example of Part Error in the case of specifying a ‘reportId’ which does not exist in [ReportService](/docs/ja/api_reference/services/ReportService.md).
+
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V201806" xmlns:ns2="http://im.yahooapis.jp/V201806/Report" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns2:ResponseHeader>
+      <ns1:service>ReportService</ns1:service>
+      <ns1:timeTakenSeconds>0.1234</ns1:timeTakenSeconds>
+      <ns1:requestTime>1234567890</ns1:requestTime>
+    </ns2:ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:mutateResponse>
+      <ns2:rval>
+        <ns1:ListReturnValue.Type>ReportReturnValue</ns1:ListReturnValue.Type>
+        <ns1:Operation.Type>ADD</ns1:Operation.Type>
+        <ns2:values>
+          <ns1:operationSucceeded>false</ns1:operationSucceeded>
+          <ns1:error>
+            <ns1:code>120022</ns1:code>
+            <ns1:message>Deactivated.</ns1:message>
+            <ns1:detail>
+              <ns1:requestKey>reportId</ns1:requestKey>
+              <ns1:requestValue>1234567890</ns1:requestValue>
+            </ns1:detail>
+          </ns1:error>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:mutateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
 ### Error Code
 The following list provides SOAP error codes and error content displayed when an error or problem occurs.  
 
