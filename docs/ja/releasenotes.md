@@ -1,85 +1,82 @@
 # リリースノート
 ## リリースバージョン　　
-V201812（WSDLバージョン V201812）
+V201903（WSDLバージョン V201903）
 
 ## 本リリースの主な内容
 ※対象データオブジェクトとEnumerationは、データオブジェクト（Enumeration）集をご確認ください。 
 
-### 1. 動画視聴コンバージョンの測定対応
+### 1. ラベル機能に対応
+Yahoo!ディスプレイアドネットワーク（YDN）のラベル機能の追加に伴い、以下の点を追加・変更しました。
 
-Yahoo!ディスプレイアドネットワーク（YDN）の動画広告において、動画を10秒以上視聴したユーザーが、視聴後に広告クリック以外の方法でコンバージョンに至った件数の測定に対応しました。これに伴い、以下の点を変更しました。
+#### ■ラベルの新規作成、設定、編集、削除の対応
+以下の対応が可能になりました。<br>
+ * ラベルの新規作成、編集、削除<br>
+ * 入稿物（キャンペーン、広告グループ、広告）へのラベルの設定、解除<br>
+ * ラベルの設定情報の取得<br>
+ * ラベルレポートの取得<br>
 
-#### ■パフォーマンスデータおよびレポートにおけるコンバージョン関連指標の仕様変更
- * 既存のコンバージョン関連の指標におけるコンバージョン定義の拡大<br>
-　変更前：<br>
-　広告のクリック経由でサイトを訪問したユーザーによるコンバージョンをカウント対象とする<br>
-　変更後：<br>
-　広告のクリック経由でサイトを訪問したユーザー、および、動画広告の動画を10秒以上視聴した後に広告のクリック以外の経路でサイトを訪問したユーザーによるコンバージョンをカウント対象とする<br>
-　※10秒未満の動画の場合は、視聴を完了した時点で10秒視聴と同義とします。<br>
- * 新指標の追加<br>
-　-広告のクリック経由で発生したコンバージョンのみをカウント対象とする指標<br>
-　-デバイスをまたいだコンバージョン数を確認する指標<br>
-
-#### ■視聴ビーコンURL項目を追加
-
-AdGroupAdServiceに、動画コンバージョンを測定する視聴ビーコンURL関連の項目を追加しました。  
-また、AuditLogService、BulkServiceのダウンロードファイルにも追加しました。  
-※ダウンロードファイルへの追加は、提供中の全バージョンが対象です。
-
-#### ■コンバージョンタグの設定項目の追加
-ConversionTrackerServiceに、動画の視聴からコンバージョンが発生するまでの測定期間を設定する項目「measurementPeriodView」を追加しました。測定期間は1日～30日間の範囲で設定できます。  
-また、AuditLogServiceのダウンロードファイルにも同項目を追加しました。  
-※ダウンロードファイルへの追加は、提供中の全バージョンが対象です。
+※広告管理ツールでは、2019年2月6日（水）にリリースしました。<br>
 
 ##### 対象ウェブサービス  
+ * [AdGroupService](./api_reference/services/AdGroupService.md)
  * [AdGroupAdService](./api_reference/services/AdGroupAdService.md)
- * [AuditLogService](./api_reference/services/AuditLogService.md)
+ * [AdGroupAdLabelService](./api_reference/services/AdGroupAdLabelService.md)
+ * [AdGroupLabelService](./api_reference/services/AdGroupLabelService.md)
  * [BulkService](./api_reference/services/BulkService.md)
- * [ConversionTrackerService](./api_reference/services/ConversionTrackerService.md)
+ * [CampaignService](./api_reference/services/CampaignService.md)
+ * [CampaignLabelService](./api_reference/services/CampaignLabelService.md)
+ * [LabelService](./api_reference/services/LabelService.md)
  * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
  * [ReportService](./api_reference/services/ReportService.md)
  * [StatsService](./api_reference/services/StatsService.md)
 
+### 2. レポート、および統計情報に新指標を追加
+レポートおよび統計情報に費用対効果（ROAS）に関する指標の追加に伴い、以下の変更を実施しました。<br>
 
-### 2. 動画広告にアスペクト比1:1の動画フォーマットを追加
+* レポート、および統計情報に費用対効果（ROAS）に関する以下の指標を追加しました。<br>
+   * コンバージョンの価値/コスト
+   * すべてのコンバージョンの価値/コスト
+   * コンバージョンの価値（広告のクリック経由）/コスト
 
-動画広告にアスペクト比1：1（ピクセルサイズ　600×600）の新フォーマットを追加しました。なお、APIインターフェース上の変更はありません。  
-※提供中の全バージョンが対象です。
+ * 広告管理ツールにおいて、パフォーマンスレポートの「コンバージョンラベル名」を「コンバージョン名」に変更したことに対応するため、レポートに「コンバージョン名」を追加しました。<br>
+   * 「コンバージョン名」には既存の「コンバージョンラベル名」と同じ値が入ります。<br>
+   * 「コンバージョンラベル名」は今後廃止予定のため、当該フィールドをご利用中の場合は「コンバージョン名」への変更をお願いいたします。<br>
 
-##### 対象ウェブサービス  
- * [ReportService](./api_reference/services/ReportService.md)
-
-
-### 3. サーチターゲティングの機能変更
-
-リクエストにおいて、以下を変更しました。
- * keywordsとkeywordIdsの指定が必須ではなくなり、両方同時指定のみ不可に変更
- * keywordsの上限数を100から200に変更
- * スペースの半角・全角の区別を廃止
- * 以下の項目を追加  
-　　- sortField（ソート項目）  
-　　- sortType（ソート方法）  
-　　- matchType（検索方法）  
-
-また、レスポンスに「releaseDate」（キーワード追加日）を追加しました。
+※詳細は、[仕様書](./api_reference/appendix/reports)もあわせてご参照ください。<br>
+※広告管理ツールでは、2019年2月6日（水）にリリースしました。<br>
 
 ##### 対象ウェブサービス  
- * [SearchKeywordIdeaService](./api_reference/services/SearchKeywordIdeaService.md)
-
-
-### 4. システムの保守、改善の実施
-
-システムの保守、改善として以下を実施しました。 「Serviceの変更による各Versionへの影響」の項目も、あわせてご確認ください。
-
- * ReportDefinitionServiceおよびReportServiceから、古いレポート項目を削除
- * 仕様書のレポートフィールド集に「動作区分/Behavior Type」列を追加  
-各レポートフィールドの動作を表す「動作区分/Behavior Type」列を追加しました。  
-※提供中の全バージョンが対象です。
-
-##### 対象ウェブサービス  
- * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
- * [ReportService](./api_reference/services/ReportService.md)
  * [StatsService](./api_reference/services/StatsService.md)
+
+### 3. 自動タグ設定機能への対応
+Yahoo!ディスプレイアドネットワーク（YDN）で自動タグ設定機能のリリースに伴い、自動タグ設定のオンオフを追加しました。<br>
+※広告管理ツールでは、2019年1月29日（火）にリリースしました。<br>
+
+##### 対象ウェブサービス  
+ * [AccountService](./api_reference/services/StatsService.md)
+
+### 4. ターゲティング機能の改善
+ターゲティング機能の改善に伴い、統計情報でターゲティングの実績を表示できるようになりました。<br>
+※広告管理ツールでは、2019年2月27日（水）にリリースしました。<br>
+
+##### 対象ウェブサービス  
+ * [StatsService](./api_reference/services/StatsService.md)
+
+### 5. 動的ディスプレイ広告への対応
+動的ディスプレイ広告について、以下の対応が可能になりました。<br>
+ * 動的ディスプレイ広告のキャンペーン作成など
+ * キャンペーンへのデータフィードの関連付け
+ * 「掲載不可」「掲載停止」ステータスの審査情報のダウンロード（最大10万件まで取得可能）
+
+また、新バージョン、および公開中のすべてのバージョン（V201809、V201812）において、エラー情報のダウンロード上限を最大10万件に変更しました。<br>
+
+※広告管理ツールでは、2019年2月13日（水）にリリースしました。なお、正規代理店のお客様のみ利用可能です。<br>
+
+##### 対象ウェブサービス
+ * [AdGroupAdService](./api_reference/services/AdGroupAdService.md)
+ * [CampaignService](./api_reference/services/CampaignService.md)
+ * [FeedDataService](./api_reference/services/FeedDataService.md)
+ * [FeedHolderService](./api_reference/services/FeedHolderService.md)
 
 
 ## Serviceの変更による各Versionへの主な影響
@@ -87,255 +84,139 @@ ConversionTrackerServiceに、動画の視聴からコンバージョンが発�
 <tbody>
 <tr>
 <th>Service</th>
-<th>V201809以前</th>
-<th>V201812</th>
+<th>V201812以前</th>
+<th>V201903</th>
 </tr>
 <tr>
-<td>ConversionTrackerService</td>
-<td>
-・以下の指標で、広告クリックのコンバージョンを測定<br>
-　- convRate<br>
-　- convValue<br>
-　- costPerConv<br>
-　- valuePerConv<br>
-　- allConv<br>
-　- allConvRate<br>
-　- allConvValue<br>
-　- costPerAllConv<br>
-　- valuePerAllConv<br>
+<td>BulkService</td>
+<td>インポート用テンプレートでキャンペーンラベル、広告グループラベル、広告ラベルをEntityTypesとして指定可能。<br>
 </td>
-<td>
-・以下の指標で、広告クリックおよび10秒以上の動画視聴のコンバージョンを測定<br>
-　- convRate<br>
-　- convValue<br>
-　- costPerConv<br>
-　- valuePerConv<br>
-　- allConv<br>
-　- allConvRate<br>
-　- allConvValue<br>
-　- costPerAllConv<br>
-　- valuePerAllConv<br>
-
-・以下の指標を新たに追加<br>
-　- conversionsViaAdClick<br>
-　- conversionRateViaAdClick<br>
-　- convValueViaAdClick<br>
-　- costPerConvViaAdClick<br>
-　- valuePerConvViaAdClick<br>
-　- crossDeviceConversions<br>
-・動画の視聴からコンバージョンが発生するまでの測定期間を設定する項目「measurementPeriodView」を追加<br>
+<td>インポート用テンプレートでキャンペーンラベル、広告グループラベル、広告ラベルをEntityTypesとして指定可能。<br>
 </td>
 </tr>
 <tr>
-<td>StatsService</td>
-<td>
-・以下の指標で、広告クリックのコンバージョンを測定<br>
-　- convRate<br>
-　- convValue<br>
-　- costPerConv<br>
-　- valuePerConv<br>
-　- allConv<br>
-　- allConvRate<br>
-　- allConvValue<br>
-　- costPerAllConv<br>
-　- valuePerAllConv<br>
-・以下のレポート項目を表示<br>
-　- videoViewedRate<br>
-　- videoPlays<br>
-　- autoVideoPlays<br>
-　- clickVideoPlays<br>
+<td>CampaignService</td>
+<td>インターフェース変更なし<br>
+・動的ディスプレイ広告用キャンペーンは、広告商品情報が返却されません。
 </td>
 <td>
-・以下の指標で、広告クリックおよび10秒以上の動画視聴のコンバージョンを測定<br>
-　- convRate<br>
-　- convValue<br>
-　- costPerConv<br>
-　- valuePerConv<br>
-　- allConv<br>
-　- allConvRate<br>
-　- allConvValue<br>
-　- costPerAllConv<br>
-　- valuePerAllConv<br>
-・以下の指標を新たに追加<br>
-　- conversionsViaAdClick<br>
-　- conversionRateViaAdClick<br>
-　- convValueViaAdClick<br>
-　- costPerConvViaAdClick<br>
-　- valuePerConvViaAdClick<br>
-　- crossDeviceConversions<br>
-・以下のレポート項目を削除<br>
-　- videoViewedRate<br>
-　- videoPlays<br>
-　- autoVideoPlays<br>
-　- clickVideoPlays<br>
+・設定されたラベル情報を取得できる<br>
+・動的ディスプレイ広告用キャンペーンを作成可能。<br>
+</td>
+</tr>
+<tr>
+<td>AdGroupService</td>
+<td>インターフェース変更なし<br>
+</td>
+<td>設定されたラベル情報を取得できる。<br>
 </td>
 </tr>
 <tr>
 <td>AdGroupAdService</td>
-<td>・動画視聴コンバージョン用ビーコンURLを登録できない<br>
+<td>インターフェース変更なし<br>
+・動的ディスプレイ広告は、取得できません。
 </td>
 <td>
-・動画視聴コンバージョン用ビーコンURLを登録できる<br>
-・動画視聴コンバージョン用ビーコン関連の以下項目を追加<br>
-　- videoStartBeaconUrls<br>
-　- isRemoveVideoStartBeaconUrls<br>
-　- video3SecBeaconUrls<br>
-　- isRemoveVideo3SecBeaconUrls<br>
-　- videoPaidBeaconUrls<br>
-　- isRemoveVideoPaidBeaconUrls<br>
-　- videoCompleteBeaconUrls<br>
-　- isRemoveVideoCompleteBeaconUrls<br>
+以下の操作ができる。<br>
+・ラベル情報の取得<br>
+・動的ディスプレイ広告の作成<br>
+・動的ディスプレイ広告情報の更新<br>
+・動的ディスプレイ広告の削除<br>
+・動的ディスプレイ広告の取得<br>
+</td>
+</tr>
+<tr>
+<td>CampaignLabelService</td>
+<td>-<br>
+</td>
+<td>
+キャンペーンにラベルを設定、または解除できる。<br>
+</td>
+</tr>
+<tr>
+<td>AdGroupLabelService</td>
+<td>-<br>
+</td>
+<td>広告グループにラベルを設定、または解除できる。<br>
+</td>
+</tr>
+<tr>
+<td>AdGroupAdLabelService</td>
+<td>-<br>
+</td>
+<td>広告にラベルを設定、または解除できる。
+</td>
+</tr>
+<tr>
+<td>LabelService</td>
+<td>-<br>
+</td>
+<td>以下の操作ができる。<br>
+・ラベルの作成<br>
+・ラベルの各エンティティへの設定<br>
+・ラベル情報の更新<br>
+・ラベル設定の解除<br>
+・ラベルの削除<br>
+・ラベル情報の取得<br>
+</td>
+</tr>
+<tr>
+<td>StatsService</td>
+<td>インターフェース変更なし<br>
+</td>
+<td>
+・費用対効果（ROAS）に関する項目を取得できる。<br>
+・ターゲットごとの実績値が取得できる。<br>
 </td>
 </tr>
 <tr>
 <td>ReportDefinitionService</td>
-<td>
-・以下のレポート項目を表示<br>
-　- totalConversionsOld<br>
-　- totalConversionRateOld<br>
-　- convValueOld<br>
-　- costTotalConversionsOld<br>
-　- valuePerConvOld<br>
-　- totalRevenueOld<br>
-　- revenueTotalConversionOld<br>
-　- revenue<br>
-　- revenuePerConv<br>
-　- videoViewedRate<br>
-　- videoPlays<br>
-　- autoVideoPlays<br>
-　- clickVideoPlays<br>
+<td>インターフェース変更なし<br>
 </td>
 <td>
-・以下の指標で、広告クリックおよび10秒以上の動画視聴のコンバージョンを測定<br>
-　- convRate<br>
-　- convValue<br>
-　- costPerConv<br>
-　- valuePerConv<br>
-　- allConv<br>
-　- allConvRate<br>
-　- allConvValue<br>
-　- costPerAllConv<br>
-　- valuePerAllConv<br>
-・以下の指標を新たに追加<br>
-　- conversionsViaAdClick<br>
-　- conversionRateViaAdClick<br>
-　- convValueViaAdClick<br>
-　- costPerConvViaAdClick<br>
-　- valuePerConvViaAdClick<br>
-　- crossDeviceConversions<br>
-・以下のレポート項目を削除<br>
-　- totalConversionsOld<br>
-　- totalConversionRateOld<br>
-　- convValueOld<br>
-　- costTotalConversionsOld<br>
-　- valuePerConvOld<br>
-　- totalRevenueOld<br>
-　- revenueTotalConversionOld<br>
-　- revenue<br>
-　- revenuePerConv<br>
-　- videoViewedRate<br>
-　- videoPlays<br>
-　- autoVideoPlays<br>
-　- clickVideoPlays<br>
+・ラベルごとのパフォーマンスレポートが取得できる。<br>
+・費用対効果（ROAS）に関する項目を取得できる。<br>
 </td>
 </tr>
 <tr>
 <td>ReportService</td>
-<td>
-・以下のレポート項目を表示<br>
-　- totalConversionsOld<br>
-　- totalConversionRateOld<br>
-　- convValueOld<br>
-　- costTotalConversionsOld<br>
-　- valuePerConvOld<br>
-　- totalRevenueOld<br>
-　- revenueTotalConversionOld<br>
-　- revenue<br>
-　- revenuePerConv<br>
-　- videoViewedRate<br>
-　- videoPlays<br>
-　- autoVideoPlays<br>
-　- clickVideoPlays<br>
+<td>インターフェース変更なし<br>
 </td>
 <td>
-・以下の指標で、広告クリックおよび10秒以上の動画視聴のコンバージョンを測定<br>
-　- convRate<br>
-　- convValue<br>
-　- costPerConv<br>
-　- valuePerConv<br>
-　- allConv<br>
-　- allConvRate<br>
-　- allConvValue<br>
-　- costPerAllConv<br>
-　- valuePerAllConv<br>
-・以下の指標を新たに追加<br>
-　- conversionsViaAdClick<br>
-　- conversionRateViaAdClick<br>
-　- convValueViaAdClick<br>
-　- costPerConvViaAdClick<br>
-　- valuePerConvViaAdClick<br>
-　- crossDeviceConversions<br>
-・以下のレポート項目を削除<br>
-　- totalConversionsOld<br>
-　- totalConversionRateOld<br>
-　- convValueOld<br>
-　- costTotalConversionsOld<br>
-　- valuePerConvOld<br>
-　- totalRevenueOld<br>
-　- revenueTotalConversionOld<br>
-　- revenue<br>
-　- revenuePerConv<br>
-　- videoViewedRate<br>
-　- videoPlays<br>
-　- autoVideoPlays<br>
-　- clickVideoPlays<br>
+・ラベルごとのパフォーマンスレポートが取得できる。<br>
+・費用対効果（ROAS）に関する項目を取得できる。<br>
 </td>
 </tr>
 <tr>
-<td>SearchKeywordIdeaService</td>
-<td>
-・リクエストで、keywordsとkeywordIdsの指定が必須<br>
+<td>FeedHolderService</td>
+<td>インターフェース変更なし<br>
 </td>
 <td>
-・リクエストでkeywordsとkeywordIdsの指定が必須ではなくなる。また、以下の項目の指定が可能。<br>
-　-searchMatchType<br>
-　-sortField<br>
-　-sortKey<br>
-・レスポンスで、releaseDate項目を追加<br>
+審査否認理由ダウンロード用のURLが取得できる。
 </td>
 </tr>
 <tr>
-<td>AuditLogService</td>
-<td>
-　
+<td>AccountAdProductService</td>
+<td>インターフェース変更なし<br>
 </td>
 <td>
-・動画視聴コンバージョン用ビーコン関連の以下項目を追加<br>
-　- videoStartBeaconUrls<br>
-　- video3SecBeaconUrls<br>
-　- videoPaidBeaconUrls<br>
-　- videoCompleteBeaconUrls<br>
+「DYNAMIC_ADS」が返却される。
 </td>
 </tr>
 <tr>
-<td>BulkService</td>
-<td>
-　
+<td>AccountService</td>
+<td>インターフェース変更なし<br>
 </td>
 <td>
-・動画視聴コンバージョン用ビーコン関連の以下項目を追加<br>
-　- videoStartBeaconUrls<br>
-　- video3SecBeaconUrls<br>
-　- videoPaidBeaconUrls<br>
-　- videoCompleteBeaconUrls<br>
+自動タグ設定のオンオフが指定できる。
 </td>
 </tr>
 </tbody>
 </table>
 
 
-## YDN API V201806の提供終了について
-以下の日程でYDN API V201806のサポートおよびシステムの提供を終了いたします。
-* サポート終了日：2019年1月15日（火）
-* システム終了日：2019年4月15日（月）
+## YDN API V201809の提供終了について
+以下の日程でYDN API V201809のサポートおよびシステムの提供を終了いたします。
+* サポート終了日：2019年4月11日（木）
+* システム終了日：2019年7月11日（木）
 

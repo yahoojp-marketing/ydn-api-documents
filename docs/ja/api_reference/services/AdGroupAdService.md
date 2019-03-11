@@ -3,10 +3,10 @@ AdGroupAdServiceは広告の操作を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/AdGroupAdService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/AdGroupAdService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/AdGroupAdService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/AdGroupAdService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/AdGroupAd
+http://im.yahooapis.jp/V201903/AdGroupAd
 #### サービス概要
 広告の取得と更新を行います。
 #### 操作
@@ -33,14 +33,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <get xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -60,6 +60,9 @@ AdGroupAdServiceで提供される操作を説明します。
         <adIds>20005</adIds>
         <mediaIds>100000</mediaIds>
         <mediaIds>100001</mediaIds>
+        <labelIds>3000</labelIds>
+        <labelIds>3001</labelIds>
+        <containsLabelIdFlg>true</containsLabelIdFlg>
         <userStatuses>ACTIVE</userStatuses>
         <userStatuses>PAUSED</userStatuses>
         <approvalStatuses>APPROVED</approvalStatuses>
@@ -86,14 +89,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1543384312242</ns2:requestTime>
+      <ns2:requestTime>1551686137571</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroupAd">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroupAd">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupAdPage</Page.Type>
@@ -122,6 +125,18 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:description2>description2</ns2:description2>
             </ns2:ad>
             <ns2:impressionBeaconUrls>https://test.com/</ns2:impressionBeaconUrls>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -145,6 +160,18 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:url>http://testtest.co.jp</ns2:url>
               <ns2:description>description</ns2:description>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -174,6 +201,18 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:principal>principal</ns2:principal>
               <ns2:logoMediaId>2222</ns2:logoMediaId>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -205,6 +244,18 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:principal>principal</ns2:principal>
               <ns2:colorSetId>1000000005</ns2:colorSetId>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -229,6 +280,18 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:url>http://testtest.co.jp</ns2:url>
               <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
         <ns2:values>
@@ -267,6 +330,62 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls.co.jp</ns2:videoCompleteBeaconUrls>
               <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</ns2:videoCompleteBeaconUrls>
             </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>DynamicAd</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicAd">
+              <ns2:type>DYNAMIC_AD</ns2:type>
+              <ns2:url>http://hogehoge.co.jp</ns2:url>
+              <ns2:displayUrl>hogehoge.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>99991</ns2:logoMediaId>
+              <ns2:logoMediaId2>99992</ns2:logoMediaId2>
+              <ns2:logoMediaId3>99993</ns2:logoMediaId3>
+              <ns2:prefix>pr</ns2:prefix>
+              <ns2:suffix>suf</ns2:suffix>
+              <ns2:brandColor>#FFFFFF</ns2:brandColor>
+            </ns2:ad>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroupAd>
         </ns2:values>
       </ns2:rval>
@@ -288,14 +407,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroupAd">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -429,6 +548,31 @@ AdGroupAdServiceで提供される操作を説明します。
             <videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</videoCompleteBeaconUrls>
           </ad>
         </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>88888</campaignId>
+          <adGroupId>7777</adGroupId>
+          <adName>DynamicAd</adName>
+          <mediaId>88812</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <type>MANUAL_CPC</type>
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DynamicAd">
+            <type>DYNAMIC_AD</type>
+            <url>http://hogehoge.co.jp</url>
+            <displayUrl>hogehoge.co.jp</displayUrl>
+            <buttonText>APPLY_NOW</buttonText>
+            <principal>principal</principal>
+            <logoMediaId>99991</logoMediaId>
+            <logoMediaId2>99992</logoMediaId2>
+            <logoMediaId3>99993</logoMediaId3>
+            <prefix>pr</prefix>
+            <suffix>suf</suffix>
+            <brandColor>#FFFFFF</brandColor>
+          </ad>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -444,14 +588,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1543384312544</ns2:requestTime>
+      <ns2:requestTime>1551686137643</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -627,6 +771,38 @@ AdGroupAdServiceで提供される操作を説明します。
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>DynamicAd</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicAd">
+              <ns2:type>DYNAMIC_AD</ns2:type>
+              <ns2:url>http://hogehoge.co.jp</ns2:url>
+              <ns2:displayUrl>hogehoge.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>99991</ns2:logoMediaId>
+              <ns2:logoMediaId2>99992</ns2:logoMediaId2>
+              <ns2:logoMediaId3>99993</ns2:logoMediaId3>
+              <ns2:prefix>pr</ns2:prefix>
+              <ns2:suffix>suf</ns2:suffix>
+              <ns2:brandColor>#FFFFFF</ns2:brandColor>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -646,14 +822,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroupAd">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -788,6 +964,31 @@ AdGroupAdServiceで提供される操作を説明します。
             <videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</videoCompleteBeaconUrls>
           </ad>
         </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>88888</campaignId>
+          <adGroupId>7777</adGroupId>
+          <adName>DynamicAd</adName>
+          <mediaId>88812</mediaId>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
+            <type>MANUAL_CPC</type>
+            <maxCpc>100</maxCpc>
+          </bid>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DynamicAd">
+            <type>DYNAMIC_AD</type>
+            <url>http://hogehoge.co.jp</url>
+            <displayUrl>hogehoge.co.jp</displayUrl>
+            <buttonText>APPLY_NOW</buttonText>
+            <principal>principal</principal>
+            <logoMediaId>99991</logoMediaId>
+            <logoMediaId2>99992</logoMediaId2>
+            <logoMediaId3>99993</logoMediaId3>
+            <prefix>pr</prefix>
+            <suffix>suf</suffix>
+            <brandColor>#FFFFFF</brandColor>
+          </ad>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -803,14 +1004,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1543384312669</ns2:requestTime>
+      <ns2:requestTime>1551686137738</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -985,6 +1186,38 @@ AdGroupAdServiceで提供される操作を説明します。
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>DynamicAd</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicAd">
+              <ns2:type>DYNAMIC_AD</ns2:type>
+              <ns2:url>http://hogehoge.co.jp</ns2:url>
+              <ns2:displayUrl>hogehoge.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>99991</ns2:logoMediaId>
+              <ns2:logoMediaId2>99992</ns2:logoMediaId2>
+              <ns2:logoMediaId3>99993</ns2:logoMediaId3>
+              <ns2:prefix>pr</ns2:prefix>
+              <ns2:suffix>suf</ns2:suffix>
+              <ns2:brandColor>#FFFFFF</ns2:brandColor>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -1004,14 +1237,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroupAd">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -1020,6 +1253,12 @@ AdGroupAdServiceで提供される操作を説明します。
           <campaignId>10001</campaignId>
           <adGroupId>20001</adGroupId>
           <adId>2000001</adId>
+        </operand>
+        <operand>
+          <accountId>1234567890</accountId>
+          <campaignId>20001</campaignId>
+          <adGroupId>30001</adGroupId>
+          <adId>3000001</adId>
         </operand>
         <operand>
           <accountId>1234567890</accountId>
@@ -1066,14 +1305,14 @@ AdGroupAdServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1543384312808</ns2:requestTime>
+      <ns2:requestTime>1551686137834</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -1245,6 +1484,38 @@ AdGroupAdServiceで提供される操作を説明します。
               <ns2:videoPaidBeaconUrls>http://testtest.videoPaidBeaconUrls2.co.jp</ns2:videoPaidBeaconUrls>
               <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls.co.jp</ns2:videoCompleteBeaconUrls>
               <ns2:videoCompleteBeaconUrls>http://testtest.videoCompleteBeaconUrls2.co.jp</ns2:videoCompleteBeaconUrls>
+            </ns2:ad>
+          </ns2:adGroupAd>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupAd>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>20001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>30001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:adId>3000001</ns2:adId>
+            <ns2:adName>DynamicAd</ns2:adName>
+            <ns2:mediaId>1111</ns2:mediaId>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:approvalStatus>REVIEW</ns2:approvalStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupAdBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:DynamicAd">
+              <ns2:type>DYNAMIC_AD</ns2:type>
+              <ns2:url>http://hogehoge.co.jp</ns2:url>
+              <ns2:displayUrl>hogehoge.co.jp</ns2:displayUrl>
+              <ns2:buttonText>APPLY_NOW</ns2:buttonText>
+              <ns2:principal>principal</ns2:principal>
+              <ns2:logoMediaId>99991</ns2:logoMediaId>
+              <ns2:logoMediaId2>99992</ns2:logoMediaId2>
+              <ns2:logoMediaId3>99993</ns2:logoMediaId3>
+              <ns2:prefix>pr</ns2:prefix>
+              <ns2:suffix>suf</ns2:suffix>
+              <ns2:brandColor>#FFFFFF</ns2:brandColor>
             </ns2:ad>
           </ns2:adGroupAd>
         </ns2:values>

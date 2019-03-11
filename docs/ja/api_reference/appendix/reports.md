@@ -9,10 +9,11 @@ YDN APIで利用できるレポートフィールド集です。<br>
 * [サイトカテゴリーレポート](./reports/SITE_CATEGORY.csv)
 * [配信先URLレポート](./reports/URL.csv)
 * [フリークエンシーレポート](./reports/FREQUENCY.csv)
+* [ラベルレポート](./reports/LABEL.csv)
 
 ### 動作区分の説明
 値           | 意味  
--------------------- | ------------------------ 
+ -------------------- | ------------------------ 
 Attribute | 広告の設定項目
 Segment | 配信実績の分割項目
 Metric | 広告の配信実績
@@ -21,27 +22,27 @@ Metric | 広告の配信実績
 ### レスポンス詳細
 <a name="ad_type"></a>
 ##### AD_TYPEレスポンス
-値           | 表示名（日本語）  | 表示名（英語）
--------------------- | ------------------------ | ---------------------- 
-TEXT_AD1 | テキスト（15・19-19） | Text Ad(15-19-19)
-TEXT_AD2 | テキスト（15・33） | Text Ad(15-33)
-SHORT_AD1 | ショートテキスト（14・19） | Short Ad(14-19)
-SHORT_AD2 | ショートテキスト（12・12） | Short Ad(12-12)
-PLACEMENT_TEXT | 掲載位置指定テキスト | Placement Text Ad
-TEXT_AD3 | テキスト（15・90） | Text Ad(15-90)
-RESPONSIVE | レスポンシブ | Responsive
-STATIC_FRAME_300X250 | 広告枠サイズ固定（300×250） | Static Frame(300×250)
-NOT_REQUIRED | テキスト不要 | Text not required
+表示名（日本語）  | 表示名（英語）
+ ------------------------ | ---------------------- 
+テキスト（15・19-19） | Text Ad(15-19-19)
+テキスト（15・33） | Text Ad(15-33)
+ショートテキスト（14・19） | Short Ad(14-19)
+ショートテキスト（12・12） | Short Ad(12-12)
+掲載位置指定テキスト | Placement Text Ad
+テキスト（15・90） | Text Ad(15-90)
+レスポンシブ | Responsive
+広告枠サイズ固定（300×250） | Static Frame(300×250)
+テキスト不要 | Text not required
 
 <a name="gender"></a>
 ##### GENDERレスポンス
-値           | 表示名（日本語）  | 表示名（英語）
--------------------- | ------------------------ | ---------------------- 
-MALE | 男性 | Male
-FEMALE | 女性 | Female
-UNKNOWN | 不明 | Unknown
-MALE_ADV | 男性（拡張） | Male (adv.)
-FEMALE_ADV | 女性（拡張） | Female (adv.)
+表示名（日本語）  | 表示名（英語）
+ ------------------------ | ---------------------- 
+男性 | Male
+女性 | Female
+不明 | Unknown
+男性（推定）| Male (predicted)
+女性（推定）| Female (predicted)
 
 <a name="age"></a>
 ##### AGEレスポンス
@@ -60,18 +61,18 @@ FEMALE_ADV | 女性（拡張） | Female (adv.)
 60歳～69歳 | Age / 60s
 70歳～ | Age / Over 70
 不明 | Unknown
-～5歳（拡張） | Age / Under 6 (adv.)
-6歳～12歳（拡張） | Age / 6-12 (adv.)
-13歳～14歳（拡張） | Age / 13-14 (adv.)
-15歳～17歳（拡張） | Age / 15-17 (adv.)
-18歳～19歳（拡張） | Age / 18-19 (adv.)
-20歳～21歳（拡張） | Age / 20-21 (adv.)
-22歳～29歳（拡張） | Age / 22-29 (adv.)
-30歳～39歳（拡張） | Age / 30s (adv.)
-40歳～49歳（拡張） | Age / 40s (adv.)
-50歳～59歳（拡張） | Age / 50s (adv.)
-60歳～69歳（拡張） | Age / 60s (adv.)
-70歳～（拡張） | Age / Over 70 (adv.)
+～5歳（推定）| Age / Under 6 (predicted)
+6歳～12歳（推定）| Age / 6-12 (predicted)
+13歳～14歳（推定）| Age / 13-14 (predicted)
+15歳～17歳（推定）| Age / 15-17 (predicted)
+18歳～19歳（推定）| Age / 18-19 (predicted)
+20歳～21歳（推定）| Age / 20-21 (predicted)
+22歳～29歳（推定）| Age / 22-29 (predicted)
+30歳～39歳（推定）| Age / 30s (predicted)
+40歳～49歳（推定）| Age / 40s (predicted)
+50歳～59歳（推定）| Age / 50s (predicted)
+60歳～69歳（推定）| Age / 60s (predicted)
+70歳～（推定）| Age / Over 70 (predicted)
 
 <a name="deliver"></a>
 ##### DELIVERレスポンス
@@ -144,16 +145,15 @@ SoftBank | SoftBank
 
 <a name="ad_layout"></a>
 ##### AD_LAYOUTレスポンス
-値           | 表示名（日本語）  | 表示名（英語）
--------------------- | ------------------------ | ---------------------- 
-SQUARE_BANNER_TOP | スクエアバナー（トップ） | Square Banner (Top)
-WIDE_BANNER_TOP | ワイドバナー（トップ） | Wide Banner (Top)
-WIDE_BANNER_MIDDLE | ワイドバナー（ミドル） | Wide Banner (Middle)
+表示名（日本語）  | 表示名（英語）
+ ------------------------ | ---------------------- 
+スクエアバナー（トップ） | Square Banner (Top)
+ワイドバナー（トップ） | Wide Banner (Top)
+ワイドバナー（ミドル） | Wide Banner (Middle)
 
 <a name="image_option"></a>
 ##### IMAGE_OPTIONレスポンス
-値          | 表示名（日本語）  | 表示名（英語）
--------------------- | ------------------------ | ---------------------- 
-PAUSED | オフ | Off
-ACTIVE | オン | On
-IGNORE | - | -
+表示名（日本語）  | 表示名（英語）
+ ------------------------ | ---------------------- 
+オフ | Off
+オン | On

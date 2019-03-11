@@ -20,7 +20,7 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>アカウントIDです。</td>
+  <td>アカウントID</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -30,7 +30,7 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
-  <td>キャンペーンIDです。</td>
+  <td>キャンペーンID</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -40,17 +40,17 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
  <tr>
   <td>campaignName</td>
   <td>xsd:string</td>
-  <td>キャンペーン名です。</td>
+  <td>キャンペーン名</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adGroupId</td>
   <td>xsd:long</td>
-  <td>広告グループIDです。 </td>
+  <td>広告グループID </td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
@@ -60,94 +60,94 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
  <tr>
   <td>adGroupName</td>
   <td>xsd:string</td>
-  <td>広告グループ名です。</td>
+  <td>広告グループ名</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adId</td>
   <td>xsd:long</td>
-  <td>広告IDです。 </td>
+  <td>広告ID </td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Requirement<br>NotUpdatable</td>
   <td>Requirement<br>NotUpdatable</td>
  </tr>
  <tr>
   <td>adName</td>
   <td>xsd:string</td>
-  <td>広告名です。 </td>
+  <td>広告名 </td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>adStyle</td>
   <td>enum <a href="AdStyle.md">AdStyle</a></td>
-  <td>掲載フォーマットの種別です。<br>
+  <td>掲載フォーマットの種別<br>
   ※デフォルト値は「TEXT」</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>mediaId</td>
   <td>xsd:long</td>
-  <td>画像IDです。</td>
+  <td>画像ID</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>userStatus</td>
   <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>配信状況です。</td>
+  <td>配信状況</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
   <tr>
   <td>approvalStatus</td>
   <td>enum <a href="ApprovalStatus.md">ApprovalStatus</a></td>
-  <td>審査状況です。</td>
+  <td>審査状況</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>disapprovalReasonCodes</td>
   <td>xsd:string<br>-num DisapprovalReasonCode</td>
-  <td>掲載拒否の理由です。</td>
+  <td>掲載拒否の理由</td>
   <td>yes</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>bid</td>
   <td>AdGroupAdBid<br>inherited<br>
   <a href="./ManualCPCAdGroupAdBid.md">ManualCPCAdGroupAdBid</a><br> <a href="./ManualCPVAdGroupAdBid.md">ManualCPVAdGroupAdBid</a></td>
-  <td>入札価格です。</td>
+  <td>入札価格</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>ad</td>
@@ -158,23 +158,24 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
   inherited <a href="ResponsiveAd.md">ResponsiveAd</a><br>
   inherited <a href="StaticFrameAd.md">StaticFrameAd</a><br>
   inherited <a href="VideoAd.md">VideoAd</a><br>
+  inherited <a href="DynamicAd.md">DynamicAd</a><br>
   inherited <a href="None.md">None</a></td>
-  <td>広告を含むコンテナです。</td>
+  <td>広告を含むコンテナ</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>impressionBeaconUrls[0..2]</td>
   <td>xsd:string</td>
-  <td>インプレッションビーコンURLです。</td>
+  <td>インプレッションビーコンURL</td>
   <td>yes</td>
   <td>-</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
-  <td>-</td>
+  <td>Ignore</td>
  </tr>
  <tr>
   <td>isRemoveBeaconUrls</td>
@@ -183,9 +184,19 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
   設定値が「TRUE」の場合、設定されている<br>インプレッションビーコンURLの<br>値が無効になります。</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
+  <td>Ignore</td>
   <td>Optional<br>Updatable</td>
+  <td>Ignore</td>
+ </tr>
+<tr>
+  <td>labels[0..1000]</td>
+  <td><a href="./Label.md">Label</a></td>
+  <td>ラベル</td>
+  <td>yes</td>
   <td>-</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
  </tr>
 </table>
 

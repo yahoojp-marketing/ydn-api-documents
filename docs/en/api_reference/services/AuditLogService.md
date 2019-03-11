@@ -36,14 +36,14 @@ Retrieves information of download operation history data.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getDownload xmlns="http://im.yahooapis.jp/V201812/AuditLog">
+    <getDownload xmlns="http://im.yahooapis.jp/V201903/AuditLog">
       <selector>
         <accountId>100000001</accountId>
         <dateRange>
@@ -69,14 +69,14 @@ Retrieves information of download operation history data.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AuditLog</ns2:service>
-      <ns2:requestTime>1536568321636</ns2:requestTime>
+      <ns2:requestTime>1551686144673</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getDownloadResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AuditLog">
+    <ns2:getDownloadResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AuditLog">
       <ns2:rval>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -101,7 +101,7 @@ Retrieves information of download operation history data.
             <ns2:auditLogJobEndDate>20180306171924</ns2:auditLogJobEndDate>
             <ns2:auditLogJobStatus>COMPLETED</ns2:auditLogJobStatus>
             <ns2:progress>100</ns2:progress>
-            <ns2:downloadAuditLogDownloadUrl>https://colo01.im.yahooapis.jp/auditLogDownload/V201812/download/fOFrjyw7I</ns2:downloadAuditLogDownloadUrl>
+            <ns2:downloadAuditLogDownloadUrl>https://colo01.im.yahooapis.jp/auditLogDownload/V201903/download/fOFrjyw7I</ns2:downloadAuditLogDownloadUrl>
           </ns2:auditLogJob>
         </ns2:values>
       </ns2:rval>
@@ -123,14 +123,14 @@ Retrieves the download result information of operation history
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getDownloadStatus xmlns="http://im.yahooapis.jp/V201812/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <getDownloadStatus xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <selector>
         <accountId>100000001</accountId>
         <auditLogJobIds>1111</auditLogJobIds>
@@ -157,14 +157,14 @@ Retrieves the download result information of operation history
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AuditLog</ns2:service>
-      <ns2:requestTime>1536568321681</ns2:requestTime>
+      <ns2:requestTime>1551686144684</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getDownloadStatusResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AuditLog">
+    <ns2:getDownloadStatusResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AuditLog">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AuditLogPage</Page.Type>

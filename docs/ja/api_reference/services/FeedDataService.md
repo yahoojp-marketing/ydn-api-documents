@@ -4,11 +4,11 @@ FeedDataServiceでは、商品情報(TSVファイル形式)をアップロード
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/FeedDataService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/FeedDataService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/FeedDataService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/FeedDataService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201812/FeedData
+http://im.yahooapis.jp/V201903/FeedData
 
 #### サービス概要
 商品情報(TSVファイル形式)をアップロードするURLの発行、処理状況の照会を行ないます。
@@ -36,14 +36,14 @@ http://im.yahooapis.jp/V201812/FeedData
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getUploadUrl xmlns="http://im.yahooapis.jp/V201812/FeedData">
+    <getUploadUrl xmlns="http://im.yahooapis.jp/V201903/FeedData">
       <accountId>1111</accountId>
       <itemListUploadType>UPDATE_ALL</itemListUploadType>
       <feedHolderId>222</feedHolderId>
@@ -61,19 +61,19 @@ http://im.yahooapis.jp/V201812/FeedData
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>FeedData</ns2:service>
-      <ns2:requestTime>1531887805443</ns2:requestTime>
+      <ns2:requestTime>1551686142521</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getUploadUrlResponse xmlns="http://im.yahooapis.jp/V201812/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <getUploadUrlResponse xmlns="http://im.yahooapis.jp/V201903/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <rval>
         <accountId>1111</accountId>
         <itemListUploadType>UPDATE_ALL</itemListUploadType>
         <feedHolderId>2222</feedHolderId>
-        <uploadUrl>https://colo01.im.yahooapis.jp/feedUpload/V201812/upload/KSwRXZuvEOH06e29wJuflTf9ZqYb.wn6ftbC_7stbaa6eF0TYw5HTZW8bwmNkway59_Nw62ExfIIFj2XPjXwNoDhtCRLjEVrbvtxIgxjxTpBmNqe0vItGSU-</uploadUrl>
+        <uploadUrl>https://colo01.im.yahooapis.jp/feedUpload/V201903/upload/KSwRXZuvEOH06e29wJuflTf9ZqYb.wn6ftbC_7stbaa6eF0TYw5HTZW8bwmNkway59_Nw62ExfIIFj2XPjXwNoDhtCRLjEVrbvtxIgxjxTpBmNqe0vItGSU-</uploadUrl>
       </rval>
     </getUploadUrlResponse>
   </SOAP-ENV:Body>
@@ -92,14 +92,14 @@ http://im.yahooapis.jp/V201812/FeedData
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getUploadStatus xmlns="http://im.yahooapis.jp/V201812/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <getUploadStatus xmlns="http://im.yahooapis.jp/V201903/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <selector>
         <accountId>1111</accountId>
         <feedHolderIds>222</feedHolderIds>
@@ -135,14 +135,14 @@ http://im.yahooapis.jp/V201812/FeedData
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/FeedData" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>FeedData</ns2:service>
-      <ns2:requestTime>1531887804443</ns2:requestTime>
+      <ns2:requestTime>1551686142510</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getUploadStatusResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/FeedData">
+    <ns2:getUploadStatusResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/FeedData">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>FeedDataPage</Page.Type>
@@ -156,7 +156,7 @@ http://im.yahooapis.jp/V201812/FeedData
             <ns2:itemListUploadStatus>UPLOADED</ns2:itemListUploadStatus>
             <ns2:uploadDate>20180313143813</ns2:uploadDate>
             <ns2:errorCount>2</ns2:errorCount>
-            <ns2:errorListDownloadUrl>https://colo01.im.yahooapis.jp/feedUpload/V201812/downloadErrorFile/gaChTAqlEOFLfOACISiRi2A1Cq_K3zZUXT95bA2X08mrAkckbvq4e79qoNiyq34QaHNTG_0dfevjoURTzf6dGnqGXQkEPgQp4gGsl59Z</ns2:errorListDownloadUrl>
+            <ns2:errorListDownloadUrl>https://colo01.im.yahooapis.jp/feedUpload/V201903/downloadErrorFile/gaChTAqlEOFLfOACISiRi2A1Cq_K3zZUXT95bA2X08mrAkckbvq4e79qoNiyq34QaHNTG_0dfevjoURTzf6dGnqGXQkEPgQp4gGsl59Z</ns2:errorListDownloadUrl>
           </ns2:feedData>
         </ns2:values>
       </ns2:rval>

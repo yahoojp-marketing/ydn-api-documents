@@ -5,12 +5,12 @@ SOAPリクエストが成功した場合、YDN APIは HTTP 200 OKというレス
    
 ### エラーレスポンスサンプル
 
-SOAPのエラーレスポンスには、SOAPFault、全体エラー、部分エラーがあります。以下で各レスポンスについて説明します。
+SOAPのエラーレスポンスとして、SOAPFault、全体エラー、部分エラーについて説明いたします。
 
 #### SOAPFault
 
-WSDL や SOAP 構文違反、システムエラー、認証エラーなどは、SOAPFaultが返却されます。<br>
-SOAPFaultはサービスによって、以下のいずれかの形式のレスポンスになります。
+WSDL や SOAP 構文違反、システムエラー、認証エラーなどは、SOAPFaultレスポンスとなります。<br>
+なお、SOAPFaultはサービスによって以下のどちらかの形式のレスポンスになります。
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
@@ -45,10 +45,10 @@ SOAPFaultはサービスによって、以下のいずれかの形式のレス�
 
 #### 全体エラー
 
-SOAPFaultには含まれないが、リクエストの制約等によりリクエスト全体が失敗した場合は、全体エラーが返却されます。<br>
-SOAPリクエストの各 `<operand>` 内の制約によりリクエストに失敗した場合は、部分エラーが返却されます。
+SOAPFaultではないものの、リクエストの制約等によりリクエスト全体が失敗した場合は全体エラーがレスポンスされます。<br>
+なお、SOAPリクエストの各 `<operand>` 内の制約によりリクエストに失敗した場合、部分エラーがレスポンスされます。
 
-以下は[AccountService](/docs/ja/api_reference/services/AccountService.md)で、 `Paging` の `numberResults` の値が不正な場合のエラーレスポンス例です。
+以下は[AccountService](/docs/ja/api_reference/services/AccountService.md)で `Paging` の `numberResults` の値が不正な場合のエラーレスポンス例です。
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
@@ -76,9 +76,9 @@ SOAPリクエストの各 `<operand>` 内の制約によりリクエストに失
 
 #### 部分エラー
 
-`<operand>` 内の各要素の制約等によりエラーが発生した場合は、部分エラーが返却されます。<br>
-部分エラーは、各 `<operand>` ごとにエラーが発生したかについて返却します。<br>
-なお、一回のSOAPリクエストで複数の `<operand>` を送るなど、複数の操作を要求するリクエストを送った場合、`<operationSucceeded>` の値が `true` や `false` である `<values>` が混在するエラーレスポンスになる場合もあります。
+`<operand>` 内の各要素の制約等によりエラーが発生した場合、部分エラーがレスポンスされます。<br>
+部分エラーは全体エラーと異なり、各 `<operand>` ごとにエラーが発生したかどうかを返します。<br>
+なお、一回のSOAPリクエストで複数の `<operand>` を送るなど、複数の操作を要求するようなリクエストを送った場合、`<operationSucceeded>` の値が `true` であったり `false` であったりする `<values>` が混在するエラーレスポンスになる場合もあります。
 
 以下は[ReportService](/docs/ja/api_reference/services/ReportService.md)で存在しない `reportId` を指定した場合のエラーレスポンス例です。
 
@@ -161,7 +161,11 @@ LT001 | Over limit. | 登録できる上限値を超過しています。
 [AdGroupAdService](/docs/ja/api_reference/services/AdGroupAdService.md),<br>
 [AdGroupService](/docs/ja/api_reference/services/AdGroupService.md),<br>
 [MediaService](/docs/ja/api_reference/services/MediaService.md),<br>
-[VideoService](/docs/ja/api_reference/services/VideoService.md)
+[VideoService](/docs/ja/api_reference/services/VideoService.md),<br>
+[CampaignLabelService](/docs/ja/api_reference/services/CampaignLabelService.md),<br>
+[AdGroupLabelService](/docs/ja/api_reference/services/AdGroupLabelService.md),<br>
+[AdGroupAdLabelService](/docs/ja/api_reference/services/AdGroupAdLabelService.md),<br>
+[LabelService](/docs/ja/api_reference/services/LabelService.md)<br>
 
 コード         | メッセージ                  | 説明                   
 -------------- | --------------------------- | ---------------------------
@@ -210,6 +214,7 @@ LT001 | Over limit. | 登録できる上限値を超過しています。
 220301 | Over limit to delivered ad. | 配信設定中の広告の件数が上限を超えています。
 220302 | Over limit to ad under account. | アカウント配下の広告の件数が上限を超えています。
 220310 | Over limit to ad group under account. | アカウント配下の広告グループの件数が上限を超えています。
+220311 | Over limit to label under account. | アカウント配下のラベルの件数が上限を超えています。
 220322 | Invalid tracking parameter. | 無効な文字列（無効なトラッキングパラメータなど）が存在します。
 220323 | Tracking parameter  is not available for this type of ad distribution. | 指定された広告掲載方式に対し、トラッキングパラメータは対応していません。
 220324 | Entered tracking parameter cannot be used. | 入力されたトラッキングパラメータは利用できません。

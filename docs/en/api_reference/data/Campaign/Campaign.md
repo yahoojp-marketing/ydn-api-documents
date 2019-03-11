@@ -1,5 +1,6 @@
 # Campaign
 Campaign object describes campaign information.
+
 ### Service
 + [CampaignService](../../services/CampaignService.md)
 
@@ -19,7 +20,7 @@ Campaign object describes campaign information.
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>Account ID </td>
+  <td>Account ID.</td>
   <td>yes</td>
   <td>Required</td>
   <td>Required<br>NotUpdatable</td>
@@ -28,7 +29,7 @@ Campaign object describes campaign information.
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
-  <td>Campaign ID</td>
+  <td>Campaign ID.</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Required<br>NotUpdatable</td>
@@ -37,7 +38,7 @@ Campaign object describes campaign information.
  <tr>
   <td>campaignName</td>
   <td>xsd:string</td>
-  <td>Campaign Name</td>
+  <td>Campaign Name.</td>
   <td>yes</td>
   <td>Required</td>
   <td>Optional<br>Updatable</td>
@@ -57,8 +58,7 @@ Campaign object describes campaign information.
  <tr>
   <td>servingStatus</td>
   <td>enum <a href="./CampaignServingStatus.md">CampaignServingStatus</a></td>
-  <td>Delivery status in campaign level<br>
-  Display the campaign status, regardless of ad delivery setting by user</td>
+  <td>Delivery status in campaign level.<br>Display the campaign status, regardless of ad delivery setting by user.</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -67,7 +67,7 @@ Campaign object describes campaign information.
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>The start date</td>
+  <td>Start date.</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
@@ -76,7 +76,7 @@ Campaign object describes campaign information.
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>The end date</td>
+  <td>End date.</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
@@ -85,7 +85,7 @@ Campaign object describes campaign information.
  <tr>
   <td>budget</td>
   <td><a href="./Budget.md">Budget</a></td>
-  <td>Campaign Budget</td>
+  <td>Campaign Budget.</td>
   <td>yes</td>
   <td>Required</td>
   <td>Optional<br>Updatable</td>
@@ -94,7 +94,7 @@ Campaign object describes campaign information.
  <tr>
   <td>biddingStrategy</td>
   <td><a href="./BiddingStrategy.md">BiddingStrategy</a></td>
-  <td>Container including bidding strategy</td>
+  <td>Container including bidding strategy.</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -103,7 +103,7 @@ Campaign object describes campaign information.
  <tr>
   <td>adProductType</td>
   <td>xsd:string</td>
-  <td>Ad product information<br>*Check the available values by get operation on <a href="../../services/AccountAdProductService.md">AccountAdProductService</a>.</td>
+  <td>Ad product information.<br>&lowast;Check the available values by get operation on <a href="../../services/AccountAdProductService.md">AccountAdProductService</a>.</td>
   <td>yes</td>
   <td>Required</td>
   <td>NotUpdatable</td>
@@ -112,7 +112,7 @@ Campaign object describes campaign information.
  <tr>
   <td>frequencyCap</td>
   <td><a href="./FrequencyCap.md">FrequencyCap</a></td>
-  <td>Frequency Cap</td>
+  <td>Frequency Cap.</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
@@ -121,9 +121,9 @@ Campaign object describes campaign information.
  <tr>
   <td>conversionOptimizer</td>
   <td><a href="./CampaignConversionOptimizer.md">CampaignConversionOptimizer</a><br>
-inherited　<a href="./ManualCampaignConversionOptimizer.md">ManualCampaignConversionOptimizer</a><br>
-inherited　<a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversionOptimizer</a></td></td>
-  <td>Conversion Optimize</td>
+inherited <a href="./ManualCampaignConversionOptimizer.md">ManualCampaignConversionOptimizer</a><br>
+inherited <a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversionOptimizer</a></td></td>
+  <td>Conversion Optimize.</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Optional<br>Updatable</td>
@@ -132,16 +132,16 @@ inherited　<a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversio
  <tr>
   <td>campaignType</td>
   <td>enum <a href="./CampaignType.md">CampaignType </a></td>
-  <td>Campaign Type </td>
+  <td>Campaign Type.</td>
   <td>yes</td>
-  <td>Optional<br>&lowast;Not specified :STANDARD</td>
+  <td>Optional<br>&lowast;Not specified: STANDARD</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
  <tr>
   <td>appName</td>
   <td>xsd:string</td>
-  <td>App Name</td>
+  <td>App Name.</td>
   <td>yes</td>
   <td>Optional<br>&lowast;If campaignType is set to "APP": Required.
   </td>
@@ -151,7 +151,7 @@ inherited　<a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversio
  <tr>
   <td>appId</td>
   <td>xsd:string</td>
-  <td>iOS:APP ID<br>Android:Package name</td>
+  <td>iOS: APP ID.<br>Android: Package name.</td>
   <td>yes</td>
   <td>Optional<br>&lowast;If campaignType is set to "APP": Required.</td>
   <td>Ignore</td>
@@ -160,9 +160,27 @@ inherited　<a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversio
  <tr>
   <td>appOs</td>
   <td>enum <a href="./DeviceOsType.md">DeviceOsType</a></td>
-  <td>Device Type of App Install Ads</td>
+  <td>Device Type of App Install Ads.</td>
   <td>yes</td>
   <td>Optional<br>&lowast;If campaignType is set to "APP": Required.</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>labels[0..1000]</td>
+  <td><a href="./Label.md">Label</a></td>
+  <td>Label.</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+   <tr>
+  <td>feedHolderId</td>
+  <td>xsd:long</td>
+  <td>Feed holder ID.</td>
+  <td>yes</td>
+  <td>Optional<br>&lowast;If AdType is Dynamic Ads for Display: Required.</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>

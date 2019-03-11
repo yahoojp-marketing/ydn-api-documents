@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201812/AdGroupAd"
-        xmlns:tns="http://im.yahooapis.jp/V201812/AdGroupAd"
+        targetNamespace="http://im.yahooapis.jp/V201903/AdGroupAd"
+        xmlns:tns="http://im.yahooapis.jp/V201903/AdGroupAd"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201812"
+            targetNamespace="http://im.yahooapis.jp/V201903"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201812">
+            xmlns:tns="http://im.yahooapis.jp/V201903">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201812/AdGroupAd"
+            targetNamespace="http://im.yahooapis.jp/V201903/AdGroupAd"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201812"
-            xmlns:tns="http://im.yahooapis.jp/V201812/AdGroupAd">
-      <xsd:import namespace="http://im.yahooapis.jp/V201812"/>
+            xmlns:adv="http://im.yahooapis.jp/V201903"
+            xmlns:tns="http://im.yahooapis.jp/V201903/AdGroupAd">
+      <xsd:import namespace="http://im.yahooapis.jp/V201903"/>
       <annotation>
         <appinfo>
-          <version>201812</version>
+          <version>201903</version>
         </appinfo>
       </annotation>
       <complexType name="AdGroupAdSelector">
@@ -83,6 +83,8 @@
           <element maxOccurs="unbounded" minOccurs="0" name="adGroupIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="adIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="mediaIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="labelIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="containsLabelIdFlg" type="xsd:boolean"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="approvalStatuses" type="tns:ApprovalStatus"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
@@ -124,6 +126,7 @@
           <element maxOccurs="1" minOccurs="0" name="ad" type="tns:Ad"/>
           <element maxOccurs="unbounded" minOccurs="0" name="impressionBeaconUrls" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="isRemoveBeaconUrls" type="tns:isRemoveFlg"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="labels" type="tns:Label"/>
         </sequence>
       </complexType>
       <complexType abstract="true" name="AdGroupAdBid">
@@ -164,6 +167,7 @@
           <enumeration value="RESPONSIVE_AD"/>
           <enumeration value="STATIC_FRAME_AD"/>
           <enumeration value="VIDEO_AD"/>
+          <enumeration value="DYNAMIC_AD"/>
           <enumeration value="NONE"/>
         </restriction>
       </simpleType>
@@ -257,6 +261,24 @@
               <element maxOccurs="1" minOccurs="0" name="isRemoveVideoPaidBeaconUrls" type="tns:isRemoveFlg"/>
               <element maxOccurs="unbounded" minOccurs="0" name="videoCompleteBeaconUrls" type="xsd:string"/>
               <element maxOccurs="1" minOccurs="0" name="isRemoveVideoCompleteBeaconUrls" type="tns:isRemoveFlg"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="DynamicAd">
+        <complexContent>
+          <extension base="tns:Ad">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="url" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="displayUrl" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="buttonText" type="tns:ButtonText"/>
+              <element maxOccurs="1" minOccurs="0" name="principal" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="logoMediaId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="logoMediaId2" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="logoMediaId3" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="prefix" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="suffix" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="brandColor" type="xsd:string"/>
             </sequence>
           </extension>
         </complexContent>
@@ -372,6 +394,14 @@
           <enumeration value="TRUE"/>
         </restriction>
       </simpleType>
+      <complexType name="Label">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="labelId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="labelName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="description" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="color" type="xsd:string"/>
+        </sequence>
+      </complexType>
       <element name="get">
         <complexType>
           <sequence>
@@ -471,9 +501,9 @@
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="AdGroupAdServiceService">
+  <wsdl:service name="AdGroupAdService">
     <wsdl:port binding="tns:AdGroupAdServiceSoapBinding" name="AdGroupAdService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201812/AdGroupAdService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201903/AdGroupAdService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

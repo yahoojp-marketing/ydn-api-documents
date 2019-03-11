@@ -57,6 +57,21 @@ EntityTypeは、操作対象のエンティティの種別を表します。
   <td>動画です。</td>
  </tr>
  <tr>
+  <td>CAMPAIGN_LABEL</td>
+  <td>xsd:string</td>
+  <td>キャンペーンラベルです。</td>
+ </tr>
+ <tr>
+  <td>AD_GROUP_LABEL</td>
+  <td>xsd:string</td>
+  <td>広告グループラベルです。</td>
+ </tr>
+ <tr>
+  <td>AD_LABEL</td>
+  <td>xsd:string</td>
+  <td>広告ラベルです。</td>
+ </tr>
+ <tr>
   <td>ALL</td>
   <td>xsd:string</td>
   <td>すべての広告エンティティです。</td>

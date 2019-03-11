@@ -25,20 +25,20 @@ Acquires account information.
 
 | Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| selector | required <br>(Can be omitted for regular authentication) | AccountSelector | Acquires account information.<br>*Account IDs under selector can also be omitted for regular authentication. Required for proxy authentication. |
+| selector | required <br>(Can be omitted for regular authentication) | [AccountSelector](../data/Account/AccountSelector.md) | Acquires account information.<br>&lowast;Account IDs under selector can also be omitted for regular authentication. Required for proxy authentication. |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <get xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <selector>
         <accountIds>1111</accountIds>
         <accountIds>2222</accountIds>
@@ -69,14 +69,14 @@ Acquires account information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Account</ns2:service>
-      <ns2:requestTime>1536568316138</ns2:requestTime>
+      <ns2:requestTime>1551686139454</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Account">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Account">
       <ns2:rval>
         <totalNumEntries>2</totalNumEntries>
         <ns2:values>
@@ -87,6 +87,7 @@ Acquires account information.
             <ns2:accountType>PREPAY</ns2:accountType>
             <ns2:accountStatus>SERVING</ns2:accountStatus>
             <ns2:deliveryStatus>ACTIVE</ns2:deliveryStatus>
+            <ns2:autoTaggingEnabled>FALSE</ns2:autoTaggingEnabled>
           </ns2:account>
         </ns2:values>
         <ns2:values>
@@ -103,6 +104,7 @@ Acquires account information.
               <ns2:startDate>20120529</ns2:startDate>
               <ns2:endDate>20371231</ns2:endDate>
             </ns2:budget>
+            <ns2:autoTaggingEnabled>FALSE</ns2:autoTaggingEnabled>
           </ns2:account>
         </ns2:values>
       </ns2:rval>
@@ -118,26 +120,27 @@ Operates account information.
 
 | Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| selector | required<br>(Can be omitted for regular authentication)|[AccountOperation](../data/Account/AccountOperation.md)|Acquires account information.<br>*Account IDs under selector can also be omitted for regular authentication. Required for proxy authentication.|
+| operations | required |[AccountOperation](../data/Account/AccountOperation.md)| Contains the account information for mutate method operation.|
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201812/Account">
+    <mutate xmlns="http://im.yahooapis.jp/V201903/Account">
       <operations>
         <operator>SET</operator>
         <operand>
           <accountId>1111</accountId>
           <accountName>SampleAccount_UpdatedOn</accountName>
           <deliveryStatus>ACTIVE</deliveryStatus>
+          <autoTaggingEnabled>TRUE</autoTaggingEnabled>
         </operand>
       </operations>
     </mutate>
@@ -154,14 +157,14 @@ Operates account information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/Account" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Account" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>Account</ns2:service>
-      <ns2:requestTime>1536568316216</ns2:requestTime>
+      <ns2:requestTime>1551686139470</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/Account">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Account">
       <ns2:rval>
         <ListReturnValue.Type>AccountReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -179,6 +182,7 @@ Operates account information.
               <ns2:startDate>20120529</ns2:startDate>
               <ns2:endDate>20371231</ns2:endDate>
             </ns2:budget>
+            <ns2:autoTaggingEnabled>TRUE</ns2:autoTaggingEnabled>
           </ns2:account>
         </ns2:values>
       </ns2:rval>

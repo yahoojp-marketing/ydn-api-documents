@@ -37,14 +37,14 @@ Retrieves ad group information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <get xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -57,6 +57,9 @@ Retrieves ad group information.
         <adGroupIds>20003</adGroupIds>
         <adGroupIds>20004</adGroupIds>
         <adGroupIds>20005</adGroupIds>
+        <labelIds>3000</labelIds>
+        <labelIds>3001</labelIds>
+        <containsLabelIdFlg>true</containsLabelIdFlg>
         <userStatuses>ACTIVE</userStatuses>
         <userStatuses>PAUSED</userStatuses>
         <paging>
@@ -78,14 +81,14 @@ Retrieves ad group information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroup</ns2:service>
-      <ns2:requestTime>1536568319423</ns2:requestTime>
+      <ns2:requestTime>1551686143975</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroup">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroup">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupPage</Page.Type>
@@ -108,6 +111,18 @@ Retrieves ad group information.
             </ns2:conversionOptimizer>
             <ns2:device>DESKTOP</ns2:device>
             <ns2:dynamicImageExtensions>ACTIVE</ns2:dynamicImageExtensions>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroup>
         </ns2:values>
         <ns2:values>
@@ -133,6 +148,18 @@ Retrieves ad group information.
             <ns2:smartDeviceCarriers>DOCOMO</ns2:smartDeviceCarriers>
             <ns2:deviceOsVersion>[8.0]</ns2:deviceOsVersion>
             <ns2:dynamicImageExtensions>ACTIVE</ns2:dynamicImageExtensions>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroup>
         </ns2:values>
         <ns2:values>
@@ -155,6 +182,18 @@ Retrieves ad group information.
             <ns2:deviceApp>APP</ns2:deviceApp>
             <ns2:deviceOs>ANDROID</ns2:deviceOs>
             <ns2:smartDeviceCarriers>NONE</ns2:smartDeviceCarriers>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
           </ns2:adGroup>
         </ns2:values>
       </ns2:rval>
@@ -176,14 +215,14 @@ Add ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroup">
+    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroup">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -252,14 +291,14 @@ Add ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroup</ns2:service>
-      <ns2:requestTime>1536568319476</ns2:requestTime>
+      <ns2:requestTime>1551686143999</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroup">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroup">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -350,14 +389,14 @@ Updates information of ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroup">
+    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroup">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -396,14 +435,14 @@ Updates information of ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroup</ns2:service>
-      <ns2:requestTime>1536568319527</ns2:requestTime>
+      <ns2:requestTime>1551686144024</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroup">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroup">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -494,14 +533,14 @@ Removes ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201812/AdGroup">
+    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroup">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -525,14 +564,14 @@ Removes ad group.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201812/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201812">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroup</ns2:service>
-      <ns2:requestTime>1536568319577</ns2:requestTime>
+      <ns2:requestTime>1551686144048</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201812" xmlns:ns2="http://im.yahooapis.jp/V201812/AdGroup">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroup">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

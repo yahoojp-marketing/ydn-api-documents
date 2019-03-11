@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201812/Stats"
-        xmlns:tns="http://im.yahooapis.jp/V201812/Stats"
+        targetNamespace="http://im.yahooapis.jp/V201903/Stats"
+        xmlns:tns="http://im.yahooapis.jp/V201903/Stats"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201812"
+            targetNamespace="http://im.yahooapis.jp/V201903"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201812">
+            xmlns:tns="http://im.yahooapis.jp/V201903">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201812/Stats"
+            targetNamespace="http://im.yahooapis.jp/V201903/Stats"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201812"
-            xmlns:tns="http://im.yahooapis.jp/V201812/Stats">
-      <xsd:import namespace="http://im.yahooapis.jp/V201812"/>
+            xmlns:adv="http://im.yahooapis.jp/V201903"
+            xmlns:tns="http://im.yahooapis.jp/V201903/Stats">
+      <xsd:import namespace="http://im.yahooapis.jp/V201903"/>
       <annotation>
         <appinfo>
-          <version>201812</version>
+          <version>201903</version>
         </appinfo>
       </annotation>
       <complexType name="StatsSelector">
@@ -83,6 +83,7 @@
           <element maxOccurs="unbounded" minOccurs="0" name="adGroupIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="adIds" type="xsd:long"/>
           <element maxOccurs="unbounded" minOccurs="0" name="mediaIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="targetTypes" type="tns:TargetType"/>
           <element maxOccurs="1" minOccurs="0" name="statsPeriod" type="tns:StatsPeriod"/>
           <element maxOccurs="1" minOccurs="0" name="statsPeriodCustomDate" type="tns:StatsPeriodCustomDate"/>
           <element maxOccurs="1" minOccurs="0" name="statsType" type="tns:StatsType"/>
@@ -116,13 +117,85 @@
           <extension base="adv:ReturnValue">
             <sequence>
               <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="adGroupId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="adId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="mediaId" type="xsd:long"/>
               <element maxOccurs="1" minOccurs="0" name="statsPeriod" type="tns:StatsPeriod"/>
               <element maxOccurs="1" minOccurs="0" name="statsPeriodCustomDate" type="tns:StatsPeriodCustomDate"/>
               <element maxOccurs="1" minOccurs="0" name="statsType" type="tns:StatsType"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="CampaignStatsValues">
+        <complexContent>
+          <extension base="tns:StatsValues">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="stats" type="tns:Stats"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="AdGroupStatsValues">
+        <complexContent>
+          <extension base="tns:StatsValues">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="adGroupId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="stats" type="tns:Stats"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="AdStatsValues">
+        <complexContent>
+          <extension base="tns:StatsValues">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="adGroupId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="adId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="adName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="stats" type="tns:Stats"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ImageStatsValues">
+        <complexContent>
+          <extension base="tns:StatsValues">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="mediaId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="mediaName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="mediaTitle" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="stats" type="tns:Stats"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="VideoStatsValues">
+        <complexContent>
+          <extension base="tns:StatsValues">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="mediaId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="videoName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="videoTitle" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="stats" type="tns:Stats"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="TargetStatsValues">
+        <complexContent>
+          <extension base="tns:StatsValues">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="campaignId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="campaignName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="adGroupId" type="xsd:long"/>
+              <element maxOccurs="1" minOccurs="0" name="adGroupName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="target" type="tns:Target"/>
               <element maxOccurs="1" minOccurs="0" name="stats" type="tns:Stats"/>
             </sequence>
           </extension>
@@ -169,6 +242,9 @@
           <element maxOccurs="1" minOccurs="0" name="videoViewsTo3Sec" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="averageRateVideoViewed" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="averageDurationVideoViewed" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="convValuePerCost" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="allConvValuePerCost" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="convValueViaAdClickPerCost" type="xsd:double"/>
         </sequence>
       </complexType>
       <simpleType name="StatsType">
@@ -178,6 +254,7 @@
           <enumeration value="AD"/>
           <enumeration value="IMAGE"/>
           <enumeration value="VIDEO"/>
+          <enumeration value="TARGET"/>
         </restriction>
       </simpleType>
       <simpleType name="StatsPeriod">
@@ -200,6 +277,247 @@
           <element maxOccurs="1" minOccurs="1" name="statsStartDate" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="1" name="statsEndDate" type="xsd:string"/>
         </sequence>
+      </complexType>
+      <complexType name="Target">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="type" type="tns:TargetType"/>
+          <element maxOccurs="1" minOccurs="0" name="targetSetting" type="tns:TargetSetting"/>
+          <element maxOccurs="1" minOccurs="0" name="targetId" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="TargetSetting">
+        <restriction base="xsd:string">
+          <enumeration value="NONE"/>
+          <enumeration value="ACTIVE"/>
+          <enumeration value="PAUSED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="TargetType">
+        <restriction base="xsd:string">
+          <enumeration value="AD_SCHEDULE_TARGET"/>
+          <enumeration value="GEO_TARGET"/>
+          <enumeration value="AGE_TARGET"/>
+          <enumeration value="GENDER_TARGET"/>
+          <enumeration value="INTEREST_CATEGORY"/>
+          <enumeration value="SITE_CATEGORY"/>
+          <enumeration value="DEVICE_TARGET"/>
+          <enumeration value="CARRIER_TARGET"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="TargetListDeliverType">
+        <restriction base="xsd:string">
+          <enumeration value="INCLUDE"/>
+          <enumeration value="EXCLUDE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="Age">
+        <restriction base="xsd:string">
+          <enumeration value="GT_RANGE13_14"/>
+          <enumeration value="GT_RANGE15_17"/>
+          <enumeration value="GT_RANGE18_19"/>
+          <enumeration value="GT_RANGE20_21"/>
+          <enumeration value="GT_RANGE22_29"/>
+          <enumeration value="GT_RANGE30_39"/>
+          <enumeration value="GT_RANGE40_49"/>
+          <enumeration value="GT_RANGE50_59"/>
+          <enumeration value="GT_RANGE60_69"/>
+          <enumeration value="GT_RANGE70_UL"/>
+          <enumeration value="GT_UNKNOWN"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="EstimateFlg">
+        <restriction base="xsd:string">
+          <enumeration value="PAUSED"/>
+          <enumeration value="ACTIVE"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="DayOfWeek">
+        <restriction base="xsd:string">
+          <enumeration value="MONDAY"/>
+          <enumeration value="TUESDAY"/>
+          <enumeration value="WEDNESDAY"/>
+          <enumeration value="THURSDAY"/>
+          <enumeration value="FRIDAY"/>
+          <enumeration value="SATURDAY"/>
+          <enumeration value="SUNDAY"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="Gender">
+        <restriction base="xsd:string">
+          <enumeration value="ST_MALE"/>
+          <enumeration value="ST_FEMALE"/>
+          <enumeration value="ST_UNKNOWN"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="PlacementUrlListType">
+        <restriction base="xsd:string">
+          <enumeration value="WHITE_LIST"/>
+          <enumeration value="BLACK_LIST"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="DeviceType">
+        <restriction base="xsd:string">
+          <enumeration value="DESKTOP"/>
+          <enumeration value="WAP_MOBILE"/>
+          <enumeration value="SMARTPHONE"/>
+          <enumeration value="TABLET"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="DeviceAppType">
+        <restriction base="xsd:string">
+          <enumeration value="APP"/>
+          <enumeration value="WEB"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="DeviceOsType">
+        <restriction base="xsd:string">
+          <enumeration value="IOS"/>
+          <enumeration value="ANDROID"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="CarrierType">
+        <restriction base="xsd:string">
+          <enumeration value="DOCOMO"/>
+          <enumeration value="KDDI"/>
+          <enumeration value="SOFTBANK"/>
+          <enumeration value="YMOBILE"/>
+          <enumeration value="OTHERS"/>
+        </restriction>
+      </simpleType>
+      <complexType name="AdScheduleTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="dayOfWeek" type="tns:DayOfWeek"/>
+              <element maxOccurs="1" minOccurs="0" name="startHour" type="xsd:int"/>
+              <element maxOccurs="1" minOccurs="0" name="endHour" type="xsd:int"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="GeoTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="geoNameJa" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="geoNameEn" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="AgeTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="age" type="tns:Age"/>
+              <element maxOccurs="1" minOccurs="0" name="estimateFlg" type="tns:EstimateFlg"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="GenderTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="gender" type="tns:Gender"/>
+              <element maxOccurs="1" minOccurs="0" name="estimateFlg" type="tns:EstimateFlg"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="InterestCategoryTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="categoryFullNameJa" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="categoryFullNameEn" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="SearchTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="searchKeywordListName" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="SiteCategoryTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="categoryFullNameJa" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="categoryFullNameEn" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="SiteRetargetingTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="targetListName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="deliverType" type="tns:TargetListDeliverType"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="PlacementTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="placementUrlListName" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="deliverType" type="tns:PlacementUrlListType"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="DeviceTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="deviceType" type="tns:DeviceType"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="CarrierTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="mobileCarrier" type="tns:CarrierType"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="AppTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="appType" type="tns:DeviceAppType"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="OsTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="osType" type="tns:DeviceOsType"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="OsVersionTarget">
+        <complexContent>
+          <extension base="tns:Target">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="osVersion" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
       </complexType>
       <element name="get">
         <complexType>
@@ -262,7 +580,7 @@
   </wsdl:binding>
   <wsdl:service name="StatsService">
     <wsdl:port binding="tns:StatsServiceSoapBinding" name="StatsService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201812/StatsService"/>
+      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201903/StatsService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

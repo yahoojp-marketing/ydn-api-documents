@@ -19,7 +19,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>アカウントIDです。</td>
+  <td>アカウントID</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>Requirement<br>NotUpdatable</td>
@@ -28,7 +28,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>campaignId</td>
   <td>xsd:long</td>
-  <td>キャンペーンIDです。</td>
+  <td>キャンペーンID</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Requirement<br>NotUpdatable</td>
@@ -37,7 +37,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>campaignName</td>
   <td>xsd:string</td>
-  <td>キャンペーン名です。</td>
+  <td>キャンペーン名</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
@@ -46,7 +46,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>userStatus</td>
   <td>enum <a href="./UserStatus.md">UserStatus</a></td>
-  <td>ユーザーにより広告配信の有無を調整できる設定です。<br>
+  <td>ユーザー設定の配信ステータス<br>
   指定しない場合は、フィルタ条件にすべての掲載状況が含まれます。</td>
   <td>yes</td>
   <td>Requirement</td>
@@ -56,7 +56,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>servingStatus</td>
   <td>enum <a href="./CampaignServingStatus.md">CampaignServingStatus</a></td>
-  <td>キャンペーンレベルの配信状況です。<br>
+  <td>配信ステータス<br>
   ユーザーによる広告配信の調整に関わらず、キャンペーンとしての状態を表します。</td>
   <td>yes</td>
   <td>Ignore</td>
@@ -66,7 +66,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>startDate</td>
   <td>xsd:string</td>
-  <td>開始日です。</td>
+  <td>開始日</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
@@ -75,7 +75,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>endDate</td>
   <td>xsd:string</td>
-  <td>終了日です。</td>
+  <td>終了日</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
@@ -84,7 +84,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>budget</td>
   <td><a href="./Budget.md">Budget</a></td>
-  <td>キャンペーン予算です。</td>
+  <td>キャンペーン予算</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>Optional<br>Updatable</td>
@@ -93,7 +93,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>biddingStrategy</td>
   <td><a href="./BiddingStrategy.md">BiddingStrategy</a></td>
-  <td>入札最適化方法です。</td>
+  <td>入札最適化方法</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -102,7 +102,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>adProductType</td>
   <td>xsd:string</td>
-  <td>広告商品情報です。<br>※指定可能な値は、<a href="../../services/AccountAdProductService.md">AccountAdProductService</a>のget操作でご確認ください。</td>
+  <td>配信方法<br>※指定可能な値は、<a href="../../services/AccountAdProductService.md">AccountAdProductService</a>のget操作でご確認ください。</td>
   <td>yes</td>
   <td>Requirement</td>
   <td>NotUpdatable</td>
@@ -111,7 +111,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
  <tr>
   <td>frequencyCap</td>
   <td><a href="./FrequencyCap.md">FrequencyCap</a></td>
-  <td>フリークエンシー制御です。</td>
+  <td>フリークエンシー制御</td>
   <td>yes</td>
   <td>Optional</td>
   <td>Optional<br>Updatable</td>
@@ -122,7 +122,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。
   <td><a href="./CampaignConversionOptimizer.md">CampaignConversionOptimizer</a><br>
 inherited　<a href="./ManualCampaignConversionOptimizer.md">ManualCampaignConversionOptimizer</a><br>
 inherited　<a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversionOptimizer</a></td>
-  <td>コンバージョン最適化設定です。</td>
+  <td>コンバージョン最適化設定</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Optional<br>Updatable</td>
@@ -131,7 +131,7 @@ inherited　<a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversio
  <tr>
   <td>campaignType</td>
   <td>enum <a href="./CampaignType.md">CampaignType </a></td>
-  <td>キャンペーンタイプです。</td>
+  <td>キャンペーンタイプ</td>
   <td>yes</td>
   <td>Optional<br>※未指定時：STANDARD</td>
   <td>Ignore</td>
@@ -140,9 +140,9 @@ inherited　<a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversio
  <tr>
   <td>appName</td>
   <td>xsd:string</td>
-  <td>アプリの名称です。</td>
+  <td>アプリの名称</td>
   <td>yes</td>
-  <td>Optional<br>※campaignTypeがAPPの場合：必須</td>
+  <td>Optional<br>※campaignTypeがAPPの場合：Requirement</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
@@ -151,16 +151,34 @@ inherited　<a href="./AutoCampaignConversionOptimizer.md">AutoCampaignConversio
   <td>xsd:string</td>
   <td>iOS:アプリID<br>Android:パッケージ名</td>
   <td>yes</td>
-  <td>Optional<br>※campaignTypeがAPPの場合：必須</td>
+  <td>Optional<br>※campaignTypeがAPPの場合：Requirement</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
  <tr>
   <td>appOs</td>
   <td>enum <a href="./DeviceOsType.md">DeviceOsType</a></td>
-  <td>アプリインストール広告のデバイス種別</td>
+  <td>アプリインストール広告デバイス種別</td>
   <td>yes</td>
-  <td>Optional<br>※campaignTypeがAPPの場合：必須</td>
+  <td>Optional<br>※campaignTypeがAPPの場合：Requirement</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>labels[0..1000]</td>
+  <td><a href="./Label.md">Label</a></td>
+  <td>ラベル</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+   <tr>
+  <td>feedHolderId</td>
+  <td>xsd:long</td>
+  <td>フィードホルダーID</td>
+  <td>yes</td>
+  <td>Optional<br>※動的ディスプレイ広告の場合：Requirement</td>
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>

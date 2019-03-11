@@ -37,8 +37,26 @@ StatsPage object is a container that includes the execution result of get method
   <td colspan="8">StatsPage</td>
  </tr>
  <tr>
+ <tr>
+  <td>period</td>
+  <td><a href="./Period.md">Period</a></td>
+  <td>Update date of stats information.</td>
+  <td>yes</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
   <td>values</td>
-  <td><a href="./StatsValues.md">StatsValues</a></td>
+  <td><a href="./StatsValues.md">StatsValues</a> <br>inherited　
+  <a href="./CampaignStatsValues.md">CampaignStatsValues</a>
+  <br>inherited　
+  <a href="./AdGroupStatsValues.md">AdGroupStatsValues</a><br>inherited<br>
+  <a href="./AdStatsValues.md">AdStatsValues</a> 
+  <br>inherited　
+  <a href="./ImageStatsValues.md">ImageStatsValues</a><br>inherited　
+  <a href="./VideoStatsValues.md">VideoStatsValues</a><br>inherited　
+  <a href="./TargetStatsValues.md">TargetStatsValues</a></td>
   <td>Container that includes the execution result of get method.</td>
   <td>yes</td>
   <td>-</td>
