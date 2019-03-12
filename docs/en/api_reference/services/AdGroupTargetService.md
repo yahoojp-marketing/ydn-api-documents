@@ -3,10 +3,10 @@ The service let you perform targeting settings operations (get, add, set, replac
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/AdGroupTargetService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/AdGroupTargetService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/AdGroupTargetService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/AdGroupTargetService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/AdGroupTarget
+http://im.yahooapis.jp/V201903/AdGroupTarget
 #### Service Overview
 Performs target settings related operations (get, add, set, replace and remove) for ad group.
 #### Operation

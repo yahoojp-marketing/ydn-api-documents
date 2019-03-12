@@ -6,11 +6,11 @@ It provides operation to get available report fields for specific report type.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/ReportDefinitionService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/ReportDefinitionService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/ReportDefinitionService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/ReportDefinitionService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201812/ReportDefinition
+http://im.yahooapis.jp/V201903/ReportDefinition
 
 #### Service Overview
 The following operations are provided:

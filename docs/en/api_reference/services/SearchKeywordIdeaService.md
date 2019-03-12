@@ -5,10 +5,10 @@ It can designate up to 100 keywords per request.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/SearchKeywordIdeaService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/SearchKeywordIdeaService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/SearchKeywordIdeaService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/SearchKeywordIdeaService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/SearchKeywordIdea
+http://im.yahooapis.jp/V201903/SearchKeywordIdea
 #### Service Overview
 Retrieves the keyword for search targeting.
 #### Operation

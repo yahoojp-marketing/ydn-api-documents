@@ -3,10 +3,10 @@ RetargetingTagService retrieves the site retargeting tag information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/RetargetingTagService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/RetargetingTagService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/RetargetingTagService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/RetargetingTagService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/RetargetingTag
+http://im.yahooapis.jp/V201903/RetargetingTag
 #### Service Overview
 Use this service to retrieve the site retargeting tag information.
 #### Operation

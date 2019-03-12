@@ -4,11 +4,11 @@ Use this service for creating Video Ads.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/VideoService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/VideoService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/VideoService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/VideoService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201812/Video
+http://im.yahooapis.jp/V201903/Video
 
 #### Service Overview
 Use this service to retrieve the Video Ads information, and to upload/download/update/delete video files.

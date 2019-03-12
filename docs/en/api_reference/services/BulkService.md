@@ -3,10 +3,10 @@ Use this service for bulk downloading/uploading by using bulk sheet.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/BulkService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/BulkService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/BulkService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/BulkService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/Bulk
+http://im.yahooapis.jp/V201903/Bulk
 #### Service Overview
 Offers a bulk download function that uses bulk sheets.
 

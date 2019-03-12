@@ -3,10 +3,10 @@ In PlacementUrlListService, acquiring, creating, updating and deleting Placement
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/PlacementUrlListService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/PlacementUrlListService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/PlacementUrlListService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/PlacementUrlListService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/PlacementUrlList
+http://im.yahooapis.jp/V201903/PlacementUrlList
 #### Service Overview
 In PlacementUrlListService, acquiring, creating, updating and deleting Placement URL list will be done.
 #### Operation

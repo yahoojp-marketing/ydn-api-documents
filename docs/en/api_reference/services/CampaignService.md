@@ -4,11 +4,11 @@ Use this service to get, add, update, or delete campaigns.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/CampaignService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/CampaignService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/CampaignService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/CampaignService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201812/Campaign
+http://im.yahooapis.jp/V201903/Campaign
 
 #### Service Overview
 Offers campaign operation.

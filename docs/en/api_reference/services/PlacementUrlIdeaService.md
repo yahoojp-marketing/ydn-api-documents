@@ -3,10 +3,10 @@ PlacementUrlIdeaService acquires candidate URL which is set in submission for Pl
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/PlacementUrlIdeaService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/PlacementUrlIdeaService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/PlacementUrlIdeaService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/PlacementUrlIdeaService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/PlacementUrlIdea
+http://im.yahooapis.jp/V201903/PlacementUrlIdea
 #### Service Overview
 PlacementUrlIdeaService acquires candidate URL which is set in submission for Placement Targeting.
 
