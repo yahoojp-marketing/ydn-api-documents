@@ -3,10 +3,10 @@ LocationService retrieves account location information.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/LocationService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/LocationService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/LocationService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/LocationService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/Location
+http://im.yahooapis.jp/V201903/Location
 #### Service Overview
 Provides the URL prefix for the colocation your account is assigned to.<br>
 Requesting URL differs from other Services.

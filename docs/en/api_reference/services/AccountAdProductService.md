@@ -3,10 +3,10 @@ AccountAdProductService provides the list of ad display methods.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/AccountAdProductService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/AccountAdProductService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/AccountAdProductService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/AccountAdProductService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/AccountAdProduct
+http://im.yahooapis.jp/V201903/AccountAdProduct
 #### Service Overview
 AccountAdProductService searves the list of Ad display method.
 #### Operation

@@ -3,10 +3,10 @@ AuditLogService retrieves the data of user operation history.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/AuditLogService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/AuditLogService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/AuditLogService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/AuditLogService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/AuditLog
+http://im.yahooapis.jp/V201903/AuditLog
 #### Service Overview
 Offers download operation history data.
 

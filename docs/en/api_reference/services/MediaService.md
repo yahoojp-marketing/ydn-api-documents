@@ -3,10 +3,10 @@ MediaService retrieves, adds, updates, and deletes the media submission.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/MediaService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/MediaService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/MediaService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/MediaService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201812/Media
+http://im.yahooapis.jp/V201903/Media
 #### Service Overview
 Use this service to retrieves, adds, updates, and deletes the media submission.<br>
 

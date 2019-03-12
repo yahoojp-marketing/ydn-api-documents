@@ -119,7 +119,7 @@ ConversionTrackerServiceで提供される操作を説明します。
         <statsPeriod>CUSTOM_DATE</statsPeriod>
         <statsPeriodCustomDate>
           <statsStartDate>20180401</statsStartDate>
-          <statsEndDate>20181201</statsEndDate>
+          <statsEndDate>20190301</statsEndDate>
         </statsPeriodCustomDate>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
@@ -323,7 +323,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+            <ns2:statsEndDate>20190301</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
         <ns2:values>
@@ -352,7 +352,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+            <ns2:statsEndDate>20190301</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
         <ns2:values>
@@ -394,7 +394,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+            <ns2:statsEndDate>20190301</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
       </ns2:rval>

@@ -5,11 +5,11 @@ It also includes an operation that acquires report download URLs.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/ReportService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/ReportService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/ReportService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/ReportService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201812/Report
+http://im.yahooapis.jp/V201903/Report
 
 #### Service Overview
 The following operations are provided:

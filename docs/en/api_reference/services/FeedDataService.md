@@ -4,11 +4,11 @@ FeedDataService provides functions to get URL for upload item list(tsv file form
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/FeedDataService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/FeedDataService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/FeedDataService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/FeedDataService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201812/FeedData
+http://im.yahooapis.jp/V201903/FeedData
 
 #### Overview
 Use this service to get URL for upload item list(tsv file format), to get upload status.

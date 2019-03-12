@@ -4,11 +4,11 @@ StatsService retrieves the stats data of each campaign, ad group, ad, image and 
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/StatsService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/StatsService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/StatsService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/StatsService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201812/Stats
+http://im.yahooapis.jp/V201903/Stats
 
 #### Service Overview
 StatsService retrieves the stats data of each campaign, ad group, ad, image and video.

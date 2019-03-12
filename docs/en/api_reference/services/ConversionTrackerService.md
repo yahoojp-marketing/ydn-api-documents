@@ -4,11 +4,11 @@ ConversionTrackerService is to get, add, and update ConversionTracker informatio
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201812/ConversionTrackerService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201812/ConversionTrackerService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201903/ConversionTrackerService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/ConversionTrackerService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201812/ConversionTracker
+http://im.yahooapis.jp/V201903/ConversionTracker
 
 #### Overiew
 Get, add, update Conversion Tracker informations.
@@ -117,7 +117,7 @@ Get ConversionTracker information of specified account.
         <statsPeriod>CUSTOM_DATE</statsPeriod>
         <statsPeriodCustomDate>
           <statsStartDate>20180401</statsStartDate>
-          <statsEndDate>20181201</statsEndDate>
+          <statsEndDate>20190301</statsEndDate>
         </statsPeriodCustomDate>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
@@ -319,7 +319,7 @@ Get ConversionTracker information of specified account.
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+            <ns2:statsEndDate>20190301</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
         <ns2:values>
@@ -348,7 +348,7 @@ Get ConversionTracker information of specified account.
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+            <ns2:statsEndDate>20190301</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
         <ns2:values>
@@ -390,7 +390,7 @@ Get ConversionTracker information of specified account.
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20181201</ns2:statsEndDate>
+            <ns2:statsEndDate>20190301</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
       </ns2:rval>
