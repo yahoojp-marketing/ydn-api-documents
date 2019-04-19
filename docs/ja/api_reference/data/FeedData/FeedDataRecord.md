@@ -12,7 +12,7 @@ FeedDataRecordオブジェクトは、アップロードした商品情報(フ�
 | accountId| xsd:long| アカウントID |
 | feedHolderId| xsd:long| FeedHolderを識別するId |
 | itemListUploadId| xsd:long| アップロードした商品情報を識別するID |
-| itemListUploadType| [ItemListUploadType](ItemListUploadType.md)| 処理種別 |
+| itemListUploadType| [ItemListUploadType](ItemListUploadType.md)| 取り込み種別 |
 | itemListUploadStatus| [FileUploadStatus](FileUploadStatus.md)| 商品情報の処理状態 |
 | uploadDate| xsd:string| アップロード日(yyyyMMdd) |
 | errorCount| xsd:long| 不備がある商品情報の件数 |

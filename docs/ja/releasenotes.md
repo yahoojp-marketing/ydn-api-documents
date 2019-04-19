@@ -72,11 +72,28 @@ Yahoo!ディスプレイアドネットワーク（YDN）で自動タグ設定�
 
 ※広告管理ツールでは、2019年2月13日（水）にリリースしました。なお、正規代理店のお客様のみ利用可能です。<br>
 
+#### ※動的ディスプレイ広告の機能改善に伴う変更（2019年4月18日実施）
+
+* 商品リストファイルの定期アップロードに対応<br>
+お客様のサーバーから定期的に商品リストファイルの情報を取得する「定期アップロード」に対応しました。
+* 商品セット機能の追加<br>
+商品リスト内の商品情報を、カテゴリーIDや価格などで分類できる「商品セット」機能を追加しました。商品セットを広告グループに設定することで、広告グループ単位で異なる商品種別や価格帯の商品に絞り込んで広告を配信できます。
+* 操作履歴への項目追加（YDN API全バージョン対象）<br>
+商品セット機能の追加により、操作履歴に以下の項目（列）を追加しました。<br>
+　・商品リスト名<br>
+　・商品リストID<br>
+　・商品セット名<br>
+　・商品セットID<br>
+
 ##### 対象ウェブサービス
  * [AdGroupAdService](./api_reference/services/AdGroupAdService.md)
+ * [AdGroupService](./api_reference/services/AdGroupService.md)
  * [CampaignService](./api_reference/services/CampaignService.md)
  * [FeedDataService](./api_reference/services/FeedDataService.md)
  * [FeedHolderService](./api_reference/services/FeedHolderService.md)
+ * [FeedFtpService](./api_reference/services/FeedFtpService.md)
+ * [FeedFtpRequestService](./api_reference/services/FeedFtpRequestService.md)
+ * [FeedSetService](./api_reference/services/FeedSetService.md)
 
 
 ## Serviceの変更による各Versionへの主な影響
@@ -97,7 +114,7 @@ Yahoo!ディスプレイアドネットワーク（YDN）で自動タグ設定�
 <tr>
 <td>CampaignService</td>
 <td>インターフェース変更なし<br>
-・動的ディスプレイ広告用キャンペーンは、広告商品情報が返却されません。
+・動的ディスプレイ広告用キャンペーンは、広告商品情報が返却されない。
 </td>
 <td>
 ・設定されたラベル情報を取得できる<br>
@@ -108,7 +125,10 @@ Yahoo!ディスプレイアドネットワーク（YDN）で自動タグ設定�
 <td>AdGroupService</td>
 <td>インターフェース変更なし<br>
 </td>
-<td>設定されたラベル情報を取得できる。<br>
+<td>・設定されたラベル情報を取得できる。<br>
+・商品セットIDを検索できる。<br>
+・広告グループに商品セットを設定、変更、削除できる。<br> 
+・WSDLの変更。<br> 
 </td>
 </tr>
 <tr>
@@ -185,6 +205,35 @@ Yahoo!ディスプレイアドネットワーク（YDN）で自動タグ設定�
 <td>
 ・ラベルごとのパフォーマンスレポートが取得できる。<br>
 ・費用対効果（ROAS）に関する項目を取得できる。<br>
+</td>
+</tr>
+<tr>
+<td>FeedDataService</td>
+<td>ZIP形式のファイルをアップロードできる<br>
+</td>
+<td>
+ZIP形式とTSV形式のファイルをアップロードできる。 
+</td>
+</tr>
+<tr>
+<td>FeedFtpService</td>
+<td>-</td>
+<td>
+定期アップロードで利用するサーバーの情報を登録、更新できる。
+</td>
+</tr>
+<tr>
+<td>FeedFtpRequestService</td>
+<td>-</td>
+<td>
+定期アップロードの即時実行をリクエストできる。
+</td>
+</tr>
+<tr>
+<td>FeedSetService</td>
+<td>-</td>
+<td>
+商品セットを作成、追加、削除できる。
 </td>
 </tr>
 <tr>

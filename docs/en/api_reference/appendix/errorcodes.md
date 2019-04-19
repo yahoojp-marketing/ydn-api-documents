@@ -165,6 +165,11 @@ LT001 | Over limit. | The upper limit value that can be registered is exceeded.
 [AdGroupLabelService](/docs/en/api_reference/services/AdGroupLabelService.md),<br>
 [AdGroupAdLabelService](/docs/en/api_reference/services/AdGroupAdLabelService.md),<br>
 [LabelService](/docs/en/api_reference/services/LabelService.md)
+[FeedDataService](/docs/en/api_reference/services/FeedDataService.md)<br>
+[FeedFtpRequestService](/docs/en/api_reference/services/FeedFtpRequestService.md)<br>
+[FeedFtpService](/docs/en/api_reference/services/FeedFtpService.md)<br>
+[FeedHolderService](/docs/en/api_reference/services/FeedHolderService.md)<br>
+[FeedSetService](/docs/en/api_reference/services/FeedSetService.md)<br>
 
 Code           | Message                     | Description                
 -------------- | --------------------------- | ---------------------------
@@ -219,6 +224,7 @@ Code           | Message                     | Description
 220324 | Entered tracking parameter cannot be used. | There is a Tracking Parameter which is not available for the YDN-unaligned tracking tool, or a discontinued Tracking Parameter.
 220325 | Invalid relation of video and thumbnail format. | Invalid relation of video and thumbnail format.
 220326 | Not allowed to set video beacon url. | Not allowed to set video beacon url.
+220328 | Invalid condition, which matches all items. | All items meet the selected conditions. It is not possible to set the condition.
 
 ### Report Process-related Errors
 ##### Service

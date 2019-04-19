@@ -10,7 +10,7 @@ UploadUrlValueオブジェクトは、getUploadUrl操作の結果を保持する
 | Field | Type | Description |
 |---|---|---|
 | accountId| xsd:long| アカウントID |
-| itemListUploadType| [ItemListUploadType](ItemListUploadType.md)| 処理種別 |
+| itemListUploadType| [ItemListUploadType](ItemListUploadType.md)| 取り込み種別 |
 | feedHolderId| xsd:long| FeedHolderを識別するId |
 | uploadUrl| xsd:string| ファイルアップロードする一時URL |
 

@@ -1,5 +1,5 @@
 # FeedDataService
-FeedDataServiceでは、商品情報(TSVファイル形式)をアップロードするURLの発行、処理状況の照会を行ないます。
+FeedDataServiceでは、商品情報(TSV or ZIPファイル形式)をアップロードするURLの発行、処理状況の照会を行ないます。
 
 #### WSDL
 | environment | url |
@@ -11,7 +11,7 @@ FeedDataServiceでは、商品情報(TSVファイル形式)をアップロード
 http://im.yahooapis.jp/V201903/FeedData
 
 #### サービス概要
-商品情報(TSVファイル形式)をアップロードするURLの発行、処理状況の照会を行ないます。
+商品情報(TSV or ZIPファイル形式)をアップロードするURLの発行、処理状況の照会を行ないます。
 
 #### 操作
 提供される操作を説明します。
@@ -29,7 +29,7 @@ http://im.yahooapis.jp/V201903/FeedData
 | パラメータ | 必須 | データ型 | 説明 |
 |---|---|---|---|
 | accountId | ○ | xsd:long | アカウントID |
-| itemListUploadType | ○ |  [ItemListUploadType](../data/FeedData/ItemListUploadType.md)| 処理種別 |
+| itemListUploadType | ○ |  [ItemListUploadType](../data/FeedData/ItemListUploadType.md)| 取り込み種別 |
 | feedHolderId | ○ |  xsd:long| FeedHolderId |
 
 ##### ＜リクエストサンプル＞

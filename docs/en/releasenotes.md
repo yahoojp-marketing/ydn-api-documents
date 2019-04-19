@@ -8,7 +8,7 @@ V201903 (WSDL version V201903)
 ### 1. Labeling feature released
 Labeling feature in Yahoo! JAPAN Display Ad Network (YDN) became available. Changes on the V201903 release are as follows.
 
-#### (1) Create, Setup, Edit, Delet labels
+#### ■ Create, Setup, Edit, Delet labels
  * Create, edit, delete labels<br>
  * Setup a label to ad creatives (such as campaign, ad group, ad) and release the label<br>
  * Get label setting information<br>
@@ -41,9 +41,8 @@ Adding new indexes related to ROAS on reports and analytics (statistics), follow
    * The value of "Conversion Label Name" was transferred to "Conversion Name".<br>
    * "Conversion Label Name" is deprecated, please confirm and change to "Conversion Name" if you are using the "Conversion Label Name".<br>
 
-* See also the following page for detail.<br>
-https://git.corp.yahoo.co.jp/anemos-eapi/ydn-api-documents/tree/201903/docs/ja/api_reference/appendix/reports　<br>
-*This new feature became available on the Campaign Management Tool on February 6, 2019.<br>
+* See also the [documentation](./api_reference/appendix/reports) for detail.<br>
+* This new feature became available on the Campaign Management Tool on February 6, 2019.<br>
 
 ##### Target Web Service   
  * [StatsService](./api_reference/services/StatsService.md)
@@ -72,11 +71,29 @@ Maximum number of downloadable error information became 100,000 items on the lat
 
 *This new feature became available on the Campaign Management Tool on February 13, 2019.<br>
 
+#### ※Update on Dynamic Ads for Display feature enhancement (April 18, 2019 released)
+
+* Periodic Upload of Item List file became available<br>
+Data feed directly from the Item List file on advertiser’s server by YDN system periodically and update Item List with the feed data.
+* Item Set feature became available<br>
+"Item Set" supports several filtering items such as category ID, price, ratings are selectable as conditions.Adding the Item set to ad group, ad delivery will become available for various product categories and price zones by each ad group.
+* New items on Operation History (for all available versions of YDN API)<br>
+Following items (rows) were added to Operation history due to the addition of Item set feature.<br>
+　・Item List Name<br>
+　・Item List ID<br>
+　・Item Set Name<br>
+　・Item Set ID<br>
+
 ##### Target Web Service 
  * [AdGroupAdService](./api_reference/services/AdGroupAdService.md)
+ * [AdGroupService](./api_reference/services/AdGroupService.md)
  * [CampaignService](./api_reference/services/CampaignService.md)
  * [FeedDataService](./api_reference/services/FeedDataService.md)
  * [FeedHolderService](./api_reference/services/FeedHolderService.md)
+ * [FeedFtpService](./api_reference/services/FeedFtpService.md)
+ * [FeedFtpRequestService](./api_reference/services/FeedFtpRequestService.md)
+ * [FeedSetService](./api_reference/services/FeedSetService.md)
+
 
 
 ## Impact on each version from the change of Services
@@ -108,13 +125,16 @@ Maximum number of downloadable error information became 100,000 items on the lat
 <td>AdGroupService</td>
 <td>*No change in API IF.<br>
 </td>
-<td>Can get label information set to components.<br>
+<td>-Can get label information set to components.<br>
+-Can search Item Set ID.<br>
+-Can set up Item Set to ad group, and revise/remove Item Set.<br> 
+-Change WSDL.<br>   
 </td>
 </tr>
 <tr>
 <td>AdGroupAdService</td>
 <td>*No change in API IF.<br>
--Cannot get Dynamic ads for display.
+-Cannot get Dynamic Ads for Display.
 </td>
 <td>
 Following operations are available:<br>
@@ -188,6 +208,35 @@ Can set a label to campaign, or release the label<br>
 </td>
 </tr>
 <tr>
+<td>FeedDataService</td>
+<td>Can upload file in ZIP format.<br>
+</td>
+<td>
+Can upload file both in ZIP and TSV format. 
+</td>
+</tr>
+<tr>
+<td>FeedFtpService</td>
+<td>-</td>
+<td>
+Can add and update the information of FTP server for Periodic Upload.
+</td>
+</tr>
+<tr>
+<td>FeedFtpRequestService</td>
+<td>-</td>
+<td>
+Can request "Upload now" process of Periodic Upload.。
+</td>
+</tr>
+<tr>
+<td>FeedSetService</td>
+<td>-</td>
+<td>
+Can create, add and remove Item Set.
+</td>
+</tr>
+<tr>  
 <td>FeedHolderService</td>
 <td>*No change in API IF.<br>
 </td>
@@ -200,7 +249,7 @@ Can get URL for downloading editorial reject reasons.
 <td>*No change in API IF.<br>
 </td>
 <td>
-"DYNAMIC_ADS" is returned.
+"DYNAMIC_ADS" returns.
 </td>
 </tr>
 <tr>

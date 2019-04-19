@@ -62,6 +62,7 @@ Retrieves ad group information.
         <containsLabelIdFlg>true</containsLabelIdFlg>
         <userStatuses>ACTIVE</userStatuses>
         <userStatuses>PAUSED</userStatuses>
+        <feedSetIds>1000</feedSetIds>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
           <ns2:numberResults>1000</ns2:numberResults>
@@ -83,7 +84,7 @@ Retrieves ad group information.
   <SOAP-ENV:Header>
     <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroup</ns2:service>
-      <ns2:requestTime>1551686143975</ns2:requestTime>
+      <ns2:requestTime>1552639723265</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
@@ -196,6 +197,40 @@ Retrieves ad group information.
             </ns2:labels>
           </ns2:adGroup>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroup>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>test dynamic_ads campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupName>test dynamic_ads adGroup.</ns2:adGroupName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualAdGroupConversionOptimizer">
+              <ns2:optimizerType>MANUAL</ns2:optimizerType>
+              <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
+            </ns2:conversionOptimizer>
+            <ns2:device>DESKTOP</ns2:device>
+            <ns2:dynamicImageExtensions>ACTIVE</ns2:dynamicImageExtensions>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:feedSetId>1000</ns2:feedSetId>
+          </ns2:adGroup>
+        </ns2:values>
       </ns2:rval>
     </ns2:getResponse>
   </SOAP-ENV:Body>
@@ -276,6 +311,22 @@ Add ad group.
           <deviceApp>APP</deviceApp>
           <deviceOs>ANDROID</deviceOs>
         </operand>
+        <operand>
+          <accountId>1234567890</accountId>
+          <campaignId>10001</campaignId>
+          <adGroupName>test dynamic_ads adGroup.</adGroupName>
+          <userStatus>ACTIVE</userStatus>
+          <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupBid">
+            <type>MANUAL_CPC</type>
+            <maxCpc>100</maxCpc>
+          </bid>
+          <conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualAdGroupConversionOptimizer">
+            <optimizerType>MANUAL</optimizerType>
+          </conversionOptimizer>
+          <device>DESKTOP</device>
+          <dynamicImageExtensions>ACTIVE</dynamicImageExtensions>
+          <feedSetId>1000</feedSetId>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -293,7 +344,7 @@ Add ad group.
   <SOAP-ENV:Header>
     <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroup</ns2:service>
-      <ns2:requestTime>1551686143999</ns2:requestTime>
+      <ns2:requestTime>1552639723307</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
@@ -370,6 +421,28 @@ Add ad group.
             <ns2:smartDeviceCarriers>NONE</ns2:smartDeviceCarriers>
           </ns2:adGroup>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroup>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>test campaign.</ns2:campaignName>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:adGroupName>test adGroup.</ns2:adGroupName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPCAdGroupBid">
+              <ns2:type>MANUAL_CPC</ns2:type>
+              <ns2:maxCpc>100</ns2:maxCpc>
+            </ns2:bid>
+            <ns2:conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualAdGroupConversionOptimizer">
+              <ns2:optimizerType>MANUAL</ns2:optimizerType>
+              <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
+            </ns2:conversionOptimizer>
+            <ns2:device>DESKTOP</ns2:device>
+            <ns2:dynamicImageExtensions>ACTIVE</ns2:dynamicImageExtensions>
+            <ns2:feedSetId>1000</ns2:feedSetId>
+          </ns2:adGroup>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -419,6 +492,7 @@ Updates information of ad group.
           <smartDeviceCarriers>DOCOMO</smartDeviceCarriers>
           <deviceOsVersion>[8.0]</deviceOsVersion>
           <dynamicImageExtensions>ACTIVE</dynamicImageExtensions>
+          <isRemoveFeedSetId>true</isRemoveFeedSetId>
         </operand>
       </operations>
     </mutate>
@@ -437,7 +511,7 @@ Updates information of ad group.
   <SOAP-ENV:Header>
     <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroup</ns2:service>
-      <ns2:requestTime>1551686144024</ns2:requestTime>
+      <ns2:requestTime>1552639723348</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
@@ -566,7 +640,7 @@ Removes ad group.
   <SOAP-ENV:Header>
     <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201903">
       <ns2:service>AdGroup</ns2:service>
-      <ns2:requestTime>1551686144048</ns2:requestTime>
+      <ns2:requestTime>1552639723392</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
