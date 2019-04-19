@@ -1,5 +1,5 @@
 # FeedDataService
-FeedDataService provides functions to get URL for upload item list(tsv file format), to get upload status.
+FeedDataService provides functions to get URL for upload item list(tsv or zip file format), to get upload status.
 
 #### WSDL
 | environment | url |
@@ -11,7 +11,7 @@ FeedDataService provides functions to get URL for upload item list(tsv file form
 http://im.yahooapis.jp/V201903/FeedData
 
 #### Overview
-Use this service to get URL for upload item list(tsv file format), to get upload status.
+Use this service to get URL for upload item list(tsv or zip file format), to get upload status.
 
 #### Operation
 Describes the operation which provides by FeedDataService.
@@ -29,7 +29,7 @@ Returns URL for upload item list.
 | Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
 | accountId | Req | xsd:long | Account ID. |
-| itemListUploadType | Req |  [ItemListUploadType](../data/FeedData/ItemListUploadType.md)| Type of item list upload. |
+| itemListUploadType | Req |  [ItemListUploadType](../data/FeedData/ItemListUploadType.md)| Type of uploaded item list. |
 | feedHolderId | Req |  xsd:long| FeedHolder ID. |
 
 ##### Request Sample

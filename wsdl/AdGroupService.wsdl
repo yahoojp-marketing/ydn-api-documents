@@ -84,6 +84,7 @@
           <element maxOccurs="unbounded" minOccurs="0" name="labelIds" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="containsLabelIdFlg" type="xsd:boolean"/>
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="feedSetIds" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
@@ -122,6 +123,8 @@
           <element maxOccurs="1" minOccurs="0" name="deviceOsVersion" type="xsd:string"/>
           <element maxOccurs="1" minOccurs="0" name="dynamicImageExtensions" type="tns:DynamicImageExtensions"/>
           <element maxOccurs="unbounded" minOccurs="0" name="labels" type="tns:Label"/>
+          <element maxOccurs="1" minOccurs="0" name="feedSetId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="isRemoveFeedSetId" type="xsd:boolean"/>
         </sequence>
       </complexType>
       <complexType abstract="true" name="AdGroupBid">

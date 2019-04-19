@@ -158,6 +158,24 @@ inherited　<a href="./AutoAdGroupConversionOptimizer.md">AutoAdGroupConversionO
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
+ <tr>
+  <td>feedSetId</td>
+  <td>xsd:long</td>
+  <td>商品セットID</td>
+  <td>yes</td>
+  <td>Optional</td>
+  <td>Optional<br>Updatable<</td>
+  <td>Ignore</td>
+  </tr>
+  <tr>
+   <td>isRemoveFeedSetId</td>
+   <td>xsd:boolean</td>
+   <td>商品セットとの関連付けを削除（配信停止）</td>
+   <td>yes</td>
+   <td>Optional</td>
+   <td>Optional<br>Updatable<</td>
+   <td>Ignore</td>
+  </tr>
 </table>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

@@ -166,6 +166,11 @@ LT001 | Over limit. | 登録できる上限値を超過しています。
 [AdGroupLabelService](/docs/ja/api_reference/services/AdGroupLabelService.md),<br>
 [AdGroupAdLabelService](/docs/ja/api_reference/services/AdGroupAdLabelService.md),<br>
 [LabelService](/docs/ja/api_reference/services/LabelService.md)<br>
+[FeedDataService](/docs/ja/api_reference/services/FeedDataService.md)<br>
+[FeedFtpRequestService](/docs/ja/api_reference/services/FeedFtpRequestService.md)<br>
+[FeedFtpService](/docs/ja/api_reference/services/FeedFtpService.md)<br>
+[FeedHolderService](/docs/ja/api_reference/services/FeedHolderService.md)<br>
+[FeedSetService](/docs/ja/api_reference/services/FeedSetService.md)<br>
 
 コード         | メッセージ                  | 説明                   
 -------------- | --------------------------- | ---------------------------
@@ -220,6 +225,7 @@ LT001 | Over limit. | 登録できる上限値を超過しています。
 220324 | Entered tracking parameter cannot be used. | 入力されたトラッキングパラメータは利用できません。
 220325 | Invalid relation of video and thumbnail format. | 動画とサムネイルのフォーマットが異なります。
 220326 | Not allowed to set video beacon url. | 動画視聴用のbeacon urlを設定する権限がありません。
+220328 | Invalid condition, which matches all items.| 全商品が該当する条件のため、設定できません。
 
 ### レポート処理に関連するエラー
 ##### Service

@@ -10,7 +10,7 @@ UploadUrlValue object retains result of getUploadUrl operation.
 | Field | Type | Description |
 |---|---|---|
 | accountId| xsd:long| Account ID. |
-| itemListUploadType| [ItemListUploadType](ItemListUploadType.md)| Type of item list upload. |
+| itemListUploadType| [ItemListUploadType](ItemListUploadType.md)| Type of uploaded item list.|
 | feedHolderId| xsd:long| FeedHolder ID. |
 | uploadUrl| xsd:string| Temporary URL for upload. |
 

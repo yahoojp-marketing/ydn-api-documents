@@ -12,8 +12,8 @@ FeedDataRecord object retains status of uploaded item list(file format).
 | accountId| xsd:long| Account ID. |
 | feedHolderId| xsd:long| FeedHolder ID. |
 | itemListUploadId| xsd:long| Uploaded item list ID. |
-| itemListUploadType| [ItemListUploadType](ItemListUploadType.md)| Type of item list upload. |
-| itemListUploadStatus| [FileUploadStatus](FileUploadStatus.md)| Status of item list upload. |
+| itemListUploadType| [ItemListUploadType](ItemListUploadType.md)| Type of uploaded item list. |
+| itemListUploadStatus| [FileUploadStatus](FileUploadStatus.md)| Status of uploaded item list. |
 | uploadDate| xsd:string| Upload date.<br>Format:yyyyMMdd |
 | errorCount| xsd:long| Number of item list with error. |
 | errorListDownloadUrl| xsd:long| Temporary download URL of item list with error. |
