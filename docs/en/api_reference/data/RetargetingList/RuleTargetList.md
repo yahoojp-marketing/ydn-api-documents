@@ -44,7 +44,7 @@ RuleTargetList object displays the list of rule settings.
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>targetListType=RULE：Optional/Updatable, targetListType=DEFAULT_LIST：Ignore</td>
+  <td>targetListType=DEFAULT_LIST,RULE：Optional/Updatable</td>
   <td>-</td>
  </tr>
  <tr>
