@@ -44,7 +44,7 @@ RuleTargetListオブジェクトは、ルール設定のリストを表します
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>targetListTypeがRULEの場合、Optional/Updatable、DEFAULT_LISTの場合、Ignore</td>
+  <td>targetListTypeがDEFAULT_LIST,RULEの場合、Optional/Updatable</td>
   <td>-</td>
  </tr>
  <tr>
