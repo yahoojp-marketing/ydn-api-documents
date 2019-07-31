@@ -1,14 +1,19 @@
+
+
 # BiddingStrategyType (enum)
+
 BiddingStrategyTypeは、入札方法の種類を表します。
-### Service
+
+#### Service
+
 + [AdGroupAdService](../../services/AdGroupAdService.md)
 
-### Namespace
+#### Namespace
+
 [AdGroupAdService#Namespace](../../services/AdGroupAdService.md#namespace)
 
-
-| Enumeration | Type | Description |
-|---|---|---|
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
 | MANUAL_CPC | xsd:string | 手動入札（CPC） |
 | MANUAL_CPV | xsd:string | 手動入札（CPV） |
 

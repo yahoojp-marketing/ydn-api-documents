@@ -24,15 +24,18 @@ Metric | Actual distribution performance of ad
 ##### AD_TYPE Response
 Display Name (Japanese)  | Display Name (English) 
  ------------------------ | ---------------------- 
-テキスト（15・19-19） | Text Ad(15-19-19)
-テキスト（15・33） | Text Ad(15-33)
+テキスト（説明文19-19） | Text (description 19-19)
+テキスト（説明文33） | Text (description 33)
 ショートテキスト（14・19） | Short Ad(14-19)
 ショートテキスト（12・12） | Short Ad(12-12)
 掲載位置指定テキスト | Placement Text Ad
 テキスト（15・90） | Text Ad(15-90)
-レスポンシブ | Responsive
+レスポンシブ（画像） | Responsive (image)
 広告枠サイズ固定（300×250） | Static Frame(300×250)
-テキスト不要 | Text not required
+動的ディスプレイ | Dynamic
+レスポンシブ（動画） | Responsive (video)
+バナー（動画） | Banner (video)
+バナー（画像） | Banner (image)
 
 <a name="gender"></a>
 ##### GENDER Response

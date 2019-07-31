@@ -1,203 +1,35 @@
+
+
 # AdGroupAd
+
 The AdGroupAd object is a container for storing ad information.
+
 ### Service
+
 + [AdGroupAdService](../../services/AdGroupAdService.md)
 
 ### Namespace
+
 [AdGroupAdService#Namespace](../../services/AdGroupAdService.md#namespace)
 
-<table>
- <tr>
-  <th>Field</th>
-  <th>Type</th>
-  <th>Description</th>
-  <th>response</th>
-  <th>get</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
- </tr>
- <tr>
-  <td>accountId</td>
-  <td>xsd:long</td>
-  <td>Account ID.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br>NotUpdatable</td>
-  <td>Requirement<br>NotUpdatable</td>
- </tr>
- <tr>
-  <td>campaignId</td>
-  <td>xsd:long</td>
-  <td>Campaign ID.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br>NotUpdatable</td>
-  <td>Requirement<br>NotUpdatable</td>
- </tr>
- <tr>
-  <td>campaignName</td>
-  <td>xsd:string</td>
-  <td>Campaign name.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>adGroupId</td>
-  <td>xsd:long</td>
-  <td>Ad group ID. </td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Requirement<br>NotUpdatable</td>
-  <td>Requirement<br>NotUpdatable</td>
- </tr>
- <tr>
-  <td>adGroupName</td>
-  <td>xsd:string</td>
-  <td>Ad group name.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>adId</td>
-  <td>xsd:long</td>
-  <td>Ad ID. </td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Ignore</td>
-  <td>Requirement<br>NotUpdatable</td>
-  <td>Requirement<br>NotUpdatable</td>
- </tr>
- <tr>
-  <td>adName</td>
-  <td>xsd:string</td>
-  <td>Ad name. </td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Optional<br>Updatable</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>adStyle</td>
-  <td>enum <a href="AdStyle.md">AdStyle</a></td>
-  <td>Type of ad style.<br>
-  *Default value : TEXT </td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>mediaId</td>
-  <td>xsd:long</td>
-  <td>Media ID (Image ID).</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Optional</td>
-  <td>Optional<br>Updatable</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>userStatus</td>
-  <td>enum <a href="UserStatus.md">UserStatus</a></td>
-  <td>Display status.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Optional<br>Updatable</td>
-  <td>Ignore</td>
- </tr>
-  <tr>
-  <td>approvalStatus</td>
-  <td>enum <a href="ApprovalStatus.md">ApprovalStatus</a></td>
-  <td>Editorial review status.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>disapprovalReasonCodes</td>
-  <td>xsd:string<br>-num DisapprovalReasonCode</td>
-  <td>Reject reason on editorial review.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>bid</td>
-  <td>AdGroupAdBid<br>inherited<br>
-  <a href="./ManualCPCAdGroupAdBid.md">ManualCPCAdGroupAdBid</a><br> <a href="./ManualCPVAdGroupAdBid.md">ManualCPVAdGroupAdBid</a></td>
-  <td>Bid value.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Optional</td>
-  <td>Optional<br>Updatable</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>ad</td>
-  <td><a href="Ad.md">Ad</a><br>
-  inherited <a href="TextAd.md">TextAd</a><br>
-  inherited <a href="MobileAd.md">MobileAd</a><br>
-  inherited <a href="PosAd.md">PosAd</a><br>
-  inherited <a href="ResponsiveAd.md">ResponsiveAd</a><br>
-  inherited <a href="StaticFrameAd.md">StaticFrameAd</a><br>
-  inherited <a href="VideoAd.md">VideoAd</a><br>
-  inherited <a href="DynamicAd.md">DynamicAd</a><br>
-  inherited <a href="None.md">None</a></td>
-  <td>Container including ad.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Requirement</td>
-  <td>Optional<br>Updatable</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>impressionBeaconUrls[0..2]</td>
-  <td>xsd:string</td>
-  <td>Impression beacon URL.</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>Optional</td>
-  <td>Optional<br>Updatable</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>isRemoveBeaconUrls</td>
-  <td>enum <a href="./IsRemoveFlg.md">isRemoveFlg</a></td>
-  <td>Remove flag of impression beacon URL.<br>
-  If set 'TRUE', the set value on the impression beacon URL is invalid.</td>
-  <td>-</td>
-  <td>-</td>
-  <td>Ignore</td>
-  <td>Optional<br>Updatable</td>
-  <td>Ignore</td>
- </tr>
-<tr>
-  <td>labels[0..1000]</td>
-  <td><a href="./Label.md">Label</a></td>
-  <td>Label</td>
-  <td>yes</td>
-  <td>yes</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
-</table>
+| Field | Type | Description | response | get | add | set | remove |
+| ----- | ---- | ----------- | -------- | --------- | --------- | --------- | --------- |
+| accountId | xsd:long | Account ID. | yes | - | Requirement | Requirement<br/>NotUpdatable | Requirement<br/>NotUpdatable | |
+| campaignId | xsd:long | Campaign ID. | yes | - | Requirement | Requirement<br/>NotUpdatable | Requirement<br/>NotUpdatable | |
+| campaignName | xsd:string | Campaign name. | yes | - | Ignore | Ignore | Ignore | |
+| adGroupId | xsd:long | Ad group ID. | yes | - | Requirement | Requirement<br/>NotUpdatable | Requirement<br/>NotUpdatable | |
+| adGroupName | xsd:string | Ad group name. | yes | - | Ignore | Ignore | Ignore | |
+| adId | xsd:long | Ad ID. | yes | - | Ignore | Requirement<br/>NotUpdatable | Requirement<br/>NotUpdatable | |
+| adName | xsd:string | Ad name. | yes | - | Requirement | Optional<br/>Updatable | Ignore | |
+| adStyle | enum [AdStyle](./AdStyle.md) | Type of ad style.<br/>*Default value : TEXT | yes | - | Ignore | Ignore | Ignore | |
+| mediaId | xsd:long | Media ID (Image ID). | yes | - | Optional | Optional<br/>Updatable | Ignore | |
+| userStatus | enum [UserStatus](./UserStatus.md) | Display status. | yes | - | Requirement | Optional<br/>Updatable | Ignore | |
+| approvalStatus | enum [ApprovalStatus](./ApprovalStatus.md) | Editorial review status. | yes | - | Ignore | Ignore | Ignore | |
+| disapprovalReasonCodes | xsd:string | Reject reason on editorial review. | yes | - | Ignore | Ignore | Ignore | |
+| bid | [AdGroupAdBid](./AdGroupAdBid.md)<br>inherited [ManualCPCAdGroupAdBid](./ManualCPCAdGroupAdBid.md)<br>inherited [ManualCPVAdGroupAdBid](./ManualCPVAdGroupAdBid.md) | Bid value. | yes | - | Optional | Optional<br/>Updatable | Ignore | |
+| ad | [Ad](./Ad.md)<br>inherited [TextAd](./TextAd.md)<br>inherited [MobileAd](./MobileAd.md)<br>inherited [PosAd](./PosAd.md)<br>inherited [ResponsiveImageAd](./ResponsiveImageAd.md)<br>inherited [StaticFrameAd](./StaticFrameAd.md)<br>inherited [ResponsiveVideoAd](./ResponsiveVideoAd.md)<br>inherited [DynamicAd](./DynamicAd.md)<br>inherited [BannerVideoAd](./BannerVideoAd.md)<br>inherited [BannerImageAd](./BannerImageAd.md) | Container including ad. | yes | - | Requirement | Optional<br/>Updatable | Ignore | |
+| impressionBeaconUrls[0..2] | xsd:string | Impression beacon URL. | yes | - | Optional | Optional<br/>Updatable | Ignore | |
+| isRemoveBeaconUrls | enum [isRemoveFlg](./isRemoveFlg.md) | Remove flag of impression beacon URL.<br/>If set &#39;TRUE&#39;, the set value on the impression beacon URL is invalid. | - | - | Ignore | Optional<br/>Updatable | Ignore | |
+| labels[0..1000] | [Label](./Label.md) | Label | yes | - | Ignore | Ignore | Ignore | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

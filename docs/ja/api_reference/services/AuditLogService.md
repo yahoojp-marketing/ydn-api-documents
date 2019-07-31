@@ -4,11 +4,11 @@ AuditLogServiceは、操作履歴のダウンロード機能を提供します�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201903/AuditLogService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/AuditLogService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V201907/AuditLogService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/AuditLogService?wsdl|
 
 #### Namespace
-http://im.yahooapis.jp/V201903/AuditLog
+http://im.yahooapis.jp/V201907/AuditLog
 
 #### サービス概要
 操作履歴のダウンロード機能を提供します。
@@ -39,14 +39,14 @@ AuditLogServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getDownload xmlns="http://im.yahooapis.jp/V201903/AuditLog">
+    <getDownload xmlns="http://im.yahooapis.jp/V201907/AuditLog">
       <selector>
         <accountId>100000001</accountId>
         <dateRange>
@@ -72,14 +72,14 @@ AuditLogServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>AuditLog</ns2:service>
       <ns2:requestTime>1551686144643</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getDownloadResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AuditLog">
+    <ns2:getDownloadResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AuditLog">
       <ns2:rval>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -104,7 +104,7 @@ AuditLogServiceで提供される操作を説明します。
             <ns2:auditLogJobEndDate>20180306171924</ns2:auditLogJobEndDate>
             <ns2:auditLogJobStatus>COMPLETED</ns2:auditLogJobStatus>
             <ns2:progress>100</ns2:progress>
-            <ns2:downloadAuditLogDownloadUrl>https://colo01.im.yahooapis.jp/auditLogDownload/V201903/download/fOFrjyw7I</ns2:downloadAuditLogDownloadUrl>
+            <ns2:downloadAuditLogDownloadUrl>https://colo01.im.yahooapis.jp/auditLogDownload/V201907/download/fOFrjyw7I</ns2:downloadAuditLogDownloadUrl>
           </ns2:auditLogJob>
         </ns2:values>
       </ns2:rval>
@@ -127,14 +127,14 @@ AuditLogServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getDownloadStatus xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <getDownloadStatus xmlns="http://im.yahooapis.jp/V201907/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>100000001</accountId>
         <auditLogJobIds>1111</auditLogJobIds>
@@ -161,14 +161,14 @@ AuditLogServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AuditLog" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>AuditLog</ns2:service>
       <ns2:requestTime>1551686144654</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getDownloadStatusResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AuditLog">
+    <ns2:getDownloadStatusResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AuditLog">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AuditLogPage</Page.Type>

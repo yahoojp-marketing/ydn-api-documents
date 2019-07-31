@@ -4,11 +4,11 @@ FeedSetServiceでは、商品セット情報の取得、登録、削除を行い
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201903/FeedSetService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/FeedSetService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201907/FeedSetService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/FeedSetService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201903/FeedSet
+http://im.yahooapis.jp/V201907/FeedSet
 
 #### サービス概要
 商品セット情報の取得、登録、削除を行います。
@@ -35,14 +35,14 @@ http://im.yahooapis.jp/V201903/FeedSet
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/FeedSet">
+    <get xmlns="http://im.yahooapis.jp/V201907/FeedSet">
       <selector>
         <accountId>1234567890</accountId>
         <feedHolderId>10001</feedHolderId>
@@ -67,14 +67,14 @@ http://im.yahooapis.jp/V201903/FeedSet
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>FeedSet</ns2:service>
       <ns2:requestTime>1552637421478</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/FeedSet">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedSet">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>FeedSetPage</Page.Type>
@@ -113,14 +113,14 @@ http://im.yahooapis.jp/V201903/FeedSet
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201903/FeedSet">
+    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedSet">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -150,14 +150,14 @@ http://im.yahooapis.jp/V201903/FeedSet
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>FeedSet</ns2:service>
       <ns2:requestTime>1552637421525</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/FeedSet">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedSet">
       <ns2:rval>
         <ListReturnValue.Type>FeedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -196,14 +196,14 @@ http://im.yahooapis.jp/V201903/FeedSet
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201903/FeedSet">
+    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedSet">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -226,14 +226,14 @@ http://im.yahooapis.jp/V201903/FeedSet
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>FeedSet</ns2:service>
       <ns2:requestTime>1552637421551</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/FeedSet">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedSet">
       <ns2:rval>
         <ListReturnValue.Type>FeedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

@@ -1,73 +1,32 @@
+
+
 # MediaAdFormat
+
 MediaAdFormat object contains the information of media format.
 
 ### Service
+
 + [DictionaryService](../../services/DictionaryService.md)
 
 ### Namespace
+
 [DictionaryService#Namespace](../../services/DictionaryService.md#namespace)
 
-<table>
- <tr>
-  <th>Field</th>
-  <th>Type</th>
-  <th>Description</th>
-  <th>response</th>
- </tr>
- <tr>
-  <td>id</td>
-  <td>xsd:int</td>
-  <td>ID</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>width</td>
-  <td>xsd:long</td>
-  <td>Image size : width [pixel]</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>height</td>
-  <td>xsd:long</td>
-  <td>Image size : height [pixel]</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>size</td>
-  <td>xsd:long</td>
-  <td>Image capacity : [byte]</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>transparent</td>
-  <td>xsd:boolean</td>
-  <td>This field indicates whether transparent image is permitted.</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>animation </td>
-  <td>xsd:boolean</td>
-  <td>This field indicates whether animation  is permitted.</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>logo</td>
-  <td>xsd:boolean</td>
-  <td>This field indicates whether it is a logo image or not.</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>thumbnail</td>
-  <td>xsd:boolean</td>
-  <td>This field indicates whether it is a thumbnail image image or not.</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>adFormat</td>
-  <td>xsd:string</td>
-  <td>Format of display (image) ads</td>
-  <td>yes</td>
- </tr>
- </table>
+| Field | Type | Description | response |
+| ----- | ---- | ----------- | -------- |
+| adFormat | xsd:string | Format of display (image) ads | yes | |
+| width | xsd:long | Minimum image size: width [pixel] | yes | |
+| height | xsd:long | Minimum image size: height [pixel] | yes | |
+| size | xsd:long | Maximum image capacity: [byte] | yes | |
+| transparent | xsd:boolean | This field indicates whether transparent image is permitted. | yes | |
+| logo | xsd:boolean | This field indicates whether it is a logo image or not. | yes | |
+| thumbnail | xsd:boolean | This field indicates whether it is a thumbnail image image or not. | yes | |
+| sizeTo | xsd:long | Image compression capacity: [byte] | yes | |
+| maxWidth | xsd:long | Size limit: width [pixel] | yes | |
+| maxHeight | xsd:long | Size limit: height [pixel] | yes | |
+| aspectWidth | xsd:long | Image aspect ratio: width [ratio] | yes | |
+| aspectHeight | xsd:long | Image aspect ratio: height [ratio] | yes | |
+| staticImage | xsd:boolean | This field indicates whether it is a static image. | yes | |
+| aspect | xsd:boolean | This field indicates whether the aspect ratio is supported. | yes | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

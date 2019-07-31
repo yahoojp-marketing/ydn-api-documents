@@ -1,127 +1,32 @@
+
+
 # StaticFrameAd
+
 StaticFrameAdオブジェクトは、広告枠サイズ固定広告の情報を表します。
 
 ### Service
+
 + [AdGroupAdService](../../services/AdGroupAdService.md)
 
 ### Namespace
+
 [AdGroupAdService#Namespace](../../services/AdGroupAdService.md#namespace)
 
 ### Inheritance
+
 + [Ad](./Ad.md)
 
-<table>
- <tr>
-  <th>Field</th>
-  <th>Type</th>
-  <th>Description</th>
-  <th>response</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
- </tr>
- <tr>
-  <td>size</td>
-  <td>xsd:string</td>
-  <td>広告サイズです。</td>
-  <td>yes</td>
-  <td>Requirement</td>
-  <td>Requirement<br>NotUpdatable</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>headline</td>
-  <td>xsd:string</td>
-  <td>タイトルです。</td>
-  <td>yes</td>
-  <td>Requirement(size=300X250)</td>
-  <td>Optional(size=300X250)</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>description</td>
-  <td>xsd:string</td>
-  <td>説明文です。</td>
-  <td>yes</td>
-  <td>Requirement(size=300X250)</td>
-  <td>Optional(size=300X250)</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>url</td>
-  <td>xsd:string</td>
-  <td>リンク先URLです。</td>
-  <td>yes</td>
-  <td>Requirement(size=300X250)</td>
-  <td>Optional(size=300X250)</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>displayUrl</td>
-  <td>xsd:string</td>
-  <td>表示URLです。</td>
-  <td>yes</td>
-  <td>Optional(size=300X250)<br>
-  <br>
-  ※DEFAULT値<br>
-  -標準キャンペーン：<br>入力必須<br>
-  -アプリキャンペーン（iOS）：<br>「itunes.apple.com」<br>
-  -アプリキャンペーン（Android）：<br>「play.google.com」
-  </td>
-  <td>Optional(size=300X250)<br>
-  <br>
-  ※入力許可<br>
-  -アプリキャンペーン（iOS）：<br>「itunes.apple.com」のみ可能<br>
-  -アプリキャンペーン（Android）：<br>「play.google.com」のみ可能
-  </td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>layout</td>
-  <td>xsd:string</td>
-  <td>広告レイアウトです。</td>
-  <td>yes</td>
-  <td>Requirement(size=300X250)</td>
-  <td>Requirement(size=300X250)<br>NotUpdatable</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>buttonText</td>
-  <td>enum <a href="./ButtonText.md">ButtonText</a></td>
-  <td>広告に表示するボタンのテキストです。<br>
-  ※Default値：FOR_MORE_INFO</td>
-  <td>yes</td>
-  <td>Optional(size=300X250)</td>
-  <td>Optional(size=300X250)</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>principal</td>
-  <td>xsd:string</td>
-  <td>主体者表記です。</td>
-  <td>yes</td>
-  <td>Requirement(size=300X250)</td>
-  <td>Optional(size=300X250)</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>logoMediaId</td>
-  <td>xsd:long</td>
-  <td>ロゴ画像のメディアIDです。</td>
-  <td>yes</td>
-  <td>Optional(size=300X250)</td>
-  <td>Optional(size=300X250)</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>colorSetId</td>
-  <td>xsd:long</td>
-  <td>カラーセットIDです。</td>
-  <td>yes</td>
-  <td>Optional(size=300X250)</td>
-  <td>Optional(size=300X250)</td>
-  <td>Ignore</td>
- </tr>
-</table>
+| Field | Type | Description | response | add | set | remove |
+| ----- | ---- | ----------- | -------- | --------- | --------- | --------- |
+| size | xsd:string | 広告サイズです。 | yes | Requirement | Requirement<br/>NotUpdatable | Ignore | |
+| headline | xsd:string | タイトルです。 | yes | Requirement(size=300X250) | Optional(size=300X250) | Ignore | |
+| description | xsd:string | 説明文です。 | yes | Requirement(size=300X250) | Optional(size=300X250) | Ignore | |
+| url | xsd:string | リンク先URLです。 | yes | Requirement(size=300X250) | Optional(size=300X250) | Ignore | |
+| displayUrl | xsd:string | 表示URLです。 | yes | Optional(size=300X250)<br><br>※Default値<br>-標準キャンペーン：<br>入力必須<br>-アプリキャンペーン（iOS）：<br>「itunes.apple.com」<br>-アプリキャンペーン（Android）：<br>「play.google.com」 | Optional(size=300X250)<br><br>  ※入力許可<br>  -アプリキャンペーン（iOS）：<br>  「itunes.apple.com」のみ可能<br>  -アプリキャンペーン（Android）：<br>  「play.google.com」のみ可能<br> | Ignore | |
+| layout | xsd:string | 広告レイアウトです。 | yes | Requirement(size=300X250) | Requirement(size=300X250)<br/>NotUpdatable | Ignore | |
+| buttonText | enum [ButtonText](./ButtonText.md) | 広告に表示するボタンのテキストです。<br/>※Default値：FOR_MORE_INFO | yes | Optional(size=300X250) | Optional(size=300X250) | Ignore | |
+| principal | xsd:string | 主体者表記です。 | yes | Requirement(size=300X250) | Optional(size=300X250) | Ignore | |
+| logoMediaId | xsd:long | ロゴ画像のメディアIDです。 | yes | Optional(size=300X250) | Optional(size=300X250) | Ignore | |
+| colorSetId | xsd:long | カラーセットIDです。 | yes | Optional(size=300X250) | Optional(size=300X250) | Ignore | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

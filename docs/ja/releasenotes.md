@@ -1,99 +1,141 @@
 # リリースノート
 ## リリースバージョン　　
-V201903（WSDLバージョン V201903）
+V201907（WSDLバージョン V201907）
 
 ## 本リリースの主な内容
 ※対象データオブジェクトとEnumerationは、データオブジェクト（Enumeration）集をご確認ください。 
 
-### 1. ラベル機能に対応
-Yahoo!ディスプレイアドネットワーク（YDN）のラベル機能の追加に伴い、以下の点を追加・変更しました。
+### 1. 動的ディスプレイ広告の機能改善
+動的ディスプレイ広告の機能改善として、商品リストファイルのアップロードに以下の機能を追加しました。
 
-#### ■ラベルの新規作成、設定、編集、削除の対応
-以下の対応が可能になりました。<br>
- * ラベルの新規作成、編集、削除<br>
- * 入稿物（キャンペーン、広告グループ、広告）へのラベルの設定、解除<br>
- * ラベルの設定情報の取得<br>
- * ラベルレポートの取得<br>
-
-※広告管理ツールでは、2019年2月6日（水）にリリースしました。<br>
+ * デバッグモードに対応<br>
+ * ファイルアップロード時にアップロード経路やエラー情報などの詳細情報を取得<br>
+ * 定期アップロードに関するステータスを追加<br>
 
 ##### 対象ウェブサービス  
- * [AdGroupService](./api_reference/services/AdGroupService.md)
- * [AdGroupAdService](./api_reference/services/AdGroupAdService.md)
- * [AdGroupAdLabelService](./api_reference/services/AdGroupAdLabelService.md)
- * [AdGroupLabelService](./api_reference/services/AdGroupLabelService.md)
- * [BulkService](./api_reference/services/BulkService.md)
- * [CampaignService](./api_reference/services/CampaignService.md)
- * [CampaignLabelService](./api_reference/services/CampaignLabelService.md)
- * [LabelService](./api_reference/services/LabelService.md)
- * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
- * [ReportService](./api_reference/services/ReportService.md)
- * [StatsService](./api_reference/services/StatsService.md)
+ * [FeedDataService](./api_reference/services/FeedDataService.md)
 
-### 2. レポート、および統計情報に新指標を追加
-レポートおよび統計情報に費用対効果（ROAS）に関する指標の追加に伴い、以下の変更を実施しました。<br>
-
-* レポート、および統計情報に費用対効果（ROAS）に関する以下の指標を追加しました。<br>
-   * コンバージョンの価値/コスト
-   * すべてのコンバージョンの価値/コスト
-   * コンバージョンの価値（広告のクリック経由）/コスト
-
- * 広告管理ツールにおいて、パフォーマンスレポートの「コンバージョンラベル名」を「コンバージョン名」に変更したことに対応するため、レポートに「コンバージョン名」を追加しました。<br>
-   * 「コンバージョン名」には既存の「コンバージョンラベル名」と同じ値が入ります。<br>
-   * 「コンバージョンラベル名」は今後廃止予定のため、当該フィールドをご利用中の場合は「コンバージョン名」への変更をお願いいたします。<br>
-
-※詳細は、[仕様書](./api_reference/appendix/reports)もあわせてご参照ください。<br>
-※広告管理ツールでは、2019年2月6日（水）にリリースしました。<br>
+### 2. 画像・動画のアスペクト比による入稿
+画像・動画のアスペクト比による入稿に対応しました。<br>
+これに伴い、「DictionaryService」のgetMediaAdFormatで、アスペクト比による入稿が可能かを示すフラグ、アスペクト比、最大画像サイズなどの取得に対応しました。<br>
 
 ##### 対象ウェブサービス  
- * [StatsService](./api_reference/services/StatsService.md)
+ * [DictionaryService](./api_reference/services/DictionaryService.md)
+ * [MediaService](./api_reference/services/MediaService.md)
+ * [VideoService](./api_reference/services/VideoService.md)
 
-### 3. 自動タグ設定機能への対応
-Yahoo!ディスプレイアドネットワーク（YDN）で自動タグ設定機能のリリースに伴い、自動タグ設定のオンオフを追加しました。<br>
-※広告管理ツールでは、2019年1月29日（火）にリリースしました。<br>
 
-##### 対象ウェブサービス  
- * [AccountService](./api_reference/services/StatsService.md)
+### 3. PCブランドパネルの入稿に対応
+広告掲載方式「PCブランドパネル」の入稿に対応するため、以下の変更を実施しました。<br>
 
-### 4. ターゲティング機能の改善
-ターゲティング機能の改善に伴い、統計情報でターゲティングの実績を表示できるようになりました。<br>
-※広告管理ツールでは、2019年2月27日（水）にリリースしました。<br>
-
-##### 対象ウェブサービス  
- * [StatsService](./api_reference/services/StatsService.md)
-
-### 5. 動的ディスプレイ広告への対応
-動的ディスプレイ広告について、以下の対応が可能になりました。<br>
- * 動的ディスプレイ広告のキャンペーン作成など
- * キャンペーンへのデータフィードの関連付け
- * 「掲載不可」「掲載停止」ステータスの審査情報のダウンロード（最大10万件まで取得可能）
-
-また、新バージョン、および公開中のすべてのバージョン（V201809、V201812）において、エラー情報のダウンロード上限を最大10万件に変更しました。<br>
-
-※広告管理ツールでは、2019年2月13日（水）にリリースしました。なお、正規代理店のお客様のみ利用可能です。<br>
-
-#### ※動的ディスプレイ広告の機能改善に伴う変更（2019年4月18日実施）
-
-* 商品リストファイルの定期アップロードに対応<br>
-お客様のサーバーから定期的に商品リストファイルの情報を取得する「定期アップロード」に対応しました。
-* 商品セット機能の追加<br>
-商品リスト内の商品情報を、カテゴリーIDや価格などで分類できる「商品セット」機能を追加しました。商品セットを広告グループに設定することで、広告グループ単位で異なる商品種別や価格帯の商品に絞り込んで広告を配信できます。
-* 操作履歴への項目追加（YDN API全バージョン対象）<br>
-商品セット機能の追加により、操作履歴に以下の項目（列）を追加しました。<br>
-　・商品リスト名<br>
-　・商品リストID<br>
-　・商品セット名<br>
-　・商品セットID<br>
+ * CampaignService（公開中の全バージョン）：<br>
+　「PCブランドパネル（静止画）」、「PCブランドパネル（動画）」のキャンペーン作成取得、更新、削除に対応<br>
+ * AdGroupAdService：<br>
+　バナー（動画）広告の作成、取得、更新、削除に対応<br>
+　※「PCブランドパネル」は一部のお客様のみに提供している広告掲載方式です。<br>
+<br>
 
 ##### 対象ウェブサービス
  * [AdGroupAdService](./api_reference/services/AdGroupAdService.md)
- * [AdGroupService](./api_reference/services/AdGroupService.md)
  * [CampaignService](./api_reference/services/CampaignService.md)
- * [FeedDataService](./api_reference/services/FeedDataService.md)
- * [FeedHolderService](./api_reference/services/FeedHolderService.md)
- * [FeedFtpService](./api_reference/services/FeedFtpService.md)
- * [FeedFtpRequestService](./api_reference/services/FeedFtpRequestService.md)
- * [FeedSetService](./api_reference/services/FeedSetService.md)
+
+
+### 4. 効果測定指標の追加、変更
+パフォーマンスレポートや統計情報に使用する測定指標を追加、変更しました。<br>
+
+#### 計測方法の変更
+以下の指標について、計測方法をクライアントサイド計測に変更しました。<br>
+ * インプレッション数<br>
+ * クリック率<br>
+　※2019年6月30日以前の数値は取得できません。<br>
+　※従来のサーバーサイド計測の数値は、新たに追加する「インプレッション数（旧）」「クリック率（旧）」でご確認ください。<br>
+
+#### 定義の変更
+平均CPVの定義を、以下のとおり変更しました。<br>
+ * 従来　　動画再生にかかったコスト÷課金が発生した動画再生数<br>
+ * 変更後　動画再生にかかったコスト÷動画の10秒再生数<br>
+※動画の10秒再生数は、課金が発生した動画再生数と同様です。<br><br>
+
+#### 測定タイミングの変更　※API全バージョンが対象<br>
+「ビューアブルインプレッション数」（従来の名称は「ビューインプレッション数」）の測定タイミングを、以下のとおり変更しました。実施日以降に発生したビューアブルインプレッションのみが対象です。<br>
+ * 従来　　広告の配信日時を発生日時として測定<br>
+ * 変更後　　広告がビューアブル（ユーザーの視認範囲に広告が表示された状態）になった時点を発生日時として測定<br><br>
+
+#### 指標の追加
+新たに以下の指標を追加しました。<br>
+<table>
+<tr><th>日本語表示名</th><th>パフォーマンスレポートのフィールド名</th><th>統計情報のフィールド名</th><th>説明</th></tr> 
+<tr><td>インプレッション数（旧）</td><td>IMPS_PREV</td><td>impsPrev</td><td>サーバーサイド計測によるインプレッション数。<br>
+2019年6月30日以前のインプレッション数は、この指標でご確認ください。</td></tr>
+<tr><td>クリック率（旧）</td><td>CLICK_RATE_PREV</td><td>clickRatePrev</td><td>サーバーサイド計測によるクリック率。<br>
+2019年6月30日以前のクリック率は、この指標でご確認ください。</td></tr>
+<tr><td>メジャードインプレッション数</td><td>MEASURED_IMPS</td><td>measuredImps</td><td>クライアントサイド計測による、ビューアブルインプレッション数の計測が可能なインプレッション数</td></tr>
+<tr><td>メジャードインプレッション測定率</td><td>MEASURED_IMPS_RATE</td><td>measuredImpsRate</td><td>クライアントサイド計測による、インプレッションに対するメジャードインプレッションの測定率。</td></tr>
+<tr><td>ビューアブルインプレッション率</td><td>VIEWABLE_IMPS_RATE</td><td>viewableImpsRate</td><td>クライアントサイド計測による、ビューアブルインプレッション数の計測が可能なインプレッション率。</td></tr>
+<tr><td>ビューアブルクリック数</td><td>VIEWABLE_CLICK</td><td>viewableClicks</td><td>クライアントサイド計測による、ビューアブルインプレッションに対するクリック数。</td></tr>
+<tr><td>ビューアブルクリック率</td><td>VIEWABLE_CLICK_RATE</td><td>viewableClickRate</td><td>クライアントサイド計測による、ビューアブルインプレッションに対するクリック率。</td></tr>
+<tr><td>動画の10秒再生数</td><td>VIDEO_VIEWS_TO_10_SEC</td><td>videoViewsTo10Sec</td><td>動画が10秒以上再生された回数。<br>※課金が発生した動画再生数と同数になります。</td></tr>
+</table>
+
+##### 対象ウェブサービス  
+ * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
+ * [StatsService](./api_reference/services/StatsService.md)
+
+
+### 5. 一部のAdTypeに関する名称の変更
+
+YDNでの広告タイプの名称変更に伴い、一部のEnum名およびEntity名を変更しました。<br>
+公開中の全バージョンのインポート用テンプレートおよび操作履歴でも、上記の名称に変更されています。なお、インポート用テンプレートを使ったインポートでは、従来の名称も利用可能です。<br>
+※V201907においてレポートのフィルターでAdTypeを設定する場合は、変更後のAdType名称での設定が必要です。<br>
+
+<table>
+<tr><th>従来の従来のEnum名</th><th>従来のEntity名</th><th>変更後のEnum名</th><th>変更後のEntity名</th></tr> 
+<tr><td>RESPONSIVE_AD</td><td>ResponsiveAd</td><td>RESPONSIVE_IMAGE_AD</td><td>ResponsiveImageAd</td></tr>
+<tr><td>VIDEO_AD</td><td>VideoAd</td><td>RESPONSIVE_VIDEO_AD</td><td>ResponsiveVideoAd</td></tr>
+<tr><td>NONE</td><td>None</td><td>BANNER_IMAGE_AD</td><td>BannerImageAd</td></tr>
+</table>
+
+##### 対象ウェブサービス
+ * [AdGroupAdService](./api_reference/services/AdGroupAdService.md)
+ * [StatsService](./api_reference/services/StatsService.md)
+
+
+### 6. アニメーションGIF画像のアップロード停止
+アニメーションGIF画像のアップロード停止に伴い、DictionaryServiceのgetMediaAdFormatから「animation」フィールドを廃止しました。<br>
+
+##### 対象ウェブサービス
+ * [DictionaryService](./api_reference/services/DictionaryService.md)
+
+
+### 7. 機能名および効果測定指標名の変更
+一部の機能と効果測定指標の名称を変更しました。詳細は[こちら](https://promotionalads.yahoo.co.jp/support/release/677944.html)でご確認ください。<br>
+これに伴い、統計情報（StatsService）で以下項目の名称を変更しました。<br>
+ * totalClickCost　→　cost 
+ * avgClickCost　→　avgCpc
+
+##### 対象ウェブサービス
+ * [StatsService](./api_reference/services/StatsService.md)
+
+
+### 8. 保守対応
+#### レポート関連サービスの統合
+ReportServiceをReportDefinitionServiceと統合しました。<br>
+以後のレポート定義とレポートジョブは、ReportDefinitionServiceで作成してください。詳細は以下の仕様ドキュメントでご確認ください。<br>
+
+ * [リファレンス](./api_reference/services/ReportDefinitionService.md)<br>
+ * [ベストプラクティス](./bestpractice/ydn_report.md)<br>
+
+#### 定期レポートの実行を停止（公開中の全バージョン）
+V201806以前に作成した定期レポートについて、intervalTypeをONETIMEに変更しました。これにより、定期レポートの実行はすべて停止されています。<br>
+
+#### LocationServiceの廃止<br>
+LocationServiceを廃止しました。
+
+
+##### 対象ウェブサービス
+ * [ReportDefinitionService](./api_reference/services/ReportDefinitionService.md)
+ * LocationService ※V201907で廃止
+ * ReportService　※V201907で廃止
 
 
 ## Serviceの変更による各Versionへの主な影響
@@ -101,171 +143,64 @@ Yahoo!ディスプレイアドネットワーク（YDN）で自動タグ設定�
 <tbody>
 <tr>
 <th>Service</th>
-<th>V201812以前</th>
-<th>V201903</th>
+<th>V201903以前</th>
+<th>V201907</th>
 </tr>
 <tr>
-<td>BulkService</td>
-<td>インポート用テンプレートでキャンペーンラベル、広告グループラベル、広告ラベルをEntityTypesとして指定可能。<br>
+<td>FeedDataService</td>
+<td>インターフェイス変更なし<br>
 </td>
-<td>インポート用テンプレートでキャンペーンラベル、広告グループラベル、広告ラベルをEntityTypesとして指定可能。<br>
+<td>・getUploadUrlで、デバッグモードを利用できる<br>
+・getUploadStatusで、ファイルアップロード経路、エラー率、取り込み完了日時、定期アップロード用に追加されたステータスを取得できる<br>
 </td>
 </tr>
 <tr>
-<td>CampaignService</td>
-<td>インターフェース変更なし<br>
-・動的ディスプレイ広告用キャンペーンは、広告商品情報が返却されない。
-</td>
+<td>DictionaryService</td>
+<td>インターフェイス変更なし</td>
 <td>
-・設定されたラベル情報を取得できる<br>
-・動的ディスプレイ広告用キャンペーンを作成可能。<br>
-</td>
-</tr>
-<tr>
-<td>AdGroupService</td>
-<td>インターフェース変更なし<br>
-</td>
-<td>・設定されたラベル情報を取得できる。<br>
-・商品セットIDを検索できる。<br>
-・広告グループに商品セットを設定、変更、削除できる。<br> 
-・WSDLの変更。<br> 
+・animation、idフィールドは取得できない<br>
+・アスペクト比入稿向けの情報を取得できる<br>
 </td>
 </tr>
 <tr>
 <td>AdGroupAdService</td>
-<td>インターフェース変更なし<br>
-・動的ディスプレイ広告は、取得できません。
-</td>
+<td>PCブランドパネルのキャンペーンを作成、更新、取得、削除できる</td>
 <td>
-以下の操作ができる。<br>
-・ラベル情報の取得<br>
-・動的ディスプレイ広告の作成<br>
-・動的ディスプレイ広告情報の更新<br>
-・動的ディスプレイ広告の削除<br>
-・動的ディスプレイ広告の取得<br>
-</td>
-</tr>
-<tr>
-<td>CampaignLabelService</td>
-<td>-<br>
-</td>
-<td>
-キャンペーンにラベルを設定、または解除できる。<br>
-</td>
-</tr>
-<tr>
-<td>AdGroupLabelService</td>
-<td>-<br>
-</td>
-<td>広告グループにラベルを設定、または解除できる。<br>
-</td>
-</tr>
-<tr>
-<td>AdGroupAdLabelService</td>
-<td>-<br>
-</td>
-<td>広告にラベルを設定、または解除できる。
-</td>
-</tr>
-<tr>
-<td>LabelService</td>
-<td>-<br>
-</td>
-<td>以下の操作ができる。<br>
-・ラベルの作成<br>
-・ラベルの各エンティティへの設定<br>
-・ラベル情報の更新<br>
-・ラベル設定の解除<br>
-・ラベルの削除<br>
-・ラベル情報の取得<br>
+・PCブランドパネルのキャンペーンを作成、更新、取得、削除できる<br>
+・BannerVideoAd広告（バナー（動画）広告）を作成、更新、取得、削除できる<br>
+・名称変更後のAdTypeのEnum名、Entity名を取得できる<br>
 </td>
 </tr>
 <tr>
 <td>StatsService</td>
-<td>インターフェース変更なし<br>
-</td>
-<td>
-・費用対効果（ROAS）に関する項目を取得できる。<br>
-・ターゲットごとの実績値が取得できる。<br>
+<td>インターフェイス変更なし</td>
+<td>クライアントサイド計測による新指標、及び名称が変更された旧指標を取得できる
 </td>
 </tr>
+
 <tr>
 <td>ReportDefinitionService</td>
-<td>インターフェース変更なし<br>
-</td>
-<td>
-・ラベルごとのパフォーマンスレポートが取得できる。<br>
-・費用対効果（ROAS）に関する項目を取得できる。<br>
+<td>インターフェイス変更なし</td>
+<td>・クライアントサイド計測による新指標、及び名称が変更された旧指標を取得できる<br>
+・レポート定義の作成とジョブ登録を同時に行える<br>
 </td>
 </tr>
 <tr>
 <td>ReportService</td>
-<td>インターフェース変更なし<br>
-</td>
-<td>
-・ラベルごとのパフォーマンスレポートが取得できる。<br>
-・費用対効果（ROAS）に関する項目を取得できる。<br>
-</td>
+<td>インターフェイス変更なし</td>
+<td>廃止</td>
 </tr>
 <tr>
-<td>FeedDataService</td>
-<td>ZIP形式のファイルをアップロードできる<br>
-</td>
-<td>
-ZIP形式とTSV形式のファイルをアップロードできる。 
-</td>
+<td>LocationService</td>
+<td>同じロケーションが一律で返却される（既存ユーザーへの影響はなし）</td>
+<td>廃止</td>
 </tr>
-<tr>
-<td>FeedFtpService</td>
-<td>-</td>
-<td>
-定期アップロードで利用するサーバーの情報を登録、更新できる。
-</td>
-</tr>
-<tr>
-<td>FeedFtpRequestService</td>
-<td>-</td>
-<td>
-定期アップロードの即時実行をリクエストできる。
-</td>
-</tr>
-<tr>
-<td>FeedSetService</td>
-<td>-</td>
-<td>
-商品セットを作成、追加、削除できる。
-</td>
-</tr>
-<tr>
-<td>FeedHolderService</td>
-<td>インターフェース変更なし<br>
-</td>
-<td>
-審査否認理由ダウンロード用のURLが取得できる。
-</td>
-</tr>
-<tr>
-<td>AccountAdProductService</td>
-<td>インターフェース変更なし<br>
-</td>
-<td>
-「DYNAMIC_ADS」が返却される。
-</td>
-</tr>
-<tr>
-<td>AccountService</td>
-<td>インターフェース変更なし<br>
-</td>
-<td>
-自動タグ設定のオンオフが指定できる。
-</td>
-</tr>
+
 </tbody>
 </table>
 
 
-## YDN API V201809の提供終了について
-以下の日程でYDN API V201809のサポートおよびシステムの提供を終了いたします。
-* サポート終了日：2019年4月11日（木）
-* システム終了日：2019年7月11日（木）
-
+## YDN API V201812の提供終了について
+以下の日程でYDN API V201812のサポートおよびシステムの提供を終了いたします。
+* サポート終了日：2019年9月2日（月）
+* システム終了日：2019年12月2日（月）

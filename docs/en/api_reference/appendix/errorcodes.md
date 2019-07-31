@@ -225,6 +225,8 @@ Code           | Message                     | Description
 220325 | Invalid relation of video and thumbnail format. | Invalid relation of video and thumbnail format.
 220326 | Not allowed to set video beacon url. | Not allowed to set video beacon url.
 220328 | Invalid condition, which matches all items. | All items meet the selected conditions. It is not possible to set the condition.
+220137 | Too large compressed image file size. | The compressed image file size exceeded the limit.
+220138 | Unsupported image format. | Unsupported image format.
 
 ### Report Process-related Errors
 ##### Service

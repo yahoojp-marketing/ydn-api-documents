@@ -226,6 +226,8 @@ LT001 | Over limit. | 登録できる上限値を超過しています。
 220325 | Invalid relation of video and thumbnail format. | 動画とサムネイルのフォーマットが異なります。
 220326 | Not allowed to set video beacon url. | 動画視聴用のbeacon urlを設定する権限がありません。
 220328 | Invalid condition, which matches all items.| 全商品が該当する条件のため、設定できません。
+220137 | Too large compressed image file size. | 圧縮後の画像ファイルサイズが規定サイズを超えています。
+220138 | Unsupported image format. | サポートしていない画像形式です。
 
 ### レポート処理に関連するエラー
 ##### Service

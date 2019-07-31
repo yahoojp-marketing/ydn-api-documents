@@ -1,94 +1,28 @@
+
+
 # TargetStatsValues
+
 TargetStatsValues object contains Target stats information.
 
 ### Service
+
 + [StatsService](../../services/StatsService.md)
 
 ### Namespace
+
 [StatsService#Namespace](../../services/StatsService.md#namespace)
 
 ### Inheritance
-+ [StatsValues ](./StatsValues.md)
 
-<table>
- <tr>
-  <th>Field</th>
-  <th>Type</th>
-  <th>Description</th>
-  <th>response</th>
-  <th>add</th>
-  <th>set</th>
-  <th>remove</th>
- </tr>
- <tr>
-  <td>campaignId</td>
-  <td>xsd:long</td>
-  <td>Campaign ID</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>campaignName</td>
-  <td>xsd:string</td>
-  <td>Campaign name</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>adGroupId</td>
-  <td>xsd:long</td>
-  <td>Ad group ID</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>adGroupName</td>
-  <td>xsd:string</td>
-  <td>Ad group name</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td>target</td>
-  <td><a href="./Target.md">Target</a><br>
-  inherited  <a href="./AdScheduleTarget.md">AdScheduleTarget</a><br>
-  inherited  <a href="./GeoTarget.md">GeoTarget</a><br>
-  inherited  <a href="./AgeTarget.md">AgeTarget</a><br>
-  inherited  <a href="./GenderTarget.md">GenderTarget</a><br>
-  inherited  <a href="./InterestCategoryTarget.md">InterestCategoryTarget</a><br>
-  inherited  <a href="./SiteCategoryTarget.md">SiteCategoryTarget</a><br>
-  inherited  <a href="./SiteRetargetingTarget.md">SiteRetargetingTarget</a><br>
-  inherited  <a href="./SearchTarget.md">SearchTarget</a><br>
-  inherited  <a href="./PlacementTarget.md">PlacementTarget</a><br>
-  inherited  <a href="./DeviceTarget.md">DeviceTarget</a><br>
-  inherited  <a href="./CarrierTarget.md">CarrierTarget</a><br>
-  inherited  <a href="./AppTarget.md">AppTarget</a><br>
-  inherited  <a href="./OsTarget.md">OsTarget</a><br>
-  inherited  <a href="./OsVersionTarget.md">OsVersionTarget</a>
-  </td>
-  <td>Targeting information</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
-  <tr>
-  <td>stats</td>
-  <td><a href="./Stats.md">Stats</a></td>
-  <td>Stats information</td>
-  <td>yes</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
-</table>
++ [StatsValues](./StatsValues.md)
+
+| Field | Type | Description | response |
+| ----- | ---- | ----------- | -------- |
+| campaignId | xsd:long | Campaign ID | yes | |
+| campaignName | xsd:string | Campaign name | yes | |
+| adGroupId | xsd:long | Ad group ID | yes | |
+| adGroupName | xsd:string | Ad group name | yes | |
+| target | [Target](./Target.md)<br>inherited [AdScheduleTarget](./AdScheduleTarget.md)<br>inherited [GeoTarget](./GeoTarget.md)<br>inherited [AgeTarget](./AgeTarget.md)<br>inherited [GenderTarget](./GenderTarget.md)<br>inherited [InterestCategoryTarget](./InterestCategoryTarget.md)<br>inherited [SearchTarget](./SearchTarget.md)<br>inherited [SiteCategoryTarget](./SiteCategoryTarget.md)<br>inherited [SiteRetargetingTarget](./SiteRetargetingTarget.md)<br>inherited [PlacementTarget](./PlacementTarget.md)<br>inherited [DeviceTarget](./DeviceTarget.md)<br>inherited [CarrierTarget](./CarrierTarget.md)<br>inherited [AppTarget](./AppTarget.md)<br>inherited [OsTarget](./OsTarget.md)<br>inherited [OsVersionTarget](./OsVersionTarget.md) | Targeting information | yes | |
+| stats | [Stats](./Stats.md) | Stats information | yes | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

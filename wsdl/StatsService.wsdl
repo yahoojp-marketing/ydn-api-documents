@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201903/Stats"
-        xmlns:tns="http://im.yahooapis.jp/V201903/Stats"
+        targetNamespace="http://im.yahooapis.jp/V201907/Stats"
+        xmlns:tns="http://im.yahooapis.jp/V201907/Stats"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201903"
+            targetNamespace="http://im.yahooapis.jp/V201907"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201903">
+            xmlns:tns="http://im.yahooapis.jp/V201907">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201903/Stats"
+            targetNamespace="http://im.yahooapis.jp/V201907/Stats"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201903"
-            xmlns:tns="http://im.yahooapis.jp/V201903/Stats">
-      <xsd:import namespace="http://im.yahooapis.jp/V201903"/>
+            xmlns:adv="http://im.yahooapis.jp/V201907"
+            xmlns:tns="http://im.yahooapis.jp/V201907/Stats">
+      <xsd:import namespace="http://im.yahooapis.jp/V201907"/>
       <annotation>
         <appinfo>
-          <version>201903</version>
+          <version>201907</version>
         </appinfo>
       </annotation>
       <complexType name="StatsSelector">
@@ -205,9 +205,9 @@
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="imps" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="clickRate" type="xsd:double"/>
-          <element maxOccurs="1" minOccurs="0" name="totalClickCost" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="cost" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="clickCnt" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="avgClickCost" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="avgCpc" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="conversions" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="conversionRate" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="cpa" type="xsd:string"/>
@@ -245,6 +245,14 @@
           <element maxOccurs="1" minOccurs="0" name="convValuePerCost" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="allConvValuePerCost" type="xsd:double"/>
           <element maxOccurs="1" minOccurs="0" name="convValueViaAdClickPerCost" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="impsPrev" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="clickRatePrev" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="measuredImps" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="viewableImpsRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="viewableClicks" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="measuredImpsRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="viewableClickRate" type="xsd:double"/>
+          <element maxOccurs="1" minOccurs="0" name="videoViewsTo10Sec" type="xsd:long"/>
         </sequence>
       </complexType>
       <simpleType name="StatsType">
@@ -580,7 +588,7 @@
   </wsdl:binding>
   <wsdl:service name="StatsService">
     <wsdl:port binding="tns:StatsServiceSoapBinding" name="StatsService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201903/StatsService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201907/StatsService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -3,10 +3,10 @@ PlacementUrlIdeaService acquires candidate URL which is set in submission for Pl
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201903/PlacementUrlIdeaService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/PlacementUrlIdeaService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201907/PlacementUrlIdeaService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/PlacementUrlIdeaService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201903/PlacementUrlIdea
+http://im.yahooapis.jp/V201907/PlacementUrlIdea
 #### Service Overview
 PlacementUrlIdeaService acquires candidate URL which is set in submission for Placement Targeting.
 
@@ -30,14 +30,14 @@ Describes operations provided by PlacementUrlIdeaService.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/PlacementUrlIdea" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/PlacementUrlIdea" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/PlacementUrlIdea" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/PlacementUrlIdea" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <keyword>Yahoo</keyword>
         <siteCategories>TC-SC-8888888877</siteCategories>
@@ -67,14 +67,14 @@ Describes operations provided by PlacementUrlIdeaService.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/PlacementUrlIdea" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/PlacementUrlIdea" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>PlacementUrlIdea</ns2:service>
       <ns2:requestTime>1551686144775</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/PlacementUrlIdea">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/PlacementUrlIdea">
       <ns2:rval>
         <totalNumEntries>2</totalNumEntries>
         <ns2:values>

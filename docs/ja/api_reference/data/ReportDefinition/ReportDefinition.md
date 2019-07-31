@@ -14,13 +14,6 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <th>response</th>
   <th>add</th>
   <th>remove</th>
- <tr>
-  <td>reportId</td>
-  <td>xsd:long</td>
-  <td>レポートIDです。</td>
-  <td>yes</td>
-  <td>Ignore</td>
-  <td>Requirement<br>(Not updatable)</td>
  </tr>
  <tr>
   <td>accountId</td>
@@ -30,6 +23,54 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>Ignore</td>
   <td>Ignore</td>
  </tr>
+ <tr>
+  <td>reportJobId</td>
+  <td>xsd:long</td>
+  <td>レポートジョブIDです。</td>
+  <td>yes<br>※remove時のみ返却されます。</td>
+  <td>Ignore</td>
+  <td>Requirement<br>NonUpdatable</td>
+ </tr>
+ <tr>
+  <td>reportJobStatus</td>
+  <td>enum <a href="./ReportJobStatus.md">ReportJobStatus</a></td>
+  <td>ジョブステータスです。</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>reportJobErrorDetail</td>
+  <td>xsd:string</td>
+  <td>ジョブエラー詳細です。</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>requestTime</td>
+  <td>xsd:string</td>
+  <td>ジョブ依頼日時です。</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>completeTime</td>
+  <td>xsd:string</td>
+  <td>ジョブ完了日時です。</td>
+  <td>yes<br>※ジョブ登録の完了後に返却されます。</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+  <tr>
+  <td>reportDownloadURL</td>
+  <td>xsd:string</td>
+  <td>レポートのダウンロードURLです。<br>statusがCOMPLETEDの場合に値が設定されます。</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr> 
  <tr>
   <td>reportName</td>
   <td>xsd:string</td>
@@ -105,7 +146,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>Ignore</td>
  </tr>
  <tr>
-  <td>zip</td>
+  <td>compress</td>
   <td>enum<br><a href="./ReportZip.md">ReportZip</a></td>
   <td>zip化の有無です。</td>
   <td>yes</td>
@@ -113,35 +154,11 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>Ignore</td>
  </tr>
  <tr>
-  <td>lang</td>
+  <td>language</td>
   <td>enum<br><a href="./ReportLang.md">ReportLang</a></td>
   <td>出力言語です。</td>
   <td>yes</td>
   <td>Optional</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>intervalType</td>
-  <td>enum<br><a href="./ReportIntervalType.md">ReportIntervalType</a></td>
-  <td>定期レポート作成のタイミングです。</td>
-  <td>yes</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>specifyDay</td>
-  <td>xsd:int</td>
-  <td>定期レポート作成日です。</td>
-  <td>yes</td>
-  <td>Optional</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>addTemplate</td>
-  <td>enum<br><a href="./ReportAddTemplate.md">ReportAddTemplate</a></td>
-  <td>テンプレートフラグです。</td>
-  <td>yes</td>
-  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
 </table>

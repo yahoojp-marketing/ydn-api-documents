@@ -4,11 +4,11 @@ CampaignServiceは、キャンペーンの操作を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201903/CampaignService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/CampaignService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201907/CampaignService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/CampaignService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201903/Campaign
+http://im.yahooapis.jp/V201907/Campaign
 
 #### サービス概要
 キャンペーンの操作を提供します。
@@ -37,14 +37,14 @@ CampaignServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -78,14 +78,14 @@ CampaignServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Campaign</ns2:service>
       <ns2:requestTime>1551686140534</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Campaign">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Campaign">
       <ns2:rval>
         <totalNumEntries>3</totalNumEntries>
         <Page.Type>CampaignPage</Page.Type>
@@ -281,14 +281,14 @@ CampaignServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201903/Campaign">
+    <mutate xmlns="http://im.yahooapis.jp/V201907/Campaign">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -372,14 +372,14 @@ CampaignServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Campaign</ns2:service>
       <ns2:requestTime>1551686140587</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Campaign">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -527,14 +527,14 @@ CampaignServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201903/Campaign">
+    <mutate xmlns="http://im.yahooapis.jp/V201907/Campaign">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -582,14 +582,14 @@ CampaignServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Campaign</ns2:service>
       <ns2:requestTime>1551686140613</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Campaign">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -737,14 +737,14 @@ CampaignServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201903/Campaign">
+    <mutate xmlns="http://im.yahooapis.jp/V201907/Campaign">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -775,14 +775,14 @@ CampaignServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Campaign</ns2:service>
       <ns2:requestTime>1551686140645</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Campaign">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

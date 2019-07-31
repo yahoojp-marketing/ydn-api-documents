@@ -1,272 +1,68 @@
+
+
 # Stats
+
 Stats object contains the stats information.
 
 ### Service
+
 + [StatsService](../../services/StatsService.md)
 
 ### Namespace
+
 [StatsService#Namespace](../../services/StatsService.md#namespace)
 
-<table>
- <tr>
-  <th>Field</th>
-  <th>Type</th>
-  <th>Description</th>
-  <th>response</th>
- </tr>
- <tr>
-  <td>imps</td>
-  <td>xsd:long</td>
-  <td>Number of impressions</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>clickRate</td>
-  <td>xsd:double</td>
-  <td>Click through rate</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>totalClickCost</td>
-  <td>xsd:double</td>
-  <td>Total value of click cost</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>clickCnt</td>
-  <td>xsd:long</td>
-  <td>Number of clicks</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>avgClickCost</td>
-  <td>xsd:double</td>
-  <td>Average of click cost</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>conversions</td>
-  <td>xsd:long</td>
-  <td>Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>conversionRate</td>
-  <td>xsd:double</td>
-  <td>Conversion Rate<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>cpa</td>
-  <td>xsd:string</td>
-  <td>Conversion cost per acquisition<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>conversionValue</td>
-  <td>xsd:string</td>
-  <td>Conversion value<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>valuePerConversions</td>
-  <td>xsd:string</td>
-  <td>Value per Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
-
- <tr>
-  <td>conversionsViaAdClick</td>
-  <td>xsd:long</td>
-  <td>Conversions(after click)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>conversionRateViaAdClick</td>
-  <td>xsd:double</td>
-  <td>Conversion rate(after click)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>cpaViaAdClick</td>
-  <td>xsd:string</td>
-  <td>Conversion cost per acquisition(after click)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>conversionValueViaAdClick</td>
-  <td>xsd:string</td>
-  <td>Conversion value(after click)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>valuePerConversionsViaAdClick</td>
-  <td>xsd:string</td>
-  <td>Value per Conversions(after click)</td>
-  <td>yes</td>
- </tr>
-
- <tr>
-  <td>allConversions</td>
-  <td>xsd:long</td>
-  <td>All Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>allConversionRate</td>
-  <td>xsd:double</td>
-  <td>All Conversions rate<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>allCpa</td>
-  <td>xsd:string</td>
-  <td>Cost per All Conversions<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>allConversionValue</td>
-  <td>xsd:string</td>
-  <td>All Conversions value<br>&lowast;Contains cross-device conversions (including video view)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>valuePerAllConversions</td>
-  <td>xsd:string</td>
-  <td>Value per All Conversions</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>crossDeviceConversions</td>
-  <td>xsd:long</td>
-  <td>Conversion count that were made across devices</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>avgDeliverRank</td>
-  <td>xsd:double</td>
-  <td>Average display position of the ads (the average of eCPM rank on ads delivery)</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>totalVimps</td>
-  <td>xsd:long</td>
-  <td>Impressions for the measurement object</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>vimps</td>
-  <td>xsd:long</td>
-  <td>Viewable impressions</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>inViewClickCnt</td>
-  <td>xsd:long</td>
-  <td>Viewable clicks</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>inViewRate</td>
-  <td>xsd:double</td>
-  <td>Viewable impression rate</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>inViewClickRate</td>
-  <td>xsd:double</td>
-  <td>Viewable click through rate</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>paidVideoViews</td>
-  <td>xsd:long</td>
-  <td>Number of paid video views<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>paidVideoViewRate</td>
-  <td>xsd:double</td>
-  <td>Number of paid video rate<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>averageCpv</td>
-  <td>xsd:double</td>
-  <td>Average CPV<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>videoViews</td>
-  <td>xsd:long</td>
-  <td>Number of the video views<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>videoViewsTo25</td>
-  <td>xsd:long</td>
-  <td>The number of times of video viewed over 25%<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
-<tr>
-  <td>videoViewsTo50</td>
-  <td>xsd:long</td>
-  <td>The number of times of video viewed over 50%<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
-<tr>
-  <td>videoViewsTo75</td>
-  <td>xsd:long</td>
-  <td>The number of times of video viewed over 75%<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
-<tr>
-  <td>videoViewsTo95</td>
-  <td>xsd:long</td>
-  <td>The number of times of video viewed over 95%<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
-<tr>
-  <td>videoViewsTo100</td>
-  <td>xsd:long</td>
-  <td>The number of times of video viewed 100%<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
-<tr>
-  <td>videoViewsTo3Sec</td>
-  <td>xsd:long</td>
-  <td>The number of times video viewed over 3 seconds<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr> 
-<tr>
-  <td>averageRateVideoViewed</td>
-  <td>xsd:double</td>
-  <td>Average % of Video Viewed (Average value of the video viewed rate)<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- </tr>
-<tr>
-  <td>averageDurationVideoViewed</td>
-  <td>xsd:double</td>
-  <td>Average Duration of Video Viewed<br>&lowast;For Video Ads only</td>
-  <td>yes</td>
- <tr>
-  <td>convValuePerCost</td>
-  <td>xsd:double</td>
-  <td>Conversions value/cost</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>allConvValuePerCost</td>
-  <td>xsd:double</td>
-  <td>All conversions value/cost</td>
-  <td>yes</td>
- </tr>
- <tr>
-  <td>convValueViaAdClickPerCost</td>
-  <td>xsd:double</td>
-  <td>Conversions value(via ad clicks)/cost</td>
-  <td>yes</td>
- </tr>
-</table>
+| Field | Type | Description | response |
+| ----- | ---- | ----------- | -------- |
+| imps | xsd:long | Number of impressions | yes | |
+| clickRate | xsd:double | Click through rate | yes | |
+| cost | xsd:double | Cost | yes | |
+| clickCnt | xsd:long | Number of clicks | yes | |
+| avgCpc | xsd:double | Avg. CPC | yes | |
+| conversions | xsd:long | Conversions<br/>∗Contains cross-device conversions (including video view) | yes | |
+| conversionRate | xsd:double | Conv. rate | yes | |
+| cpa | xsd:string | Conversion cost per acquisition<br/>∗Contains cross-device conversions (including video view) | yes | |
+| conversionValue | xsd:string | Conv. value | yes | |
+| valuePerConversions | xsd:string | Conv. value/conv. | yes | |
+| conversionsViaAdClick | xsd:long | Conversions (via click) | yes | |
+| conversionRateViaAdClick | xsd:double | Conv. rate (via click) | yes | |
+| cpaViaAdClick | xsd:string | Cost/conv. (via click) | yes | |
+| conversionValueViaAdClick | xsd:string | Conv. value (via click) | yes | |
+| valuePerConversionsViaAdClick | xsd:string | Conv. value (via click)/conv. (via click) | yes | |
+| allConversions | xsd:long | Conversions (all) | yes | |
+| allConversionRate | xsd:double | Conv. rate (all) | yes | |
+| allCpa | xsd:string | Cost/conv. (all) | yes | |
+| allConversionValue | xsd:string | Conv. value (all) | yes | |
+| valuePerAllConversions | xsd:string | Conv. value (all)/conv. (all) | yes | |
+| crossDeviceConversions | xsd:long | Cross-device conv. | yes | |
+| avgDeliverRank | xsd:double | Avg. position (the average of eCPM rank on ads delivery) | yes | |
+| totalVimps | xsd:long | Measured impressions (previous) | yes | |
+| vImps | xsd:long | Viewable impressions | yes | |
+| inViewClickCnt | xsd:long | Viewable clicks (previous) | yes | |
+| inViewRate | xsd:double | Viewable impression rate (previous) | yes | |
+| inViewClickRate | xsd:double | Viewable CTR (previous) | yes | |
+| paidVideoViews | xsd:long | Paid video views (CPV) | yes | |
+| paidVideoViewRate | xsd:double | Paid video view rate (CPV)  | yes | |
+| averageCpv | xsd:double | Avg. CPV | yes | |
+| videoViews | xsd:long | Video views | yes | |
+| videoViewsTo25 | xsd:long | 25% video views | yes | |
+| videoViewsTo50 | xsd:long | 50% video views | yes | |
+| videoViewsTo75 | xsd:long | 75% video views | yes | |
+| videoViewsTo95 | xsd:long | 95% video views | yes | |
+| videoViewsTo100 | xsd:long | 100% video views | yes | |
+| videoViewsTo3Sec | xsd:long | 3 sec video views | yes | |
+| averageRateVideoViewed | xsd:double | Avg. video view rate | yes | |
+| averageDurationVideoViewed | xsd:double | Avg. duration of video viewed | yes | |
+| convValuePerCost | xsd:double | Conversions value/cost | yes | |
+| allConvValuePerCost | xsd:double | Conv. value (all)/cost All Conv. | yes | |
+| convValueViaAdClickPerCost | xsd:double | Conversions value(via ad clicks)/cost | yes | |
+| impsPrev | xsd:double | Impressions (previous) | yes | |
+| clickRatePrev | xsd:double | CTR (previous)  | yes | |
+| measuredImps | xsd:double | Measured impressions | yes | |
+| viewableImpsRate | xsd:double | Viewable impression rate | yes | |
+| viewableClicks | xsd:double | Viewable clicks | yes | |
+| measuredImpsRate | xsd:double | Measured impression rate | yes | |
+| viewableClickRate | xsd:double | Viewable CTR | yes | |
+| videoViewsTo10Sec | xsd:long | 10 sec video views | yes | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

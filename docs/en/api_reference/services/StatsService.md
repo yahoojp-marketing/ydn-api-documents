@@ -1,47 +1,50 @@
 # StatsService
+
 StatsService retrieves the stats data of each campaign, ad group, ad, image and video.
 
 #### WSDL
-| environment | url |
-|---|---|
-| production  | https://location.im.yahooapis.jp/services/V201903/StatsService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/StatsService?wsdl |
+
+| environment |                                      url                                      |
+| ----------- | ----------------------------------------------------------------------------- |
+| production  | https://location.im.yahooapis.jp/services/V201907/StatsService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201907/StatsService?wsdl  |
 
 #### Namespace
-http://im.yahooapis.jp/V201903/Stats
+
+http://im.yahooapis.jp/V201907/Stats
 
 #### Service Overview
+
 StatsService retrieves the stats data of each campaign, ad group, ad, image and video.
 
 #### Operation
-Describes operations provided by StatsService.
+
+Explains operations provided by StatsService.
 
 + [get](#get)
-
-#### Object
-[Stats](../data/Stats)
 
 ## get
 
 ### Request
+
 Retrieves the stats information of each campaign, ad group, ad, image and video.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| selector | required | [StatsSelector](../data/Stats/StatsSelector.md) |Contains a set of criteria (parameters) for get method. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| selector | Yes | [StatsSelector](../data/Stats/StatsSelector.md) |
 
 ##### Request Sample(Campaign Stats Information)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -60,14 +63,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -87,14 +90,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -115,14 +118,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
@@ -141,14 +144,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
@@ -171,14 +174,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -197,22 +200,25 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [StatsPage](../data/Stats/StatsPage.md) | Contains the results (a list of all entities) for get method. |
+
+Retrieves the stats information of each campaign, ad group, ad, image and video.
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [StatsPage](../data/Stats/StatsPage.md) |
 
 ##### Response Sample(Campaign Stats Information)
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1551686138900</ns2:requestTime>
+      <ns2:requestTime>1563874079130</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -234,9 +240,9 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
           <ns2:stats>
             <ns2:imps>4</ns2:imps>
             <ns2:clickRate>100.0</ns2:clickRate>
-            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:cost>4.23</ns2:cost>
             <ns2:clickCnt>4</ns2:clickCnt>
-            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:avgCpc>0.2</ns2:avgCpc>
             <ns2:conversions>19</ns2:conversions>
             <ns2:conversionRate>20.2</ns2:conversionRate>
             <ns2:cpa>21.2</ns2:cpa>
@@ -274,6 +280,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
             <ns2:convValuePerCost>1.1</ns2:convValuePerCost>
             <ns2:allConvValuePerCost>2.1</ns2:allConvValuePerCost>
             <ns2:convValueViaAdClickPerCost>3.1</ns2:convValueViaAdClickPerCost>
+            <ns2:impsPrev>3.0</ns2:impsPrev>
+            <ns2:clickRatePrev>90.0</ns2:clickRatePrev>
+            <ns2:measuredImps>3.0</ns2:measuredImps>
+            <ns2:viewableImpsRate>25.0</ns2:viewableImpsRate>
+            <ns2:viewableClicks>100.0</ns2:viewableClicks>
+            <ns2:measuredImpsRate>30.0</ns2:measuredImpsRate>
+            <ns2:viewableClickRate>50.0</ns2:viewableClickRate>
+            <ns2:videoViewsTo10Sec>150</ns2:videoViewsTo10Sec>
           </ns2:stats>
         </ns2:values>
       </ns2:rval>
@@ -285,14 +299,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1551686138951</ns2:requestTime>
+      <ns2:requestTime>1563874079201</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -316,9 +330,9 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
           <ns2:stats>
             <ns2:imps>4</ns2:imps>
             <ns2:clickRate>100.0</ns2:clickRate>
-            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:cost>4.23</ns2:cost>
             <ns2:clickCnt>4</ns2:clickCnt>
-            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:avgCpc>0.2</ns2:avgCpc>
             <ns2:conversions>19</ns2:conversions>
             <ns2:conversionRate>20.2</ns2:conversionRate>
             <ns2:cpa>21.2</ns2:cpa>
@@ -356,6 +370,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
             <ns2:convValuePerCost>1.1</ns2:convValuePerCost>
             <ns2:allConvValuePerCost>2.1</ns2:allConvValuePerCost>
             <ns2:convValueViaAdClickPerCost>3.1</ns2:convValueViaAdClickPerCost>
+            <ns2:impsPrev>3.0</ns2:impsPrev>
+            <ns2:clickRatePrev>90.0</ns2:clickRatePrev>
+            <ns2:measuredImps>3.0</ns2:measuredImps>
+            <ns2:viewableImpsRate>25.0</ns2:viewableImpsRate>
+            <ns2:viewableClicks>100.0</ns2:viewableClicks>
+            <ns2:measuredImpsRate>30.0</ns2:measuredImpsRate>
+            <ns2:viewableClickRate>50.0</ns2:viewableClickRate>
+            <ns2:videoViewsTo10Sec>150</ns2:videoViewsTo10Sec>
           </ns2:stats>
         </ns2:values>
       </ns2:rval>
@@ -367,14 +389,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1551686138996</ns2:requestTime>
+      <ns2:requestTime>1563874079266</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -400,9 +422,9 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
           <ns2:stats>
             <ns2:imps>4</ns2:imps>
             <ns2:clickRate>100.0</ns2:clickRate>
-            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:cost>4.23</ns2:cost>
             <ns2:clickCnt>4</ns2:clickCnt>
-            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:avgCpc>0.2</ns2:avgCpc>
             <ns2:conversions>19</ns2:conversions>
             <ns2:conversionRate>20.2</ns2:conversionRate>
             <ns2:cpa>21.2</ns2:cpa>
@@ -440,6 +462,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
             <ns2:convValuePerCost>1.1</ns2:convValuePerCost>
             <ns2:allConvValuePerCost>2.1</ns2:allConvValuePerCost>
             <ns2:convValueViaAdClickPerCost>3.1</ns2:convValueViaAdClickPerCost>
+            <ns2:impsPrev>3.0</ns2:impsPrev>
+            <ns2:clickRatePrev>90.0</ns2:clickRatePrev>
+            <ns2:measuredImps>3.0</ns2:measuredImps>
+            <ns2:viewableImpsRate>25.0</ns2:viewableImpsRate>
+            <ns2:viewableClicks>100.0</ns2:viewableClicks>
+            <ns2:measuredImpsRate>30.0</ns2:measuredImpsRate>
+            <ns2:viewableClickRate>50.0</ns2:viewableClickRate>
+            <ns2:videoViewsTo10Sec>150</ns2:videoViewsTo10Sec>
           </ns2:stats>
         </ns2:values>
       </ns2:rval>
@@ -451,14 +481,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1551686139044</ns2:requestTime>
+      <ns2:requestTime>1563874079331</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -481,9 +511,9 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
           <ns2:stats>
             <ns2:imps>4</ns2:imps>
             <ns2:clickRate>100.0</ns2:clickRate>
-            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:cost>4.23</ns2:cost>
             <ns2:clickCnt>4</ns2:clickCnt>
-            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:avgCpc>0.2</ns2:avgCpc>
             <ns2:conversions>19</ns2:conversions>
             <ns2:conversionRate>20.2</ns2:conversionRate>
             <ns2:cpa>21.2</ns2:cpa>
@@ -521,6 +551,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
             <ns2:convValuePerCost>1.1</ns2:convValuePerCost>
             <ns2:allConvValuePerCost>2.1</ns2:allConvValuePerCost>
             <ns2:convValueViaAdClickPerCost>3.1</ns2:convValueViaAdClickPerCost>
+            <ns2:impsPrev>3.0</ns2:impsPrev>
+            <ns2:clickRatePrev>90.0</ns2:clickRatePrev>
+            <ns2:measuredImps>3.0</ns2:measuredImps>
+            <ns2:viewableImpsRate>25.0</ns2:viewableImpsRate>
+            <ns2:viewableClicks>100.0</ns2:viewableClicks>
+            <ns2:measuredImpsRate>30.0</ns2:measuredImpsRate>
+            <ns2:viewableClickRate>50.0</ns2:viewableClickRate>
+            <ns2:videoViewsTo10Sec>150</ns2:videoViewsTo10Sec>
           </ns2:stats>
         </ns2:values>
       </ns2:rval>
@@ -532,14 +570,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1551686139094</ns2:requestTime>
+      <ns2:requestTime>1563874079401</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -568,9 +606,9 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
           <ns2:stats>
             <ns2:imps>4</ns2:imps>
             <ns2:clickRate>100.0</ns2:clickRate>
-            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:cost>4.23</ns2:cost>
             <ns2:clickCnt>4</ns2:clickCnt>
-            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:avgCpc>0.2</ns2:avgCpc>
             <ns2:conversions>19</ns2:conversions>
             <ns2:conversionRate>20.2</ns2:conversionRate>
             <ns2:cpa>21.2</ns2:cpa>
@@ -608,6 +646,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
             <ns2:convValuePerCost>1.1</ns2:convValuePerCost>
             <ns2:allConvValuePerCost>2.1</ns2:allConvValuePerCost>
             <ns2:convValueViaAdClickPerCost>3.1</ns2:convValueViaAdClickPerCost>
+            <ns2:impsPrev>3.0</ns2:impsPrev>
+            <ns2:clickRatePrev>90.0</ns2:clickRatePrev>
+            <ns2:measuredImps>3.0</ns2:measuredImps>
+            <ns2:viewableImpsRate>25.0</ns2:viewableImpsRate>
+            <ns2:viewableClicks>100.0</ns2:viewableClicks>
+            <ns2:measuredImpsRate>30.0</ns2:measuredImpsRate>
+            <ns2:viewableClickRate>50.0</ns2:viewableClickRate>
+            <ns2:videoViewsTo10Sec>150</ns2:videoViewsTo10Sec>
           </ns2:stats>
         </ns2:values>
       </ns2:rval>
@@ -619,14 +665,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/Stats" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1551686139148</ns2:requestTime>
+      <ns2:requestTime>1563874079489</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -660,9 +706,9 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
           <ns2:stats>
             <ns2:imps>4</ns2:imps>
             <ns2:clickRate>100.0</ns2:clickRate>
-            <ns2:totalClickCost>4.23</ns2:totalClickCost>
+            <ns2:cost>4.23</ns2:cost>
             <ns2:clickCnt>4</ns2:clickCnt>
-            <ns2:avgClickCost>0.2</ns2:avgClickCost>
+            <ns2:avgCpc>0.2</ns2:avgCpc>
             <ns2:conversions>19</ns2:conversions>
             <ns2:conversionRate>20.2</ns2:conversionRate>
             <ns2:cpa>21.2</ns2:cpa>
@@ -700,6 +746,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
             <ns2:convValuePerCost>1.1</ns2:convValuePerCost>
             <ns2:allConvValuePerCost>2.1</ns2:allConvValuePerCost>
             <ns2:convValueViaAdClickPerCost>3.1</ns2:convValueViaAdClickPerCost>
+            <ns2:impsPrev>3.0</ns2:impsPrev>
+            <ns2:clickRatePrev>90.0</ns2:clickRatePrev>
+            <ns2:measuredImps>3.0</ns2:measuredImps>
+            <ns2:viewableImpsRate>25.0</ns2:viewableImpsRate>
+            <ns2:viewableClicks>100.0</ns2:viewableClicks>
+            <ns2:measuredImpsRate>30.0</ns2:measuredImpsRate>
+            <ns2:viewableClickRate>50.0</ns2:viewableClickRate>
+            <ns2:videoViewsTo10Sec>150</ns2:videoViewsTo10Sec>
           </ns2:stats>
         </ns2:values>
       </ns2:rval>

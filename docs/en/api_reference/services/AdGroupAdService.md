@@ -1,19 +1,24 @@
 # AdGroupAdService
+
 Use this service to get, add, update or delete ad information.
 
 #### WSDL
-| environment | url |
-|---|---|
-| production  | https://location.im.yahooapis.jp/services/V201903/AdGroupAdService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201903/AdGroupAdService?wsdl |
+
+| environment |                                      url                                      |
+| ----------- | ----------------------------------------------------------------------------- |
+| production  | https://location.im.yahooapis.jp/services/V201907/AdGroupAdService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201907/AdGroupAdService?wsdl  |
 
 #### Namespace
-http://im.yahooapis.jp/V201903/AdGroupAd
+
+http://im.yahooapis.jp/V201907/AdGroupAd
 
 #### Service Overview
+
 Retrieves and updates ads.
 
 #### Operation
+
 Explains operations provided by AdGroupAdService.
 
 + [get](#get)
@@ -21,30 +26,28 @@ Explains operations provided by AdGroupAdService.
 + [mutate(SET)](#mutateset)
 + [mutate(REMOVE)](#mutateremove)
 
-#### Object
-[AdGroupAd](../data/AdGroupAd)
-
 ## get
 
 ### Request
+
 Retrieves ad information.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| selector | required | [AdGroupAdSelector](../data/AdGroupAd/AdGroupAdSelector.md) | Contains a set of criteria (parameters) for get method. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| selector | Yes | [AdGroupAdSelector](../data/AdGroupAd/AdGroupAdSelector.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <get xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -85,22 +88,25 @@ Retrieves ad information.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupAdPage](../data/AdGroupAd/AdGroupAdPage.md) | Contains the results (a list of all entities) for get method. |
+
+Retrieves ad information.
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupAdPage](../data/AdGroupAd/AdGroupAdPage.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1551686137905</ns2:requestTime>
+      <ns2:requestTime>1563874047985</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroupAd">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupAd">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupAdPage</Page.Type>
@@ -195,8 +201,8 @@ Retrieves ad information.
               <ns2:type>MANUAL_CPC</ns2:type>
               <ns2:maxCpc>100</ns2:maxCpc>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveAd">
-              <ns2:type>RESPONSIVE_AD</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveImageAd">
+              <ns2:type>RESPONSIVE_IMAGE_AD</ns2:type>
               <ns2:headline>headline</ns2:headline>
               <ns2:description>description</ns2:description>
               <ns2:url>http://testtest.co.jp</ns2:url>
@@ -279,8 +285,8 @@ Retrieves ad information.
               <ns2:type>MANUAL_CPC</ns2:type>
               <ns2:maxCpc>100</ns2:maxCpc>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:None">
-              <ns2:type>NONE</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:BannerImageAd">
+              <ns2:type>BANNER_IMAGE_AD</ns2:type>
               <ns2:url>http://testtest.co.jp</ns2:url>
               <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
             </ns2:ad>
@@ -315,8 +321,8 @@ Retrieves ad information.
               <ns2:type>MANUAL_CPV</ns2:type>
               <ns2:maxCpv>100000</ns2:maxCpv>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:VideoAd">
-              <ns2:type>VIDEO_AD</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveVideoAd">
+              <ns2:type>RESPONSIVE_VIDEO_AD</ns2:type>
               <ns2:thumbnailMediaId>555555</ns2:thumbnailMediaId>
               <ns2:headline>headline</ns2:headline>
               <ns2:description>description</ns2:description>
@@ -401,24 +407,25 @@ Retrieves ad information.
 ## mutate(ADD)
 
 ### Request
+
 Adds an ad.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) | Contains the information of ad targeted for mutate method operation. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201907/AdGroupAd">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -469,8 +476,8 @@ Adds an ad.
             <type>MANUAL_CPC</type>
             <maxCpc>100</maxCpc>
           </bid>
-          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponsiveAd">
-            <type>RESPONSIVE_AD</type>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponsiveImageAd">
+            <type>RESPONSIVE_IMAGE_AD</type>
             <headline>headline</headline>
             <description>description</description>
             <url>http://test.co.jp</url>
@@ -515,8 +522,8 @@ Adds an ad.
             <type>MANUAL_CPC</type>
             <maxCpc>100</maxCpc>
           </bid>
-          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="None">
-            <type>NONE</type>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="BannerImageAd">
+            <type>BANNER_IMAGE_AD</type>
             <url>http://test.co.jp</url>
             <displayUrl>test.co.jp</displayUrl>
           </ad>
@@ -532,8 +539,8 @@ Adds an ad.
             <type>MANUAL_CPV</type>
             <maxCpv>10000</maxCpv>
           </bid>
-          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="VideoAd">
-            <type>VIDEO_AD</type>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponsiveVideoAd">
+            <type>RESPONSIVE_VIDEO_AD</type>
             <thumbnailMediaId>44444</thumbnailMediaId>
             <headline>headline</headline>
             <description>description</description>
@@ -584,22 +591,25 @@ Adds an ad.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) | Contains the results (a list of all entities) of mutate method. |
+
+Adds an ad.
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1551686137976</ns2:requestTime>
+      <ns2:requestTime>1563874048132</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -670,8 +680,8 @@ Adds an ad.
               <ns2:type>MANUAL_CPC</ns2:type>
               <ns2:maxCpc>100</ns2:maxCpc>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveAd">
-              <ns2:type>RESPONSIVE_AD</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveImageAd">
+              <ns2:type>RESPONSIVE_IMAGE_AD</ns2:type>
               <ns2:headline>headline</ns2:headline>
               <ns2:description>description</ns2:description>
               <ns2:url>http://testtest.co.jp</ns2:url>
@@ -730,8 +740,8 @@ Adds an ad.
               <ns2:type>MANUAL_CPC</ns2:type>
               <ns2:maxCpc>100</ns2:maxCpc>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:None">
-              <ns2:type>NONE</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:BannerImageAd">
+              <ns2:type>BANNER_IMAGE_AD</ns2:type>
               <ns2:url>http://testtest.co.jp</ns2:url>
               <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
             </ns2:ad>
@@ -754,8 +764,8 @@ Adds an ad.
               <ns2:type>MANUAL_CPV</ns2:type>
               <ns2:maxCpv>100000</ns2:maxCpv>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:VideoAd">
-              <ns2:type>VIDEO_AD</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveVideoAd">
+              <ns2:type>RESPONSIVE_VIDEO_AD</ns2:type>
               <ns2:thumbnailMediaId>555555</ns2:thumbnailMediaId>
               <ns2:headline>headline</ns2:headline>
               <ns2:description>description</ns2:description>
@@ -816,24 +826,25 @@ Adds an ad.
 ## mutate(SET)
 
 ### Request
+
 Updates an ad.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) | Contains the information of ad targeted for mutate method operation. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201907/AdGroupAd">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -885,8 +896,8 @@ Updates an ad.
           <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
             <maxCpc>100</maxCpc>
           </bid>
-          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponsiveAd">
-            <type>RESPONSIVE_AD</type>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponsiveImageAd">
+            <type>RESPONSIVE_IMAGE_AD</type>
             <headline>headline</headline>
             <description>description</description>
             <url>http://test.co.jp</url>
@@ -931,8 +942,8 @@ Updates an ad.
           <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupAdBid">
             <maxCpc>100</maxCpc>
           </bid>
-          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="None">
-            <type>NONE</type>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="BannerImageAd">
+            <type>BANNER_IMAGE_AD</type>
             <url>http://test.co.jp</url>
             <displayUrl>test.co.jp</displayUrl>
           </ad>
@@ -948,8 +959,8 @@ Updates an ad.
           <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPVAdGroupAdBid">
             <maxCpv>10000</maxCpv>
           </bid>
-          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="VideoAd">
-            <type>VIDEO_AD</type>
+          <ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponsiveVideoAd">
+            <type>RESPONSIVE_VIDEO_AD</type>
             <thumbnailMediaId>44444</thumbnailMediaId>
             <headline>headline</headline>
             <description>description</description>
@@ -1000,22 +1011,25 @@ Updates an ad.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) | Contains the results (a list of all entities) of mutate method. |
+
+Updates an ad.
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1551686138045</ns2:requestTime>
+      <ns2:requestTime>1563874048223</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1085,8 +1099,8 @@ Updates an ad.
               <ns2:type>MANUAL_CPC</ns2:type>
               <ns2:maxCpc>100</ns2:maxCpc>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveAd">
-              <ns2:type>RESPONSIVE_AD</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveImageAd">
+              <ns2:type>RESPONSIVE_IMAGE_AD</ns2:type>
               <ns2:headline>headline</ns2:headline>
               <ns2:description>description</ns2:description>
               <ns2:url>http://testtest.co.jp</ns2:url>
@@ -1145,8 +1159,8 @@ Updates an ad.
               <ns2:type>MANUAL_CPC</ns2:type>
               <ns2:maxCpc>100</ns2:maxCpc>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:None">
-              <ns2:type>NONE</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:BannerImageAd">
+              <ns2:type>BANNER_IMAGE_AD</ns2:type>
               <ns2:url>http://testtest.co.jp</ns2:url>
               <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
             </ns2:ad>
@@ -1169,8 +1183,8 @@ Updates an ad.
               <ns2:type>MANUAL_CPV</ns2:type>
               <ns2:maxCpv>100000</ns2:maxCpv>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:VideoAd">
-              <ns2:type>VIDEO_AD</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveVideoAd">
+              <ns2:type>RESPONSIVE_VIDEO_AD</ns2:type>
               <ns2:thumbnailMediaId>555555</ns2:thumbnailMediaId>
               <ns2:headline>headline</ns2:headline>
               <ns2:description>description</ns2:description>
@@ -1231,24 +1245,25 @@ Updates an ad.
 ## mutate(REMOVE)
 
 ### Request
+
 Removes an ad.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) | Contains the information of ad targeted for mutate method operation. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [AdGroupAdOperation](../data/AdGroupAd/AdGroupAdOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201903/AdGroupAd">
+    <mutate xmlns="http://im.yahooapis.jp/V201907/AdGroupAd">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -1301,22 +1316,25 @@ Removes an ad.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) | Contains the results (a list of all entities) of mutate method. |
+
+Removes an ad.
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupAdReturnValue](../data/AdGroupAd/AdGroupAdReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201903/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201903">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201907">
       <ns2:service>AdGroupAd</ns2:service>
-      <ns2:requestTime>1551686138108</ns2:requestTime>
+      <ns2:requestTime>1563874048321</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201903" xmlns:ns2="http://im.yahooapis.jp/V201903/AdGroupAd">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupAd">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -1386,8 +1404,8 @@ Removes an ad.
               <ns2:type>MANUAL_CPC</ns2:type>
               <ns2:maxCpc>100</ns2:maxCpc>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveAd">
-              <ns2:type>RESPONSIVE_AD</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveImageAd">
+              <ns2:type>RESPONSIVE_IMAGE_AD</ns2:type>
               <ns2:headline>headline</ns2:headline>
               <ns2:description>description</ns2:description>
               <ns2:url>http://testtest.co.jp</ns2:url>
@@ -1446,8 +1464,8 @@ Removes an ad.
               <ns2:type>MANUAL_CPC</ns2:type>
               <ns2:maxCpc>100</ns2:maxCpc>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:None">
-              <ns2:type>NONE</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:BannerImageAd">
+              <ns2:type>BANNER_IMAGE_AD</ns2:type>
               <ns2:url>http://testtest.co.jp</ns2:url>
               <ns2:displayUrl>testtest.co.jp</ns2:displayUrl>
             </ns2:ad>
@@ -1470,8 +1488,8 @@ Removes an ad.
               <ns2:type>MANUAL_CPV</ns2:type>
               <ns2:maxCpv>100000</ns2:maxCpv>
             </ns2:bid>
-            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:VideoAd">
-              <ns2:type>VIDEO_AD</ns2:type>
+            <ns2:ad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ResponsiveVideoAd">
+              <ns2:type>RESPONSIVE_VIDEO_AD</ns2:type>
               <ns2:thumbnailMediaId>555555</ns2:thumbnailMediaId>
               <ns2:headline>headline</ns2:headline>
               <ns2:description>description</ns2:description>

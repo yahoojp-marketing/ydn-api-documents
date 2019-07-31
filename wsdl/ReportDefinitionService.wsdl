@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201903/ReportDefinition"
-        xmlns:tns="http://im.yahooapis.jp/V201903/ReportDefinition"
+        targetNamespace="http://im.yahooapis.jp/V201907/ReportDefinition"
+        xmlns:tns="http://im.yahooapis.jp/V201907/ReportDefinition"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201903"
+            targetNamespace="http://im.yahooapis.jp/V201907"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201903">
+            xmlns:tns="http://im.yahooapis.jp/V201907">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,24 +66,142 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201903/ReportDefinition"
+            targetNamespace="http://im.yahooapis.jp/V201907/ReportDefinition"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201903"
-            xmlns:tns="http://im.yahooapis.jp/V201903/ReportDefinition">
-      <xsd:import namespace="http://im.yahooapis.jp/V201903"/>
+            xmlns:adv="http://im.yahooapis.jp/V201907"
+            xmlns:tns="http://im.yahooapis.jp/V201907/ReportDefinition">
+      <xsd:import namespace="http://im.yahooapis.jp/V201907"/>
       <annotation>
         <appinfo>
-          <version>201903</version>
+          <version>201907</version>
         </appinfo>
       </annotation>
+      <complexType name="ReportClosedDateSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+        </sequence>
+      </complexType>
+      <complexType name="ReportClosedDateValue">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportClosedDateRecord"/>
+        </sequence>
+      </complexType>
+      <complexType name="ReportClosedDateRecord">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="key" type="xsd:string"/>
+              <element maxOccurs="1" minOccurs="0" name="closedDate" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ReportDefinitionFieldValue">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="fields" type="tns:ReportFieldAttribute"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ReportFieldAttribute">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="fieldName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="displayFieldNameJA" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="displayFieldNameEN" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="xmlAttributeName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="fieldType" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="filterable" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="impossibleCombinationFields" type="xsd:string"/>
+        </sequence>
+      </complexType>
       <complexType name="ReportDefinitionSelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="reportIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="reportJobIds" type="xsd:long"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="reportJobStatuses" type="tns:ReportJobStatus"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
         </sequence>
       </complexType>
-      <simpleType name="ReportCategory">
+      <complexType name="ReportDefinitionPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportDefinitionValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ReportDefinitionValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="reportDefinition" type="tns:ReportDefinition"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ReportDefinition">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="reportJobId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="reportJobStatus" type="tns:ReportJobStatus"/>
+          <element maxOccurs="1" minOccurs="0" name="reportJobErrorDetail" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="completeTime" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="reportDownloadUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="reportName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="dateRangeType" type="tns:ReportDateRangeType"/>
+          <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:ReportDateRange"/>
+          <element maxOccurs="1" minOccurs="0" name="frequencyRange" type="tns:ReportFrequencyRange"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="filters" type="tns:ReportFilter"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="sortFields" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="fields" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="format" type="tns:ReportDownloadFormat"/>
+          <element maxOccurs="1" minOccurs="0" name="encode" type="tns:ReportDownloadEncode"/>
+          <element maxOccurs="1" minOccurs="0" name="compress" type="tns:ReportZip"/>
+          <element maxOccurs="1" minOccurs="0" name="language" type="tns:ReportLang"/>
+        </sequence>
+      </complexType>
+      <complexType name="ReportDateRange">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ReportFilter">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="field" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="operator" type="tns:FilterOperator"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="values" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ReportDefinitionOperation">
+        <complexContent>
+          <extension base="tns:Operation">
+            <sequence>
+              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
+              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:ReportDefinition"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType abstract="true" name="Operation">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
+        </sequence>
+      </complexType>
+      <complexType name="ReportDefinitionReturnValue">
+        <complexContent>
+          <extension base="adv:ListReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportDefinitionValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <simpleType name="ReportType">
         <restriction base="xsd:string">
           <enumeration value="AD"/>
           <enumeration value="INTEREST_CATEGORY"/>
@@ -138,39 +256,6 @@
           <enumeration value="EN"/>
         </restriction>
       </simpleType>
-      <simpleType name="ReportIntervalType">
-        <restriction base="xsd:string">
-          <enumeration value="ONETIME"/>
-          <enumeration value="DAILY"/>
-          <enumeration value="EVERYSUN"/>
-          <enumeration value="EVERYMON"/>
-          <enumeration value="EVERYTUE"/>
-          <enumeration value="EVERYWED"/>
-          <enumeration value="EVERYTHU"/>
-          <enumeration value="EVERYFRI"/>
-          <enumeration value="EVERYSAT"/>
-          <enumeration value="SPECIFYDAY"/>
-        </restriction>
-      </simpleType>
-      <simpleType name="ReportAddTemplate">
-        <restriction base="xsd:string">
-          <enumeration value="YES"/>
-          <enumeration value="NO"/>
-        </restriction>
-      </simpleType>
-      <complexType name="ReportDateRange">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="startDate" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:string"/>
-        </sequence>
-      </complexType>
-      <complexType name="ReportFilter">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="field" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="operator" type="tns:FilterOperator"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="values" type="xsd:string"/>
-        </sequence>
-      </complexType>
       <simpleType name="FilterOperator">
         <restriction base="xsd:string">
           <enumeration value="EQUALS"/>
@@ -185,95 +270,60 @@
           <enumeration value="CONTAINS_ANY"/>
         </restriction>
       </simpleType>
-      <complexType name="ReportDefinitionPage">
-        <complexContent>
-          <extension base="adv:Page">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportDefinitionValues"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="ReportDefinitionValues">
-        <complexContent>
-          <extension base="adv:ReturnValue">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="reportDefinition" type="tns:ReportDefinition"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="ReportDefinition">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="reportId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
-          <element maxOccurs="1" minOccurs="0" name="reportName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="dateRangeType" type="tns:ReportDateRangeType"/>
-          <element maxOccurs="1" minOccurs="0" name="dateRange" type="tns:ReportDateRange"/>
-          <element maxOccurs="1" minOccurs="0" name="frequencyRange" type="tns:ReportFrequencyRange"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="filters" type="tns:ReportFilter"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="sortFields" type="xsd:string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="fields" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="format" type="tns:ReportDownloadFormat"/>
-          <element maxOccurs="1" minOccurs="0" name="encode" type="tns:ReportDownloadEncode"/>
-          <element maxOccurs="1" minOccurs="0" name="zip" type="tns:ReportZip"/>
-          <element maxOccurs="1" minOccurs="0" name="lang" type="tns:ReportLang"/>
-          <element maxOccurs="1" minOccurs="0" name="intervalType" type="tns:ReportIntervalType"/>
-          <element maxOccurs="1" minOccurs="0" name="specifyDay" type="xsd:int"/>
-          <element maxOccurs="1" minOccurs="0" name="addTemplate" type="tns:ReportAddTemplate"/>
-        </sequence>
-      </complexType>
-      <complexType name="ReportDefinitionOperation">
-        <complexContent>
-          <extension base="tns:Operation">
-            <sequence>
-              <element maxOccurs="1" minOccurs="1" name="accountId" type="xsd:long"/>
-              <element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:ReportDefinition"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType abstract="true" name="Operation">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="operator" type="tns:Operator"/>
-        </sequence>
-      </complexType>
       <simpleType name="Operator">
         <restriction base="xsd:string">
           <enumeration value="ADD"/>
-          <enumeration value="SET"/>
           <enumeration value="REMOVE"/>
         </restriction>
       </simpleType>
-      <complexType name="ReportDefinitionReturnValue">
-        <complexContent>
-          <extension base="adv:ListReturnValue">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ReportDefinitionValues"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="ReportDefinitionFieldValue">
-        <complexContent>
-          <extension base="adv:ReturnValue">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="fields" type="tns:ReportDefinitionField"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="ReportDefinitionField">
-        <sequence>
-          <element maxOccurs="1" minOccurs="0" name="fieldName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="displayFieldNameJA" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="displayFieldNameEN" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="xmlAttributeName" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="fieldType" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="0" name="filterable" type="xsd:boolean"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="impossibleCombinationFields" type="xsd:string"/>
-        </sequence>
-      </complexType>
+      <simpleType name="ReportJobStatus">
+        <restriction base="xsd:string">
+          <enumeration value="ACCEPTED"/>
+          <enumeration value="IN_PROGRESS"/>
+          <enumeration value="COMPLETED"/>
+          <enumeration value="CANCELED"/>
+          <enumeration value="FAILED"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="RunReportJob">
+        <restriction base="xsd:string">
+          <enumeration value="TRUE"/>
+          <enumeration value="FALSE"/>
+        </restriction>
+      </simpleType>
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
+      <element name="ApiExceptionFault" type="xsd:string"/>
+      <element name="getClosedDate">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:ReportClosedDateSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getClosedDateResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportClosedDateValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getReportFields">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="reportCategory" type="tns:ReportType"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getReportFieldsResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportDefinitionFieldValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
       <element name="get">
         <complexType>
           <sequence>
@@ -304,24 +354,6 @@
           </sequence>
         </complexType>
       </element>
-      <element name="getReportFields">
-        <complexType>
-          <sequence>
-            <element maxOccurs="1" minOccurs="1" name="reportCategory" type="tns:ReportCategory"/>
-          </sequence>
-        </complexType>
-      </element>
-      <element name="getReportFieldsResponse">
-        <complexType>
-          <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ReportDefinitionFieldValue"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
-          </sequence>
-        </complexType>
-      </element>
-      <element name="RequestHeader" type="adv:SoapHeader"/>
-      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
-      <element name="ApiExceptionFault" type="xsd:string"/>
     </schema>
   </wsdl:types>
   <wsdl:message name="RequestHeader">
@@ -348,6 +380,12 @@
   <wsdl:message name="getReportFieldsResponse">
     <wsdl:part element="tns:getReportFieldsResponse" name="parameters"/>
   </wsdl:message>
+  <wsdl:message name="getClosedDateRequest">
+    <wsdl:part element="tns:getClosedDate" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getClosedDateResponse">
+    <wsdl:part element="tns:getClosedDateResponse" name="parameters"/>
+  </wsdl:message>
   <wsdl:message name="ApiException">
     <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
   </wsdl:message>
@@ -365,6 +403,11 @@
     <wsdl:operation name="getReportFields">
       <wsdl:input message="tns:getReportFieldsRequest" name="getReportFieldsRequest"/>
       <wsdl:output message="tns:getReportFieldsResponse" name="getReportFieldsResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getClosedDate">
+      <wsdl:input message="tns:getClosedDateRequest" name="getClosedDateRequest"/>
+      <wsdl:output message="tns:getClosedDateResponse" name="getClosedDateResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
   </wsdl:portType>
@@ -412,10 +455,24 @@
         <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="getClosedDate">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getClosedDateRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getClosedDateResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ReportDefinitionService">
     <wsdl:port binding="tns:ReportDefinitionServiceSoapBinding" name="ReportDefinitionService">
-      <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V201903/ReportDefinitionService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201907/ReportDefinitionService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

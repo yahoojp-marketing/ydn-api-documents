@@ -15,18 +15,60 @@ The ReportDefinition object serves report definitions.
   <th>response</th>
   <th>add</th>
   <th>remove</th>
- <tr>
-  <td>reportId</td>
-  <td>xsd:long</td>
-  <td>Report ID.</td>
-  <td>yes</td>
-  <td>Ignore</td>
-  <td>Requirement<br>(Not updatable)</td>
  </tr>
- <tr>
+  <tr>
   <td>accountId</td>
   <td>xsd:long</td>
-  <td>Account ID.</td>
+  <td>Account ID</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>reportJobId</td>
+  <td>xsd:long</td>
+  <td>Report Job Id</td>
+  <td>yes<br>&lowast;Returned only when using remove operation.
+  </td>
+  <td>Ignore</td>
+  <td>Required<br>NonUpdatable</td>
+ </tr>
+ <tr>
+  <td>reportJobStatus</td>
+  <td>enum <a href="./ReportJobStatus.md">ReportJobStatus</a></td>
+  <td>Job Status</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>reportJobErrorDetail</td>
+  <td>xsd:string</td>
+  <td>Job Error Detail</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>requestTime</td>
+  <td>xsd:string</td>
+  <td>The date and time of Job request</td>
+  <td>yes</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>completeTime</td>
+  <td>xsd:string</td>
+  <td>The date and time of Job completion</td>
+  <td>yes<br>&lowast;Returned after completion of job registration.</td>
+  <td>Ignore</td>
+  <td>Ignore</td>
+ </tr>
+ <tr>
+  <td>reportDownloadURL</td>
+  <td>xsd:string</td>
+  <td>Download URL for report<br>&lowast;The value is set if the status is COMPLETED</td>
   <td>yes</td>
   <td>Ignore</td>
   <td>Ignore</td>
@@ -107,7 +149,7 @@ The ReportDefinition object serves report definitions.
   <td>Ignore</td>
  </tr>
  <tr>
-  <td>zip</td>
+  <td>compress</td>
   <td>enum<br><a href="./ReportZip.md">ReportZip</a></td>
   <td>Whether or not a compressed file exists for the defined report.</td>
   <td>yes</td>
@@ -115,35 +157,11 @@ The ReportDefinition object serves report definitions.
   <td>Ignore</td>
  </tr>
  <tr>
-  <td>lang</td>
+  <td>language</td>
   <td>enum<br><a href="./ReportLang.md">ReportLang</a></td>
   <td>Reporting language for the defined column name.</td>
   <td>yes</td>
   <td>Optional</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>intervalType</td>
-  <td>enum<br><a href="./ReportIntervalType.md">ReportIntervalType</a></td>
-  <td>Selects a timing (interval type) to create a report.</td>
-  <td>yes</td>
-  <td>Ignore</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>specifyDay</td>
-  <td>xsd:int</td>
-  <td>Selects day to create a report.</td>
-  <td>yes</td>
-  <td>Optional</td>
-  <td>Ignore</td>
- </tr>
- <tr>
-  <td>addTemplate</td>
-  <td>enum<br><a href="./ReportAddTemplate.md">ReportAddTemplate</a></td>
-  <td>Set the definition for a template flag.</td>
-  <td>yes</td>
-  <td>Ignore</td>
   <td>Ignore</td>
  </tr>
 </table>

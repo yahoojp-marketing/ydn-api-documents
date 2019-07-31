@@ -1,13 +1,19 @@
+
+
 # BiddingStrategyType (enum)
+
 BiddingStrategyType serves types of bidding strategies.
-### Service
+
+#### Service
+
 + [AdGroupAdService](../../services/AdGroupAdService.md)
 
-### Namespace
+#### Namespace
+
 [AdGroupAdService#Namespace](../../services/AdGroupAdService.md#namespace)
 
-| Enumeration | Type | Description |
-|---|---|---|
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
 | MANUAL_CPC | xsd:string | Manual CPC. |
 | MANUAL_CPV | xsd:string | Manual CPV. |
 
