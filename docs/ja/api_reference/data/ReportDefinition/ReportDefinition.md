@@ -27,7 +27,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>reportJobId</td>
   <td>xsd:long</td>
   <td>レポートジョブIDです。</td>
-  <td>yes<br>※remove時のみ返却されます。</td>
+  <td>yes</td>
   <td>Ignore</td>
   <td>Requirement<br>NonUpdatable</td>
  </tr>

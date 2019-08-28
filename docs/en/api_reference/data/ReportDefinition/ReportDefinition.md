@@ -28,8 +28,7 @@ The ReportDefinition object serves report definitions.
   <td>reportJobId</td>
   <td>xsd:long</td>
   <td>Report Job Id</td>
-  <td>yes<br>&lowast;Returned only when using remove operation.
-  </td>
+  <td>yes</td>
   <td>Ignore</td>
   <td>Required<br>NonUpdatable</td>
  </tr>
