@@ -7,7 +7,7 @@ Tracking Parameters for YDN API are as follows.<br>
 
 Parameter | Description | URL Format   
 ----------- | ----------------- | ---------------- 
-creative | Returns AdTrackID. | http://www.example.com/?creative={creative} 
+creative | Returns Ad ID. | http://www.example.com/?creative={creative} 
 media | Returns Media ID.| http://www.example.com/?media={media}
 campaignid | Returns Campaign ID.| http://www.example.com/?campaignid={campaignid}
 adgroupid | Returns Ad Group ID.| http://www.example.com/?adgroupid={adgroupid}
