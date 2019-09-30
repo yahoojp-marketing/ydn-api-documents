@@ -97,7 +97,7 @@ ReportRecordオブジェクトは、レポートの情報を表します。
   <td>Ignore</td>
  </tr>
  <tr>
-  <td>reportDownloadURL</td>
+  <td>reportDownloadUrl</td>
   <td>xsd:string</td>
   <td>レポートのダウンロードURLです。<br>statusがCOMPLETEDの場合に値が設定されます。</td>
   <td>yes</td>

@@ -98,7 +98,7 @@ ReportRecord object serves report information.
   <td>Ignore</td>
  </tr>
  <tr>
-  <td>reportDownloadURL</td>
+  <td>reportDownloadUrl</td>
   <td>xsd:string</td>
   <td>Download URL for report<br>&lowast;The value is set if the status is COMPLETED</td>
   <td>yes</td>
