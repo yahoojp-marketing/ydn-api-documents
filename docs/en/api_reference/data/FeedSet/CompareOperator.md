@@ -10,11 +10,11 @@ CompareOperator object describes setting conditions of Item Set.
 | Field | Type | Description |
 |---|---|---|
 | EQUAL| string| Exact match |
-| INCLUDED| string| Broad match |
-| START_WITH| string| Start with |
-| END_WITH| string| End with |
+| INCLUDED| string| Broad match<br>*Currently this type is not available. |
+| START_WITH| string| Start with<br>*Currently this type is not available. |
+| END_WITH| string| End with<br>*Currently this type is not available. |
 | NOT_EQUAL| string| Exclude |
-| NOT_INCLUDED| string| Exclude if including the specified string |
+| NOT_INCLUDED| string| Exclude if including the specified string<br>*Currently this type is not available. |
 | GREATER_THAN_EQUALS| string| Greater than or equals |
 | LESS_THAN_EQUALS| string| Less than or equals |
 
