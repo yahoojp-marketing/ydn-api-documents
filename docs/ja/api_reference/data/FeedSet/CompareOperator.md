@@ -10,11 +10,11 @@
 | Field | Type | Description |
 |---|---|---|
 | EQUAL| string| 完全一致 |
-| INCLUDED| string| 部分一致|
-| START_WITH| string| 指定した文字列で始まる |
-| END_WITH| string| 指定した文字列で終わる |
+| INCLUDED| string| 部分一致<br>※現在、このタイプは指定できません。 |
+| START_WITH| string| 指定した文字列で始まる<br>※現在、このタイプは指定できません。 |
+| END_WITH| string| 指定した文字列で終わる<br>※現在、このタイプは指定できません。 |
 | NOT_EQUAL| string| 除外 |
-| NOT_INCLUDED| string| 指定した文字列を含む場合は除外 |
+| NOT_INCLUDED| string| 指定した文字列を含む場合は除外<br>※現在、このタイプは指定できません。 |
 | GREATER_THAN_EQUALS| string| 以上 |
 | LESS_THAN_EQUALS| string| 以下 |
 
