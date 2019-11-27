@@ -1,15 +1,21 @@
+
+
 # Gender (enum)
+
 Gender serves genders.
-### Service
+
+#### Service
+
 + [AdGroupTargetService](../../services/AdGroupTargetService.md)
 
-### Namespace
+#### Namespace
+
 [AdGroupTargetService#Namespace](../../services/AdGroupTargetService.md#namespace)
 
-| Value | Description | 
-|---|---|
-| ST_MALE| Male |
-| ST_FEMALE| Female |
-| ST_UNKNOWN| Unknown |
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
+| ST_MALE | xsd:string | Male |
+| ST_FEMALE | xsd:string | Female |
+| ST_UNKNOWN | xsd:string | Unknown |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

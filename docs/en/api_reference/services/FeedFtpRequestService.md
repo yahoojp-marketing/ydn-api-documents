@@ -1,17 +1,17 @@
 # FeedFtpRequestService
-FeedFtpRequestService execute Upload now process by Periodic Upload setting.
+FeedFtpRequestService execute registered FTP setting information immediately.
 
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/FeedFtpRequestService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/FeedFtpRequestService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201911/FeedFtpRequestService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/FeedFtpRequestService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/FeedFtpRequest
+http://im.yahooapis.jp/V201911/FeedFtpRequest
 
 #### Overview
-Execute Upload now process by Periodic Upload setting.
+Execute registered FTP setting information immediately.
 
 #### Operation
 Describes the operation which provides by FeedFtpRequestService.
@@ -22,25 +22,25 @@ Describes the operation which provides by FeedFtpRequestService.
 [FeedFtpRequest](../data/FeedFtpRequest)
 
 ## mutate(ADD)
-Execute Upload now process.
+Execute registered FTP setting information immediately.
 
 #### Request
 | Parameter | Requirement | Data Type | Description |
 |---|---|---|---|
-| operations | yes | [FeedFtpRequestOperation](../data/FeedFtpRequest/FeedFtpRequestOperation.md) | Request information for Upload now |
+| operations | yes | [FeedFtpRequestOperation](../data/FeedFtpRequest/FeedFtpRequestOperation.md) | FTP setting information to execute immediately |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtpRequest" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtpRequest" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedFtpRequest">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedFtpRequest">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -64,14 +64,14 @@ Execute Upload now process.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtpRequest" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtpRequest" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedFtpRequest</ns2:service>
-      <ns2:requestTime>1552637780783</ns2:requestTime>
+      <ns2:requestTime>1574414261526</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedFtpRequest">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedFtpRequest">
       <ns2:rval>
         <ListReturnValue.Type>FeedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>

@@ -1,13 +1,19 @@
+
+
 # VideoProcessStatus (enum)
+
 VideoProcessStatusは、動画の処理状況です。
-### Service
+
+#### Service
+
 + [VideoService](../../services/VideoService.md)
 
-### Namespace
+#### Namespace
+
 [VideoService#Namespace](../../services/VideoService.md#namespace)
 
-| Enumeration | Type | Description |
-|---|---|---|
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
 | PROCESSING | xsd:string | 処理中です。 |
 | FINISHED | xsd:string | 処理を完了しました。 |
 | FAILED | xsd:string | 処理を失敗しました。 |

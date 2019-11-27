@@ -6,12 +6,12 @@ StatsService retrieves the stats data of each campaign, ad group, ad, image and 
 
 | environment |                                      url                                      |
 | ----------- | ----------------------------------------------------------------------------- |
-| production  | https://location.im.yahooapis.jp/services/V201907/StatsService?wsdl |
-| sandbox     | https://sandbox.im.yahooapis.jp/services/V201907/StatsService?wsdl  |
+| production  | https://location.im.yahooapis.jp/services/V201911/StatsService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201911/StatsService?wsdl  |
 
 #### Namespace
 
-http://im.yahooapis.jp/V201907/Stats
+http://im.yahooapis.jp/V201911/Stats
 
 #### Service Overview
 
@@ -37,14 +37,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -63,14 +63,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -90,14 +90,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -118,14 +118,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
@@ -144,14 +144,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>11111</accountId>
         <mediaIds>22222</mediaIds>
@@ -174,14 +174,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>11111</accountId>
         <campaignIds>22222</campaignIds>
@@ -201,8 +201,6 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 
 ### Response
 
-Retrieves the stats information of each campaign, ad group, ad, image and video.
-
 | Parameter | Data Type |
 | -------- | ------- |
 | rval | [StatsPage](../data/Stats/StatsPage.md) |
@@ -211,14 +209,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1563874079130</ns2:requestTime>
+      <ns2:requestTime>1574394507281</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -299,14 +297,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1563874079201</ns2:requestTime>
+      <ns2:requestTime>1574394507392</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -389,14 +387,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1563874079266</ns2:requestTime>
+      <ns2:requestTime>1574394507475</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -481,14 +479,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1563874079331</ns2:requestTime>
+      <ns2:requestTime>1574394507543</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -570,14 +568,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1563874079401</ns2:requestTime>
+      <ns2:requestTime>1574394507627</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>
@@ -665,14 +663,14 @@ Retrieves the stats information of each campaign, ad group, ad, image and video.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Stats" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Stats" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Stats</ns2:service>
-      <ns2:requestTime>1563874079489</ns2:requestTime>
+      <ns2:requestTime>1574394507692</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Stats">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Stats">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>StatsPage</Page.Type>

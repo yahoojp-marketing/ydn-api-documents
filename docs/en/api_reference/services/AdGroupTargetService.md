@@ -1,15 +1,24 @@
 # AdGroupTargetService
+
 The service let you perform targeting settings operations (get, add, set, replace and remove) for ad group.
+
 #### WSDL
-| environment | url |
-|---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/AdGroupTargetService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/AdGroupTargetService?wsdl |
+
+| environment |                                      url                                      |
+| ----------- | ----------------------------------------------------------------------------- |
+| production  | https://location.im.yahooapis.jp/services/V201911/AdGroupTargetService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201911/AdGroupTargetService?wsdl  |
+
 #### Namespace
-http://im.yahooapis.jp/V201907/AdGroupTarget
+
+http://im.yahooapis.jp/V201911/AdGroupTarget
+
 #### Service Overview
+
 Performs target settings related operations (get, add, set, replace and remove) for ad group.
+
 #### Operation
+
 Explains operations provided by AdGroupTargetService.
 
 + [get](#get)
@@ -18,31 +27,28 @@ Explains operations provided by AdGroupTargetService.
 + [mutate(REMOVE)](#mutateremove)
 + [replace](#replace)
 
-
-#### Object
-[AdGroupTarget](../data/AdGroupTarget)
-
 ## get
 
 ### Request
+
 Gets target settings related for ad group.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| selector | required | [AdGroupTargetSelector](../data/AdGroupTarget/AdGroupTargetSelector.md) | Contains a set of criteria (parameters) for get method. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| selector | Yes | [AdGroupTargetSelector](../data/AdGroupTarget/AdGroupTargetSelector.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -56,12 +62,20 @@ Gets target settings related for ad group.
         <adGroupIds>20004</adGroupIds>
         <adGroupIds>20005</adGroupIds>
         <targetTypes>AD_SCHEDULE_TARGET</targetTypes>
+        <targetTypes>GEO_TARGET</targetTypes>
         <targetTypes>AGE_TARGET</targetTypes>
-        <targetTypes>APP_TARGET</targetTypes>
-        <targetTypes>CARRIER_TARGET</targetTypes>
         <targetTypes>GENDER_TARGET</targetTypes>
         <targetTypes>INTEREST_CATEGORY</targetTypes>
+        <targetTypes>SITE_CATEGORY</targetTypes>
+        <targetTypes>SITE_RETARGETING</targetTypes>
+        <targetTypes>SEARCH_TARGET</targetTypes>
+        <targetTypes>PLACEMENT_TARGET</targetTypes>
+        <targetTypes>DEVICE_TARGET</targetTypes>
+        <targetTypes>CARRIER_TARGET</targetTypes>
+        <targetTypes>APP_TARGET</targetTypes>
         <targetTypes>OS_TARGET</targetTypes>
+        <targetTypes>OS_VERSION_TARGET</targetTypes>
+        <targetTypes>AUDIENCE_CATEGORY_TARGET</targetTypes>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
           <ns2:numberResults>1000</ns2:numberResults>
@@ -73,22 +87,23 @@ Gets target settings related for ad group.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupTargetPage](../data/AdGroupTarget/AdGroupTargetPage.md) | Contains the results (a list of all entities) for get method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupTargetPage](../data/AdGroupTarget/AdGroupTargetPage.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1551686143079</ns2:requestTime>
+      <ns2:requestTime>1574393625857</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>AdGroupTargetPage</Page.Type>
@@ -189,11 +204,11 @@ Gets target settings related for ad group.
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:campaignId>10001</ns2:campaignId>
             <ns2:adGroupId>20001</ns2:adGroupId>
-            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PlacementTarget">
-              <ns2:type>PLACEMENT_TARGET</ns2:type>
-              <ns2:targetId>12345678</ns2:targetId>
-              <ns2:placementUrlListName>c</ns2:placementUrlListName>
-              <ns2:deliverType>WHITE_LIST</ns2:deliverType>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SiteRetargetingTarget">
+              <ns2:type>SITE_RETARGETING</ns2:type>
+              <ns2:targetId>123456789</ns2:targetId>
+              <ns2:targetListName>Default List</ns2:targetListName>
+              <ns2:deliverType>INCLUDE</ns2:deliverType>
             </ns2:target>
           </ns2:adGroupTargetList>
         </ns2:values>
@@ -216,11 +231,11 @@ Gets target settings related for ad group.
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:campaignId>10001</ns2:campaignId>
             <ns2:adGroupId>20001</ns2:adGroupId>
-            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:SiteRetargetingTarget">
-              <ns2:type>SITE_RETARGETING</ns2:type>
-              <ns2:targetId>123456789</ns2:targetId>
-              <ns2:targetListName>Default List</ns2:targetListName>
-              <ns2:deliverType>INCLUDE</ns2:deliverType>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PlacementTarget">
+              <ns2:type>PLACEMENT_TARGET</ns2:type>
+              <ns2:targetId>12345678</ns2:targetId>
+              <ns2:placementUrlListName>c</ns2:placementUrlListName>
+              <ns2:deliverType>WHITE_LIST</ns2:deliverType>
             </ns2:target>
           </ns2:adGroupTargetList>
         </ns2:values>
@@ -291,6 +306,21 @@ Gets target settings related for ad group.
             </ns2:target>
           </ns2:adGroupTargetList>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AudienceCategoryTarget">
+              <ns2:type>AUDIENCE_CATEGORY_TARGET</ns2:type>
+              <ns2:targetId>1</ns2:targetId>
+              <ns2:categoryNameJa>ショッピング</ns2:categoryNameJa>
+              <ns2:categoryNameEn>Shopping</ns2:categoryNameEn>
+              <ns2:categoryType>AFFINITY</ns2:categoryType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
       </ns2:rval>
     </ns2:getResponse>
   </SOAP-ENV:Body>
@@ -300,24 +330,25 @@ Gets target settings related for ad group.
 ## mutate(ADD)
 
 ### Request
-Adds targeting information for an ad group
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [AdGroupTargetSelector](../data/AdGroupTarget/AdGroupTargetSelector.md) | Contains the targeting information for mutate/replace method. |
+Adds targeting information for an ad group.
+
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [AdGroupTargetMutateOperation](../data/AdGroupTarget/AdGroupTargetMutateOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -380,10 +411,10 @@ Adds targeting information for an ad group
         <operand>
           <campaignId>10001</campaignId>
           <adGroupId>20001</adGroupId>
-          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
-            <type>PLACEMENT_TARGET</type>
-            <targetId>199999999</targetId>
-            <deliverType>WHITE_LIST</deliverType>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
+            <type>SITE_RETARGETING</type>
+            <targetId>20000000</targetId>
+            <deliverType>INCLUDE</deliverType>
           </target>
         </operand>
         <operand>
@@ -397,10 +428,10 @@ Adds targeting information for an ad group
         <operand>
           <campaignId>10001</campaignId>
           <adGroupId>20001</adGroupId>
-          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SiteRetargetingTarget">
-            <type>SITE_RETARGETING</type>
-            <targetId>20000000</targetId>
-            <deliverType>INCLUDE</deliverType>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlacementTarget">
+            <type>PLACEMENT_TARGET</type>
+            <targetId>199999999</targetId>
+            <deliverType>WHITE_LIST</deliverType>
           </target>
         </operand>
         <operand>
@@ -437,6 +468,14 @@ Adds targeting information for an ad group
             <osVersion>10.1</osVersion>
           </target>
         </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AudienceCategoryTarget">
+            <type>AUDIENCE_CATEGORY_TARGET</type>
+            <targetId>1</targetId>
+          </target>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -444,22 +483,23 @@ Adds targeting information for an ad group
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) | Contains the results (a list of all entities) for mutate/replace method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1551686143113</ns2:requestTime>
+      <ns2:requestTime>1574393625932</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -662,6 +702,21 @@ Adds targeting information for an ad group
             </ns2:target>
           </ns2:adGroupTargetList>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AudienceCategoryTarget">
+              <ns2:type>AUDIENCE_CATEGORY_TARGET</ns2:type>
+              <ns2:targetId>1</ns2:targetId>
+              <ns2:categoryNameJa>ショッピング</ns2:categoryNameJa>
+              <ns2:categoryNameEn>Shopping</ns2:categoryNameEn>
+              <ns2:categoryType>AFFINITY</ns2:categoryType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -671,24 +726,25 @@ Adds targeting information for an ad group
 ## mutate(SET)
 
 ### Request
-Updates targeting information for an ad group
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [AdGroupTargetMutateOperation](../data/AdGroupTarget/AdGroupTargetMutateOperation.md) | Contains the targeting information for mutate/replace method. |
+Updates targeting information for an ad group.
+
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [AdGroupTargetMutateOperation](../data/AdGroupTarget/AdGroupTargetMutateOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -824,6 +880,14 @@ Updates targeting information for an ad group
             <osVersion>10.1</osVersion>
           </target>
         </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AudienceCategoryTarget">
+            <type>AUDIENCE_CATEGORY_TARGET</type>
+            <targetId>1</targetId>
+          </target>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -831,22 +895,23 @@ Updates targeting information for an ad group
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) | Contains the results (a list of all entities) for mutate/replace method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1551686143142</ns2:requestTime>
+      <ns2:requestTime>1574393626000</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -1049,6 +1114,21 @@ Updates targeting information for an ad group
             </ns2:target>
           </ns2:adGroupTargetList>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AudienceCategoryTarget">
+              <ns2:type>AUDIENCE_CATEGORY_TARGET</ns2:type>
+              <ns2:targetId>1</ns2:targetId>
+              <ns2:categoryNameJa>ショッピング</ns2:categoryNameJa>
+              <ns2:categoryNameEn>Shopping</ns2:categoryNameEn>
+              <ns2:categoryType>AFFINITY</ns2:categoryType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -1058,24 +1138,25 @@ Updates targeting information for an ad group
 ## mutate(REMOVE)
 
 ### Request
-Removes targeting information for an ad group
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [AdGroupTargetMutateOperation](../data/AdGroupTarget/AdGroupTargetMutateOperation.md) | Contains the targeting information for mutate/replace method. |
+Removes targeting information for an ad group.
+
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [AdGroupTargetMutateOperation](../data/AdGroupTarget/AdGroupTargetMutateOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -1199,6 +1280,14 @@ Removes targeting information for an ad group
             <targetId>ov001</targetId>
           </target>
         </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AudienceCategoryTarget">
+            <type>AUDIENCE_CATEGORY_TARGET</type>
+            <targetId>1</targetId>
+          </target>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -1206,22 +1295,23 @@ Removes targeting information for an ad group
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) | Contains the results (a list of all entities) for mutate/replace method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1551686143170</ns2:requestTime>
+      <ns2:requestTime>1574393626056</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupTargetReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -1424,6 +1514,21 @@ Removes targeting information for an ad group
             </ns2:target>
           </ns2:adGroupTargetList>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AudienceCategoryTarget">
+              <ns2:type>AUDIENCE_CATEGORY_TARGET</ns2:type>
+              <ns2:targetId>1</ns2:targetId>
+              <ns2:categoryNameJa>ショッピング</ns2:categoryNameJa>
+              <ns2:categoryNameEn>Shopping</ns2:categoryNameEn>
+              <ns2:categoryType>AFFINITY</ns2:categoryType>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
   </SOAP-ENV:Body>
@@ -1433,24 +1538,25 @@ Removes targeting information for an ad group
 ## replace
 
 ### Request
+
 Replaces (deletes and adds) targeting information for an ad group.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [AdGroupTargetOperation](../data/AdGroupTarget/AdGroupTargetOperation.md) | Contains the targeting information for mutate/replace method. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [AdGroupTargetOperation](../data/AdGroupTarget/AdGroupTargetOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <replace xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <replace xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <operations>
         <accountId>1234567890</accountId>
         <operand>
@@ -1569,6 +1675,14 @@ Replaces (deletes and adds) targeting information for an ad group.
             <osVersion>10.1</osVersion>
           </target>
         </operand>
+        <operand>
+          <campaignId>10001</campaignId>
+          <adGroupId>20001</adGroupId>
+          <target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AudienceCategoryTarget">
+            <type>AUDIENCE_CATEGORY_TARGET</type>
+            <targetId>1</targetId>
+          </target>
+        </operand>
       </operations>
     </replace>
   </SOAP-ENV:Body>
@@ -1576,22 +1690,23 @@ Replaces (deletes and adds) targeting information for an ad group.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) | Contains the results (a list of all entities) for mutate/replace method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [AdGroupTargetReturnValue](../data/AdGroupTarget/AdGroupTargetReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupTarget" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>AdGroupTarget</ns2:service>
-      <ns2:requestTime>1551686143201</ns2:requestTime>
+      <ns2:requestTime>1574393626117</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:replaceResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupTarget">
+    <ns2:replaceResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/AdGroupTarget">
       <ns2:rval>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -1789,6 +1904,21 @@ Replaces (deletes and adds) targeting information for an ad group.
               <ns2:type>OS_VERSION_TARGET</ns2:type>
               <ns2:targetId>ov01</ns2:targetId>
               <ns2:osVersion>8.0</ns2:osVersion>
+            </ns2:target>
+          </ns2:adGroupTargetList>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:adGroupTargetList>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:adGroupId>20001</ns2:adGroupId>
+            <ns2:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AudienceCategoryTarget">
+              <ns2:type>AUDIENCE_CATEGORY_TARGET</ns2:type>
+              <ns2:targetId>1</ns2:targetId>
+              <ns2:categoryNameJa>ショッピング</ns2:categoryNameJa>
+              <ns2:categoryNameEn>Shopping</ns2:categoryNameEn>
+              <ns2:categoryType>AFFINITY</ns2:categoryType>
             </ns2:target>
           </ns2:adGroupTargetList>
         </ns2:values>

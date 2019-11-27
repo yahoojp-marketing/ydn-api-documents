@@ -10,6 +10,8 @@ YDN APIで利用できるレポートフィールド集です。<br>
 * [配信先URLレポート](./reports/URL.csv)
 * [フリークエンシーレポート](./reports/FREQUENCY.csv)
 * [ラベルレポート](./reports/LABEL.csv)
+* [オーディエンスカテゴリーレポート](./reports/AUDIENCE_CATEGORY.csv)
+* [リーチレポート](./reports/REACH.csv)
 
 ### 動作区分の説明
 値           | 意味  
@@ -136,6 +138,8 @@ PC | PC
 400x200 | 400x200
 640x360 | 640x360
 600x600 | 600x600
+600x80 | 600x80
+300x600 | 300x600
 
 <a name="carrier"></a>
 ##### CARRIERレスポンス

@@ -4,11 +4,11 @@ CampaignLabelServiceでは、ラベルとキャンペーンの紐付けの登録
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/CampaignLabelService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/CampaignLabelService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201911/CampaignLabelService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/CampaignLabelService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/CampaignLabel
+http://im.yahooapis.jp/V201911/CampaignLabel
 
 #### サービス概要
 ラベルとキャンペーンの紐付けの登録・削除を行います。
@@ -34,14 +34,14 @@ CampaignLabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/CampaignLabel" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/CampaignLabel" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/CampaignLabel">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/CampaignLabel">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -66,14 +66,14 @@ CampaignLabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/CampaignLabel" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/CampaignLabel" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>CampaignLabel</ns2:service>
-      <ns2:requestTime>1551686145102</ns2:requestTime>
+      <ns2:requestTime>1574393659560</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/CampaignLabel">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/CampaignLabel">
       <ns2:rval>
         <ListReturnValue.Type>CampaignLabelReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -103,14 +103,14 @@ CampaignLabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/CampaignLabel" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/CampaignLabel" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/CampaignLabel">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/CampaignLabel">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -135,14 +135,14 @@ CampaignLabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/CampaignLabel" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/CampaignLabel" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>CampaignLabel</ns2:service>
-      <ns2:requestTime>1551686145111</ns2:requestTime>
+      <ns2:requestTime>1574393659607</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/CampaignLabel">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/CampaignLabel">
       <ns2:rval>
         <ListReturnValue.Type>CampaignLabelReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

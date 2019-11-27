@@ -34,5 +34,11 @@ ResponsiveVideoAdオブジェクトは、動画広告の情報を表します。
 | isRemoveVideoPaidBeaconUrls | enum [isRemoveFlg](./isRemoveFlg.md) | 課金視聴ビーコンURL<br/>削除<br/>videoPaidBeaconUrlが設定されている場合も、こちらが優先される | yes | Ignore | Optional<br/>Updatable | Ignore | |
 | videoCompleteBeaconUrls[0..2] | xsd:string | 再生完了ビーコンURL<br/>※set時はすべて上書きされる<br/>※httpsのURLのみ設定可能 | yes | Optional | Optional<br/>Updatable | Ignore | |
 | isRemoveVideoCompleteBeaconUrls | enum [isRemoveFlg](./isRemoveFlg.md) | 再生完了ビーコンURL<br/>削除<br/>videoCompleteBeaconUrlが設定されている場合も、こちらが優先される | yes | Ignore | Optional<br/>Updatable | Ignore | |
+| video25PercentBeaconUrls[0..2] | xsd:string | 25％再生視聴ビーコンURL<br/>※set時はすべて上書きされる<br/>※httpsのURLのみ設定可能 | yes | Optional | Optional<br/>Updatable | Ignore | |
+| isRemoveVideo25PercentBeaconUrls | enum [isRemoveFlg](./isRemoveFlg.md) | 25％再生視聴ビーコンURL<br/>削除<br/>video25PercentBeaconUrlが設定されている場合も、こちらが優先される | yes | Ignore | Optional<br/>Updatable | Ignore | |
+| video50PercentBeaconUrls[0..2] | xsd:string | 50％再生視聴ビーコンURL<br/>※set時はすべて上書きされる<br/>※httpsのURLのみ設定可能 | yes | Optional | Optional<br/>Updatable | Ignore | |
+| isRemoveVideo50PercentBeaconUrls | enum [isRemoveFlg](./isRemoveFlg.md) | 50％再生視聴ビーコンURL<br/>削除<br/>video50PercentBeaconUrlが設定されている場合も、こちらが優先される | yes | Ignore | Optional<br/>Updatable | Ignore | |
+| video75PercentBeaconUrls[0..2] | xsd:string | 75％再生視聴ビーコンURL<br/>※set時はすべて上書きされる<br/>※httpsのURLのみ設定可能 | yes | Optional | Optional<br/>Updatable | Ignore | |
+| isRemoveVideo75PercentBeaconUrls | enum [isRemoveFlg](./isRemoveFlg.md) | 75％再生視聴ビーコンURL<br/>削除<br/>video75PercentBeaconUrlが設定されている場合も、こちらが優先される | yes | Ignore | Optional<br/>Updatable | Ignore | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

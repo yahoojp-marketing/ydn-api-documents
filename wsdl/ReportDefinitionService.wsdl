@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201907/ReportDefinition"
-        xmlns:tns="http://im.yahooapis.jp/V201907/ReportDefinition"
+        targetNamespace="http://im.yahooapis.jp/V201911/ReportDefinition"
+        xmlns:tns="http://im.yahooapis.jp/V201911/ReportDefinition"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201907"
+            targetNamespace="http://im.yahooapis.jp/V201911"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201907">
+            xmlns:tns="http://im.yahooapis.jp/V201911">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201907/ReportDefinition"
+            targetNamespace="http://im.yahooapis.jp/V201911/ReportDefinition"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201907"
-            xmlns:tns="http://im.yahooapis.jp/V201907/ReportDefinition">
-      <xsd:import namespace="http://im.yahooapis.jp/V201907"/>
+            xmlns:adv="http://im.yahooapis.jp/V201911"
+            xmlns:tns="http://im.yahooapis.jp/V201911/ReportDefinition">
+      <xsd:import namespace="http://im.yahooapis.jp/V201911"/>
       <annotation>
         <appinfo>
-          <version>201907</version>
+          <version>201911</version>
         </appinfo>
       </annotation>
       <complexType name="ReportClosedDateSelector">
@@ -209,6 +209,8 @@
           <enumeration value="URL"/>
           <enumeration value="FREQUENCY"/>
           <enumeration value="LABEL"/>
+          <enumeration value="AUDIENCE_CATEGORY"/>
+          <enumeration value="REACH"/>
         </restriction>
       </simpleType>
       <simpleType name="ReportDateRangeType">
@@ -472,7 +474,7 @@
   </wsdl:binding>
   <wsdl:service name="ReportDefinitionService">
     <wsdl:port binding="tns:ReportDefinitionServiceSoapBinding" name="ReportDefinitionService">
-      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201907/ReportDefinitionService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201911/ReportDefinitionService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

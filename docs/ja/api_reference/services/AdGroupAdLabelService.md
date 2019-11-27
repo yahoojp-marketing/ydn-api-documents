@@ -4,11 +4,11 @@ AdGroupAdLabelServiceでは、ラベルと広告の紐付けの登録・削除�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/AdGroupAdLabelService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/AdGroupAdLabelService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201911/AdGroupAdLabelService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/AdGroupAdLabelService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/AdGroupAdLabel
+http://im.yahooapis.jp/V201911/AdGroupAdLabel
 
 #### サービス概要
 ラベルと広告の紐付けの登録・削除を行います。
@@ -34,14 +34,14 @@ AdGroupAdLabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAdLabel" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupAdLabel" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/AdGroupAdLabel">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/AdGroupAdLabel">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -68,14 +68,14 @@ AdGroupAdLabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAdLabel" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupAdLabel" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>AdGroupAdLabel</ns2:service>
-      <ns2:requestTime>1551686139290</ns2:requestTime>
+      <ns2:requestTime>1574393580739</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupAdLabel">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/AdGroupAdLabel">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdLabelReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -107,14 +107,14 @@ AdGroupAdLabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAdLabel" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupAdLabel" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/AdGroupAdLabel">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/AdGroupAdLabel">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -141,14 +141,14 @@ AdGroupAdLabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/AdGroupAdLabel" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/AdGroupAdLabel" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>AdGroupAdLabel</ns2:service>
-      <ns2:requestTime>1551686139302</ns2:requestTime>
+      <ns2:requestTime>1574393580793</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/AdGroupAdLabel">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/AdGroupAdLabel">
       <ns2:rval>
         <ListReturnValue.Type>AdGroupAdLabelReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>

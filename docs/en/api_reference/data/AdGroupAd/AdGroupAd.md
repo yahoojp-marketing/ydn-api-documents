@@ -30,6 +30,9 @@ The AdGroupAd object is a container for storing ad information.
 | ad | [Ad](./Ad.md)<br>inherited [TextAd](./TextAd.md)<br>inherited [MobileAd](./MobileAd.md)<br>inherited [PosAd](./PosAd.md)<br>inherited [ResponsiveImageAd](./ResponsiveImageAd.md)<br>inherited [StaticFrameAd](./StaticFrameAd.md)<br>inherited [ResponsiveVideoAd](./ResponsiveVideoAd.md)<br>inherited [DynamicAd](./DynamicAd.md)<br>inherited [BannerVideoAd](./BannerVideoAd.md)<br>inherited [BannerImageAd](./BannerImageAd.md) | Container including ad. | yes | - | Requirement | Optional<br/>Updatable | Ignore | |
 | impressionBeaconUrls[0..2] | xsd:string | Impression beacon URL. | yes | - | Optional | Optional<br/>Updatable | Ignore | |
 | isRemoveBeaconUrls | enum [isRemoveFlg](./isRemoveFlg.md) | Remove flag of impression beacon URL.<br/>If set &#39;TRUE&#39;, the set value on the impression beacon URL is invalid. | - | - | Ignore | Optional<br/>Updatable | Ignore | |
-| labels[0..1000] | [Label](./Label.md) | Label | yes | - | Ignore | Ignore | Ignore | |
+| labels[0..1000] | [Label](./Label.md) | Label. | yes | - | Ignore | Ignore | Ignore | |
+| thirdPartyTrackingVendor | xsd:string | Third party tracking vendor (Read only). | yes | <br>Third party tracking vendor based on domain of thirdPartyTrackingScriptUrl is set. | Ignore | Ignore | Ignore | |
+| thirdPartyTrackingScriptUrl | xsd:string | Third party tracking script URL. | yes | - | Optional | Optional<br>Updatable | Ignore | |
+| isRemoveThirdPartyTrackingScriptUrl | enum [isRemoveFlg](./isRemoveFlg.md) | Remove third party tracking script URL.<br>Even if thirdPartyTrackingScriptUrl is set, this takes precedence. | yes | - | Ignore | Optional<br/>Updatable | Ignore | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

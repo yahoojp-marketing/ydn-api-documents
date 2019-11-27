@@ -31,5 +31,8 @@ AdGroupAdオブジェクトは、広告の情報を格納するコンテナで�
 | impressionBeaconUrls[0..2] | xsd:string | インプレッションビーコンURL | yes | - | Optional | Optional<br/>Updatable | Ignore | |
 | isRemoveBeaconUrls | enum [isRemoveFlg](./isRemoveFlg.md) | インプレッションビーコンURL<br/>削除フラグです。<br/>設定値が「TRUE」の場合、設定されている<br/>インプレッションビーコンURLの<br/>値が無効になります。 | - | - | Ignore | Optional<br/>Updatable | Ignore | |
 | labels[0..1000] | [Label](./Label.md) | ラベル | yes | - | Ignore | Ignore | Ignore | |
+| thirdPartyTrackingVendor | xsd:string | 第三者計測ベンダー（ReadOnly） | yes | <br>thirdPartyTrackingScriptUrlのドメインに基づく第三者計測ベンダーが設定されます。 | Ignore | Ignore | Ignore | |
+| thirdPartyTrackingScriptUrl | xsd:string | 第三者計測スクリプトURL | yes | - | Optional | Optional<br>Updatable | Ignore | |
+| isRemoveThirdPartyTrackingScriptUrl | enum [isRemoveFlg](./isRemoveFlg.md) | 第三者計測スクリプトURL<br>削除<br>thirdPartyTrackingScriptUrlが設定されている場合も、こちらが優先される | yes | - | Ignore | Optional<br/>Updatable | Ignore | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

@@ -19,9 +19,9 @@ Stats object contains the stats information.
 | cost | xsd:double | Cost | yes | |
 | clickCnt | xsd:long | Number of clicks | yes | |
 | avgCpc | xsd:double | Avg. CPC | yes | |
-| conversions | xsd:long | Conversions<br/>∗Contains cross-device conversions (including video view) | yes | |
+| conversions | xsd:long | Conversions | yes | |
 | conversionRate | xsd:double | Conv. rate | yes | |
-| cpa | xsd:string | Conversion cost per acquisition<br/>∗Contains cross-device conversions (including video view) | yes | |
+| cpa | xsd:string | Conversion cost per acquisition | yes | |
 | conversionValue | xsd:string | Conv. value | yes | |
 | valuePerConversions | xsd:string | Conv. value/conv. | yes | |
 | conversionsViaAdClick | xsd:long | Conversions (via click) | yes | |

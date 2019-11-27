@@ -1,4 +1,4 @@
-"フィールド名/Field Name","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","組合せ不可フィールド/Not Compatible Fields","動作区分/Behavior Type"
+﻿"フィールド名/Field Name","日本語表示名称/Japanese Display Name","英語表示名称/English Display Name","XML属性/XML Attribute","型/Type","組合せ不可フィールド/Not Compatible Fields","動作区分/Behavior Type"
 "ACCOUNT_ID","アカウントID","Account ID","accountID","LONG",,"Attribute"
 "ACCOUNT_NAME","アカウント名","Account Name","accountName","STRING",,"Attribute"
 "CAMPAIGN_ID","キャンペーンID","Campaign ID","campaignID","LONG",,"Attribute"

@@ -4,11 +4,11 @@ LabelServiceでは、ラベルに関する情報の取得および追加・更�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/LabelService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/LabelService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201911/LabelService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/LabelService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/Label
+http://im.yahooapis.jp/V201911/Label
 
 #### サービス概要
 ラベルに関する情報の取得および追加・更新・削除を行います。
@@ -36,14 +36,14 @@ LabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1234567890</accountId>
         <labelIds>10001</labelIds>
@@ -72,14 +72,14 @@ LabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Label</ns2:service>
-      <ns2:requestTime>1551686140084</ns2:requestTime>
+      <ns2:requestTime>1574394412370</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Label">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Label">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>LabelPage</Page.Type>
@@ -111,19 +111,19 @@ LabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Label">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Label">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
         <operand>
-          <labelName>sample_20190304165540076</labelName>
+          <labelName>sample_20191122124652320</labelName>
           <color>#000000</color>
           <description>add sample</description>
         </operand>
@@ -144,14 +144,14 @@ LabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Label</ns2:service>
-      <ns2:requestTime>1551686140097</ns2:requestTime>
+      <ns2:requestTime>1574394412419</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Label">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Label">
       <ns2:rval>
         <ListReturnValue.Type>LabelReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -160,7 +160,7 @@ LabelServiceで提供される操作を説明します。
           <ns2:label>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:labelId>10001</ns2:labelId>
-            <ns2:labelName>sample_20190304165540076</ns2:labelName>
+            <ns2:labelName>sample_20191122124652320</ns2:labelName>
             <ns2:color>#000000</ns2:color>
             <ns2:description>add sample</ns2:description>
           </ns2:label>
@@ -183,20 +183,20 @@ LabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Label">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Label">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
         <operand>
           <labelId>10001</labelId>
-          <labelName>set sample_20190304165540076</labelName>
+          <labelName>set sample_20191122124652320</labelName>
           <color>#ffffff</color>
           <description>set sample</description>
         </operand>
@@ -217,14 +217,14 @@ LabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Label</ns2:service>
-      <ns2:requestTime>1551686140109</ns2:requestTime>
+      <ns2:requestTime>1574394412443</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Label">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Label">
       <ns2:rval>
         <ListReturnValue.Type>LabelReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -233,7 +233,7 @@ LabelServiceで提供される操作を説明します。
           <ns2:label>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:labelId>10001</ns2:labelId>
-            <ns2:labelName>set sample_20190304165540077</ns2:labelName>
+            <ns2:labelName>set sample_20191122124652320</ns2:labelName>
             <ns2:color>#ffffff</ns2:color>
             <ns2:description>set sample</ns2:description>
           </ns2:label>
@@ -256,14 +256,14 @@ LabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Label">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Label">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -287,14 +287,14 @@ LabelServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Label</ns2:service>
-      <ns2:requestTime>1551686140122</ns2:requestTime>
+      <ns2:requestTime>1574394412468</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Label">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Label">
       <ns2:rval>
         <ListReturnValue.Type>LabelReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -303,7 +303,7 @@ LabelServiceで提供される操作を説明します。
           <ns2:label>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:labelId>10001</ns2:labelId>
-            <ns2:labelName>set sample_20190304165540077</ns2:labelName>
+            <ns2:labelName>set sample_20191122124652321</ns2:labelName>
             <ns2:color>#ffffff</ns2:color>
             <ns2:description>set sample</ns2:description>
           </ns2:label>

@@ -3,10 +3,10 @@ BalanceServiceは、予算の取得機能を提供します。
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/BalanceService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/BalanceService?wsdl|
+| production  | https://location.im.yahooapis.jp/services/V201911/BalanceService?wsdl|
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/BalanceService?wsdl|
 #### Namespace
-http://im.yahooapis.jp/V201907/Balance
+http://im.yahooapis.jp/V201911/Balance
 #### サービス概要
 予算の取得機能を提供します。
 #### 操作
@@ -30,14 +30,14 @@ BalanceServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Balance" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Balance" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Balance">
+    <get xmlns="http://im.yahooapis.jp/V201911/Balance">
       <selector>
         <accountId>1111</accountId>
       </selector>
@@ -55,14 +55,14 @@ BalanceServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Balance" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Balance" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Balance</ns2:service>
-      <ns2:requestTime>1551686141291</ns2:requestTime>
+      <ns2:requestTime>1574393641857</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Balance">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Balance">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>

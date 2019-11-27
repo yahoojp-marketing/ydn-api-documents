@@ -4,11 +4,11 @@ FeedHolderServiceでは、FeedHolder情報の取得、登録、更新、削除�
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/FeedHolderService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/FeedHolderService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201911/FeedHolderService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/FeedHolderService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/FeedHolder
+http://im.yahooapis.jp/V201911/FeedHolder
 
 #### サービス概要
 FeedHolder情報の取得、登録、更新、削除を行います。
@@ -36,14 +36,14 @@ FeedHolder情報を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1111</accountId>
         <feedHolderIds>222</feedHolderIds>
@@ -70,14 +70,14 @@ FeedHolder情報を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedHolder</ns2:service>
-      <ns2:requestTime>1531887958474</ns2:requestTime>
+      <ns2:requestTime>1574410323556</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedHolder">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedHolder">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>
@@ -89,6 +89,7 @@ FeedHolder情報を取得します。
             <ns2:itemCount>1</ns2:itemCount>
             <ns2:approvedItemCount>2</ns2:approvedItemCount>
             <ns2:disApprovedItemCount>3</ns2:disApprovedItemCount>
+            <ns2:disApprovalReasonListDownloadUrl>https://location.im.yahooapis.jp/feedUpload/V201911/downloadDisApprovalReasonList/gaChTAqlEOFLfOACISiRi2A1Cq_K3zZUXT95bA2X08mrAkckbvq4e79qoNiyq34QaHNTG_0dfevjoURTzf6dGnqGXQkEPgQp4gGsl59Z</ns2:disApprovalReasonListDownloadUrl>
           </ns2:feedHolder>
         </ns2:values>
       </ns2:rval>
@@ -109,14 +110,14 @@ FeedHolder情報を新規登録します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedHolder">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedHolder">
       <operations>
         <operator>ADD</operator>
         <accountId>1111</accountId>
@@ -139,14 +140,14 @@ FeedHolder情報を新規登録します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedHolder</ns2:service>
-      <ns2:requestTime>1531887960345</ns2:requestTime>
+      <ns2:requestTime>1574410323602</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedHolder">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedHolder">
       <ns2:rval>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -174,14 +175,14 @@ FeedHolder情報を更新します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedHolder">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedHolder">
       <operations>
         <operator>SET</operator>
         <accountId>1111</accountId>
@@ -205,14 +206,14 @@ FeedHolder情報を更新します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedHolder</ns2:service>
-      <ns2:requestTime>1531887960442</ns2:requestTime>
+      <ns2:requestTime>1574410323629</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedHolder">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedHolder">
       <ns2:rval>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -240,14 +241,14 @@ FeedHolder情報を削除します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedHolder">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedHolder">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1111</accountId>
@@ -270,14 +271,14 @@ FeedHolder情報を削除します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedHolder" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedHolder</ns2:service>
-      <ns2:requestTime>1531887960540</ns2:requestTime>
+      <ns2:requestTime>1574410323649</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedHolder">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedHolder">
       <ns2:rval>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>

@@ -4,11 +4,11 @@ FeedFtpServiceでは、FTP設定情報の取得、登録、更新を行います
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/FeedFtpService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/FeedFtpService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201911/FeedFtpService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/FeedFtpService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/FeedFtp
+http://im.yahooapis.jp/V201911/FeedFtp
 
 #### サービス概要
 FTP設定情報の取得、登録、更新を行います。
@@ -35,14 +35,14 @@ FTP設定情報を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/FeedFtp">
+    <get xmlns="http://im.yahooapis.jp/V201911/FeedFtp">
       <selector>
         <accountId>1234567890</accountId>
         <feedHolderIds>10001</feedHolderIds>
@@ -61,14 +61,14 @@ FTP設定情報を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedFtp</ns2:service>
-      <ns2:requestTime>1552638879331</ns2:requestTime>
+      <ns2:requestTime>1574414602963</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedFtp">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedFtp">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>FeedFtpPage</Page.Type>
@@ -105,14 +105,14 @@ FTP設定情報を新規登録します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedFtp">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedFtp">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -137,14 +137,14 @@ FTP設定情報を新規登録します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedFtp">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedFtp">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -169,14 +169,14 @@ FTP設定情報を新規登録します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedFtp">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedFtp">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -208,14 +208,14 @@ FTP設定情報を新規登録します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedFtp</ns2:service>
-      <ns2:requestTime>1552638879367</ns2:requestTime>
+      <ns2:requestTime>1574414603031</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedFtp">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedFtp">
       <ns2:rval>
         <ListReturnValue.Type>FeedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -243,14 +243,14 @@ FTP設定情報を新規登録します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedFtp</ns2:service>
-      <ns2:requestTime>1552638879389</ns2:requestTime>
+      <ns2:requestTime>1574414603064</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedFtp">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedFtp">
       <ns2:rval>
         <ListReturnValue.Type>FeedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -278,14 +278,14 @@ FTP設定情報を新規登録します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedFtp</ns2:service>
-      <ns2:requestTime>1552638879418</ns2:requestTime>
+      <ns2:requestTime>1574414603103</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedFtp">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedFtp">
       <ns2:rval>
         <ListReturnValue.Type>FeedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -323,14 +323,14 @@ FTP設定情報を更新します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedFtp">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedFtp">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -355,14 +355,14 @@ FTP設定情報を更新します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedFtp">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedFtp">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -387,14 +387,14 @@ FTP設定情報を更新します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedFtp">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedFtp">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -426,14 +426,14 @@ FTP設定情報を更新します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedFtp</ns2:service>
-      <ns2:requestTime>1552638879443</ns2:requestTime>
+      <ns2:requestTime>1574414603135</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedFtp">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedFtp">
       <ns2:rval>
         <ListReturnValue.Type>FeedFtpReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -461,14 +461,14 @@ FTP設定情報を更新します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedFtp</ns2:service>
-      <ns2:requestTime>1552638879464</ns2:requestTime>
+      <ns2:requestTime>1574414603203</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedFtp">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedFtp">
       <ns2:rval>
         <ListReturnValue.Type>FeedFtpReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -496,14 +496,14 @@ FTP設定情報を更新します
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedFtp" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedFtp</ns2:service>
-      <ns2:requestTime>1552638879489</ns2:requestTime>
+      <ns2:requestTime>1574414603244</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedFtp">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedFtp">
       <ns2:rval>
         <ListReturnValue.Type>FeedFtpReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>

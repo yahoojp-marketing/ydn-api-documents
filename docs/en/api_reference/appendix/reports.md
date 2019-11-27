@@ -9,7 +9,8 @@ Ad reporting feature will create a report for each entity unit such as account, 
 * [Ad Delivery URL report](./reports/URL.csv)
 * [Frequency report](./reports/FREQUENCY.csv)
 * [Label report](./reports/LABEL.csv)
-
+* [Audience category report](./reports/AUDIENCE_CATEGORY.csv)
+* [Reach report](./reports/REACH.csv)
 
 ### Behavior Types
 Value           | Description
@@ -139,6 +140,8 @@ PC | PC
 400x200 | 400x200
 640x360 | 640x360
 600x600 | 600x600
+600x80 | 600x80
+300x600 | 300x600
 
 <a name="carrier"></a>
 ##### CARRIER Response

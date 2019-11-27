@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+        targetNamespace="http://im.yahooapis.jp/V201911/CampaignMigration"
+        xmlns:tns="http://im.yahooapis.jp/V201911/CampaignMigration"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://im.yahooapis.jp/V201911"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://im.yahooapis.jp/V201911">
+      <complexType name="SoapHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="apiAccountPassword" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfAccountId" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="onBehalfOfPassword" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="SoapResponseHeader">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="service" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="timeTakenSeconds" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="requestTime" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="Paging">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="startIndex" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="1" name="numberResults" type="xsd:int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Error">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="detail" type="tns:ErrorDetail"/>
+        </sequence>
+      </complexType>
+      <complexType name="ErrorDetail">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="requestKey" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="requestValue" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="Page">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="totalNumEntries" type="xsd:int"/>
+          <element maxOccurs="1" minOccurs="0" name="Page.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="operationSucceeded" type="xsd:boolean"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:Error"/>
+        </sequence>
+      </complexType>
+      <complexType abstract="true" name="ListReturnValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="ListReturnValue.Type" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="Operation.Type" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema elementFormDefault="qualified"
+            targetNamespace="http://im.yahooapis.jp/V201911/CampaignMigration"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:adv="http://im.yahooapis.jp/V201911"
+            xmlns:tns="http://im.yahooapis.jp/V201911/CampaignMigration">
+      <xsd:import namespace="http://im.yahooapis.jp/V201911"/>
+      <annotation>
+        <appinfo>
+          <version>201911</version>
+        </appinfo>
+      </annotation>
+      <complexType name="CampaignDownloadSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="lang" type="tns:MigrationLang"/>
+        </sequence>
+      </complexType>
+      <complexType name="CampaignDownloadUrlValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="downloadScope" type="tns:MigrationScope"/>
+          <element maxOccurs="1" minOccurs="1" name="lang" type="tns:MigrationLang"/>
+          <element maxOccurs="1" minOccurs="1" name="downloadUrl" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="MigrationStatusSelector">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="migrationJobIds" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+        </sequence>
+      </complexType>
+      <complexType name="MigrationJob">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="migrationJobId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="migrationScope" type="tns:MigrationScope"/>
+          <element maxOccurs="1" minOccurs="1" name="migrationJobStatus" type="tns:MigrationJobStatus"/>
+          <element maxOccurs="1" minOccurs="1" name="migrationJobSubmitDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="migrationJobEndDate" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="totalCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="inProgressCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="succeededCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="failedCount" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="downloadOriginalFileUrl" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="downloadErrorFileUrl" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="MigrationJobValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="migrationJob" type="tns:MigrationJob"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="MigrationStatusPage">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:MigrationJobValues"/>
+        </sequence>
+      </complexType>
+      <complexType name="CampaignUploadSelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+        </sequence>
+      </complexType>
+      <complexType name="UploadUrlValue">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="accountId" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="uploadUrl" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <simpleType name="MigrationJobStatus">
+        <restriction base="xsd:string">
+          <enumeration value="NOT_STARTED"/>
+          <enumeration value="IN_PROGRESS"/>
+          <enumeration value="COMPLETED"/>
+          <enumeration value="FILE_FORMAT_ERROR"/>
+          <enumeration value="INVALID_CSV_VALUE_ERROR"/>
+          <enumeration value="UNKNOWN_CSV_FIELD_ERROR"/>
+          <enumeration value="SYSTEM_ERROR"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="MigrationLang">
+        <restriction base="xsd:string">
+          <enumeration value="JA"/>
+          <enumeration value="EN"/>
+        </restriction>
+      </simpleType>
+      <simpleType name="MigrationScope">
+        <restriction base="xsd:string">
+          <enumeration value="SINGLE_ACCOUNT"/>
+          <enumeration value="ALL_ACCOUNT"/>
+        </restriction>
+      </simpleType>
+      <element name="getCampaignDownloadUrl">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:CampaignDownloadSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getCampaignDownloadUrlResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:CampaignDownloadUrlValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getMigrationStatus">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:MigrationStatusSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getMigrationStatusResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:MigrationStatusPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadUrl">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:CampaignUploadSelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUploadUrlResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:UploadUrlValue"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestHeader" type="adv:SoapHeader"/>
+      <element name="ResponseHeader" type="adv:SoapResponseHeader"/>
+      <element name="ApiExceptionFault" type="xsd:string"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="RequestHeader">
+    <wsdl:part element="tns:RequestHeader" name="RequestHeader"/>
+  </wsdl:message>
+  <wsdl:message name="ResponseHeader">
+    <wsdl:part element="tns:ResponseHeader" name="ResponseHeader"/>
+  </wsdl:message>
+  <wsdl:message name="getCampaignDownloadUrlRequest">
+    <wsdl:part element="tns:getCampaignDownloadUrl" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getCampaignDownloadUrlResponse">
+    <wsdl:part element="tns:getCampaignDownloadUrlResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getMigrationStatusRequest">
+    <wsdl:part element="tns:getMigrationStatus" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getMigrationStatusResponse">
+    <wsdl:part element="tns:getMigrationStatusResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadUrlRequest">
+    <wsdl:part element="tns:getUploadUrl" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUploadUrlResponse">
+    <wsdl:part element="tns:getUploadUrlResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ApiException">
+    <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
+  </wsdl:message>
+  <wsdl:portType name="CampaignMigrationServiceInterface">
+    <wsdl:operation name="getCampaignDownloadUrl">
+      <wsdl:input message="tns:getCampaignDownloadUrlRequest" name="getCampaignDownloadUrlRequest"/>
+      <wsdl:output message="tns:getCampaignDownloadUrlResponse" name="getCampaignDownloadUrlResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getMigrationStatus">
+      <wsdl:input message="tns:getMigrationStatusRequest" name="getMigrationStatusRequest"/>
+      <wsdl:output message="tns:getMigrationStatusResponse" name="getMigrationStatusResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUploadUrl">
+      <wsdl:input message="tns:getUploadUrlRequest" name="getUploadUrlRequest"/>
+      <wsdl:output message="tns:getUploadUrlResponse" name="getUploadUrlResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CampaignMigrationServiceSoapBinding" type="tns:CampaignMigrationServiceInterface">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCampaignDownloadUrl">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getCampaignDownloadUrlRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCampaignDownloadUrlResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMigrationStatus">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getMigrationStatusRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMigrationStatusResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUploadUrl">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getUploadUrlRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUploadUrlResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CampaignMigrationService">
+    <wsdl:port binding="tns:CampaignMigrationServiceSoapBinding" name="CampaignMigrationService">
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201911/CampaignMigrationService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

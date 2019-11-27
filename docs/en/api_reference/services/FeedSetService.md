@@ -1,48 +1,52 @@
 # FeedSetService
+
 FeedSetService provides functions to get, add or remove Item Set information.
 
 #### WSDL
-| environment | url |
-|---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/FeedSetService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/FeedSetService?wsdl |
+
+| environment |                                      url                                      |
+| ----------- | ----------------------------------------------------------------------------- |
+| production  | https://location.im.yahooapis.jp/services/V201911/FeedSetService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201911/FeedSetService?wsdl  |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/FeedSet
 
-#### Overview
+http://im.yahooapis.jp/V201911/FeedSet
+
+#### Service Overview
+
 Use this service to get, add or remove Item Set information.
 
 #### Operation
-Describes the operation which provides by FeedSetService.
+
+Explains operations provided by FeedSetService.
 
 + [get](#get)
 + [mutate(ADD)](#mutateadd)
 + [mutate(REMOVE)](#mutateremove)
 
-#### Object
-[FeedSet](../data/FeedSet)
-
 ## get
+
+### Request
+
 Retrieves Item Set information.
 
-#### Request
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| selector | Req | [FeedSetSelector](../data/FeedSet/FeedSetSelector.md) | Acquisition condition of Item Set information |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| selector | Yes | [FeedSetSelector](../data/FeedSet/FeedSetSelector.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/FeedSet">
+    <get xmlns="http://im.yahooapis.jp/V201911/FeedSet">
       <selector>
         <accountId>1234567890</accountId>
         <feedHolderId>10001</feedHolderId>
@@ -58,29 +62,30 @@ Retrieves Item Set information.
 </SOAP-ENV:Envelope>
 ```
 
-#### Response
-| Field | Data Type | Description |
-|---|---|---|
-| rval | [FeedSetPage](../data/FeedSet/FeedSetPage.md) | Item Set information that matches acquisition conditions |
+### Response
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [FeedSetPage](../data/FeedSet/FeedSetPage.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedSet</ns2:service>
-      <ns2:requestTime>1552637421581</ns2:requestTime>
+      <ns2:requestTime>1574394403216</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedSet">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedSet">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>FeedSetPage</Page.Type>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
-          <ns2:FeedSet>
+          <ns2:feedSet>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:feedHolderId>10001</ns2:feedHolderId>
             <ns2:feedSetId>20001</ns2:feedSetId>
@@ -93,7 +98,7 @@ Retrieves Item Set information.
                 <ns2:value>sample</ns2:value>
               </ns2:orConditions>
             </ns2:conditionSets>
-          </ns2:FeedSet>
+          </ns2:feedSet>
         </ns2:values>
       </ns2:rval>
     </ns2:getResponse>
@@ -102,25 +107,27 @@ Retrieves Item Set information.
 ```
 
 ## mutate(ADD)
+
+### Request
+
 Adds Item Set information.
 
-#### Request
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | Req | [FeedSetOperation](../data/FeedSet/FeedSetOperation.md) | Item Set information to be registered |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [FeedSetOperation](../data/FeedSet/FeedSetOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedSet">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedSet">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -141,29 +148,30 @@ Adds Item Set information.
 </SOAP-ENV:Envelope>
 ```
 
-#### Response
-| Field | Data Type | Description |
-|---|---|---|
-| rval | [FeedSetReturnValue](../data/FeedSet/FeedSetReturnValue.md) | Registration result |
+### Response
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [FeedSetReturnValue](../data/FeedSet/FeedSetReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedSet</ns2:service>
-      <ns2:requestTime>1552637421608</ns2:requestTime>
+      <ns2:requestTime>1574394403240</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedSet">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedSet">
       <ns2:rval>
         <ListReturnValue.Type>FeedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
-          <ns2:FeedSet>
+          <ns2:feedSet>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:feedHolderId>10001</ns2:feedHolderId>
             <ns2:feedSetId>20001</ns2:feedSetId>
@@ -176,7 +184,7 @@ Adds Item Set information.
                 <ns2:value>sample</ns2:value>
               </ns2:orConditions>
             </ns2:conditionSets>
-          </ns2:FeedSet>
+          </ns2:feedSet>
         </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>
@@ -185,25 +193,27 @@ Adds Item Set information.
 ```
 
 ## mutate(REMOVE)
+
+### Request
+
 Removes Item Set information.
 
-#### Request
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | Req | [FeedSetOperation](../data/FeedSet/FeedSetOperation.md) | Item Set information to be registered |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [FeedSetOperation](../data/FeedSet/FeedSetOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/FeedSet">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/FeedSet">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -217,29 +227,30 @@ Removes Item Set information.
 </SOAP-ENV:Envelope>
 ```
 
-#### Response
-| Field | Data Type | Description |
-|---|---|---|
-| rval | [FeedSetReturnValue](../data/FeedSet/FeedSetReturnValue.md) | Registration result |
+### Response
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [FeedSetReturnValue](../data/FeedSet/FeedSetReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/FeedSet" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>FeedSet</ns2:service>
-      <ns2:requestTime>1552637421640</ns2:requestTime>
+      <ns2:requestTime>1574394403279</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/FeedSet">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/FeedSet">
       <ns2:rval>
         <ListReturnValue.Type>FeedSetReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
-          <ns2:FeedSet>
+          <ns2:feedSet>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:feedHolderId>10001</ns2:feedHolderId>
             <ns2:feedSetId>20001</ns2:feedSetId>
@@ -252,7 +263,7 @@ Removes Item Set information.
                 <ns2:value>sample</ns2:value>
               </ns2:orConditions>
             </ns2:conditionSets>
-          </ns2:FeedSet>
+          </ns2:feedSet>
         </ns2:values>
       </ns2:rval>
     </ns2:mutateResponse>

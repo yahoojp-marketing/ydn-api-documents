@@ -1,15 +1,20 @@
+
+
 # AdGroupConversionOptimizerType (enum)
+
 AdGroupConversionOptimizerType displays the type of conversion optimization.
 
-### Service
+#### Service
+
 + [AdGroupService](../../services/AdGroupService.md)
 
-### Namespace
+#### Namespace
+
 [AdGroupService#Namespace](../../services/AdGroupService.md#namespace)
 
-| Enumeration | Type | Description |
-|---|---|---|
-| NONE | xsd:string |  Apply same Bidding with campaign. |
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
+| NONE | xsd:string | Apply same Bidding with campaign. |
 | MANUAL | xsd:string | Manual Bidding. |
 | AUTO | xsd:string | Auto Bidding. |
 

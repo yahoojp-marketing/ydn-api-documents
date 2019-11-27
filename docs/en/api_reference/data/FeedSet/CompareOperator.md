@@ -1,22 +1,22 @@
+
+
 # CompareOperator (enum)
+
 CompareOperator object describes setting conditions of Item Set.
 
-### Service
+#### Service
+
 + [FeedSetService](../../services/FeedSetService.md)
 
-### Namespace
+#### Namespace
+
 [FeedSetService#Namespace](../../services/FeedSetService.md#namespace)
 
-| Field | Type | Description |
-|---|---|---|
-| EQUAL| string| Exact match |
-| INCLUDED| string| Broad match<br>*Currently this type is not available. |
-| START_WITH| string| Start with<br>*Currently this type is not available. |
-| END_WITH| string| End with<br>*Currently this type is not available. |
-| NOT_EQUAL| string| Exclude |
-| NOT_INCLUDED| string| Exclude if including the specified string<br>*Currently this type is not available. |
-| GREATER_THAN_EQUALS| string| Greater than or equals |
-| LESS_THAN_EQUALS| string| Less than or equals |
-
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
+| EQUAL | xsd:string | Exact match |
+| NOT_EQUAL | xsd:string | Exclude |
+| GREATER_THAN_EQUALS | xsd:string | Greater than or equals |
+| LESS_THAN_EQUALS | xsd:string | Less than or equals |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

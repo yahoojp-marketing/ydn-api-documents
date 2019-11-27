@@ -28,5 +28,7 @@ MediaAdFormatオブジェクトは、メディアフォーマットの情報を�
 | aspectHeight | xsd:long | 画像アスペクト比：高さ [ratio]です。 | yes | |
 | staticImage | xsd:boolean | 静止画用の画像かどうかを示します。 | yes | |
 | aspect | xsd:boolean | アスペクト比対応かどうかを示します。 | yes | |
+| aspectRatio | xsd:string | アスペクト比です。 | yes | |
+| campaignBanner | xsd:boolean | キャンペーンバナー画像である/キャンペーンバナー画像ではないことを示します。 | yes | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

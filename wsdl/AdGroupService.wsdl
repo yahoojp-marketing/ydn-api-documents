@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201907/AdGroup"
-        xmlns:tns="http://im.yahooapis.jp/V201907/AdGroup"
+        targetNamespace="http://im.yahooapis.jp/V201911/AdGroup"
+        xmlns:tns="http://im.yahooapis.jp/V201911/AdGroup"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201907"
+            targetNamespace="http://im.yahooapis.jp/V201911"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201907">
+            xmlns:tns="http://im.yahooapis.jp/V201911">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,14 +66,14 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201907/AdGroup"
+            targetNamespace="http://im.yahooapis.jp/V201911/AdGroup"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201907"
-            xmlns:tns="http://im.yahooapis.jp/V201907/AdGroup">
-      <xsd:import namespace="http://im.yahooapis.jp/V201907"/>
+            xmlns:adv="http://im.yahooapis.jp/V201911"
+            xmlns:tns="http://im.yahooapis.jp/V201911/AdGroup">
+      <xsd:import namespace="http://im.yahooapis.jp/V201911"/>
       <annotation>
         <appinfo>
-          <version>201907</version>
+          <version>201911</version>
         </appinfo>
       </annotation>
       <complexType name="AdGroupSelector">
@@ -86,8 +86,16 @@
           <element maxOccurs="unbounded" minOccurs="0" name="userStatuses" type="tns:UserStatus"/>
           <element maxOccurs="unbounded" minOccurs="0" name="feedSetIds" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="paging" type="adv:Paging"/>
+          <element maxOccurs="1" minOccurs="0" name="campaignGoalFilterType" type="tns:CampaignGoalFilterType"/>
         </sequence>
       </complexType>
+      <simpleType name="CampaignGoalFilterType">
+        <restriction base="xsd:string">
+          <enumeration value="ALL"/>
+          <enumeration value="NON_GOAL"/>
+          <enumeration value="GOAL"/>
+        </restriction>
+      </simpleType>
       <complexType name="AdGroupPage">
         <complexContent>
           <extension base="adv:Page">
@@ -125,6 +133,16 @@
           <element maxOccurs="unbounded" minOccurs="0" name="labels" type="tns:Label"/>
           <element maxOccurs="1" minOccurs="0" name="feedSetId" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="0" name="isRemoveFeedSetId" type="xsd:boolean"/>
+          <element maxOccurs="1" minOccurs="0" name="adGroupBiddingStrategy" type="tns:AdGroupBiddingStrategy"/>
+        </sequence>
+      </complexType>
+      <complexType name="AdGroupBiddingStrategy">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="campaignBiddingStrategyType" type="tns:CampaignBiddingStrategyType"/>
+          <element maxOccurs="1" minOccurs="0" name="maxVcpmBidValue" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="maxCpcBidValue" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="maxCpvBidValue" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="0" name="targetCpaBidValue" type="xsd:long"/>
         </sequence>
       </complexType>
       <complexType abstract="true" name="AdGroupBid">
@@ -311,6 +329,16 @@
           <enumeration value="PAUSED"/>
         </restriction>
       </simpleType>
+      <simpleType name="CampaignBiddingStrategyType">
+        <restriction base="xsd:string">
+          <enumeration value="AUTO"/>
+          <enumeration value="MAX_VCPM"/>
+          <enumeration value="MAX_CPC"/>
+          <enumeration value="MAX_CPV"/>
+          <enumeration value="TARGET_CPA"/>
+          <enumeration value="NONE"/>
+        </restriction>
+      </simpleType>
       <complexType name="Label">
         <sequence>
           <element maxOccurs="1" minOccurs="0" name="labelId" type="xsd:long"/>
@@ -387,7 +415,7 @@
   </wsdl:binding>
   <wsdl:service name="AdGroupService">
     <wsdl:port binding="tns:AdGroupServiceSoapBinding" name="AdGroupService">
-      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201907/AdGroupService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201911/AdGroupService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

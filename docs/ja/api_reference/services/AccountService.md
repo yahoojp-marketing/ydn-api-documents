@@ -1,47 +1,55 @@
 # AccountService
+
 AccountServiceは、アカウントの操作を提供します。
+
 #### WSDL
-| environment | url |
-|---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/AccountService?wsdl|
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/AccountService?wsdl|
+
+| environment |                                      url                                      |
+| ----------- | ----------------------------------------------------------------------------- |
+| production  | https://location.im.yahooapis.jp/services/V201911/AccountService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201911/AccountService?wsdl  |
+
 #### Namespace
-http://im.yahooapis.jp/V201907/Account
-#### サービス概要
+
+http://im.yahooapis.jp/V201911/Account
+
+#### Service Overview
+
 管理するアカウント情報の取得と更新を行います。
-#### 操作
+
+#### Operation
+
 AccountServiceで提供される操作を説明します。
 
 + [get](#get)
 + [mutate(SET)](#mutateset)
 
-#### オブジェクト
-[Account](../data/Account)
-
 ## get
 
 ### リクエスト
-アカウントの情報を取得します。
 
-| パラメータ | 必須 | データ型 | 説明 |
-|---|---|---|---|
-| selector | ○<br>（通常認証では省略可） | [AccountSelector](../data/Account/AccountSelector.md) | アカウントの情報を取得します。<br>※selector下のaccountIdsも通常認証では省略できます。代行認証では必須です。 |
+アカウントの情報を取得します。<br>通常認証ではselectorを省略可です。
+
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| selector | Yes | [AccountSelector](../data/Account/AccountSelector.md) |
 
 ##### ＜リクエストサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Account" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Account" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Account" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Account" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountIds>1111</accountIds>
         <accountIds>2222</accountIds>
+        <accountIds>3333</accountIds>
         <accountTypes>PREPAY</accountTypes>
         <accountTypes>INVOICE</accountTypes>
         <accountStatuses>INPROGRESS</accountStatuses>
@@ -61,24 +69,25 @@ AccountServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 |
-|---|---|---|
-| rval | [AccountPage](../data/Account/AccountPage.md) | 操作結果を含むコンテナです。 |
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [AccountPage](../data/Account/AccountPage.md) |
 
 ##### ＜レスポンスサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Account" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Account" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Account</ns2:service>
-      <ns2:requestTime>1551686139422</ns2:requestTime>
+      <ns2:requestTime>1574393571063</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Account">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Account">
       <ns2:rval>
-        <totalNumEntries>2</totalNumEntries>
+        <totalNumEntries>3</totalNumEntries>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:account>
@@ -107,6 +116,22 @@ AccountServiceで提供される操作を説明します。
             <ns2:autoTaggingEnabled>FALSE</ns2:autoTaggingEnabled>
           </ns2:account>
         </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:account>
+            <ns2:accountId>3333</ns2:accountId>
+            <ns2:accountName>SampleAccount3</ns2:accountName>
+            <ns2:accountType>PREPAY</ns2:accountType>
+            <ns2:accountStatus>SERVING</ns2:accountStatus>
+            <ns2:deliveryStatus>ACTIVE</ns2:deliveryStatus>
+            <ns2:autoTaggingEnabled>FALSE</ns2:autoTaggingEnabled>
+            <ns2:accountAuthorities>VIDEO_VIEW</ns2:accountAuthorities>
+            <ns2:accountAuthorities>ITEM_LIST</ns2:accountAuthorities>
+            <ns2:accountAuthorities>WEBSITE_TRAFFIC</ns2:accountAuthorities>
+            <ns2:accountAuthorities>APP_PROMOTION</ns2:accountAuthorities>
+            <ns2:accountAuthorities>CONVERSION</ns2:accountAuthorities>
+          </ns2:account>
+        </ns2:values>
       </ns2:rval>
     </ns2:getResponse>
   </SOAP-ENV:Body>
@@ -116,24 +141,25 @@ AccountServiceで提供される操作を説明します。
 ## mutate(SET)
 
 ### リクエスト
+
 アカウントの情報を操作します。
 
-| パラメータ | 必須 | データ型 | 説明 |
-|---|---|---|---|
-| operations | ○ |[AccountOperation](../data/Account/AccountOperation.md)| mutateメソッドで操作対象となるアカウントの情報を保持します。 |
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| operations | Yes | [AccountOperation](../data/Account/AccountOperation.md) |
 
 ##### ＜リクエストサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Account" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Account" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Account">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Account">
       <operations>
         <operator>SET</operator>
         <operand>
@@ -149,22 +175,23 @@ AccountServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| パラメータ | データ型 | 説明 |
-|---|---|---|
-| rval | [AccountReturnValue](../data/Account/AccountReturnValue.md) | 操作結果を含むコンテナです。 |
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [AccountReturnValue](../data/Account/AccountReturnValue.md) |
 
 ##### ＜レスポンスサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Account" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Account" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Account</ns2:service>
-      <ns2:requestTime>1551686139439</ns2:requestTime>
+      <ns2:requestTime>1574393571121</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Account">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Account">
       <ns2:rval>
         <ListReturnValue.Type>AccountReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>

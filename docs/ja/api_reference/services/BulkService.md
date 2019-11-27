@@ -3,10 +3,10 @@ BulkServiceは、バルクシートを使用した一括アップロードおよ
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/BulkService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/BulkService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201911/BulkService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/BulkService?wsdl |
 #### Namespace
-http://im.yahooapis.jp/V201907/Bulk
+http://im.yahooapis.jp/V201911/Bulk
 #### サービス概要
 バルクシートを使用した一括アップロードおよびダウンロードの機能を提供します。
 
@@ -62,14 +62,14 @@ BulkServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getBulkDownload xmlns="http://im.yahooapis.jp/V201907/Bulk">
+    <getBulkDownload xmlns="http://im.yahooapis.jp/V201911/Bulk">
       <selector>
         <accountId>1111</accountId>
         <campaignIds>2222</campaignIds>
@@ -118,14 +118,14 @@ BulkServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Bulk</ns2:service>
-      <ns2:requestTime>1551686144990</ns2:requestTime>
+      <ns2:requestTime>1574410277477</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getBulkDownloadResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Bulk">
+    <ns2:getBulkDownloadResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Bulk">
       <ns2:rval>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -156,14 +156,14 @@ BulkServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getBulkDownloadStatus xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <getBulkDownloadStatus xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1111</accountId>
         <downloadBulkJobIds>2222</downloadBulkJobIds>
@@ -190,14 +190,14 @@ BulkServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Bulk</ns2:service>
-      <ns2:requestTime>1551686144975</ns2:requestTime>
+      <ns2:requestTime>1574410277440</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getBulkDownloadStatusResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Bulk">
+    <ns2:getBulkDownloadStatusResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Bulk">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>BulkDownloadStatusPage</Page.Type>
@@ -209,7 +209,7 @@ BulkServiceで提供される操作を説明します。
             <ns2:downloadBulkStartDate>20180312161410</ns2:downloadBulkStartDate>
             <ns2:downloadBulkEndDate>20180312161535</ns2:downloadBulkEndDate>
             <ns2:progress>100</ns2:progress>
-            <ns2:downloadBulkDownloadUrl>https://colo01.im.yahooapis.jp/bulkDownload/V201907/download/WrtMjzl0WuCSgxe908KOwHOqEaZTLIBYFVVPiO9dP0bTRWLs5IV.bit7A.y5nViF8l0NjSpqZJO0Ys_WZO7lW6JfT2vaLZESBAyYbdvZyy2aQapy84FcpyJ2PWq2ReJHsaeYOy49QjFg6MOjMYc5cW.xIAp6H5mPGu6Q6_hJpIrHWdv6UH4gclQ05ySod1O1xqNUePM7dvilxI5VTR4y0hKJsXY.PifHjg99LmMQXzLKyx.G6YUEf5M_KkE4Vwo0IJPdcAAx1HnSsy6mYvebogYhGYd5RiuLoq4aZqECLa2IYggY5Zt.FShCDPhMCQgqfjFjR_YrTzeuGU4n1CwRNa0FeO5qUgwA27c5gKENJ..ZIZTUPiQ-</ns2:downloadBulkDownloadUrl>
+            <ns2:downloadBulkDownloadUrl>https://location.im.yahooapis.jp/bulkDownload/V201911/download/WrtMjzl0WuCSgxe908KOwHOqEaZTLIBYFVVPiO9dP0bTRWLs5IV.bit7A.y5nViF8l0NjSpqZJO0Ys_WZO7lW6JfT2vaLZESBAyYbdvZyy2aQapy84FcpyJ2PWq2ReJHsaeYOy49QjFg6MOjMYc5cW.xIAp6H5mPGu6Q6_hJpIrHWdv6UH4gclQ05ySod1O1xqNUePM7dvilxI5VTR4y0hKJsXY.PifHjg99LmMQXzLKyx.G6YUEf5M_KkE4Vwo0IJPdcAAx1HnSsy6mYvebogYhGYd5RiuLoq4aZqECLa2IYggY5Zt.FShCDPhMCQgqfjFjR_YrTzeuGU4n1CwRNa0FeO5qUgwA27c5gKENJ..ZIZTUPiQ-</ns2:downloadBulkDownloadUrl>
           </ns2:downloadBulkJob>
         </ns2:values>
       </ns2:rval>
@@ -232,14 +232,14 @@ BulkServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getUploadUrl xmlns="http://im.yahooapis.jp/V201907/Bulk">
+    <getUploadUrl xmlns="http://im.yahooapis.jp/V201911/Bulk">
       <accountId>1111</accountId>
       <uploadBulkJobName>test job</uploadBulkJobName>
     </getUploadUrl>
@@ -256,18 +256,18 @@ BulkServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Bulk</ns2:service>
-      <ns2:requestTime>1551686144968</ns2:requestTime>
+      <ns2:requestTime>1574410277418</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getUploadUrlResponse xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <getUploadUrlResponse xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <rval>
         <accountId>1111</accountId>
         <acceptableUploadStatus>true</acceptableUploadStatus>
-        <uploadUrl>https://im.yahooapis.jp/bulkUpload/V201907/upload/zetNmzUcUeAX120zCqfuzh_EusRxEGqXKPTjnLEqxolCwB7MfznLUU5QIp9.Gc_Th4vHkAnvp_yPqnZeCSL9rVo7mcOM7W8uxlNqC96bludvti0cnw--</uploadUrl>
+        <uploadUrl>https://im.yahooapis.jp/bulkUpload/V201911/upload/zetNmzUcUeAX120zCqfuzh_EusRxEGqXKPTjnLEqxolCwB7MfznLUU5QIp9.Gc_Th4vHkAnvp_yPqnZeCSL9rVo7mcOM7W8uxlNqC96bludvti0cnw--</uploadUrl>
       </rval>
     </getUploadUrlResponse>
   </SOAP-ENV:Body>
@@ -287,14 +287,14 @@ BulkServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getBulkUploadStatus xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <getBulkUploadStatus xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1111</accountId>
         <uploadBulkJobIds>22222</uploadBulkJobIds>
@@ -318,14 +318,14 @@ BulkServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Bulk" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Bulk</ns2:service>
-      <ns2:requestTime>1551686144954</ns2:requestTime>
+      <ns2:requestTime>1574410277370</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getBulkUploadStatusResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Bulk">
+    <ns2:getBulkUploadStatusResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Bulk">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <ns2:values>

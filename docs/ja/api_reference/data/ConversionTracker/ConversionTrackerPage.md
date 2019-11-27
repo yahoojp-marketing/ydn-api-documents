@@ -1,51 +1,31 @@
+
+
 # ConversionTrackerPage
+
 ConversionTrackerPageオブジェクトは、getメソッドの実行結果（全Entityのリスト）を保持します。
 
 ### Service
+
 + [ConversionTrackerService](../../services/ConversionTrackerService.md)
 
 ### Namespace
+
 [ConversionTrackerService#Namespace](../../services/ConversionTrackerService.md#namespace)
 
 ### Inheritance
+
 + [Page](../Common/Page.md)
 
-<table>
- <tr>
-  <th>Field</th>
-  <th>Type</th>
-  <th>Description</th>
- </tr>
- <tr>
-  <td>totalConversions</td>
-  <td>xsd:long</td>
-  <td>コンバージョン数の合計。<br>※動画視聴およびデバイスをまたいだコンバージョンの値を加味。</td>
- </tr>
- <tr>
-  <td>totalConversionValue</td>
-  <td>xsd:string</td>
-  <td>コンバージョンの価値の合計。<br>※動画視聴およびデバイスをまたいだコンバージョンの値を加味。</td>
- </tr>
- <tr>
-  <td>totalAllConversions</td>
-  <td>xsd:long</td>
-  <td>自動入札の対象コンバージョン数＋対象外コンバージョン数の合計。</td>
- </tr>
- <tr>
-  <td>totalAllConversionValue</td>
-  <td>xsd:string</td>
-  <td>自動入札の対象コンバージョンの価値＋対象外コンバージョンの価値の合計。</td>
- </tr>
- <tr>
-  <td>period</td>
-  <td><a href="./Period.md">Period</a></td>
-  <td>統計情報更新日。</td>
- </tr>
- <tr>
-  <td>values[0...1000]</td>
-  <td><a href="./ConversionTrackerValues.md">ConversionTrackerValues</a></td>
-  <td>getメソッドの実行結果。</td>
- </tr>
-</table>
+| Field | Type | Description | response |
+| ----- | ---- | ----------- | -------- |
+| totalConversions | xsd:long | コンバージョン数の合計 | yes | |
+| totalConversionValue | xsd:string | コンバージョンの価値の合計 | yes | |
+| totalConversionsViaAdClick | xsd:long | コンバージョン数の合計（クリック経由） | yes | |
+| totalConversionValueViaAdClick | xsd:string | コンバージョンの価値の合計（クリック経由） | yes | |
+| totalAllConversions | xsd:long | コンバージョン数（全て）の合計 | yes | |
+| totalAllConversionValue | xsd:string | コンバージョンの価値（全て）の合計 | yes | |
+| totalCrossDeviceConversions | xsd:long | クロスデバイスコンバージョン数の合計 | yes | |
+| period | [Period](./Period.md) | 統計情報更新日。 | yes | |
+| values[0...1000] | [ConversionTrackerValues](./ConversionTrackerValues.md) | getメソッドの実行結果。 | yes | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

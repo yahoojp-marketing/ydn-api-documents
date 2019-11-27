@@ -1,50 +1,53 @@
 # CampaignService
+
 Use this service to get, add, update, or delete campaigns.
 
 #### WSDL
-| environment | url |
-|---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/CampaignService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/CampaignService?wsdl |
+
+| environment |                                      url                                      |
+| ----------- | ----------------------------------------------------------------------------- |
+| production  | https://location.im.yahooapis.jp/services/V201911/CampaignService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201911/CampaignService?wsdl  |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/Campaign
+
+http://im.yahooapis.jp/V201911/Campaign
 
 #### Service Overview
+
 Offers campaign operation.
 
 #### Operation
-Describes operations provided by CampaignService.
+
+Explains operations provided by CampaignService.
 
 + [get](#get)
 + [mutate(ADD)](#mutateadd)
 + [mutate(SET)](#mutateset)
 + [mutate(REMOVE)](#mutateremove)
 
-#### Object
-[Campaign](../data/Campaign)
-
 ## get
 
 ### Request
+
 Gets information related to campaigns.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| selector | required | [CampaignSelector](../data/Campaign/CampaignSelector.md) | Contains a set of criteria (parameters) for get method. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| selector | Yes | [CampaignSelector](../data/Campaign/CampaignSelector.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1234567890</accountId>
         <campaignIds>10001</campaignIds>
@@ -62,7 +65,7 @@ Gets information related to campaigns.
           <ns2:startIndex>1</ns2:startIndex>
           <ns2:numberResults>1000</ns2:numberResults>
         </paging>
-        <campaignType>STANDARD</campaignType>
+        <campaignGoalFilterType>ALL</campaignGoalFilterType>
       </selector>
     </get>
   </SOAP-ENV:Body>
@@ -70,24 +73,25 @@ Gets information related to campaigns.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [CampaignPage](../data/Campaign/CampaignPage.md) | Contains the results (a list of all entities) for get method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [CampaignPage](../data/Campaign/CampaignPage.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1551686140671</ns2:requestTime>
+      <ns2:requestTime>1574393678860</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Campaign">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Campaign">
       <ns2:rval>
-        <totalNumEntries>3</totalNumEntries>
+        <totalNumEntries>5</totalNumEntries>
         <Page.Type>CampaignPage</Page.Type>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
@@ -129,13 +133,17 @@ Gets information related to campaigns.
               <ns2:description>test description2</ns2:description>
               <ns2:color>#FFFFFF</ns2:color>
             </ns2:labels>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
+            <ns2:campaignBiddingStrategy>
+              <ns2:type>NONE</ns2:type>
+            </ns2:campaignBiddingStrategy>
           </ns2:campaign>
         </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:campaign>
             <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignId>10002</ns2:campaignId>
             <ns2:campaignName>APP Campaign.</ns2:campaignName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:servingStatus>SERVING</ns2:servingStatus>
@@ -174,13 +182,17 @@ Gets information related to campaigns.
               <ns2:description>test description2</ns2:description>
               <ns2:color>#FFFFFF</ns2:color>
             </ns2:labels>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
+            <ns2:campaignBiddingStrategy>
+              <ns2:type>NONE</ns2:type>
+            </ns2:campaignBiddingStrategy>
           </ns2:campaign>
         </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:campaign>
             <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignId>10003</ns2:campaignId>
             <ns2:campaignName>Movie Campaign.</ns2:campaignName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:servingStatus>SERVING</ns2:servingStatus>
@@ -217,13 +229,17 @@ Gets information related to campaigns.
               <ns2:description>test description2</ns2:description>
               <ns2:color>#FFFFFF</ns2:color>
             </ns2:labels>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
+            <ns2:campaignBiddingStrategy>
+              <ns2:type>NONE</ns2:type>
+            </ns2:campaignBiddingStrategy>
           </ns2:campaign>
         </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:campaign>
             <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignId>10004</ns2:campaignId>
             <ns2:campaignName>DynamicAds Campaign.</ns2:campaignName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:servingStatus>SERVING</ns2:servingStatus>
@@ -260,6 +276,48 @@ Gets information related to campaigns.
               <ns2:color>#FFFFFF</ns2:color>
             </ns2:labels>
             <ns2:feedHolderId>1001</ns2:feedHolderId>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
+            <ns2:campaignBiddingStrategy>
+              <ns2:type>NONE</ns2:type>
+            </ns2:campaignBiddingStrategy>
+          </ns2:campaign>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaign>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10005</ns2:campaignId>
+            <ns2:campaignName>Campaign with campaignGoal (WEBSITE_TRAFFIC)</ns2:campaignName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:servingStatus>SERVING</ns2:servingStatus>
+            <ns2:startDate>20170101</ns2:startDate>
+            <ns2:endDate>20371231</ns2:endDate>
+            <ns2:budget>
+              <ns2:deliveryMethod>ACCELERATED</ns2:deliveryMethod>
+            </ns2:budget>
+            <ns2:campaignType>STANDARD</ns2:campaignType>
+            <ns2:labels>
+              <ns2:labelId>3000</ns2:labelId>
+              <ns2:labelName>test label</ns2:labelName>
+              <ns2:description>test description</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:labels>
+              <ns2:labelId>3001</ns2:labelId>
+              <ns2:labelName>test label2</ns2:labelName>
+              <ns2:description>test description2</ns2:description>
+              <ns2:color>#FFFFFF</ns2:color>
+            </ns2:labels>
+            <ns2:campaignGoal>WEBSITE_TRAFFIC</ns2:campaignGoal>
+            <ns2:campaignBiddingStrategy>
+              <ns2:type>MAX_VCPM</ns2:type>
+              <ns2:maxVcpmBidValue>1000</ns2:maxVcpmBidValue>
+            </ns2:campaignBiddingStrategy>
+            <ns2:viewableFrequencyCap>
+              <ns2:level>CAMPAIGN</ns2:level>
+              <ns2:timeUnit>DAY</ns2:timeUnit>
+              <ns2:vImps>10</ns2:vImps>
+            </ns2:viewableFrequencyCap>
           </ns2:campaign>
         </ns2:values>
       </ns2:rval>
@@ -271,24 +329,25 @@ Gets information related to campaigns.
 ## mutate(ADD)
 
 ### Request
+
 Adds campaign information.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [CampaignOperation](../data/Campaign/CampaignOperation.md) | Contains the  campaign information for mutate method operation. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [CampaignOperation](../data/Campaign/CampaignOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Campaign">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Campaign">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
@@ -357,6 +416,26 @@ Adds campaign information.
           <campaignType>STANDARD</campaignType>
           <feedHolderId>1001</feedHolderId>
         </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignName>Campaign with campaignGoal (WEBSITE_TRAFFIC)</campaignName>
+          <userStatus>ACTIVE</userStatus>
+          <startDate>20170101</startDate>
+          <endDate>20371231</endDate>
+          <budget>
+            <deliveryMethod>ACCELERATED</deliveryMethod>
+          </budget>
+          <campaignGoal>WEBSITE_TRAFFIC</campaignGoal>
+          <campaignBiddingStrategy>
+            <type>MAX_VCPM</type>
+            <maxVcpmBidValue>1000</maxVcpmBidValue>
+          </campaignBiddingStrategy>
+          <viewableFrequencyCap>
+            <level>CAMPAIGN</level>
+            <timeUnit>DAY</timeUnit>
+            <vImps>10</vImps>
+          </viewableFrequencyCap>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -364,22 +443,23 @@ Adds campaign information.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [CampaignReturnValue](../data/Campaign/CampaignReturnValue.md) | Contains the results (a list of all entities) for mutate method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [CampaignReturnValue](../data/Campaign/CampaignReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1551686140701</ns2:requestTime>
+      <ns2:requestTime>1574393678927</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Campaign">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -411,6 +491,7 @@ Adds campaign information.
               <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
             </ns2:conversionOptimizer>
             <ns2:campaignType>STANDARD</ns2:campaignType>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
           </ns2:campaign>
         </ns2:values>
         <ns2:values>
@@ -444,6 +525,7 @@ Adds campaign information.
             <ns2:appName>TestAppName</ns2:appName>
             <ns2:appId>jp.co.yahoo</ns2:appId>
             <ns2:appOs>ANDROID</ns2:appOs>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
           </ns2:campaign>
         </ns2:values>
         <ns2:values>
@@ -475,6 +557,7 @@ Adds campaign information.
               <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
             </ns2:conversionOptimizer>
             <ns2:campaignType>STANDARD</ns2:campaignType>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
           </ns2:campaign>
         </ns2:values>
         <ns2:values>
@@ -506,6 +589,33 @@ Adds campaign information.
             </ns2:conversionOptimizer>
             <ns2:campaignType>STANDARD</ns2:campaignType>
             <ns2:feedHolderId>1001</ns2:feedHolderId>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
+          </ns2:campaign>
+        </ns2:values>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:campaign>
+            <ns2:accountId>1234567890</ns2:accountId>
+            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignName>Campaign with campaignGoal (WEBSITE_TRAFFIC)</ns2:campaignName>
+            <ns2:userStatus>ACTIVE</ns2:userStatus>
+            <ns2:servingStatus>SERVING</ns2:servingStatus>
+            <ns2:startDate>20170101</ns2:startDate>
+            <ns2:endDate>20371231</ns2:endDate>
+            <ns2:budget>
+              <ns2:deliveryMethod>ACCELERATED</ns2:deliveryMethod>
+            </ns2:budget>
+            <ns2:campaignType>STANDARD</ns2:campaignType>
+            <ns2:campaignGoal>WEBSITE_TRAFFIC</ns2:campaignGoal>
+            <ns2:campaignBiddingStrategy>
+              <ns2:type>MAX_VCPM</ns2:type>
+              <ns2:maxVcpmBidValue>1000</ns2:maxVcpmBidValue>
+            </ns2:campaignBiddingStrategy>
+            <ns2:viewableFrequencyCap>
+              <ns2:level>CAMPAIGN</ns2:level>
+              <ns2:timeUnit>DAY</ns2:timeUnit>
+              <ns2:vImps>10</ns2:vImps>
+            </ns2:viewableFrequencyCap>
           </ns2:campaign>
         </ns2:values>
       </ns2:rval>
@@ -517,24 +627,25 @@ Adds campaign information.
 ## mutate(SET)
 
 ### Request
+
 Updates campaign information.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [CampaignOperation](../data/Campaign/CampaignOperation.md) | Contains the  campaign information for mutate method operation. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [CampaignOperation](../data/Campaign/CampaignOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Campaign">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Campaign">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
@@ -555,7 +666,7 @@ Updates campaign information.
         </operand>
         <operand>
           <accountId>0</accountId>
-          <campaignId>10003</campaignId>
+          <campaignId>10002</campaignId>
           <campaignName>set Video Campaign</campaignName>
           <userStatus>ACTIVE</userStatus>
           <endDate>20301231</endDate>
@@ -567,6 +678,19 @@ Updates campaign information.
             <targetCpa>1</targetCpa>
           </conversionOptimizer>
         </operand>
+        <operand>
+          <accountId>0</accountId>
+          <campaignId>10003</campaignId>
+          <campaignBiddingStrategy>
+            <type>MAX_VCPM</type>
+            <maxVcpmBidValue>1000</maxVcpmBidValue>
+          </campaignBiddingStrategy>
+          <viewableFrequencyCap>
+            <level>CAMPAIGN</level>
+            <timeUnit>DAY</timeUnit>
+            <vImps>10</vImps>
+          </viewableFrequencyCap>
+        </operand>
       </operations>
     </mutate>
   </SOAP-ENV:Body>
@@ -574,22 +698,23 @@ Updates campaign information.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [CampaignReturnValue](../data/Campaign/CampaignReturnValue.md) | Contains the results (a list of all entities) for mutate method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [CampaignReturnValue](../data/Campaign/CampaignReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1551686140730</ns2:requestTime>
+      <ns2:requestTime>1574393678978</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Campaign">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -598,13 +723,13 @@ Updates campaign information.
           <ns2:campaign>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:campaignId>10001</ns2:campaignId>
-            <ns2:campaignName>Standard Campaign.</ns2:campaignName>
+            <ns2:campaignName>set Standard Campaign</ns2:campaignName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:servingStatus>SERVING</ns2:servingStatus>
             <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20371231</ns2:endDate>
+            <ns2:endDate>20301231</ns2:endDate>
             <ns2:budget>
-              <ns2:amount>10000</ns2:amount>
+              <ns2:amount>20000</ns2:amount>
               <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
             </ns2:budget>
             <ns2:biddingStrategy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPC">
@@ -614,60 +739,28 @@ Updates campaign information.
             <ns2:frequencyCap>
               <ns2:level>CAMPAIGN</ns2:level>
               <ns2:timeUnit>DAY</ns2:timeUnit>
-              <ns2:impression>15</ns2:impression>
+              <ns2:impression>20</ns2:impression>
             </ns2:frequencyCap>
             <ns2:conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCampaignConversionOptimizer">
               <ns2:optimizerType>MANUAL</ns2:optimizerType>
               <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
             </ns2:conversionOptimizer>
             <ns2:campaignType>STANDARD</ns2:campaignType>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
           </ns2:campaign>
         </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:campaign>
             <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
-            <ns2:campaignName>APP Campaign.</ns2:campaignName>
+            <ns2:campaignId>10002</ns2:campaignId>
+            <ns2:campaignName>set Video Campaign</ns2:campaignName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:servingStatus>SERVING</ns2:servingStatus>
             <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20371231</ns2:endDate>
+            <ns2:endDate>20301231</ns2:endDate>
             <ns2:budget>
-              <ns2:amount>10000</ns2:amount>
-              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
-            </ns2:budget>
-            <ns2:biddingStrategy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPC">
-              <ns2:type>MANUAL_CPC</ns2:type>
-            </ns2:biddingStrategy>
-            <ns2:adProductType>TARGET_MATCH</ns2:adProductType>
-            <ns2:frequencyCap>
-              <ns2:level>CAMPAIGN</ns2:level>
-              <ns2:timeUnit>DAY</ns2:timeUnit>
-              <ns2:impression>15</ns2:impression>
-            </ns2:frequencyCap>
-            <ns2:conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCampaignConversionOptimizer">
-              <ns2:optimizerType>MANUAL</ns2:optimizerType>
-              <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
-            </ns2:conversionOptimizer>
-            <ns2:campaignType>APP</ns2:campaignType>
-            <ns2:appName>TestAppName</ns2:appName>
-            <ns2:appId>jp.co.yahoo</ns2:appId>
-            <ns2:appOs>ANDROID</ns2:appOs>
-          </ns2:campaign>
-        </ns2:values>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:campaign>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
-            <ns2:campaignName>Movie Campaign.</ns2:campaignName>
-            <ns2:userStatus>ACTIVE</ns2:userStatus>
-            <ns2:servingStatus>SERVING</ns2:servingStatus>
-            <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20371231</ns2:endDate>
-            <ns2:budget>
-              <ns2:amount>10000</ns2:amount>
+              <ns2:amount>20000</ns2:amount>
               <ns2:deliveryMethod>ACCELERATED</ns2:deliveryMethod>
             </ns2:budget>
             <ns2:biddingStrategy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPV">
@@ -681,41 +774,37 @@ Updates campaign information.
             </ns2:frequencyCap>
             <ns2:conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:AutoCampaignConversionOptimizer">
               <ns2:optimizerType>AUTO</ns2:optimizerType>
-              <ns2:targetCpa>100</ns2:targetCpa>
+              <ns2:targetCpa>1</ns2:targetCpa>
               <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
             </ns2:conversionOptimizer>
             <ns2:campaignType>STANDARD</ns2:campaignType>
+            <ns2:campaignGoal>NONE</ns2:campaignGoal>
           </ns2:campaign>
         </ns2:values>
         <ns2:values>
           <operationSucceeded>true</operationSucceeded>
           <ns2:campaign>
             <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
-            <ns2:campaignName>DynamicAds Campaign.</ns2:campaignName>
+            <ns2:campaignId>10003</ns2:campaignId>
+            <ns2:campaignName>set Campaign with campaignGoal (WEBSITE_TRAFFIC)</ns2:campaignName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:servingStatus>SERVING</ns2:servingStatus>
             <ns2:startDate>20170101</ns2:startDate>
             <ns2:endDate>20371231</ns2:endDate>
             <ns2:budget>
-              <ns2:amount>10000</ns2:amount>
-              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
+              <ns2:deliveryMethod>ACCELERATED</ns2:deliveryMethod>
             </ns2:budget>
-            <ns2:biddingStrategy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPC">
-              <ns2:type>MANUAL_CPC</ns2:type>
-            </ns2:biddingStrategy>
-            <ns2:adProductType>DYNAMIC_ADS</ns2:adProductType>
-            <ns2:frequencyCap>
+            <ns2:campaignType>STANDARD</ns2:campaignType>
+            <ns2:campaignGoal>WEBSITE_TRAFFIC</ns2:campaignGoal>
+            <ns2:campaignBiddingStrategy>
+              <ns2:type>MAX_VCPM</ns2:type>
+              <ns2:maxVcpmBidValue>1000</ns2:maxVcpmBidValue>
+            </ns2:campaignBiddingStrategy>
+            <ns2:viewableFrequencyCap>
               <ns2:level>CAMPAIGN</ns2:level>
               <ns2:timeUnit>DAY</ns2:timeUnit>
-              <ns2:impression>15</ns2:impression>
-            </ns2:frequencyCap>
-            <ns2:conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCampaignConversionOptimizer">
-              <ns2:optimizerType>MANUAL</ns2:optimizerType>
-              <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
-            </ns2:conversionOptimizer>
-            <ns2:campaignType>STANDARD</ns2:campaignType>
-            <ns2:feedHolderId>1001</ns2:feedHolderId>
+              <ns2:vImps>10</ns2:vImps>
+            </ns2:viewableFrequencyCap>
           </ns2:campaign>
         </ns2:values>
       </ns2:rval>
@@ -727,24 +816,25 @@ Updates campaign information.
 ## mutate(REMOVE)
 
 ### Request
+
 Deletes campaign information.
 
-| Parameter | Requirement | Data Type | Description |
-|---|---|---|---|
-| operations | required | [CampaignOperation](../data/Campaign/CampaignOperation.md) | Contains the campaign information for mutate method operation. |
+| Parameter | Required | Data Type |
+| --------- | -------- | --------- |
+| operations | Yes | [CampaignOperation](../data/Campaign/CampaignOperation.md) |
 
 ##### Request Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Campaign">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Campaign">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -767,22 +857,23 @@ Deletes campaign information.
 ```
 
 ### Response
-| Parameter | Data Type | Description |
-|---|---|---|
-| rval | [CampaignReturnValue](../data/Campaign/CampaignReturnValue.md) | Contains the results (a list of all entities) for mutate method. |
+
+| Parameter | Data Type |
+| -------- | ------- |
+| rval | [CampaignReturnValue](../data/Campaign/CampaignReturnValue.md) |
 
 ##### Response Sample
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Campaign</ns2:service>
-      <ns2:requestTime>1551686140755</ns2:requestTime>
+      <ns2:requestTime>1574393679034</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Campaign">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Campaign">
       <ns2:rval>
         <ListReturnValue.Type>CampaignReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -820,7 +911,7 @@ Deletes campaign information.
           <operationSucceeded>true</operationSucceeded>
           <ns2:campaign>
             <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignId>10002</ns2:campaignId>
             <ns2:campaignName>APP Campaign.</ns2:campaignName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:servingStatus>SERVING</ns2:servingStatus>
@@ -853,7 +944,7 @@ Deletes campaign information.
           <operationSucceeded>true</operationSucceeded>
           <ns2:campaign>
             <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
+            <ns2:campaignId>10003</ns2:campaignId>
             <ns2:campaignName>Movie Campaign.</ns2:campaignName>
             <ns2:userStatus>ACTIVE</ns2:userStatus>
             <ns2:servingStatus>SERVING</ns2:servingStatus>
@@ -878,37 +969,6 @@ Deletes campaign information.
               <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
             </ns2:conversionOptimizer>
             <ns2:campaignType>STANDARD</ns2:campaignType>
-          </ns2:campaign>
-        </ns2:values>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:campaign>
-            <ns2:accountId>1234567890</ns2:accountId>
-            <ns2:campaignId>10001</ns2:campaignId>
-            <ns2:campaignName>DynamicAds Campaign.</ns2:campaignName>
-            <ns2:userStatus>ACTIVE</ns2:userStatus>
-            <ns2:servingStatus>SERVING</ns2:servingStatus>
-            <ns2:startDate>20170101</ns2:startDate>
-            <ns2:endDate>20371231</ns2:endDate>
-            <ns2:budget>
-              <ns2:amount>10000</ns2:amount>
-              <ns2:deliveryMethod>STANDARD</ns2:deliveryMethod>
-            </ns2:budget>
-            <ns2:biddingStrategy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCPC">
-              <ns2:type>MANUAL_CPC</ns2:type>
-            </ns2:biddingStrategy>
-            <ns2:adProductType>DYNAMIC_ADS</ns2:adProductType>
-            <ns2:frequencyCap>
-              <ns2:level>CAMPAIGN</ns2:level>
-              <ns2:timeUnit>DAY</ns2:timeUnit>
-              <ns2:impression>15</ns2:impression>
-            </ns2:frequencyCap>
-            <ns2:conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:ManualCampaignConversionOptimizer">
-              <ns2:optimizerType>MANUAL</ns2:optimizerType>
-              <ns2:eligibilityFlg>DISABLE</ns2:eligibilityFlg>
-            </ns2:conversionOptimizer>
-            <ns2:campaignType>STANDARD</ns2:campaignType>
-            <ns2:feedHolderId>1001</ns2:feedHolderId>
           </ns2:campaign>
         </ns2:values>
       </ns2:rval>

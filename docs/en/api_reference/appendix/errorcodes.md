@@ -227,6 +227,8 @@ Code           | Message                     | Description
 220328 | Invalid condition, which matches all items. | All items meet the selected conditions. It is not possible to set the condition.
 220137 | Too large compressed image file size. | The compressed image file size exceeded the limit.
 220138 | Unsupported image format. | Unsupported image format.
+220139 | Unsupported image size. | Unsupported image size.
+220330 | Invalid combination in user status and campaign banner media. | Unmodifiable the user status on campaign banner media.
 
 ### Report Process-related Errors
 ##### Service
@@ -240,9 +242,9 @@ Code           | Message                     | Description
 240004 | Invalid segment match pattern.  | Invalid segment match pattern.
 240005 | Invalid field item.  | Invalid field item.
 240006 | Invalid sort item.  | Invalid sort item.
-240010 | Over limit of report template number.  | The number of registeration template is over the limit number.
+240010 | Over limit of report template number.  | The number of registration template is over the limit number.
 250001 | Invalid combination in Template settings. | Cannot select "custom date" for the period when template flag is set.
 250002 | Invalid field settings. | Incorrect combination in report fields is set.
 250003 | Invalid combination in report date settings. | Cannot specify a certain date for the timing (interval type) to create a report you specified.
 250004 | Invalid combination in date range type. | Cannot select "custom date" for the period you specified.
-250005 | Invalid filter`s field. | Specifing the field which cannot be set to the filter.
+250005 | Invalid filter`s field. | Specifying the field which cannot be set to the filter.

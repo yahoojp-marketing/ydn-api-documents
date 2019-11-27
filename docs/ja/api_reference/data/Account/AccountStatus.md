@@ -1,17 +1,23 @@
+
+
 # AccountStatus (enum)
+
 AccountStatusは、アカウントの登録状況を表します。
-### Service
+
+#### Service
+
 + [AccountService](../../services/AccountService.md)
 
-### Namespace
+#### Namespace
+
 [AccountService#Namespace](../../services/AccountService.md#namespace)
 
-| Enumeration | Type | Description |
-|---|---|---|
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
 | INPROGRESS | xsd:string | 登録待ち。 |
 | WAIT_DECIDE | xsd:string | 確定待ち。 |
-| SERVING | xsd:string | サービス中。 |
 | SUSPENDED | xsd:string | サービス停止。 |
+| SERVING | xsd:string | サービス中。 |
 | ENDED | xsd:string | サービス終了。 |
 | CANCELED | xsd:string | 解約済み。 |
 

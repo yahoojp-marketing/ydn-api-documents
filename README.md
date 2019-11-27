@@ -21,6 +21,13 @@
  <th>リリースノート</th>
 </tr>
 <tr>
+ <td>V201911</td>
+ <td>2019年11月27日</td>
+ <td></td>
+ <td></td>
+ <td><a href="../../blob/201911/docs/ja/releasenotes.md">V201911リリースノート</a></td>
+</tr>
+<tr>
  <td>V201907</td>
  <td>2019年8月1日</td>
  <td></td>
@@ -30,8 +37,8 @@
 <tr>
  <td>V201903</td>
  <td>2019年3月11日</td>
- <td></td>
- <td></td>
+ <td>2019年12月25日</td>
+ <td>2020年03月25日</td>
  <td><a href="../../blob/201903/docs/ja/releasenotes.md">V201903リリースノート</a></td>
 </tr>
 <tr>
@@ -55,6 +62,13 @@
  <th>Release Note</th>
 </tr>
 <tr>
+ <td>V201911</td>
+ <td>2019/11/27</td>
+ <td></td>
+ <td></td>
+ <td><a href="../../blob/201911/docs/en/releasenotes.md">V201911 Release Note</a></td>
+</tr>
+<tr>
  <td>V201907</td>
  <td>2019/8/1</td>
  <td></td>
@@ -64,8 +78,8 @@
 <tr>
  <td>V201903</td>
  <td>2019/3/11</td>
- <td></td>
- <td></td>
+ <td>2019/12/25</td>
+ <td>2020/03/25</td>
  <td><a href="../../blob/201903/docs/en/releasenotes.md">V201903 Release Note</a></td>
 </tr>
 <tr>

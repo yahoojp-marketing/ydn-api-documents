@@ -12,6 +12,10 @@ The AdGroupAdOperation object is a container for storing ad information.
 
 [AdGroupAdService#Namespace](../../services/AdGroupAdService.md#namespace)
 
+### Inheritance
+
++ [Operation](./Operation.md)
+
 | Field | Type | Description | response | get | add | set | remove |
 | ----- | ---- | ----------- | -------- | --------- | --------- | --------- | --------- |
 | accountId | xsd:long | Account ID. | - | - | Requirement | Requirement | Requirement | |

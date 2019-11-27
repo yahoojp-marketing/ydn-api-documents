@@ -1,23 +1,22 @@
 
 
-# ColorSetPage
+# CampaignDownloadUrlValue
 
-ColorSetPageオブジェクトは、 getColorSetメソッドの実行結果（全Entityのリスト）を保持するコンテナです。
+CampaignDownloadUrlValue object defines the campaign's bulk download.
 
 ### Service
 
-+ [DictionaryService](../../services/DictionaryService.md)
++ [CampaignMigrationService](../../services/CampaignMigrationService.md)
 
 ### Namespace
 
-[DictionaryService#Namespace](../../services/DictionaryService.md#namespace)
-
-### Inheritance
-
-+ [Page](../Common/Page.md)
+[CampaignMigrationService#Namespace](../../services/CampaignMigrationService.md#namespace)
 
 | Field | Type | Description | response |
 | ----- | ---- | ----------- | -------- |
-| values[0..*] | [ColorSetValues](./ColorSetValues.md) | getColorSetメソッドの実行結果です。 | ○ | |
+| accountId | xsd:long | Account ID | yes | |
+| downloadScope | enum [MigrationScope](./MigrationScope.md) | Scope of campaigns to be downloaded | yes | |
+| lang | enum [MigrationLang](./MigrationLang.md) | Language | yes | |
+| downloadUrl | xsd:string | Download URL | yes | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

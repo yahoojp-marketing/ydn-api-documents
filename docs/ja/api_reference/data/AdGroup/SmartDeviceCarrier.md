@@ -1,15 +1,19 @@
 
+
 # SmartDeviceCarrier (enum)
+
 SmartDeviceCarrierは、スマートデバイスのモバイルキャリアを表します。
 
-### Service
+#### Service
+
 + [AdGroupService](../../services/AdGroupService.md)
 
-### Namespace
+#### Namespace
+
 [AdGroupService#Namespace](../../services/AdGroupService.md#namespace)
 
-| Enumeration | Type | Description |
-|---|---|---|
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
 | DOCOMO | xsd:string | NTTドコモです。 |
 | KDDI | xsd:string | au KDDIです。 |
 | SOFTBANK | xsd:string | ソフトバンクモバイルです。 |

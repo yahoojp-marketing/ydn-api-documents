@@ -1,17 +1,17 @@
 # DictionaryService
 
-DictionaryServiceは、審査否認理由、地域情報、インタレストカテゴリー、サイトカテゴリーの一覧を提供します。
+DictionaryServiceは、審査否認理由、地域情報、インタレストカテゴリー、サイトカテゴリー、オーディエンスカテゴリーの一覧を提供します。
 
 #### WSDL
 
 | environment |                                      url                                      |
 | ----------- | ----------------------------------------------------------------------------- |
-| production  | https://location.im.yahooapis.jp/services/V201907/DictionaryService?wsdl |
-| sandbox     | https://sandbox.im.yahooapis.jp/services/V201907/DictionaryService?wsdl  |
+| production  | https://location.im.yahooapis.jp/services/V201911/DictionaryService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201911/DictionaryService?wsdl  |
 
 #### Namespace
 
-http://im.yahooapis.jp/V201907/Dictionary
+http://im.yahooapis.jp/V201911/Dictionary
 
 #### Service Overview
 
@@ -25,9 +25,11 @@ DictionaryServiceで提供される操作を説明します。
 + [getGeographicLocation](#getgeographiclocation)
 + [getInterestCategory](#getinterestcategory)
 + [getSiteCategory](#getsitecategory)
-+ [getColorSet](#getcolorset)
 + [getOsVersion](#getosversion)
 + [getMediaAdFormat](#getmediaadformat)
++ [getAudienceCategory](#getaudiencecategory)
++ [getThirdPartyTrackingDomain](#getthirdpartytrackingdomain)
++ [getFeedItemGoogleProductCategory](#getfeeditemgoogleproductcategory)
 
 ## getDisapprovalReason
 
@@ -43,14 +45,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getDisapprovalReason xmlns="http://im.yahooapis.jp/V201907/Dictionary">
+    <getDisapprovalReason xmlns="http://im.yahooapis.jp/V201911/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -61,8 +63,6 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 
 ### レスポンス
 
-EditorialReasonと推奨する対応方法の一覧を取得します。
-
 | パラメータ | データ型 |
 | -------- | ------- |
 | rval | [DisapprovalReasonPage](../data/Dictionary/DisapprovalReasonPage.md) |
@@ -71,14 +71,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1563874059952</ns2:requestTime>
+      <ns2:requestTime>1574404776728</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getDisapprovalReasonResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Dictionary">
+    <ns2:getDisapprovalReasonResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -112,16 +112,17 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getGeographicLocation xmlns="http://im.yahooapis.jp/V201907/Dictionary">
+    <getGeographicLocation xmlns="http://im.yahooapis.jp/V201911/Dictionary">
       <selector>
         <lang>EN</lang>
+        <type>TARGETING</type>
       </selector>
     </getGeographicLocation>
   </SOAP-ENV:Body>
@@ -129,8 +130,6 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```
 
 ### レスポンス
-
-地域情報の一覧を取得します。
 
 | パラメータ | データ型 |
 | -------- | ------- |
@@ -140,14 +139,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1563874059996</ns2:requestTime>
+      <ns2:requestTime>1574404776751</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getGeographicLocationResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Dictionary">
+    <ns2:getGeographicLocationResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -187,14 +186,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getInterestCategory xmlns="http://im.yahooapis.jp/V201907/Dictionary">
+    <getInterestCategory xmlns="http://im.yahooapis.jp/V201911/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -205,8 +204,6 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 
 ### レスポンス
 
-インタレストカテゴリーリストを取得します。
-
 | パラメータ | データ型 |
 | -------- | ------- |
 | rval | [CategoryPage](../data/Dictionary/CategoryPage.md) |
@@ -215,14 +212,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1563874060014</ns2:requestTime>
+      <ns2:requestTime>1574404776783</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getInterestCategoryResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Dictionary">
+    <ns2:getInterestCategoryResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -260,14 +257,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getSiteCategory xmlns="http://im.yahooapis.jp/V201907/Dictionary">
+    <getSiteCategory xmlns="http://im.yahooapis.jp/V201911/Dictionary">
       <selector>
         <lang>EN</lang>
       </selector>
@@ -278,8 +275,6 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 
 ### レスポンス
 
-サイトトカテゴリーリストを取得します。
-
 | パラメータ | データ型 |
 | -------- | ------- |
 | rval | [CategoryPage](../data/Dictionary/CategoryPage.md) |
@@ -288,14 +283,14 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1563874060066</ns2:requestTime>
+      <ns2:requestTime>1574404776833</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getSiteCategoryResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Dictionary">
+    <ns2:getSiteCategoryResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -319,74 +314,6 @@ EditorialReasonと推奨する対応方法の一覧を取得します。
 </SOAP-ENV:Envelope>
 ```
 
-## getColorSet
-
-### リクエスト
-
-カラーセットの一覧を取得します。
-
-| パラメータ | 必須 | データ型 |
-| ---------- | ---- | -------- |
-| selector | Yes | [ColorSetSelector](../data/Dictionary/ColorSetSelector.md) |
-
-##### ＜リクエストサンプル＞
-```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
-      <ns2:license>1111-1111-1111-1111</ns2:license>
-      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
-      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
-    </RequestHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <getColorSet xmlns="http://im.yahooapis.jp/V201907/Dictionary">
-      <selector>
-        <lang>EN</lang>
-      </selector>
-    </getColorSet>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
-### レスポンス
-
-カラーセットの一覧を取得します。
-
-| パラメータ | データ型 |
-| -------- | ------- |
-| rval | [ColorSetPage](../data/Dictionary/ColorSetPage.md) |
-
-##### ＜レスポンスサンプル＞
-```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-  <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
-      <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1563874059974</ns2:requestTime>
-      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
-    </ResponseHeader>
-  </SOAP-ENV:Header>
-  <SOAP-ENV:Body>
-    <ns2:getColorSetResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Dictionary">
-      <ns2:rval>
-        <totalNumEntries>1</totalNumEntries>
-        <Page.Type>DictionaryPage</Page.Type>
-        <ns2:values>
-          <operationSucceeded>true</operationSucceeded>
-          <ns2:colorSetId>1000000001</ns2:colorSetId>
-          <ns2:name>White</ns2:name>
-          <ns2:colorSet>
-            <ns2:element>BACKGROUND1_FROM</ns2:element>
-            <ns2:color>#FCFCFC</ns2:color>
-          </ns2:colorSet>
-        </ns2:values>
-      </ns2:rval>
-    </ns2:getColorSetResponse>
-  </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
-```
-
 ## getOsVersion
 
 ### リクエスト
@@ -401,14 +328,14 @@ OSのバージョンを取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getOsVersion xmlns="http://im.yahooapis.jp/V201907/Dictionary">
+    <getOsVersion xmlns="http://im.yahooapis.jp/V201911/Dictionary">
       <selector>
         <osType>ANDROID</osType>
       </selector>
@@ -419,8 +346,6 @@ OSのバージョンを取得します。
 
 ### レスポンス
 
-OSのバージョンを取得します。
-
 | パラメータ | データ型 |
 | -------- | ------- |
 | rval | [OsVersionPage](../data/Dictionary/OsVersionPage.md) |
@@ -429,14 +354,14 @@ OSのバージョンを取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1563874060041</ns2:requestTime>
+      <ns2:requestTime>1574404776815</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getOsVersionResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Dictionary">
+    <ns2:getOsVersionResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -463,21 +388,19 @@ OSのバージョンを取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <getMediaAdFormat xmlns="http://im.yahooapis.jp/V201907/Dictionary"/>
+    <getMediaAdFormat xmlns="http://im.yahooapis.jp/V201911/Dictionary"/>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 ### レスポンス
-
-入稿可能な画像の形式(MediaAdFormat)を照会します。
 
 | パラメータ | データ型 |
 | -------- | ------- |
@@ -487,14 +410,14 @@ OSのバージョンを取得します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Dictionary</ns2:service>
-      <ns2:requestTime>1563874059913</ns2:requestTime>
+      <ns2:requestTime>1574404776672</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getMediaAdFormatResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Dictionary">
+    <ns2:getMediaAdFormatResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>DictionaryPage</Page.Type>
@@ -515,10 +438,215 @@ OSのバージョンを取得します。
             <ns2:aspectHeight>300</ns2:aspectHeight>
             <ns2:staticImage>true</ns2:staticImage>
             <ns2:aspect>true</ns2:aspect>
+            <ns2:campaignBanner>false</ns2:campaignBanner>
           </ns2:mediaAdFormat>
         </ns2:values>
       </ns2:rval>
     </ns2:getMediaAdFormatResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+## getAudienceCategory
+
+### リクエスト
+
+オーディエンスカテゴリーリストを取得します。
+
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| selector | Yes | [CategorySelector](../data/Dictionary/CategorySelector.md) |
+
+##### ＜リクエストサンプル＞
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getAudienceCategory xmlns="http://im.yahooapis.jp/V201911/Dictionary">
+      <selector>
+        <lang>EN</lang>
+      </selector>
+    </getAudienceCategory>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### レスポンス
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [AudienceCategoryPage](../data/Dictionary/AudienceCategoryPage.md) |
+
+##### ＜レスポンスサンプル＞
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
+      <ns2:service>Dictionary</ns2:service>
+      <ns2:requestTime>1574404776869</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getAudienceCategoryResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>DictionaryPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:category>
+            <ns2:code>1</ns2:code>
+            <ns2:name>Shopping</ns2:name>
+            <ns2:fullName>Shopping</ns2:fullName>
+            <ns2:reach>0</ns2:reach>
+            <ns2:categoryType>AFFINITY</ns2:categoryType>
+            <ns2:child>
+              <ns2:code>2</ns2:code>
+              <ns2:name>Shoppers</ns2:name>
+              <ns2:fullName>Shoppers</ns2:fullName>
+              <ns2:reach>0</ns2:reach>
+              <ns2:categoryType>AFFINITY</ns2:categoryType>
+            </ns2:child>
+          </ns2:category>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getAudienceCategoryResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+## getThirdPartyTrackingDomain
+
+### リクエスト
+
+第三者計測スクリプトURLで指定可能なドメインとベンダー名を照会します。
+
+##### ＜リクエストサンプル＞
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getThirdPartyTrackingDomain xmlns="http://im.yahooapis.jp/V201911/Dictionary"/>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### レスポンス
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [ThirdPartyTrackingDomainPage](../data/Dictionary/ThirdPartyTrackingDomainPage.md) |
+
+##### ＜レスポンスサンプル＞
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
+      <ns2:service>Dictionary</ns2:service>
+      <ns2:requestTime>1574404776910</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getThirdPartyTrackingDomainResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>DictionaryPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:thirdPartyTrackingDomain>
+            <ns2:domain>example.com</ns2:domain>
+            <ns2:vendor>SAMPLE_VENDOR</ns2:vendor>
+            <ns2:vendorName>Vendor name</ns2:vendorName>
+          </ns2:thirdPartyTrackingDomain>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getThirdPartyTrackingDomainResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+## getFeedItemGoogleProductCategory
+
+### リクエスト
+
+Feedの商品情報で設定可能なGoogle商品カテゴリを取得します。
+
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| selector | Yes | [FeedItemGoogleProductCategorySelector](../data/Dictionary/FeedItemGoogleProductCategorySelector.md) |
+
+##### ＜リクエストサンプル＞
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
+      <ns2:license>1111-1111-1111-1111</ns2:license>
+      <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
+      <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
+    </RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <getFeedItemGoogleProductCategory xmlns="http://im.yahooapis.jp/V201911/Dictionary">
+      <selector>
+        <lang>EN</lang>
+      </selector>
+    </getFeedItemGoogleProductCategory>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+### レスポンス
+
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [FeedItemGoogleProductCategoryPage](../data/Dictionary/FeedItemGoogleProductCategoryPage.md) |
+
+##### ＜レスポンスサンプル＞
+```xml
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Dictionary" xmlns:ns2="http://im.yahooapis.jp/V201911">
+      <ns2:service>Dictionary</ns2:service>
+      <ns2:requestTime>1574404776933</ns2:requestTime>
+      <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
+    </ResponseHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns2:getFeedItemGoogleProductCategoryResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Dictionary">
+      <ns2:rval>
+        <totalNumEntries>1</totalNumEntries>
+        <Page.Type>DictionaryPage</Page.Type>
+        <ns2:values>
+          <operationSucceeded>true</operationSucceeded>
+          <ns2:FeedItemGoogleProductCategory>
+            <ns2:id>1</ns2:id>
+            <ns2:order>1</ns2:order>
+            <ns2:name>Animals &amp;amp; Pet Supplies</ns2:name>
+            <ns2:fullName>Animals &amp;amp; Pet Supplies</ns2:fullName>
+            <ns2:child>
+              <ns2:id>3237</ns2:id>
+              <ns2:parent>1</ns2:parent>
+              <ns2:order>2</ns2:order>
+              <ns2:name>Live Animals</ns2:name>
+              <ns2:fullName>Animals &amp;amp; Pet Supplies &amp;gt; Live Animals</ns2:fullName>
+            </ns2:child>
+          </ns2:FeedItemGoogleProductCategory>
+        </ns2:values>
+      </ns2:rval>
+    </ns2:getFeedItemGoogleProductCategoryResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```

@@ -1,8 +1,8 @@
 
 
-# ColorSetValues
+# ThirdPartyTrackingDomainValues
 
-ColorSetValues stores one entity of results of getColorSet method.
+ThirdPartyTrackingDomainValuesオブジェクトは、getThirdPartyTrackingDomainメソッドの実行結果（１Entity）を保持します。
 
 ### Service
 
@@ -18,8 +18,6 @@ ColorSetValues stores one entity of results of getColorSet method.
 
 | Field | Type | Description | response |
 | ----- | ---- | ----------- | -------- |
-| colorSetId | xsd:long | Color set ID. | ○ | |
-| name | xsd:string | Colors set name. | ○ | |
-| colorSet[1..*] | [ColorSet](./ColorSet.md) | Color set. | ○ | |
+| thirdPartyTrackingDomain | [ThirdPartyTrackingDomain](./ThirdPartyTrackingDomain.md) | thirdPartyTrackingDomainオブジェクトです。 | yes | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

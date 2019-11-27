@@ -1,14 +1,20 @@
+
+
 # EstimateFlg (enum)
+
 EstimateFlg displays the advance delivery setting (Available in mid-June 2013)
-### Service
+
+#### Service
+
 + [AdGroupTargetService](../../services/AdGroupTargetService.md)
 
-### Namespace
+#### Namespace
+
 [AdGroupTargetService#Namespace](../../services/AdGroupTargetService.md#namespace)
 
-| Value | Description | 
-|---|---|
-| PAUSED| Deliver ads to users as designated gender or ages |
-| ACTIVE| Deliver ads to users who can be estimated as designated gender or ages |
+| Enumeration  |       Type       |          Description          |
+| ------------ | ---------------- | ----------------------------- |
+| PAUSED | xsd:string | Deliver ads to users as designated gender or ages |
+| ACTIVE | xsd:string | Deliver ads to users who can be estimated as designated gender or ages |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

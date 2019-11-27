@@ -28,5 +28,7 @@ MediaAdFormat object contains the information of media format.
 | aspectHeight | xsd:long | Image aspect ratio: height [ratio] | yes | |
 | staticImage | xsd:boolean | This field indicates whether it is a static image. | yes | |
 | aspect | xsd:boolean | This field indicates whether the aspect ratio is supported. | yes | |
+| aspectRatio | xsd:string |  Aspect ratio. | yes | |
+| campaignBanner | xsd:boolean | This field indicates whether it is a campaign banner image or not. | yes | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>

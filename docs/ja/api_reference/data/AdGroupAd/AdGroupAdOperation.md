@@ -12,6 +12,10 @@ AdGroupAdOperationオブジェクトは、広告の情報を格納するコン�
 
 [AdGroupAdService#Namespace](../../services/AdGroupAdService.md#namespace)
 
+### Inheritance
+
++ [Operation](./Operation.md)
+
 | Field | Type | Description | response | get | add | set | remove |
 | ----- | ---- | ----------- | -------- | --------- | --------- | --------- | --------- |
 | accountId | xsd:long | アカウントIDです。 | - | - | Requirement | Requirement | Requirement | |

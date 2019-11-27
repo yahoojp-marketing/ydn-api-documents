@@ -1,51 +1,52 @@
 # ConversionTrackerService
+
 ConversionTrackerServiceでは、コンバージョントラッカー情報の操作（取得、追加、更新）を行います。
 
 #### WSDL
-| environment | url |
-|---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/ConversionTrackerService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/ConversionTrackerService?wsdl |
+
+| environment |                                      url                                      |
+| ----------- | ----------------------------------------------------------------------------- |
+| production  | https://location.im.yahooapis.jp/services/V201911/ConversionTrackerService?wsdl |
+| sandbox     | https://sandbox.im.yahooapis.jp/services/V201911/ConversionTrackerService?wsdl  |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/ConversionTracker
 
-#### サービス概要
+http://im.yahooapis.jp/V201911/ConversionTracker
+
+#### Service Overview
+
 コンバージョントラッカー情報の取得およびコンバージョントラッカー情報の追加・更新を行います。
 
-#### 操作
+#### Operation
+
 ConversionTrackerServiceで提供される操作を説明します。
 
 + [get](#get)
 + [mutate(ADD)](#mutateadd)
 + [mutate(SET)](#mutateset)
 
-#### オブジェクト
-[ConversionTracker](../data/ConversionTracker)
-
 ## get
 
 ### リクエスト
+
 指定アカウントのコンバージョントラッカー情報を取得します。
 
-| パラメータ | 必須 | データ型 | 説明 |
-|---|---|---|---|
-| selector | ○ | [ConversionTrackerSelector](../data/ConversionTracker/ConversionTrackerSelector.md) | getメソッドの検索条件（実行パラメータ）を保持します。 |
-
-##### ＜リクエストサンプル（コンバージョン情報）＞
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| selector | Yes | [ConversionTrackerSelector](../data/ConversionTracker/ConversionTrackerSelector.md) |
 
 ##### ＜リクエストサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1111</accountId>
         <conversionTrackerIds>222</conversionTrackerIds>
@@ -84,14 +85,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1111</accountId>
         <conversionTrackerIds>222</conversionTrackerIds>
@@ -119,7 +120,7 @@ ConversionTrackerServiceで提供される操作を説明します。
         <statsPeriod>CUSTOM_DATE</statsPeriod>
         <statsPeriodCustomDate>
           <statsStartDate>20180401</statsStartDate>
-          <statsEndDate>20190301</statsEndDate>
+          <statsEndDate>20181201</statsEndDate>
         </statsPeriodCustomDate>
         <paging>
           <ns2:startIndex>1</ns2:startIndex>
@@ -132,24 +133,23 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| フィールド | データ型 | 説明 |
-|---|---|---|
-| rval | [ConversionTrackerPage](../data/ConversionTracker/ConversionTrackerPage.md) | getメソッドの実行結果（全Entityのリスト）を保持します。 |
 
-##### ＜レスポンスサンプル（コンバージョン情報）＞
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [ConversionTrackerPage](../data/ConversionTracker/ConversionTrackerPage.md) |
 
 ##### ＜レスポンスサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1551686139707</ns2:requestTime>
+      <ns2:requestTime>1574652070880</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/ConversionTracker">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/ConversionTracker">
       <ns2:rval>
         <totalNumEntries>3</totalNumEntries>
         <ns2:totalConversions>20</ns2:totalConversions>
@@ -242,21 +242,15 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:snippet>
               <ns2:type>JS</ns2:type>
-              <ns2:tag>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
-    /* &amp;amp;lt;![CDATA[ */
-    var yahoo_conversion_id = 1000661;
-    var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-    var yahoo_conversion_value = 100;
-    /* ]]&amp;amp;gt; */
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;noscript&amp;amp;gt;
-    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
-        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
-    &amp;amp;lt;/div&amp;amp;gt;
-&amp;amp;lt;/noscript&amp;amp;gt;</ns2:tag>
+              <ns2:tag>&amp;lt;script type="text/javascript" language="javascript"&amp;gt;
+  /* &amp;lt;![CDATA[ */
+  var yahoo_ydn_conv_io = "XXXXXXXXXXXXXXXXXX";
+  var yahoo_ydn_conv_label = "XXXXXXXXXXXXXXXXXX";
+  var yahoo_ydn_conv_transaction_id = "";
+  var yahoo_ydn_conv_value = "4000";
+  /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" language="javascript" charset="UTF-8" src="https://b90.yahoo.co.jp/conv.js"&amp;gt;&amp;lt;/script&amp;gt;</ns2:tag>
             </ns2:snippet>
           </ns2:conversionTracker>
         </ns2:values>
@@ -269,14 +263,14 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1551686139792</ns2:requestTime>
+      <ns2:requestTime>1574652071146</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/ConversionTracker">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/ConversionTracker">
       <ns2:rval>
         <totalNumEntries>3</totalNumEntries>
         <ns2:totalConversions>20</ns2:totalConversions>
@@ -323,7 +317,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20190301</ns2:statsEndDate>
+            <ns2:statsEndDate>20181201</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
         <ns2:values>
@@ -352,7 +346,7 @@ ConversionTrackerServiceで提供される操作を説明します。
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20190301</ns2:statsEndDate>
+            <ns2:statsEndDate>20181201</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
         <ns2:values>
@@ -375,26 +369,20 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:crossDeviceConversions>300</ns2:crossDeviceConversions>
             <ns2:snippet>
               <ns2:type>JS</ns2:type>
-              <ns2:tag>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
-    /* &amp;amp;lt;![CDATA[ */
-    var yahoo_conversion_id = 1000661;
-    var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-    var yahoo_conversion_value = 100;
-    /* ]]&amp;amp;gt; */
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;noscript&amp;amp;gt;
-    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
-        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
-    &amp;amp;lt;/div&amp;amp;gt;
-&amp;amp;lt;/noscript&amp;amp;gt;</ns2:tag>
+              <ns2:tag>&amp;lt;script type="text/javascript" language="javascript"&amp;gt;
+  /* &amp;lt;![CDATA[ */
+  var yahoo_ydn_conv_io = "XXXXXXXXXXXXXXXXXX";
+  var yahoo_ydn_conv_label = "XXXXXXXXXXXXXXXXXX";
+  var yahoo_ydn_conv_transaction_id = "";
+  var yahoo_ydn_conv_value = "4000";
+  /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" language="javascript" charset="UTF-8" src="https://b90.yahoo.co.jp/conv.js"&amp;gt;&amp;lt;/script&amp;gt;</ns2:tag>
             </ns2:snippet>
           </ns2:conversionTracker>
           <ns2:statsPeriodCustomDate>
             <ns2:statsStartDate>20180401</ns2:statsStartDate>
-            <ns2:statsEndDate>20190301</ns2:statsEndDate>
+            <ns2:statsEndDate>20181201</ns2:statsEndDate>
           </ns2:statsPeriodCustomDate>
         </ns2:values>
       </ns2:rval>
@@ -406,26 +394,25 @@ ConversionTrackerServiceで提供される操作を説明します。
 ## mutate(ADD)
 
 ### リクエスト
+
 コンバージョントラッカー情報を追加します。
 
-| パラメータ | 必須 | 値 | 説明 |
-|---|---|---|---|
-| operations | ○ | [ConversionTrackerOperation](../data/ConversionTracker/ConversionTrackerOperation.md) | mutateメソッドで操作対象となるコンバージョントラッカーを保持します。 |
-
-##### ＜リクエストサンプル（コンバージョン情報）＞
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| operations | Yes | [ConversionTrackerOperation](../data/ConversionTracker/ConversionTrackerOperation.md) |
 
 ##### ＜リクエストサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/ConversionTracker">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/ConversionTracker">
       <operations>
         <operator>ADD</operator>
         <accountId>0</accountId>
@@ -461,24 +448,23 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| フィールド | データ型 | 説明 |
-|---|---|---|
-| rval | [ConversionTrackerReturnValue](../data/ConversionTracker/ConversionTrackerReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。 |
 
-##### ＜レスポンスサンプル（コンバージョン情報）＞
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [ConversionTrackerReturnValue](../data/ConversionTracker/ConversionTrackerReturnValue.md) |
 
 ##### ＜レスポンスサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1551686139740</ns2:requestTime>
+      <ns2:requestTime>1574652070978</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/ConversionTracker">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/ConversionTracker">
       <ns2:rval>
         <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -555,21 +541,15 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:snippet>
               <ns2:type>JS</ns2:type>
-              <ns2:tag>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
-    /* &amp;amp;lt;![CDATA[ */
-    var yahoo_conversion_id = 1000661;
-    var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-    var yahoo_conversion_value = 100;
-    /* ]]&amp;amp;gt; */
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;noscript&amp;amp;gt;
-    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
-        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
-    &amp;amp;lt;/div&amp;amp;gt;
-&amp;amp;lt;/noscript&amp;amp;gt;</ns2:tag>
+              <ns2:tag>&amp;lt;script type="text/javascript" language="javascript"&amp;gt;
+  /* &amp;lt;![CDATA[ */
+  var yahoo_ydn_conv_io = "XXXXXXXXXXXXXXXXXX";
+  var yahoo_ydn_conv_label = "XXXXXXXXXXXXXXXXXX";
+  var yahoo_ydn_conv_transaction_id = "";
+  var yahoo_ydn_conv_value = "4000";
+  /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" language="javascript" charset="UTF-8" src="https://b90.yahoo.co.jp/conv.js"&amp;gt;&amp;lt;/script&amp;gt;</ns2:tag>
             </ns2:snippet>
           </ns2:conversionTracker>
         </ns2:values>
@@ -582,26 +562,25 @@ ConversionTrackerServiceで提供される操作を説明します。
 ## mutate(SET)
 
 ### リクエスト
+
 コンバージョントラッカー情報を更新します。
 
-| パラメータ | 必須 | 値 | 説明 |
-|---|---|---|---|
-| operations | ○ | [ConversionTrackerOperation](../data/ConversionTracker/ConversionTrackerOperation.md) | mutateメソッドで操作対象となるコンバージョントラッカーを保持します。 |
-
-##### ＜リクエストサンプル（コンバージョン情報）＞
+| パラメータ | 必須 | データ型 |
+| ---------- | ---- | -------- |
+| operations | Yes | [ConversionTrackerOperation](../data/ConversionTracker/ConversionTrackerOperation.md) |
 
 ##### ＜リクエストサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/ConversionTracker">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/ConversionTracker">
       <operations>
         <operator>SET</operator>
         <accountId>0</accountId>
@@ -636,24 +615,23 @@ ConversionTrackerServiceで提供される操作を説明します。
 ```
 
 ### レスポンス
-| フィールド | データ型 | 説明 |
-|---|---|---|
-| rval | [ConversionTrackerReturnValue](../data/ConversionTracker/ConversionTrackerReturnValue.md) | mutateメソッドの実行結果（全Entityのリスト）を保持します。　|
 
-##### ＜レスポンスサンプル（コンバージョン情報）＞
+| パラメータ | データ型 |
+| -------- | ------- |
+| rval | [ConversionTrackerReturnValue](../data/ConversionTracker/ConversionTrackerReturnValue.md) |
 
 ##### ＜レスポンスサンプル＞
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/ConversionTracker" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>ConversionTracker</ns2:service>
-      <ns2:requestTime>1551686139765</ns2:requestTime>
+      <ns2:requestTime>1574652071047</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/ConversionTracker">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/ConversionTracker">
       <ns2:rval>
         <ListReturnValue.Type>AccountTrackingUrlReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -727,21 +705,15 @@ ConversionTrackerServiceで提供される操作を説明します。
             <ns2:crossDeviceConversions>0</ns2:crossDeviceConversions>
             <ns2:snippet>
               <ns2:type>JS</ns2:type>
-              <ns2:tag>&amp;amp;lt;!-- Yahoo Code for your Conversion Page --&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript"&amp;amp;gt;
-    /* &amp;amp;lt;![CDATA[ */
-    var yahoo_conversion_id = 1000661;
-    var yahoo_conversion_label = "XXXXXXXXXXXXXXXXXX";
-    var yahoo_conversion_value = 100;
-    /* ]]&amp;amp;gt; */
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;script type="text/javascript" src="//s.yimg.jp/images/listing/tool/cv/conversion.js"&amp;amp;gt;
-&amp;amp;lt;/script&amp;amp;gt;
-&amp;amp;lt;noscript&amp;amp;gt;
-    &amp;amp;lt;div style="display:inline;"&amp;amp;gt;
-        &amp;amp;lt;img height="1" width="1" style="border-style:none;" alt="" src="//b91.yahoo.co.jp/pagead/conversion/1000661/?value=100&amp;amp;amp;label=XXXXXXXXXXXXXXXXXX&amp;amp;amp;guid=ON&amp;amp;amp;script=0&amp;amp;amp;disvt=true"/&amp;amp;gt;
-    &amp;amp;lt;/div&amp;amp;gt;
-&amp;amp;lt;/noscript&amp;amp;gt;</ns2:tag>
+              <ns2:tag>&amp;lt;script type="text/javascript" language="javascript"&amp;gt;
+  /* &amp;lt;![CDATA[ */
+  var yahoo_ydn_conv_io = "XXXXXXXXXXXXXXXXXX";
+  var yahoo_ydn_conv_label = "XXXXXXXXXXXXXXXXXX";
+  var yahoo_ydn_conv_transaction_id = "";
+  var yahoo_ydn_conv_value = "4000";
+  /* ]]&amp;gt; */
+&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript" language="javascript" charset="UTF-8" src="https://b90.yahoo.co.jp/conv.js"&amp;gt;&amp;lt;/script&amp;gt;</ns2:tag>
             </ns2:snippet>
           </ns2:conversionTracker>
         </ns2:values>

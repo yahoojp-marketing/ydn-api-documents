@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions
-        targetNamespace="http://im.yahooapis.jp/V201907/Dictionary"
-        xmlns:tns="http://im.yahooapis.jp/V201907/Dictionary"
+        targetNamespace="http://im.yahooapis.jp/V201911/Dictionary"
+        xmlns:tns="http://im.yahooapis.jp/V201911/Dictionary"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
         xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201907"
+            targetNamespace="http://im.yahooapis.jp/V201911"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:tns="http://im.yahooapis.jp/V201907">
+            xmlns:tns="http://im.yahooapis.jp/V201911">
       <complexType name="SoapHeader">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="license" type="xsd:string"/>
@@ -66,47 +66,16 @@
       </complexType>
     </schema>
     <schema elementFormDefault="qualified"
-            targetNamespace="http://im.yahooapis.jp/V201907/Dictionary"
+            targetNamespace="http://im.yahooapis.jp/V201911/Dictionary"
             xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:adv="http://im.yahooapis.jp/V201907"
-            xmlns:tns="http://im.yahooapis.jp/V201907/Dictionary">
-      <xsd:import namespace="http://im.yahooapis.jp/V201907"/>
+            xmlns:adv="http://im.yahooapis.jp/V201911"
+            xmlns:tns="http://im.yahooapis.jp/V201911/Dictionary">
+      <xsd:import namespace="http://im.yahooapis.jp/V201911"/>
       <annotation>
         <appinfo>
-          <version>201907</version>
+          <version>201911</version>
         </appinfo>
       </annotation>
-      <complexType name="ColorSetSelector">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="lang" type="tns:DictionaryLang"/>
-        </sequence>
-      </complexType>
-      <complexType name="ColorSetPage">
-        <complexContent>
-          <extension base="adv:Page">
-            <sequence>
-              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ColorSetValues"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="ColorSetValues">
-        <complexContent>
-          <extension base="adv:ReturnValue">
-            <sequence>
-              <element maxOccurs="1" minOccurs="0" name="colorSetId" type="xsd:long"/>
-              <element maxOccurs="1" minOccurs="0" name="name" type="xsd:string"/>
-              <element maxOccurs="unbounded" minOccurs="0" name="colorSet" type="tns:ColorSet"/>
-            </sequence>
-          </extension>
-        </complexContent>
-      </complexType>
-      <complexType name="ColorSet">
-        <sequence>
-          <element maxOccurs="1" minOccurs="1" name="element" type="xsd:string"/>
-          <element maxOccurs="1" minOccurs="1" name="color" type="xsd:string"/>
-        </sequence>
-      </complexType>
       <complexType name="DisapprovalReasonSelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="lang" type="tns:DictionaryLang"/>
@@ -142,6 +111,7 @@
       <complexType name="GeographicLocationSelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="lang" type="tns:DictionaryLang"/>
+          <element maxOccurs="1" minOccurs="0" name="type" type="tns:GeographicLocationType"/>
         </sequence>
       </complexType>
       <complexType name="GeographicLocationPage">
@@ -172,6 +142,12 @@
           <element maxOccurs="unbounded" minOccurs="0" name="child" type="tns:GeographicLocation"/>
         </sequence>
       </complexType>
+      <simpleType name="GeographicLocationType">
+        <restriction base="xsd:string">
+          <enumeration value="TARGETING"/>
+          <enumeration value="FEED"/>
+        </restriction>
+      </simpleType>
       <complexType name="CategorySelector">
         <sequence>
           <element maxOccurs="1" minOccurs="1" name="lang" type="tns:DictionaryLang"/>
@@ -211,6 +187,40 @@
           <element maxOccurs="1" minOccurs="1" name="reachTablet" type="xsd:long"/>
         </sequence>
       </complexType>
+      <complexType name="AudienceCategoryPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:AudienceCategoryValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="AudienceCategoryValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="category" type="tns:AudienceCategory"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="AudienceCategory">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="code" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="fullName" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="reach" type="xsd:long"/>
+          <element maxOccurs="1" minOccurs="1" name="categoryType" type="tns:AudienceCategoryType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="child" type="tns:AudienceCategory"/>
+        </sequence>
+      </complexType>
+      <simpleType name="AudienceCategoryType">
+        <restriction base="xsd:string">
+          <enumeration value="AFFINITY"/>
+          <enumeration value="IN_MARKET"/>
+        </restriction>
+      </simpleType>
       <simpleType name="DictionaryLang">
         <restriction base="xsd:string">
           <enumeration value="JA"/>
@@ -277,17 +287,17 @@
           </sequence>
         </complexType>
       </element>
-      <element name="getColorSet">
+      <element name="getAudienceCategory">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:ColorSetSelector"/>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:CategorySelector"/>
           </sequence>
         </complexType>
       </element>
-      <element name="getColorSetResponse">
+      <element name="getAudienceCategoryResponse">
         <complexType>
           <sequence>
-            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ColorSetPage"/>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:AudienceCategoryPage"/>
             <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
           </sequence>
         </complexType>
@@ -387,6 +397,92 @@
           <element maxOccurs="1" minOccurs="1" name="aspectHeight" type="xsd:long"/>
           <element maxOccurs="1" minOccurs="1" name="staticImage" type="xsd:boolean"/>
           <element maxOccurs="1" minOccurs="1" name="aspect" type="xsd:boolean"/>
+          <element maxOccurs="1" minOccurs="1" name="aspectRatio" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="campaignBanner" type="xsd:boolean"/>
+        </sequence>
+      </complexType>
+      <element name="getThirdPartyTrackingDomain">
+        <complexType/>
+      </element>
+      <element name="getThirdPartyTrackingDomainResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:ThirdPartyTrackingDomainPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <complexType name="ThirdPartyTrackingDomainPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:ThirdPartyTrackingDomainValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ThirdPartyTrackingDomainValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="thirdPartyTrackingDomain" type="tns:ThirdPartyTrackingDomain"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="ThirdPartyTrackingDomain">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="domain" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="vendor" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="vendorName" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="getFeedItemGoogleProductCategory">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="1" name="selector" type="tns:FeedItemGoogleProductCategorySelector"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getFeedItemGoogleProductCategoryResponse">
+        <complexType>
+          <sequence>
+            <element maxOccurs="1" minOccurs="0" name="rval" type="tns:FeedItemGoogleProductCategoryPage"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="error" type="adv:Error"/>
+          </sequence>
+        </complexType>
+      </element>
+      <complexType name="FeedItemGoogleProductCategorySelector">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="lang" type="tns:DictionaryLang"/>
+        </sequence>
+      </complexType>
+      <complexType name="FeedItemGoogleProductCategoryPage">
+        <complexContent>
+          <extension base="adv:Page">
+            <sequence>
+              <element maxOccurs="unbounded" minOccurs="0" name="values" type="tns:FeedItemGoogleProductCategoryValues"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="FeedItemGoogleProductCategoryValues">
+        <complexContent>
+          <extension base="adv:ReturnValue">
+            <sequence>
+              <element maxOccurs="1" minOccurs="0" name="FeedItemGoogleProductCategory" type="tns:FeedItemGoogleProductCategory"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="FeedItemGoogleProductCategory">
+        <sequence>
+          <element maxOccurs="1" minOccurs="1" name="id" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="0" name="parent" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="order" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+          <element maxOccurs="1" minOccurs="1" name="fullName" type="xsd:string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="child" type="tns:FeedItemGoogleProductCategory"/>
         </sequence>
       </complexType>
       <element name="RequestHeader" type="adv:SoapHeader"/>
@@ -424,12 +520,6 @@
   <wsdl:message name="getSiteCategoryResponse">
     <wsdl:part element="tns:getSiteCategoryResponse" name="parameters"/>
   </wsdl:message>
-  <wsdl:message name="getColorSetRequest">
-    <wsdl:part element="tns:getColorSet" name="parameters"/>
-  </wsdl:message>
-  <wsdl:message name="getColorSetResponse">
-    <wsdl:part element="tns:getColorSetResponse" name="parameters"/>
-  </wsdl:message>
   <wsdl:message name="getOsVersionRequest">
     <wsdl:part element="tns:getOsVersion" name="parameters"/>
   </wsdl:message>
@@ -441,6 +531,24 @@
   </wsdl:message>
   <wsdl:message name="getMediaAdFormatResponse">
     <wsdl:part element="tns:getMediaAdFormatResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getAudienceCategoryRequest">
+    <wsdl:part element="tns:getAudienceCategory" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getAudienceCategoryResponse">
+    <wsdl:part element="tns:getAudienceCategoryResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getThirdPartyTrackingDomainRequest">
+    <wsdl:part element="tns:getThirdPartyTrackingDomain" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getThirdPartyTrackingDomainResponse">
+    <wsdl:part element="tns:getThirdPartyTrackingDomainResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getFeedItemGoogleProductCategoryRequest">
+    <wsdl:part element="tns:getFeedItemGoogleProductCategory" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getFeedItemGoogleProductCategoryResponse">
+    <wsdl:part element="tns:getFeedItemGoogleProductCategoryResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="ApiException">
     <wsdl:part element="tns:ApiExceptionFault" name="ApiException"/>
@@ -466,11 +574,6 @@
       <wsdl:output message="tns:getSiteCategoryResponse" name="getSiteCategoryResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
-    <wsdl:operation name="getColorSet">
-      <wsdl:input message="tns:getColorSetRequest" name="getColorSetRequest"/>
-      <wsdl:output message="tns:getColorSetResponse" name="getColorSetResponse"/>
-      <wsdl:fault message="tns:ApiException" name="ApiException"/>
-    </wsdl:operation>
     <wsdl:operation name="getOsVersion">
       <wsdl:input message="tns:getOsVersionRequest" name="getOsVersionRequest"/>
       <wsdl:output message="tns:getOsVersionResponse" name="getOsVersionResponse"/>
@@ -479,6 +582,21 @@
     <wsdl:operation name="getMediaAdFormat">
       <wsdl:input message="tns:getMediaAdFormatRequest" name="getMediaAdFormatRequest"/>
       <wsdl:output message="tns:getMediaAdFormatResponse" name="getMediaAdFormatResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAudienceCategory">
+      <wsdl:input message="tns:getAudienceCategoryRequest" name="getAudienceCategoryRequest"/>
+      <wsdl:output message="tns:getAudienceCategoryResponse" name="getAudienceCategoryResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getThirdPartyTrackingDomain">
+      <wsdl:input message="tns:getThirdPartyTrackingDomainRequest" name="getThirdPartyTrackingDomainRequest"/>
+      <wsdl:output message="tns:getThirdPartyTrackingDomainResponse" name="getThirdPartyTrackingDomainResponse"/>
+      <wsdl:fault message="tns:ApiException" name="ApiException"/>
+    </wsdl:operation>
+    <wsdl:operation name="getFeedItemGoogleProductCategory">
+      <wsdl:input message="tns:getFeedItemGoogleProductCategoryRequest" name="getFeedItemGoogleProductCategoryRequest"/>
+      <wsdl:output message="tns:getFeedItemGoogleProductCategoryResponse" name="getFeedItemGoogleProductCategoryResponse"/>
       <wsdl:fault message="tns:ApiException" name="ApiException"/>
     </wsdl:operation>
   </wsdl:portType>
@@ -540,20 +658,6 @@
         <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="getColorSet">
-      <wsdlsoap:operation soapAction=""/>
-      <wsdl:input name="getColorSetRequest">
-        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
-        <wsdlsoap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getColorSetResponse">
-        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
-        <wsdlsoap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="ApiException">
-        <wsdlsoap:fault name="ApiException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
     <wsdl:operation name="getOsVersion">
       <wsdlsoap:operation soapAction=""/>
       <wsdl:input name="getOsVersionRequest">
@@ -582,10 +686,52 @@
         <wsdlsoap:fault name="ApiException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="getAudienceCategory">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAudienceCategoryRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAudienceCategoryResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getThirdPartyTrackingDomain">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getThirdPartyTrackingDomainRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getThirdPartyTrackingDomainResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getFeedItemGoogleProductCategory">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getFeedItemGoogleProductCategoryRequest">
+        <wsdlsoap:header message="tns:RequestHeader" part="RequestHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFeedItemGoogleProductCategoryResponse">
+        <wsdlsoap:header message="tns:ResponseHeader" part="ResponseHeader" use="literal"/>
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApiException">
+        <wsdlsoap:fault name="ApiException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="DictionaryService">
     <wsdl:port binding="tns:DictionaryServiceSoapBinding" name="DictionaryService">
-      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201907/DictionaryService"/>
+      <wsdlsoap:address location="https://location.im.yahooapis.jp/services/V201911/DictionaryService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

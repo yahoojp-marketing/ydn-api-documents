@@ -4,11 +4,11 @@ Use this service to get, add, update or remove information of label.
 #### WSDL
 | environment | url |
 |---|---|
-| production  | https://location.im.yahooapis.jp/services/V201907/LabelService?wsdl |
-| sandbox  | https://sandbox.im.yahooapis.jp/services/V201907/LabelService?wsdl |
+| production  | https://location.im.yahooapis.jp/services/V201911/LabelService?wsdl |
+| sandbox  | https://sandbox.im.yahooapis.jp/services/V201911/LabelService?wsdl |
 
 #### Namespace
-http://im.yahooapis.jp/V201907/Label
+http://im.yahooapis.jp/V201911/Label
 
 #### Overview
 Use this service to get, add, update or remove information of label.
@@ -36,14 +36,14 @@ Gets information related to labels.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <get xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <get xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <selector>
         <accountId>1234567890</accountId>
         <labelIds>10001</labelIds>
@@ -72,14 +72,14 @@ Response Fields
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Label</ns2:service>
-      <ns2:requestTime>1551686140143</ns2:requestTime>
+      <ns2:requestTime>1574394412514</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Label">
+    <ns2:getResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Label">
       <ns2:rval>
         <totalNumEntries>1</totalNumEntries>
         <Page.Type>LabelPage</Page.Type>
@@ -111,19 +111,19 @@ Add label information.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Label">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Label">
       <operations>
         <operator>ADD</operator>
         <accountId>1234567890</accountId>
         <operand>
-          <labelName>sample_20190304165540133</labelName>
+          <labelName>sample_20191122124652489</labelName>
           <color>#000000</color>
           <description>add sample</description>
         </operand>
@@ -144,14 +144,14 @@ Response Fields.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Label</ns2:service>
-      <ns2:requestTime>1551686140156</ns2:requestTime>
+      <ns2:requestTime>1574394412546</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Label">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Label">
       <ns2:rval>
         <ListReturnValue.Type>LabelReturnValue</ListReturnValue.Type>
         <Operation.Type>ADD</Operation.Type>
@@ -160,7 +160,7 @@ Response Fields.
           <ns2:label>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:labelId>10001</ns2:labelId>
-            <ns2:labelName>sample_20190304165540134</ns2:labelName>
+            <ns2:labelName>sample_20191122124652490</ns2:labelName>
             <ns2:color>#000000</ns2:color>
             <ns2:description>add sample</ns2:description>
           </ns2:label>
@@ -183,20 +183,20 @@ Updates the information related to labels.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Label">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Label">
       <operations>
         <operator>SET</operator>
         <accountId>1234567890</accountId>
         <operand>
           <labelId>10001</labelId>
-          <labelName>set sample_20190304165540134</labelName>
+          <labelName>set sample_20191122124652490</labelName>
           <color>#ffffff</color>
           <description>set sample</description>
         </operand>
@@ -217,14 +217,14 @@ Response Fields.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Label</ns2:service>
-      <ns2:requestTime>1551686140167</ns2:requestTime>
+      <ns2:requestTime>1574394412575</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Label">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Label">
       <ns2:rval>
         <ListReturnValue.Type>LabelReturnValue</ListReturnValue.Type>
         <Operation.Type>SET</Operation.Type>
@@ -233,7 +233,7 @@ Response Fields.
           <ns2:label>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:labelId>10001</ns2:labelId>
-            <ns2:labelName>set sample_20190304165540135</ns2:labelName>
+            <ns2:labelName>set sample_20191122124652491</ns2:labelName>
             <ns2:color>#ffffff</ns2:color>
             <ns2:description>set sample</ns2:description>
           </ns2:label>
@@ -256,14 +256,14 @@ Removes the inforamtion related to labels.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <RequestHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <RequestHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:license>1111-1111-1111-1111</ns2:license>
       <ns2:apiAccountId>2222-2222-2222-2222</ns2:apiAccountId>
       <ns2:apiAccountPassword>password</ns2:apiAccountPassword>
     </RequestHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <mutate xmlns="http://im.yahooapis.jp/V201907/Label">
+    <mutate xmlns="http://im.yahooapis.jp/V201911/Label">
       <operations>
         <operator>REMOVE</operator>
         <accountId>1234567890</accountId>
@@ -287,14 +287,14 @@ Response Fields.
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
-    <ResponseHeader xmlns="http://im.yahooapis.jp/V201907/Label" xmlns:ns2="http://im.yahooapis.jp/V201907">
+    <ResponseHeader xmlns="http://im.yahooapis.jp/V201911/Label" xmlns:ns2="http://im.yahooapis.jp/V201911">
       <ns2:service>Label</ns2:service>
-      <ns2:requestTime>1551686140183</ns2:requestTime>
+      <ns2:requestTime>1574394412613</ns2:requestTime>
       <ns2:timeTakenSeconds>0.2671</ns2:timeTakenSeconds>
     </ResponseHeader>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
-    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201907" xmlns:ns2="http://im.yahooapis.jp/V201907/Label">
+    <ns2:mutateResponse xmlns="http://im.yahooapis.jp/V201911" xmlns:ns2="http://im.yahooapis.jp/V201911/Label">
       <ns2:rval>
         <ListReturnValue.Type>LabelReturnValue</ListReturnValue.Type>
         <Operation.Type>REMOVE</Operation.Type>
@@ -303,7 +303,7 @@ Response Fields.
           <ns2:label>
             <ns2:accountId>1234567890</ns2:accountId>
             <ns2:labelId>10001</ns2:labelId>
-            <ns2:labelName>set sample_20190304165540136</ns2:labelName>
+            <ns2:labelName>set sample_20191122124652492</ns2:labelName>
             <ns2:color>#ffffff</ns2:color>
             <ns2:description>set sample</ns2:description>
           </ns2:label>
