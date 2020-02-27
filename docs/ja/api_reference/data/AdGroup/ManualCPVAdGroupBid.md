@@ -20,13 +20,13 @@ ManualCPVAdGroupBidオブジェクトは、広告グループの入札価格（C
   <th>remove</th>
  </tr>
  <tr>
-  <td>video</td>
+  <td>type</td>
   <td>enum<br><a href="./BiddingStrategyType.md">BiddingStrategyType</a></td>
   <td>入札方法です。</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Ignore<br>NotUpdatable</td>
+  <td>Requirement<br>NotUpdatable</td>
   <td>Ignore<br>NotUpdatable</td>
  </tr>
  <tr>
