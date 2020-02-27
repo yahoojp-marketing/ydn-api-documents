@@ -480,6 +480,7 @@ Updates information of ad group.
           <adGroupName>set test adGroup.</adGroupName>
           <userStatus>PAUSED</userStatus>
           <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupBid">
+            <type>MANUAL_CPC</type>
             <maxCpc>1000</maxCpc>
           </bid>
           <conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AutoAdGroupConversionOptimizer">
