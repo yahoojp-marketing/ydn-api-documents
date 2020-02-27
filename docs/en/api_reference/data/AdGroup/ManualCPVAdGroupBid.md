@@ -20,13 +20,13 @@ ManualCPVAdGroupBid object stores the bid amount of ad group (CPV).<br>
   <th>remove</th>
  </tr>
  <tr>
-  <td>video</td>
+  <td>type</td>
   <td>enum<br><a href="./BiddingStrategyType.md">BiddingStrategyType</a></td>
   <td>Bidding method.</td>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Ignore<br>NotUpdatable</td>
+  <td>Requirement<br>NotUpdatable</td>
   <td>Ignore<br>NotUpdatable</td>
  </tr>
  <tr>

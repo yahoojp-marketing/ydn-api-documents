@@ -26,7 +26,7 @@ Adgroup level bids used in manual CPC bidding strategy.<br>
   <td>yes</td>
   <td>-</td>
   <td>Requirement</td>
-  <td>Ignore<br>NotUpdatable</td>
+  <td>Requirement<br>NotUpdatable</td>
   <td>Ignore<br>NotUpdatable</td>
  </tr>
  <tr>
