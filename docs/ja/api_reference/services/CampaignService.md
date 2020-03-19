@@ -17,6 +17,11 @@ http://im.yahooapis.jp/V201911/Campaign
 
 キャンペーンの操作を提供します。
 
+##### ■ヒント
+ディスプレイ広告（運用型）におけるキャンペーンの作成は、以下のベストプラクティスを参照してください。  
+[ディスプレイ広告（運用型）で目的別キャンペーンを入稿する（V201911のみ）](../../bestpractice/display_ads_campaign.md)
+
+
 #### Operation
 
 CampaignServiceで提供される操作を説明します。

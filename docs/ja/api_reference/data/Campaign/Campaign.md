@@ -6,7 +6,7 @@ Campaignオブジェクトは、キャンペーン情報を表します。<br>
 
 ### キャンペーン目的について
 
-- キャンペーン目的の詳細は[ヘルプ](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51512)をご参照ください。
+- キャンペーン目的の詳細は[ヘルプ](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=38807)をご参照ください。
 - Campaign.campaignGoalがNONEの場合は「目的なし」、NONE以外の場合は「目的あり」と定義します。
 - V201911以前に作られたキャンペーンはすべて「目的なし」となります。
 - 「目的あり」と「目的なし」のキャンペーンでそれぞれ必須、あるいは更新可能なフィールドが異なるため、以下の表に目的のあり／なし、add／setの場合の必須、更新可能フィールドをまとめます。

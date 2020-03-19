@@ -17,6 +17,10 @@ http://im.yahooapis.jp/V201911/AdGroupAd
 
 広告の取得と更新を行います。
 
+##### ■ヒント
+ディスプレイ広告（運用型）における広告の作成は、以下のベストプラクティスを参照してください。  
+[ディスプレイ広告（運用型）で目的別キャンペーンを入稿する（V201911のみ）](../../bestpractice/display_ads_campaign.md)
+
 #### Operation
 
 AdGroupAdServiceで提供される操作を説明します。

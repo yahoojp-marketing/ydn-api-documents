@@ -22,7 +22,7 @@ http://im.yahooapis.jp/V201911/CampaignMigration
 1. getCampaignDownloadUrlでマイグレーション用csvファイルをダウンロードするURLを取得します。
 1. レスポンス内に含まれるdownloadUrlからマイグレーション用csvファイルを取得します。
 1. csvファイルを編集してマイグレーションの内容を定義します。
-   1. csvファイルの編集方法については[ヘルプ](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51680)をご参照ください。
+   1. csvファイルの編集方法については[ヘルプ](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=40745)をご参照ください。
 1. getUploadUrlでマイグレーション用csvファイルのアップロード先URLをリクエストします。
 1. レスポンス内に含まれるuploadUrlに対してマイグレーション用csvファイルのアップロード処理を実施します。
    1. アップロード処理が完了すると、HTTPのレスポンス内に含まれる、migrationJobId（以下マイグレーションジョブID）を取得します。

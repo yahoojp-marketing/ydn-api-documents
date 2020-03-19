@@ -17,6 +17,10 @@ http://im.yahooapis.jp/V201911/AdGroup
 
 広告グループの情報取得と更新を行います。
 
+##### ■ヒント
+ディスプレイ広告（運用型）における広告グループの作成は、以下のベストプラクティスを参照してください。  
+[ディスプレイ広告（運用型）で目的別キャンペーンを入稿する（V201911のみ）](../../bestpractice/display_ads_campaign.md)
+
 #### Operation
 
 AdGroupServiceで提供される操作を説明します。
@@ -508,7 +512,7 @@ AdGroupServiceで提供される操作を説明します。
           <adGroupName>set test adGroup.</adGroupName>
           <userStatus>PAUSED</userStatus>
           <bid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManualCPCAdGroupBid">
-            <type>MANUAL_CPV</type>
+            <type>MANUAL_CPC</type>
             <maxCpc>1000</maxCpc>
           </bid>
           <conversionOptimizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AutoAdGroupConversionOptimizer">

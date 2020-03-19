@@ -4,6 +4,18 @@
 
 Accountオブジェクトは、アカウント情報を示します。
 
+`accountAuthorities`で得られる値と、キャンペーン目的の対応は以下の通りです。
+
+| accountAuthorities | キャンペーン目的 |
+|:-------------------|:-----------------|
+| WEBSITE_TRAFFIC    | サイト誘導       |
+| VIDEO_VIEW         | 動画再生         |
+| APP_PROMOTION      | アプリ訴求       |
+| CONVERSION         | コンバージョン   |
+| ITEM_LIST          | 商品リスト訴求   |
+
+それぞれのキャンペーン目的の詳細については、[目的別キャンペーン作成について](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51512)をご確認ください。
+
 ### Service
 
 + [AccountService](../../services/AccountService.md)
