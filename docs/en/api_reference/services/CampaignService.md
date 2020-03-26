@@ -17,6 +17,11 @@ http://im.yahooapis.jp/V201911/Campaign
 
 Offers campaign operation.
 
+##### ■Tips
+See the following Best Practice to learn about how to create a campaign on Display Ads (Auction).  
+[Create a campaign by objective on Display Ads (Auction)(V201911 only)](../../bestpractice/display_ads_campaign.md)
+
+
 #### Operation
 
 Explains operations provided by CampaignService.
