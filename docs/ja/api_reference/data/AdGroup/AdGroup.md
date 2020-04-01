@@ -42,8 +42,8 @@ AdGroupオブジェクトは、広告グループ情報を保持します。<br/
 | deviceOsVersion | xsd:string | OSバージョン<br/>※deviceOsVersionを空で指定する場合：「NONE」 | yes | Optional | Optional<br/>Updatable | Ignore | |
 | dynamicImageExtensions | enum [DynamicImageExtensions](./DynamicImageExtensions.md) | 画像自動付与設定<br/>※Default値：PAUSED | yes | Optional<br>*目的ありのキャンペーン配下の広告グループの場合 : 設定不可 | Optional<br/>Updatable<br>*目的ありのキャンペーン配下の広告グループの場合 : 設定不可 | Ignore | |
 | labels[0..1000] | [Label](./Label.md) | ラベル | yes | Ignore | Ignore | Ignore | |
-| feedSetId | xsd:long | 商品セットID | yes | Optional | Optional<br/>Updatable | Ignore | |
-| isRemoveFeedSetId | xsd:boolean | 商品セットとの関連付けを削除（配信停止） | yes | Optional | Optional<br/>Updatable<br><br>  ※Default値<br>  -false<br> | Ignore | |
+| feedSetId | xsd:long | 商品セットID | yes | Optional<br/>*未指定の場合、デフォルトセットを自動で関連付けます。 | Optional<br/>Updatable | Ignore | |
+| isRemoveFeedSetId | xsd:boolean | 商品セットとの関連付けを削除<br/>*商品セットの関連付けが必須となったため、この機能は廃止しました。 | yes | Ignore | Ignore | Ignore | |
 | adGroupBiddingStrategy | [AdGroupBiddingStrategy](./AdGroupBiddingStrategy.md) | 広告グループ入札戦略 | yes | Optional<br>*目的なしのキャンペーン配下の広告グループの場合 : 設定不可 | Optional<br>*目的なしのキャンペーン配下の広告グループの場合 : 設定不可 | Ignore | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
