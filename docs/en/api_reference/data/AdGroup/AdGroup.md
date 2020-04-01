@@ -42,8 +42,8 @@ Ad Group object is a container for storing ad group information.<br/>
 | deviceOsVersion | xsd:string | OS version<br/>∗To specify null as deviceOsVersion: &#34;NONE&#34; | yes | Optional | Optional<br/>Updatable | Ignore | |
 | dynamicImageExtensions | enum [DynamicImageExtensions](./DynamicImageExtensions.md) | Flag of Dynamic Image Extensions.<br/>∗Default is set as &#34;PAUSED&#34;. | yes | Optional<br>*For ad groups under campaigns with campaignGoal: Cannot be set | Optional<br/>Updatable<br>*For ad groups under campaigns with campaignGoal: Cannot be set | Ignore | |
 | labels[0..1000] | [Label](./Label.md) | Label. | yes | Ignore | Ignore | Ignore | |
-| feedSetId | xsd:long | Feed set ID | yes | Optional | Optional<br/>Updatable | Ignore | |
-| isRemoveFeedSetId | xsd:boolean | Remove association with feed set ∗Stop delivery | yes | Optional | Optional<br/>Updatable<br><br>  ∗Default value<br>  -false<br> | Ignore | |
+| feedSetId | xsd:long | Feed set ID | yes | Optional<br/>* If feedSetId is not specified, the default set is associated automatically. | Optional<br/>Updatable | Ignore | |
+| isRemoveFeedSetId | xsd:boolean | Remove association with feed set<br/>* Association with feed set changed to required, so this feature was abolished. | yes | Ignore | Ignore | Ignore | |
 | adGroupBiddingStrategy | [AdGroupBiddingStrategy](./AdGroupBiddingStrategy.md) | Ad group bid strategy | yes | Optional<br>*For ad groups under campaigns with no campaignGoal: Cannot be set | Optional<br>*For ad groups under campaigns with no campaignGoal: Cannot be set | Ignore | |
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nd/2.1/jp/">クリエイティブ・コモンズ 表示 - 改変禁止 2.1 日本 ライセンスの下に提供されています。</a>
