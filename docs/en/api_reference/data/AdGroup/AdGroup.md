@@ -163,17 +163,17 @@ inherited <a href="./AutoAdGroupConversionOptimizer.md">AutoAdGroupConversionOpt
   <td>xsd:long</td>
   <td>Feed set ID</td>
   <td>yes</td>
-  <td>Optional</td>
-  <td>Optional<br>Updatable<</td>
+  <td>Optional<br/>* If feedSetId is not specified, the default set is associated automatically.</td>
+  <td>Optional<br>Updatable</td>
   <td>Ignore</td>
   </tr>
   <tr>
    <td>isRemoveFeedSetId</td>
    <td>xsd:boolean</td>
-   <td>Remove association with feed set &lowast;Stop delivery</td>
+   <td>Remove association with feed set.<br/>* Association with feed set changed to required, so this feature was abolished.</td>
    <td>yes</td>
-   <td>Optional</td>
-   <td>Optional<br>Updatable<</td>
+   <td>Ignore</td>
+   <td>Ignore</td>
    <td>Ignore</td>
   </tr>
 </table>

@@ -10,7 +10,7 @@
 | Field | Type | Description |
 |---|---|---|
 | EQUAL| string| 完全一致 |
-| INCLUDED| string| 部分一致<br>※現在、このタイプは指定できません。 |
+| INCLUDED| string| 部分一致<br>※現在、このタイプは指定できません。|
 | START_WITH| string| 指定した文字列で始まる<br>※現在、このタイプは指定できません。 |
 | END_WITH| string| 指定した文字列で終わる<br>※現在、このタイプは指定できません。 |
 | NOT_EQUAL| string| 除外 |

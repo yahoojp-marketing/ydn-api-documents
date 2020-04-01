@@ -64,7 +64,7 @@ ReportDefinitionオブジェクトは、レポート定義を表します。
   <td>Ignore</td>
  </tr>
   <tr>
-  <td>reportDownloadUrl</td>
+  <td>reportDownloadURL</td>
   <td>xsd:string</td>
   <td>レポートのダウンロードURLです。<br>statusがCOMPLETEDの場合に値が設定されます。</td>
   <td>yes</td>

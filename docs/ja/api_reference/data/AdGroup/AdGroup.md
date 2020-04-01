@@ -163,17 +163,17 @@ inherited　<a href="./AutoAdGroupConversionOptimizer.md">AutoAdGroupConversionO
   <td>xsd:long</td>
   <td>商品セットID</td>
   <td>yes</td>
-  <td>Optional</td>
-  <td>Optional<br>Updatable<</td>
+  <td>Optional<br/>*未指定の場合、デフォルトセットを自動で関連付けます。</td>
+  <td>Optional<br>Updatable</td>
   <td>Ignore</td>
   </tr>
   <tr>
    <td>isRemoveFeedSetId</td>
    <td>xsd:boolean</td>
-   <td>商品セットとの関連付けを削除（配信停止）</td>
+   <td>商品セットとの関連付けを削除<br/>*商品セットの関連付けが必須となったため、この機能は廃止しました。</td>
    <td>yes</td>
-   <td>Optional</td>
-   <td>Optional<br>Updatable<</td>
+   <td>Ignore</td>
+   <td>Ignore</td>
    <td>Ignore</td>
   </tr>
 </table>
