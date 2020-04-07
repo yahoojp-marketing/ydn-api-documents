@@ -254,23 +254,22 @@ AdGroupAdオブジェクトの以下のフィールドは、YDNで作成した�
 目的別キャンペーンでは、自動入札を入札戦略「目標単価指定（tCPA）」で設定します。  
 ここでは、キャンペーン、または広告グループで目標単価指定（tCPA）を利用する方法をご紹介します。
 
-目標単価指定（tCPA）を利用するためには一定の条件を満たす必要があります。詳細は[入札戦略について](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51518)を参照してください。  
+目標単価指定（tCPA）の利用可否については[入札戦略について](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51518)を参照してください。  
 対象のキャンペーンが条件を満たしている場合は、`ConversionOptimizer`オブジェクトの`eligibilityFlg`フィールドが`ENABLE`で返却されます。
 
 以下は、各ステップにおけるレスポンスおよびリクエストの例です。
 
 **ConversionOptimizerオブジェクトのレスポンス例**
 
-キャンペーンが目標単価指定（tCPA）を利用するための条件を満たしていない状態の`ConversionOptimizer`のレスポンス例です。
+キャンペーンが目標単価指定（tCPA）を利用できない場合の`ConversionOptimizer`のレスポンス例です。
 
 ```xml
 <ns3:conversionOptimizerxmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:type="ns3:ManualCampaignConversionOptimizer">
   <ns3:optimizerType>MANUAL</ns3:optimizerType>
-  <ns3:eligibilityFlg>DISABLE</ns3:eligibilityFlg>
 </ns3:conversionOptimizer>
 ```
 
-目標単価指定（tCPA）を利用できる状態になった場合の`ConversionOptimizer`のレスポンス例です。
+目標単価指定（tCPA）を利用できる場合の`ConversionOptimizer`のレスポンス例です。
 
 ```xml
 <ns3:conversionOptimizerxmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:type="ns3:ManualCampaignConversionOptimizer">

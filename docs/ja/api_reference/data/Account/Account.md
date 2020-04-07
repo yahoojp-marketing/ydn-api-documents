@@ -4,7 +4,7 @@
 
 Accountオブジェクトは、アカウント情報を示します。
 
-`accountAuthorities`で得られる値と、キャンペーン目的の対応は以下の通りです。
+`accountAuthorities`で返却される値は、以下のとおりです。
 
 | accountAuthorities | キャンペーン目的 |
 |:-------------------|:-----------------|

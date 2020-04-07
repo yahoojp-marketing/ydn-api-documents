@@ -3,7 +3,9 @@
 # ManualCPCAdGroupBid
 
 Adgroup level bids used in manual CPC bidding strategy.
-※This is not available when specified a campaign ID of Ad Distribution type "VIDEO_AD".
+
+※This is not available when specified a campaign ID for ad distribution type "VIDEO_AD".
+More details are described on [Create Ad Group - Enter the Bid amount of the Ad Group](https://ads-help.yahoo.co.jp/yahooads/ydn/articledetail?lan=en&aid=487).
 
 ### Service
 

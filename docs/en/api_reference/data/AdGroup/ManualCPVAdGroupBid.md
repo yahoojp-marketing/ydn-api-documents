@@ -3,7 +3,9 @@
 # ManualCPVAdGroupBid
 
 ManualCPVAdGroupBid object stores the bid amount of ad group (CPV).
-※This information is available only when a campaign ID with ad distribution type 'VIDEO_AD' is specified.
+
+※This information is available only when a campaign ID for ad distribution type 'VIDEO_AD' or 'PC_BRAND_PANEL_VIDEO' is specified.
+More details are described on [Create Ad Group - Enter the Bid amount of the Ad Group](https://ads-help.yahoo.co.jp/yahooads/ydn/articledetail?lan=en&aid=487).
 
 ### Service
 

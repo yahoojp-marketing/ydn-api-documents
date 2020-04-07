@@ -3,7 +3,9 @@
 # ManualCPVAdGroupBid
 
 ManualCPVAdGroupBidオブジェクトは、広告グループの入札価格（CPV）を保持します。
-※広告掲載方式がVIDEO_AD(動画広告)のキャンペーンIDを指定した時のみ利用可能です。
+
+※広告掲載方式がVIDEO_AD(動画広告)、およびPC_BRAND_PANEL_VIDEO（PCブランドパネル（動画））のキャンペーンIDを指定した時のみ利用可能です。
+詳細は、「[広告グループの作成 - 広告グループの入札価格を入力](https://ads-help.yahoo.co.jp/yahooads/ydn/articledetail?lan=ja&aid=1281)」を参照してください。
 
 ### Service
 
