@@ -2,7 +2,21 @@
 
 # Account
 
-Account objects serve account information.
+# Account
+ 
+Account object serves account information.
+ 
+Responded values of `accountAuthorities` are as follows.
+ 
+| accountAuthorities | campaign goal        |
+|:-------------------|:---------------------|
+| WEBSITE_TRAFFIC    | Website traffic      |
+| VIDEO_VIEW         | Video view           |
+| APP_PROMOTION      | App promotion        |
+| CONVERSION         | Conversion           |
+| ITEM_LIST          | Item list promotion  |
+ 
+Details of these campaign goal are described on [目的別キャンペーン作成について](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51512) (Japanese context only).
 
 ### Service
 

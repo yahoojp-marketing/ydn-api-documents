@@ -60,7 +60,7 @@ Following fields on Campaign object are for YDN campaign only. These are not ava
 </table>
 
 
-**Request Sample (Standard authenticatoin)**
+**Request Sample (Standard authentication)**
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V201911/Campaign" xmlns:ns2="http://im.yahooapis.jp/V201911">
@@ -130,7 +130,7 @@ Following fields on AdGroup object are for YDN ad group only. These are not avai
 </table>
 
 
-**Request Sample (Standard authenticatoin)**
+**Request Sample (Standard authentication)**
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V201911/AdGroup" xmlns:ns2="http://im.yahooapis.jp/V201911">
@@ -168,7 +168,7 @@ Following fields on AdGroup object are for YDN ad group only. These are not avai
 ### 4. Set Bidding Strategy
 
 When setting a bidding strategy on campaign by goal, specify both of bidding strategy type described on the 'type' field of 'CampaignBiddingStrategy' object and applicable bid field together for request.
-※See also [CampaignBiddingStrategy obejct](../api_reference/data/Campaign/CampaignBiddingStrategy.md#campaignbiddingstrategy) for relation between 'type' field and bid field.
+※See also [CampaignBiddingStrategy object](../api_reference/data/Campaign/CampaignBiddingStrategy.md#campaignbiddingstrategy) for relation between 'type' field and bid field.
 
 For example, when setting max bid (MAX_CPC), describe the request as follows.
 
@@ -211,7 +211,7 @@ Following fields on AdGroupAd object are for YDN ads only. These are not availab
 </table>
 
 
-**Request Sample (Standard authenticatoin)**
+**Request Sample (Standard authentication)**
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://im.yahooapis.jp/V201911/AdGroupAd" xmlns:ns2="http://im.yahooapis.jp/V201911">
@@ -254,23 +254,22 @@ Following fields on AdGroupAd object are for YDN ads only. These are not availab
 For campaigns by goal, auto bidding can be set with bidding strategy "tCPA".  
 Follow the introduction below for using "tCPA" on campaign or on ad group.
 
-When using "tCPA", it needs to satisfy the prescribed conditions. Details are available on [入札戦略について (Bidding Strategy)](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51518) (Japanese context only).  
-When the campaign satisfies conditions, it responds "ENABLE" on `eligibilityFlg` field of `ConversionOptimizer` object.
+About the availability of tCPA is described on [入札戦略について (Bidding Strategy)](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51518) (Japanese context only).  
+When the campaign can use tCPA, it responds "ENABLE" on `eligibilityFlg` field of `ConversionOptimizer` object.
 
-Following is a sample respose and request of each step.
+Following is a sample response and request of each step.
 
-**Response Sampke of ConversionOptimizer object**
+**Response Sample of ConversionOptimizer object**
 
-Sample: Response of `ConversionOptimizer` when the campaign does not satisfy conditions for using tCPA.
+Sample: Response of `ConversionOptimizer` when the campaign cannot use tCPA.
 
 ```xml
 <ns3:conversionOptimizerxmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:type="ns3:ManualCampaignConversionOptimizer">
   <ns3:optimizerType>MANUAL</ns3:optimizerType>
-  <ns3:eligibilityFlg>DISABLE</ns3:eligibilityFlg>
 </ns3:conversionOptimizer>
 ```
 
-Sample: Response of `ConversionOptimizer` when tCPA became avaialble.
+Sample: Response of `ConversionOptimizer` when the campaign can use tCPA.
 
 ```xml
 <ns3:conversionOptimizerxmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:type="ns3:ManualCampaignConversionOptimizer">

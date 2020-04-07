@@ -13,7 +13,7 @@ To display the performance report, use the two services below from YDN API.
 ##### ReportDefinitionService 
 ReportDefinitionService can retrieve and add/delete the report. 
 
-# Scenerio Sample
+# Scenario Sample
 This is introducing the process from creating to deleting the report, to retrieve Performance Report, using YDN API. 
 
 #### 1.	Retrieve Field of Template
