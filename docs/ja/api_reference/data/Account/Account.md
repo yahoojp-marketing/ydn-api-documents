@@ -13,6 +13,7 @@ Accountオブジェクトは、アカウント情報を示します。
 | APP_PROMOTION      | アプリ訴求       |
 | CONVERSION         | コンバージョン   |
 | ITEM_LIST          | 商品リスト訴求   |
+| BRAND_AWARENESS    | ブランド認知     |
 
 それぞれのキャンペーン目的の詳細については、[目的別キャンペーン作成について](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51512)をご確認ください。
 

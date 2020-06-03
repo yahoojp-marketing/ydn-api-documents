@@ -15,6 +15,7 @@ Responded values of `accountAuthorities` are as follows.
 | APP_PROMOTION      | App promotion        |
 | CONVERSION         | Conversion           |
 | ITEM_LIST          | Item list promotion  |
+| BRAND_AWARENESS    | Brand awareness      |
  
 Details of these campaign goal are described on [目的別キャンペーン作成について](https://ads-help.yahoo.co.jp/yahooads/display/articledetail?lan=ja&aid=51512) (Japanese context only).
 
