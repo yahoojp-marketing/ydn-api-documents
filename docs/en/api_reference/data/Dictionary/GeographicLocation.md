@@ -14,7 +14,7 @@ GeographicLocation object displays the geographic location.
 
 | Field | Type | Description | response |
 | ----- | ---- | ----------- | -------- |
-| code | xsd:string | Geographic code. | yes | |
+| code | xsd:string | Geographic code.<br>The "other" geo code (TC-CI-00000073) is not available for geo targeting. | yes | |
 | parent | xsd:string | Parent geographic code. | yes | |
 | order | xsd:string | Number indicating the order of arrangement. | yes | |
 | name | xsd:string | Name of places. | yes | |
