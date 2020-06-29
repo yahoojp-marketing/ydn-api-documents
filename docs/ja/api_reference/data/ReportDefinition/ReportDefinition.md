@@ -2,7 +2,8 @@
 
 # ReportDefinition
 
-ReportDefinitionオブジェクトは、レポート定義を表します。
+ReportDefinitionオブジェクトは、レポート定義を表します。<br>
+TC-CI-00000073は「その他」の地域コードです。DictionaryServiceのgetGeographicLocationでは取得できず、地域ターゲティグでは指定できません。
 
 ### Service
 

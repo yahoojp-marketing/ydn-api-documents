@@ -2,7 +2,8 @@
 
 # ReportDefinition
 
-The ReportDefinition object serves report definitions.
+The ReportDefinition object serves report definitions.<br>
+TC-CI-00000073 is the geo code that shows "Other". It cannot be obtained by getGeographicLocation of DictionaryService, and cannot be specified as geo targeting.
 
 ### Service
 
