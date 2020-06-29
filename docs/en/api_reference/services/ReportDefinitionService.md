@@ -30,6 +30,7 @@ The following operations are provided:
 The URL is valid in the first 5 minutes after the status becomes COMPLETED.
 - Any ad data without actual performance is not output for all report types.
 - Report download jobs will be automatically deleted after a week (7 days) from requested.
+ -TC-CI-00000073 is the geo code that shows "Other". It cannot be obtained by getGeographicLocation of DictionaryService, and cannot be specified as geo targeting.
 
 #### Operation
 Describes operations provided by ReportDefinitionService.

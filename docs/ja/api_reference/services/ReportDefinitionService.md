@@ -26,6 +26,7 @@ http://im.yahooapis.jp/V201907/ReportDefinition
 - レポートのダウンロードは、getメソッドで取得したURLから行います。<br>URLが有効な期間は、ステータスがCOMPLETEDになってから5分間です。
 - すべてのレポートタイプにおいて配信実績のないデータは出力されません。
 - レポートは、リクエストしてから1週間（7日間）で自動的に削除されます。
+- TC-CI-00000073は「その他」の地域コードです。DictionaryServiceのgetGeographicLocationでは取得できず、地域ターゲティグでは指定できません。
 
 #### 操作
 ReportDefinitionServiceで提供される操作を説明します。

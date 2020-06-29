@@ -14,7 +14,7 @@ GeographicLocationオブジェクトは、地域情報を表します。
 
 | Field | Type | Description | response |
 | ----- | ---- | ----------- | -------- |
-| code | xsd:string | 地域コードです。<br>「その他」の地域コード(TC-CI-00000073)は、地域ターゲティングでは利用できません。 | yes | |
+| code | xsd:string | 地域コードです。 | yes | |
 | parent | xsd:string | 上位階層の地域コードです。 | yes | |
 | order | xsd:string | 並び順を示す番号です。 | yes | |
 | name | xsd:string | 市区町村名です。 | yes | |
